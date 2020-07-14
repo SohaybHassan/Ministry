@@ -70,28 +70,9 @@ public class HomeFragment extends Fragment {
 
 
         binding.cvWorkerComplaint.cvWorkerComplaint.setOnClickListener(view1 -> {
-
+            mListener.onHomeFragmentInteraction(1);
         });
-        binding.cvRequsetRegisterCertification.cvWorkerComplaint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
-                    @Override
-                    public void sase(View view) {
-                        Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void edite(View view) {
-                        Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                }, getString(R.string.registration_certificate));
-                dialog.show(getParentFragmentManager(), "home Fragment");
-
-            }
-        });
+        binding.cvRequsetRegisterCertification.cvWorkerComplaint.setOnClickListener(view19 -> registrationcertificatDialog());
 
         //
         binding.btnMoveFacility.moveFacilityHomeFragmrnt.setOnClickListener(view12 -> mlistener.onHomeSlideNav(1));
@@ -128,5 +109,23 @@ public class HomeFragment extends Fragment {
 
     public interface OnHomeFragmentInteractionListener {
         void onHomeFragmentInteraction(int cardPos);
+    }
+
+    public void registrationcertificatDialog() {
+
+        dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
+            @Override
+            public void sase(View view) {
+                Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+
+            @Override
+            public void edite(View view) {
+                Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        }, getString(R.string.registration_certificate));
+        dialog.show(getParentFragmentManager(), "home Fragment");
     }
 }
