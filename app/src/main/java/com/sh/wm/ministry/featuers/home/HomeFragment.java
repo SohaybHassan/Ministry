@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.sh.wm.ministry.R;
+import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentHomeBinding;
 import com.sh.wm.ministry.featuers.home.viewModel.HomeViewModel;
 
@@ -21,6 +23,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private OnHomeFragmentInteractionListener mListener;
     private OnFragmentInteractionListener mlistener;
+    private ShMyDialog dialog;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,7 +70,27 @@ public class HomeFragment extends Fragment {
 
 
         binding.cvWorkerComplaint.cvWorkerComplaint.setOnClickListener(view1 -> {
-            mListener.onHomeFragmentInteraction(1);
+
+        });
+        binding.cvRequsetRegisterCertification.cvWorkerComplaint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
+                    @Override
+                    public void sase(View view) {
+                        Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void edite(View view) {
+                        Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                }, getString(R.string.registration_certificate));
+                dialog.show(getParentFragmentManager(), "home Fragment");
+
+            }
         });
 
         //
@@ -79,6 +102,8 @@ public class HomeFragment extends Fragment {
         binding.cvLegalAction.moveFacilityHomeFragmrnt.setOnClickListener(view16 -> mlistener.onHomeSlideNav(5));
         binding.cvCloseFacility.moveFacilityHomeFragmrnt.setOnClickListener(view17 -> mlistener.onHomeSlideNav(6));
         binding.cvCreateSeizureReport.moveFacilityHomeFragmrnt.setOnClickListener(view18 -> mlistener.onHomeSlideNav(7));
+
+
         return view;
     }
 

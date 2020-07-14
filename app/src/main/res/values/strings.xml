@@ -201,6 +201,7 @@
     <string name="adjustment_report">انشاء محضر ضبط</string>
     <string name="date_visit">تاريخ الزيارة</string>
     <string name="date_alarm">تاريخ الانذار</string>
+    <string name="registration_certificate">هل تريد طلب شهادة قيد؟</string>
 
 
 </resources>

@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     android:background="@drawable/sh_shep_dailog"
     android:layoutDirection="rtl"
-    android:padding="10dp">
+  >
 
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/cairobold"
         android:gravity="center"
 
