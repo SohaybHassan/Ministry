@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="nav_item_name">
+        <item>البيانات الأساسية</item>
+        <item>العنوان والتواصل</item>
+        <item>الحالة الصحية</item>
+        <item>المعالين</item>
+        <item>الحالة التعليمية</item>
+        <item>البرامج التدريبية</item>
+        <item>الخبرات العملية</item>
+        <item>المهن</item>
+        <item>اللغات</item>
+        <item>الحالة العلمية</item>
+        <item>المهارات التدريبية</item>
+    </string-array>
+
+    <string-array name="nav_item_image">
+        <item>ic_major_info</item>
+        <item>ic_location_holder</item>
+        <item>ic_pharmacy</item>
+        <item>ic_social_care</item>
+        <item>ic_mortarboard</item>
+        <item>ic_practical_skill</item>
+        <item>ic_data_scientist</item>
+        <item>ic_suitcase</item>
+        <item>ic_global</item>
+        <item>ic_practical_state</item>
+        <item>ic_practical_skill</item>
+    </string-array>
+
+    <string-array name="bottomsheet_spinner_edu_type">
+        <item>مهني</item>
+        <item>أساسي</item>
+        <item>أكاديمي</item>
+        <item>ثانوي</item>
+        <item>بدون</item>
+    </string-array>
+
+    <string-array name="bottomsheet_spinner_edu_status">
+        <item>على مقاعد الدراسة</item>
+        <item>خارج مقاعد الدراسة</item>
+    </string-array>
+
+
+</resources>

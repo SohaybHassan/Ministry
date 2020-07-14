@@ -1,10 +1,119 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
+    <style name="SplashTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="NoConnection" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@drawable/no_connection_layout</item>
+    </style>
+
+    <style name="WebViewTheme" parent="@style/Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/colorPrimary</item>
+        <item name="fontFamily">@font/cairobold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#707070</item>
+    </style>
+
+    <style name="ToolBarTheme" parent="AppTheme.AppBarOverlay">
+        <item name="fontFamily">@font/cairobold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="card_view" parent="Widget.MaterialComponents.Button">
+        <item name="contentPadding">0dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="txtStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/cairobold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/jordy_blue</item>
+    </style>
+
+    <style name="listStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:fontFamily">@font/cairobold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/jordy_blue</item>
+    </style>
+
+    <style name="btnStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/cairobold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gallery</item>
+    </style>
+
+    <style name="spinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:fontFamily">@font/robotobold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">38dp</item>
+        <item name="android:textColor">@color/dorado</item>
+    </style>
+
+    <style name="editTxtStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/edit_txt_bg</item>
+        <item name="android:fontFamily">@font/robotobold</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/dorado</item>
+    </style>
+
+    <style name="datePickerStyle">
+        <item name="android:background">@drawable/edit_txt_bg</item>
+        <item name="android:fontFamily">@font/robotobold</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textColor">@color/dorado</item>
+    </style>
+
+    <style name="main_button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:drawableEnd">@drawable/ic_baseline_arrow_back</item>
+        <item name="fontFamily">@font/cairobold</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:minHeight">57dp</item>
+        <item name="android:clipToPadding">true</item>
+        <item name="android:textColor">@color/mine_shaft</item>
+    </style>
+
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+
+    </style>
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/sh_shep_dailog</item>
+    </style>
 </resources>

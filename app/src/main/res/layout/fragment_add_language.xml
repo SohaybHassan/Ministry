@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:padding="10dp"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/language" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_language"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent" />
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/speaking_skill" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_speaking_skill"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent" />
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/writing_skill" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_writing_skill"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent" />
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reading_skill" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_reading_skill"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/btnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/Save" />
+
+</RelativeLayout>
