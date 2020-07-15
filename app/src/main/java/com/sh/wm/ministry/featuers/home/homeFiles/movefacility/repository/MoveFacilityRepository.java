@@ -136,20 +136,28 @@ public class MoveFacilityRepository {
         call.enqueue(new Callback<ConstructionGroup>() {
             @Override
             public void onResponse(@NotNull Call<ConstructionGroup> call, @NotNull Response<ConstructionGroup> response) {
-                if (response.isSuccessful()) {
-                    Gson gson = new Gson();
-                    Type type = new TypeToken<Construction>() {
-                    }.getType();
-                   // assert response.body() != null;
-                    Construction construction = gson.fromJson(gson.toJson(response.body().getConstruction()), type);
-                    Log.d(TAG, "onResponse: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh " + construction.getCONSTRUCTNUM());
-                    Log.d(TAG, "onResponse: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh " + response.body().toString());
 
-                    constructionMutableLiveData.setValue(response.body().getConstruction());
-                } else {
-                    Log.d(TAG, "onResponse: no data her");
-                    constructionMutableLiveData.setValue(null);
-                }
+              if (response.body().getStatus()!=1) {
+                  if (response.isSuccessful()) {
+                      Gson gson = new Gson();
+                      Type type = new TypeToken<Construction>() {
+                      }.getType();
+                      // assert response.body() != null;
+                      Construction construction = gson.fromJson(gson.toJson(response.body().getConstruction()), type);
+                      Log.d(TAG, "onResponse: sh " + construction.getCONSTRUCTNUM());
+                      Log.d(TAG, "onResponse: sh " + response.body().toString());
+
+                      constructionMutableLiveData.setValue(response.body().getConstruction());
+                  } else {
+                      Log.d(TAG, "onResponse: no data her");
+                      constructionMutableLiveData.setValue(null);
+                  }
+              }
+              else {
+                  Log.d(TAG, "onResponse: null data her");
+                  constructionMutableLiveData.setValue(null);
+
+              }
             }
 
             @Override

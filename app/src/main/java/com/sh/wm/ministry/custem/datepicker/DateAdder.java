@@ -18,7 +18,10 @@ public class DateAdder {
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, day);
             listener.onDateTimeChosen(calendar.getTimeInMillis());
+
         }
+
+
     };
 
     public DateAdder(FragmentManager fragmentManager, Listener listener) {
@@ -42,5 +45,7 @@ public class DateAdder {
 
     public interface Listener {
         void onDateTimeChosen(long timeChosen);
+
+
     }
 }

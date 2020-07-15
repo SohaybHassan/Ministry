@@ -40,7 +40,7 @@ public class MoveTheFacilityFragment extends Fragment {
     public static final String TAG = MoveTheFacilityFragment.class.getSimpleName();
     private ShMyDialog shMyDialog;
     private BottomSheetDialog dialog;
-    BottomSheetSearsh bottomSheetSearsh;
+    private BottomSheetSearsh bottomSheetSearsh;
     private MoveFacilityViewModel moveFacilityViewModel;
     private ArrayList<String> AllRegion;
     private ArrayList<String> AllMunicipal;
@@ -110,12 +110,12 @@ public class MoveTheFacilityFragment extends Fragment {
         });
         binding.edNuFacility.setOnClickListener(view16 -> {
 
+
             bottomSheetSearsh = new BottomSheetSearsh(getActivity(), dialog, new BottomSheetSearsh.bottomSheetSearsh() {
                 @Override
                 public void searshByNumber(String num_facility) {
-                    binding.edNuFacility.setVisibility(View.GONE);
-                    binding.tvNuFacility.setVisibility(View.GONE);
-                    binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progressbar.setVisibility(View.VISIBLE);
+                    enapel(false);
                     moveFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
                         @Override
                         public void onChanged(Construction construction) {
@@ -124,13 +124,23 @@ public class MoveTheFacilityFragment extends Fragment {
                                 String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
                                 String nameConstruction = construction.getCONSTRUCTNAMEUSING();
                                 String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-
                                 binding.cardViewSearshMoveFacility.tvOwnerName.setText("اسم المالك : " + name);
                                 binding.cardViewSearshMoveFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                binding.cardViewSearshMoveFacility.tvOwnerId.setText("رقم هوية المالك : "+user_cn);
+                                binding.cardViewSearshMoveFacility.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+                                binding.edNuFacility.setVisibility(View.GONE);
+                                binding.tvNuFacility.setVisibility(View.GONE);
+                                binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                                binding.progressbar.setVisibility(View.GONE);
+                                enapel(true);
 
                             } else {
                                 Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                                binding.progressbar.setVisibility(View.GONE);
+                                enapel(true);
+                                binding.edNuFacility.setVisibility(View.VISIBLE);
+                                binding.tvNuFacility.setVisibility(View.VISIBLE);
+                                binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
                             }
 
                         }
@@ -142,7 +152,6 @@ public class MoveTheFacilityFragment extends Fragment {
 
 
             bottomSheetSearsh.openDialog();
-
 
 
         });
@@ -185,12 +194,42 @@ public class MoveTheFacilityFragment extends Fragment {
             dialog.show();
 
         });
+
         binding.cardViewSearshMoveFacility.imgEdit.setOnClickListener(view14 -> {
             binding.edNuFacility.setVisibility(View.VISIBLE);
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+            enapel(true);
             bottomSheetSearsh.openDialog();
         });
+
+    }
+
+
+    public void enapel(boolean states){
+        binding.edNuFacility.setEnabled(states);
+        binding.edBuldingNum.setEnabled(states);
+        binding.edElectronicPage.setEnabled(states);
+        binding.edEmail.setEnabled(states);
+        binding.edFaxNum.setEnabled(states);
+        binding.edGovernorate.setEnabled(states);
+        binding.edLat.setEnabled(states);
+        binding.edLong.setEnabled(states);
+        binding.edMailboxNumber.setEnabled(states);
+        binding.edPhoneNumber.setEnabled(states);
+        binding.edSistrict.setEnabled(states);
+        binding.edStreet.setEnabled(states);
+        binding.edTelephone.setEnabled(states);
+        binding.edTitleDescription.setEnabled(states);
+        binding.edMunicipal.setEnabled(states);
+
+
+
+
+
+
+
+
 
     }
 

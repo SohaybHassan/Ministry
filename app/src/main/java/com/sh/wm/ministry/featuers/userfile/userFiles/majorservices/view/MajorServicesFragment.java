@@ -126,4 +126,6 @@ public class MajorServicesFragment extends Fragment implements DateAdder.Listene
         binding.tvBirthDateMajorServices.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
         binding.tvDeathDateMajorServices.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
     }
+
+
 }

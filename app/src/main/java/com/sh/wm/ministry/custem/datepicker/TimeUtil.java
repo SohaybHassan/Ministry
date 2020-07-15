@@ -8,7 +8,7 @@ import java.util.TimeZone;
 public class TimeUtil {
 
     private static final String DATE_TIME_FORMAT = "EEEE, MM d, yyyy - h:mm a";
-    private static final String DATE_FORMAT = "EEEE yyyy/MM/d";
+    private static final String DATE_FORMAT = "yyyy/MM/d";
     private static final String FEED_DATE_FORMAT = "MM/d/yy";
 
     public static String getDefaultDateText(long unixTime, TimeZone timeZone) {

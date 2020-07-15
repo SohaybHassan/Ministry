@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -36,7 +37,12 @@ public class BottomSheetSearsh {
         ImageView img_searsh_sheet = view.findViewById(R.id.img_searsh_sheet);
         img_searsh_sheet.setOnClickListener(view1 -> {
 
-            mListener.searshByNumber(ed_searsh.getText().toString());
+            if (ed_searsh.getText().toString().isEmpty()){
+                Toast.makeText(application, "الرجاء إدخال رقم منشاة صحيح ", Toast.LENGTH_SHORT).show();
+            }else{
+                mListener.searshByNumber(ed_searsh.getText().toString());
+            }
+
 
             mDialog.dismiss();
 

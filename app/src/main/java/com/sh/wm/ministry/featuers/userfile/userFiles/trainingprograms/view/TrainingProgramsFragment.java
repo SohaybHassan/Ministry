@@ -62,4 +62,5 @@ public class TrainingProgramsFragment extends Fragment implements DateAdder.List
         binding.tvCourseStartDateTrainingPrograms.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
         binding.tvCourseEndDateTrainingPrograms.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
     }
+
 }

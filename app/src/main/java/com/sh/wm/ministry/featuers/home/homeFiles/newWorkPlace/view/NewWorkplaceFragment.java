@@ -91,9 +91,8 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                 bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                     @Override
                     public void searshByNumber(String num_facility) {
-                        binding.edNuFacilityNewWorkPlace.setVisibility(View.GONE);
-                        binding.tvNuFacility.setVisibility(View.GONE);
-                        binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                        binding.progressbar.setVisibility(View.VISIBLE);
+                        ensbel(false);
                         newWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
                             @Override
                             public void onChanged(Construction construction) {
@@ -107,8 +106,17 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                                     binding.cardViewSearshNewWorkPlace.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
                                     binding.cardViewSearshNewWorkPlace.tvOwnerId.setText("رقم هوية المالك : "+user_cn);
 
+                                    binding.edNuFacilityNewWorkPlace.setVisibility(View.GONE);
+                                    binding.tvNuFacility.setVisibility(View.GONE);
+                                    binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                                    binding.progressbar.setVisibility(View.GONE);
+                                    ensbel(true);
+
+
                                 } else {
                                     Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                                    binding.progressbar.setVisibility(View.GONE);
+                                    ensbel(true);
                                 }
                             }
                         });
@@ -120,6 +128,15 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                 bottomSheetSearsh.openDialog();
             }
         });
+        binding.cardViewSearshNewWorkPlace.imgEdit.setOnClickListener(view14 -> {
+            binding.edNuFacilityNewWorkPlace.setVisibility(View.VISIBLE);
+            binding.tvNuFacility.setVisibility(View.VISIBLE);
+            binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+            ensbel(true);
+            bottomSheetSearsh.openDialog();
+        });
+
+
     }
 
     @Override
@@ -127,4 +144,9 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
         chosenTime = timeChosen;
         binding.edDateEndWorkNewWorke.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
     }
+    public void ensbel(boolean states){
+        binding.edNuFacilityNewWorkPlace.setEnabled(states);
+        binding.edDateEndWorkNewWorke.setEnabled(states);
+    }
+
 }

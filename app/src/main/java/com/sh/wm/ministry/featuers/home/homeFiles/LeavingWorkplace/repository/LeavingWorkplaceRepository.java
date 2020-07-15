@@ -1,6 +1,7 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.newWorkPlace.repository;
+package com.sh.wm.ministry.featuers.home.homeFiles.LeavingWorkplace.repository;
 
 import android.app.Application;
+import android.media.AsyncPlayer;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -20,27 +21,28 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewWorkPlaceRepository {
-    private static NewWorkPlaceRepository mInstance;
+public class LeavingWorkplaceRepository {
+
+    private MutableLiveData<Construction> constructionMutableLiveData;
     private NetworkUtils networkUtils;
     private Application application;
-    private MutableLiveData<Construction> constructionMutableLiveData;
-    public static final String TAG = NewWorkPlaceRepository.class.getSimpleName();
+    private static LeavingWorkplaceRepository mInstance;
+    public static final String TAG = LeavingWorkplaceRepository.class.getSimpleName();
 
-
-
-    public NewWorkPlaceRepository(Application application) {
-
+    public LeavingWorkplaceRepository(Application application) {
         this.application = application;
         networkUtils = NetworkUtils.getInstance(true, application);
-        constructionMutableLiveData=new MutableLiveData<>();
+        constructionMutableLiveData = new MutableLiveData<>();
+
+
     }
 
-    public static NewWorkPlaceRepository getmInstance(Application application){
-        if (mInstance==null){
-            mInstance=new NewWorkPlaceRepository(application);
+    public static LeavingWorkplaceRepository getInstance(Application application) {
+
+        if (mInstance == null) {
+            mInstance = new LeavingWorkplaceRepository(application);
         }
-       return mInstance;
+        return mInstance;
     }
 
     public LiveData<Construction> getConstructiondata(String num_construction) {
@@ -54,8 +56,8 @@ public class NewWorkPlaceRepository {
                     }.getType();
                     // assert response.body() != null;
                     Construction construction = gson.fromJson(gson.toJson(response.body().getConstruction()), type);
-         //           Log.d(TAG, "onResponse: sh " + construction.getCONSTRUCTNUM());
-                    Log.d(TAG, "onResponse: sh " + response.body().toString());
+                    Log.d(TAG, "onResponse: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh " + construction.getCONSTRUCTNUM());
+                    Log.d(TAG, "onResponse: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh " + response.body().toString());
 
                     constructionMutableLiveData.setValue(response.body().getConstruction());
                 } else {
@@ -73,5 +75,7 @@ public class NewWorkPlaceRepository {
         return constructionMutableLiveData;
 
     }
+
+
 
 }

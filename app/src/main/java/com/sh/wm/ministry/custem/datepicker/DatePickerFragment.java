@@ -12,9 +12,11 @@ import java.util.Calendar;
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     private final Listener DUMMY_LISTENER = new Listener() {
+
         @Override
         public void onDateChosen(int year, int month, int day) {
         }
+
     };
     private Listener mListener = DUMMY_LISTENER;
 
@@ -38,5 +40,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     public interface Listener {
         void onDateChosen(int year, int month, int day);
+
     }
 }

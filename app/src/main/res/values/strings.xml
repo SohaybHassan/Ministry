@@ -163,6 +163,8 @@
     <string name="owner_name">اسم المالك</string>
     <string name="owner_id">رقم الهوية</string>
     <string name="The_business_name">"الاسم التاجاري "</string>
+
+<!--    -->
     <string name="language">اللغة</string>
     <string name="speaking_skill">مهارات الحديث</string>
     <string name="writing_skill">مهارت الكتابة</string>
@@ -177,13 +179,17 @@
     <string name="total">ss</string>
     <string name="amounts_due">ss</string>
     <string name="zero">0</string>
+
     <string name="searsh_for_nu_facilty">البحث عن رقم المنشأة</string>
     <string name="no_langu_ages_added">لايوجد اي لغات مضافة</string>
     <string name="save_enterprise_place">هل تريد حفظ نقل مكان منشأة</string>
     <string name="new_work_place">هل تريد حفظ تغير مكان العمل في منشأة ؟</string>
     <string name="leaving_work_place">هل تريد تأكيد ترك العمل في منشأة</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    -->
     <string name="text1">مخالفات المنشأة لأحكام قانون العمل الفلسطيني رقم 7 و الأنظمة و القرارات و التعليمات الصادرة بمقتضاه</string>
     <string name="article_number">المتعلقة برقم المادة</string>
     <string name="members_inspection">أعضاء هيئة التفتيش</string>
