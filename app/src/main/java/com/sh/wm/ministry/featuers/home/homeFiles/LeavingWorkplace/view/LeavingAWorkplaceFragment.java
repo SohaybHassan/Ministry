@@ -109,7 +109,6 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
                                     enabel(true);
 
                                 } else {
-                                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
                                     enabel(true);
                                     binding.edNuFacilityLeavingWorkPlace.setVisibility(View.VISIBLE);
                                     binding.tvNuFacility.setVisibility(View.VISIBLE);

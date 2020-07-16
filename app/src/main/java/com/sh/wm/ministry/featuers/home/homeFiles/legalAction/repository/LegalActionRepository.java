@@ -1,4 +1,4 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.newWorkPlace.repository;
+package com.sh.wm.ministry.featuers.home.homeFiles.legalAction.repository;
 
 import android.app.Application;
 import android.util.Log;
@@ -20,28 +20,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewWorkPlaceRepository {
-    private static NewWorkPlaceRepository mInstance;
+public class LegalActionRepository {
+
+
     private NetworkUtils networkUtils;
-    private Application application;
     private MutableLiveData<Construction> constructionMutableLiveData;
-    public static final String TAG = NewWorkPlaceRepository.class.getSimpleName();
+    private static final String TAG = LegalActionRepository.class.getSimpleName();
+    static LegalActionRepository mInstance;
 
-
-
-    public NewWorkPlaceRepository(Application application) {
-
-        this.application = application;
+    public LegalActionRepository(Application application) {
         networkUtils = NetworkUtils.getInstance(true, application);
-        constructionMutableLiveData=new MutableLiveData<>();
+        constructionMutableLiveData = new MutableLiveData<>();
     }
 
-    public static NewWorkPlaceRepository getmInstance(Application application){
-        if (mInstance==null){
-            mInstance=new NewWorkPlaceRepository(application);
+    public static LegalActionRepository getInstance(Application application) {
+
+        if (mInstance == null) {
+            mInstance = new LegalActionRepository(application);
         }
-       return mInstance;
+        return mInstance;
     }
+
 
     public LiveData<Construction> getConstructiondata(String num_construction) {
         Call<ConstructionGroup> call = networkUtils.getApiInterface().getDataConstruction(num_construction);
@@ -56,7 +55,7 @@ public class NewWorkPlaceRepository {
                         }.getType();
                         // assert response.body() != null;
                         Construction construction = gson.fromJson(gson.toJson(response.body().getConstruction()), type);
-                        //           Log.d(TAG, "onResponse: sh " + construction.getCONSTRUCTNUM());
+                        Log.d(TAG, "onResponse: sh " + construction.getCONSTRUCTNUM());
                         Log.d(TAG, "onResponse: sh " + response.body().toString());
 
                         constructionMutableLiveData.setValue(response.body().getConstruction());
@@ -64,9 +63,10 @@ public class NewWorkPlaceRepository {
                         Log.d(TAG, "onResponse: no data her");
                         constructionMutableLiveData.setValue(null);
                     }
-                }else{
+                } else {
                     Log.d(TAG, "onResponse: null data her");
                     constructionMutableLiveData.setValue(null);
+
                 }
             }
 
@@ -79,5 +79,4 @@ public class NewWorkPlaceRepository {
         return constructionMutableLiveData;
 
     }
-
 }

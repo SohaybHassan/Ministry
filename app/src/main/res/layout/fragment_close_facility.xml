@@ -5,15 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    >
+    android:padding="10dp">
 
+
+    <include
+        android:id="@+id/card_view_searsh_sh_close_facility"
+        layout="@layout/card_view_searsh_sh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_nu_facility_close_facility"
         style="@style/txtStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+
         android:text="@string/numberfacility"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,8 +30,6 @@
         style="@style/editTxtStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/tv_nu_facility_close_facility"
         app:layout_constraintTop_toBottomOf="@id/tv_nu_facility_close_facility" />
@@ -34,9 +39,8 @@
         android:id="@+id/tv_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="@string/text2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +53,7 @@
         style="@style/txtStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+
         android:layout_marginTop="8dp"
         android:text="@string/article_number"
         app:layout_constraintStart_toStartOf="@id/tv_text"
@@ -60,8 +64,6 @@
         style="@style/editTxtStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:drawableEnd="@drawable/ic_searsh_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/tv_article_number_close_facility"
@@ -73,9 +75,8 @@
         style="@style/btnStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:src="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,14 +91,14 @@
         android:layout_marginTop="8dp"
         android:text="@string/recommend_procedures"
         app:layout_constraintStart_toStartOf="@id/btn_add_close_facility"
-        app:layout_constraintTop_toBottomOf="@id/btn_add_close_facility"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_add_close_facility" />
 
 
     <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_view2">
 
@@ -129,6 +130,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

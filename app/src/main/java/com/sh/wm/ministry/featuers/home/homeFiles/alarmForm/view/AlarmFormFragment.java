@@ -56,9 +56,6 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
         chosenTime = System.currentTimeMillis();
 
 
-
-
-
         return binding.getRoot();
     }
 
@@ -99,9 +96,14 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
                                     binding.progressbar.setVisibility(View.GONE);
 
                                 } else {
-                                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+
+                                    binding.edNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
+                                    binding.tvNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
+                                    binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
                                     binding.progressbar.setVisibility(View.GONE);
+                                    setmargein(0);
                                     desapel(true);
+                                    Toast.makeText(getContext(), "رقم منشأة خاطاْ", Toast.LENGTH_SHORT).show();
 
                                 }
                             }
@@ -165,7 +167,6 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
     }
 
 
-
     public void setmargein(int margine) {
         int dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margine, getResources().getDisplayMetrics());
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) binding.tvDateVisit.getLayoutParams();
@@ -179,17 +180,15 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
     }
 
 
-
     public void desapel(boolean desabel) {
 
-            binding.edNuFacilityAlarmFormFragment.setEnabled(desabel);
-            binding.edDateAlarm.setEnabled(desabel);
-            binding.edDateVisit.setEnabled(desabel);
-            binding.edArticleNumberAlarmFormFragment.setEnabled(desabel);
-            binding.edMember1.setEnabled(desabel);
-            binding.edMember2.setEnabled(desabel);
-            binding.edMember3.setEnabled(desabel);
-
+        binding.edNuFacilityAlarmFormFragment.setEnabled(desabel);
+        binding.edDateAlarm.setEnabled(desabel);
+        binding.edDateVisit.setEnabled(desabel);
+        binding.edArticleNumberAlarmFormFragment.setEnabled(desabel);
+        binding.edMember1.setEnabled(desabel);
+        binding.edMember2.setEnabled(desabel);
+        binding.edMember3.setEnabled(desabel);
 
 
     }

@@ -115,6 +115,9 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
 
                                 } else {
                                     Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                                    binding.tvNuFacility.setVisibility(View.VISIBLE);
+                                    binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                                    binding.edNuFacilityNewWorkPlace.setVisibility(View.VISIBLE);
                                     binding.progressbar.setVisibility(View.GONE);
                                     ensbel(true);
                                 }
