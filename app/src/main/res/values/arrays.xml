@@ -43,4 +43,11 @@
     </string-array>
 
 
+    <!-- level array-->
+    <string-array name="btm_sheet_language_level">
+        <item>مقبول</item>
+        <item>جيد</item>
+        <item>ممتاز</item>
+    </string-array>
+
 </resources>

@@ -9,7 +9,6 @@ import androidx.lifecycle.LiveData;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperienceModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.repository.WorkExperienceRepository;
 
-
 public class WorkExperienceViewModel extends AndroidViewModel {
     private WorkExperienceRepository repository;
 
@@ -18,7 +17,7 @@ public class WorkExperienceViewModel extends AndroidViewModel {
         repository = WorkExperienceRepository.getInstance(application);
     }
 
-    public LiveData<UserWorkExperienceModel> getUserWorkExperiences() {
-        return repository.getUserWorkExperiences();
+    public LiveData<UserWorkExperienceModel> getUserWorkExperiences(String userId) {
+        return repository.getUserWorkExperiences(userId);
     }
 }

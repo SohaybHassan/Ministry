@@ -6,9 +6,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperienceModel;
-import com.sh.wm.ministry.network.model.SharedPreferneceHelper;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
 import retrofit2.Call;
@@ -20,11 +18,9 @@ public class WorkExperienceRepository {
     private static WorkExperienceRepository mInstance;
     private final String TAG = WorkExperienceRepository.class.getName();
     private NetworkUtils networkUtils;
-    private Application application;
     private MutableLiveData<UserWorkExperienceModel> userWorkExperienceModelMutableLiveData;
 
     private WorkExperienceRepository(Application application) {
-        this.application = application;
         networkUtils = NetworkUtils.getInstance(true, application);
         userWorkExperienceModelMutableLiveData = new MutableLiveData<>();
     }
@@ -36,8 +32,8 @@ public class WorkExperienceRepository {
         return mInstance;
     }
 
-    public LiveData<UserWorkExperienceModel> getUserWorkExperiences() {
-        networkUtils.getApiInterface().getUserWorkExperiences(SharedPreferneceHelper.getUserId(application)).enqueue(new Callback<UserWorkExperienceModel>() {
+    public LiveData<UserWorkExperienceModel> getUserWorkExperiences(String userId) {
+        networkUtils.getApiInterface().getUserWorkExperiences(userId).enqueue(new Callback<UserWorkExperienceModel>() {
             @Override
             public void onResponse(Call<UserWorkExperienceModel> call, Response<UserWorkExperienceModel> response) {
                 if (response.body() != null) {

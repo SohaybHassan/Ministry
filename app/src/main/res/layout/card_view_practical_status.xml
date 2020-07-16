@@ -23,7 +23,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_global" />
+            app:srcCompat="@drawable/ic_practical_state" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_filed_one"
@@ -31,56 +31,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/language"
+            android:text="@string/practical_status"
             android:textColor="@color/mine_shaft"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_filed_two"
             app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_filed_two"
             style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:text="@string/speaking_skill"
-            android:textColor="@color/mine_shaft"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toBottomOf="@+id/tv_filed_one" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_filed_three"
-            style="@style/txtStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:text="@string/writing_skill"
-            android:textColor="@color/mine_shaft"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toBottomOf="@+id/tv_filed_two" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_filed_four"
-            style="@style/txtStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/reading_skill"
+            android:text="@string/describe_practical_status"
             android:textColor="@color/mine_shaft"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toBottomOf="@+id/tv_filed_three" />
+            app:layout_constraintStart_toStartOf="@+id/tv_filed_one"
+            app:layout_constraintTop_toBottomOf="@+id/tv_filed_one" />
+
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_language"
+            android:id="@+id/tv_practical_status"
             style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +64,7 @@
             tools:text="رسام الكتروني" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_speaking_skill"
+            android:id="@+id/tv_describe_practical_status"
             style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,31 +74,8 @@
             app:layout_constraintTop_toTopOf="@+id/tv_filed_two"
             tools:text="غير مجاز" />
 
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_writing_skill"
-            style="@style/txtStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_filed_two"
-            app:layout_constraintTop_toTopOf="@+id/tv_filed_three"
-            tools:text="غير مجاز" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_reading_skill"
-            style="@style/txtStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_filed_two"
-            app:layout_constraintTop_toTopOf="@+id/tv_filed_four"
-            tools:text="غير مجاز" />
-
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/ib_edit_user_language"
+            android:id="@+id/ib_edit_practical_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"

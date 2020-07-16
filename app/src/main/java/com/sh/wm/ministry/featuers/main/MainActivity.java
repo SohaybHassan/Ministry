@@ -118,9 +118,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                     navController.navigate(R.id.nav_career);
                     break;
                 case 8:
-                    navController.navigate(R.id.nav_move_facility);
+                    navController.navigate(R.id.nav_languages);
                     break;
                 case 9:
+                    navController.navigate(R.id.nav_practical_status);
                     break;
                 case 10:
                     break;
@@ -223,14 +224,32 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case 51:
                 navController.navigate(R.id.nav_add_education);
                 break;
+            case 71:
+                navController.navigate(R.id.nav_add_work_experience);
+                break;
+            case 91:
+                navController.navigate(R.id.nav_add_language);
+                break;
+            case 10:
+                navController.navigate(R.id.nav_add_practical_status);
+                break;
         }
 
     }
 
     @Override
     public void onFragmentInteraction(int id, Bundle bundle) {
-
-
+        switch (id){
+            case 72:
+                navController.navigate(R.id.nav_add_work_experience,bundle);
+                break;
+            case 92:
+                navController.navigate(R.id.nav_add_language,bundle);
+                break;
+            case 10:
+                navController.navigate(R.id.nav_add_practical_status,bundle);
+                break;
+        }
     }
 
     @Override
