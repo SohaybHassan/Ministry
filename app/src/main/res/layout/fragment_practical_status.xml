@@ -8,37 +8,37 @@
     android:padding="10dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_languages_user_languages"
+        android:id="@+id/rv_practical_status"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:id="@+id/LL_layout_user_languages"
+        android:id="@+id/LL_layout_practical_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_no_languages_user_languages"
+            android:id="@+id/tv_no_practical_status"
             style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:text="@string/no_languages_added" />
+            android:text="@string/no_practical_status" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add_languages_user_languages"
+            android:id="@+id/btn_add_practical_status"
             style="@style/btnStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:text="@string/add_experience" />
+            android:text="@string/add_practical_status" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_languages_user_languages"
+        android:id="@+id/fab_add_practical_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"

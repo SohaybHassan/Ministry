@@ -27,7 +27,6 @@ public class CareersFragment extends Fragment {
 
     private FragmentCareersBinding binding;
     private RecyclerView myRecyclerView;
-    private CareersViewModel mViewModel;
 
     public static CareersFragment newInstance() {
         return new CareersFragment();
@@ -46,14 +45,14 @@ public class CareersFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-         mViewModel = new ViewModelProvider(this).get(CareersViewModel.class);
+        CareersViewModel mViewModel = new ViewModelProvider(this).get(CareersViewModel.class);
         mViewModel.getUserCareers(SharedPreferneceHelper.getUserId(getContext())).observe(getViewLifecycleOwner(), new Observer<UserCareerModel>() {
             @Override
             public void onChanged(UserCareerModel userCareerModel) {
                 if (userCareerModel != null) {
                     if (userCareerModel.getUserCareer() != null) {
                         List<UserCareer> userCareers = userCareerModel.getUserCareer();
-                        UserCareersAdapter adapter = new UserCareersAdapter(userCareers);
+                        UserCareersAdapter adapter = new UserCareersAdapter(getContext(), userCareers);
                         myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
                         myRecyclerView.setAdapter(adapter);
                         binding.rvCareersCareers.setVisibility(View.VISIBLE);

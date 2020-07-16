@@ -11,10 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.sh.wm.ministry.custem.ToastMsg;
 import com.sh.wm.ministry.databinding.FragmentWorkExperienceBinding;
 import com.sh.wm.ministry.featuers.home.OnFragmentInteractionListener;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.adapter.UserWorkExperienceAdapter;
@@ -27,9 +24,7 @@ public class UserWorkExperiencesFragment extends Fragment implements UserWorkExp
 
     private FragmentWorkExperienceBinding binding;
     private WorkExperienceViewModel mViewModel;
-    private RecyclerView myRecyclerView;
     private OnFragmentInteractionListener mListener;
-
 
     @Nullable
     @Override
@@ -37,7 +32,6 @@ public class UserWorkExperiencesFragment extends Fragment implements UserWorkExp
         binding = FragmentWorkExperienceBinding.inflate(inflater, container, false);
         binding.LLLayoutWorkExperience.setVisibility(View.INVISIBLE);
         binding.fabAddExperienceWorkExperience.setVisibility(View.INVISIBLE);
-        myRecyclerView = binding.rvExperiencesWorkExperiences;
         binding.fabAddExperienceWorkExperience.setOnClickListener(view -> {
             mListener.onFragmentInteraction(71);
         });
@@ -52,13 +46,13 @@ public class UserWorkExperiencesFragment extends Fragment implements UserWorkExp
         super.onActivityCreated(savedInstanceState);
 
         mViewModel = new ViewModelProvider(this).get(WorkExperienceViewModel.class);
-        mViewModel.getUserWorkExperiences().observe(getViewLifecycleOwner(), userWorkExperienceModel -> {
+        mViewModel.getUserWorkExperiences("16022").observe(getViewLifecycleOwner(), userWorkExperienceModel -> {
             if (userWorkExperienceModel != null) {
                 if (userWorkExperienceModel.getUserWorkExperience() != null) {
                     List<UserWorkExperience> userWorkExperiences = userWorkExperienceModel.getUserWorkExperience();
-                    UserWorkExperienceAdapter adapter = new UserWorkExperienceAdapter(getContext(), userWorkExperiences, this);
-                    myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                    myRecyclerView.setAdapter(adapter);
+                    UserWorkExperienceAdapter adapter = new UserWorkExperienceAdapter(userWorkExperiences, this);
+                    binding.rvExperiencesWorkExperiences.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                    binding.rvExperiencesWorkExperiences.setAdapter(adapter);
                     binding.LLLayoutWorkExperience.setVisibility(View.GONE);
                     binding.fabAddExperienceWorkExperience.setVisibility(View.VISIBLE);
                 } else {
@@ -72,7 +66,6 @@ public class UserWorkExperiencesFragment extends Fragment implements UserWorkExp
 
     @Override
     public void onEditClick(UserWorkExperience workExperience) {
-        new ToastMsg(getContext()).toastIconSuccess(workExperience.getJOBTITL());
         Bundle bundle = new Bundle();
         bundle.putString("expert_type", workExperience.getEXPTYPE());
         bundle.putString("work_place", workExperience.getEXPTYPE());
@@ -94,15 +87,4 @@ public class UserWorkExperiencesFragment extends Fragment implements UserWorkExp
         }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 }

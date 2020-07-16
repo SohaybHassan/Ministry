@@ -1,7 +1,6 @@
 package com.sh.wm.ministry.network.utiels;
 
 
-
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MoveFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
@@ -16,6 +15,10 @@ import com.sh.wm.ministry.featuers.userfile.userFiles.dependents.model.UserDepen
 import com.sh.wm.ministry.featuers.userfile.userFiles.dependents.model.UserWorkerInsertModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.educationalstatus.model.EducationalStatusModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.health.model.health.UserHealthStatusModel;
+import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.AllLanguagesModel;
+import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.UserLanguagesModel;
+import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.PracticalStatusModel;
+import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.WorkStatusModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperienceModel;
 
 import okhttp3.RequestBody;
@@ -48,7 +51,7 @@ public interface ApiInterface {
     @POST("get_user_contact")
     Call<UserWorkContactModel> getUserWorkContact(@Field("user_id") String userId);
 
-//    @GET("get_all_countries")
+    //    @GET("get_all_countries")
 //    Call<CountriesModel> getAllCounries();
 //
 //    // languages fragment api requests
@@ -77,14 +80,35 @@ public interface ApiInterface {
     @POST("get_user_educational_status")
     Call<EducationalStatusModel> getEducationlStatus(@Field("user_id") String userId);
 
+    // user files calls ////////////////////////////////////////////////////////////////
+
+    //career
     @FormUrlEncoded
     @POST("get_user_career")
     Call<UserCareerModel> getUserCareers(@Field("user_id") String userId);
 
+    //work experience
     @FormUrlEncoded
     @POST("get_user_work_experience")
     Call<UserWorkExperienceModel> getUserWorkExperiences(@Field("user_id") String userId);
 
+    // languages
+    @GET("get_all_languages")
+    Call<AllLanguagesModel> getAllLanguages();
+
+    @FormUrlEncoded
+    @POST("get_user_language")
+    Call<UserLanguagesModel> getUserLanguages(@Field("user_id") String userId);
+
+    //work status
+    @GET("get_work_status")
+    Call<WorkStatusModel> getWorkStatus();
+
+    @FormUrlEncoded
+    @POST("user_work_status_get_by_user_id")
+    Call<PracticalStatusModel> getUserPracticalStatus(@Field("USER_WORK_USER_ID") String userId);
+
+    //end of user files calls ////////////////////////////////////////////////////////
 
     @POST("construction_change_place")
     Call<MoveFacilityModel> CheangePlace(@Body RequestBody requestBody);

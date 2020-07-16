@@ -1,6 +1,5 @@
 package com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.adapter;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperience;
@@ -21,12 +18,10 @@ import java.util.List;
 
 public class UserWorkExperienceAdapter extends RecyclerView.Adapter<UserWorkExperienceAdapter.MyViewHolder> {
 
-    private Context context;
     private List<UserWorkExperience> mData;
     private OnEditClickListener mListener;
 
-    public UserWorkExperienceAdapter(Context context, List<UserWorkExperience> mData, OnEditClickListener mListener) {
-        this.context = context;
+    public UserWorkExperienceAdapter(List<UserWorkExperience> mData, OnEditClickListener mListener) {
         this.mData = mData;
         this.mListener = mListener;
     }

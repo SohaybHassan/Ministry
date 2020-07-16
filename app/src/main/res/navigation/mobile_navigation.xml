@@ -75,24 +75,50 @@
         android:label="@string/worker_complaint"
         tools:layout="@layout/fragment_file_complaint_form2" />
 
-
+    <!-- career -->
     <fragment
         android:id="@+id/nav_career"
         android:name="com.sh.wm.ministry.featuers.userfile.userFiles.career.view.CareersFragment"
         android:label="@string/add_career"
         tools:layout="@layout/fragment_careers" />
 
+    <!-- work experience -->
     <fragment
         android:id="@+id/nav_work_experience"
         android:name="com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.view.UserWorkExperiencesFragment"
-        android:label="@string/practical_experiences"
-        tools:layout="@layout/fragment_work_experience" />
+        android:label="@string/practical_experiences" />
 
     <fragment
-        android:id="@+id/nav_work_user_experience"
+        android:id="@+id/nav_add_work_experience"
         android:name="com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.view.AddWorkExperienceFragment"
-        android:label="@string/practical_experiences"
-        tools:layout="@layout/fragment_work_experience" />
+        android:label="@string/add_experience"
+        tools:layout="@layout/fragment_add_work_experience" />
+
+    <!-- languages -->
+    <fragment
+        android:id="@+id/nav_languages"
+        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.languages.view.UserLanguagesFragment"
+        android:label="@string/add_experience"
+        tools:layout="@layout/fragment_user_languages" />
+
+    <fragment
+        android:id="@+id/nav_add_language"
+        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.languages.view.AddLanguageFragment"
+        android:label="@string/add_experience"
+        tools:layout="@layout/fragment_add_language" />
+
+    <!-- practical status-->
+    <fragment
+        android:id="@+id/nav_practical_status"
+        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.view.PracticalStatusFragment"
+        android:label="fragment_practical_status"
+        tools:layout="@layout/fragment_practical_status"/>
+
+    <fragment
+        android:id="@+id/nav_add_practical_status"
+        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.view.AddPracticalStatusFragment"
+        android:label="fragment_add_practical_status"
+        tools:layout="@layout/fragment_add_practical_status" />
 
     <fragment
         android:id="@+id/nav_move_facility"
@@ -116,26 +142,26 @@
         android:id="@+id/nav_alarm_form"
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.view.AlarmFormFragment"
         android:label="@string/alarm_form"
-        tools:layout="@layout/fragment_alarm_form"/>
+        tools:layout="@layout/fragment_alarm_form" />
 
 
     <fragment
         android:id="@+id/nav_legal_action"
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.legalAction.view.LegalActionFragment"
         android:label="@string/legal_action"
-        tools:layout="@layout/fragment_legal_action"/>
+        tools:layout="@layout/fragment_legal_action" />
 
     <fragment
-    android:id="@+id/nav_close_facility"
-    android:name="com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.view.CloseFacilityFragment"
-    android:label="@string/close_facility"
-    tools:layout="@layout/fragment_close_facility"/>
+        android:id="@+id/nav_close_facility"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.view.CloseFacilityFragment"
+        android:label="@string/close_facility"
+        tools:layout="@layout/fragment_close_facility" />
 
     <fragment
         android:id="@+id/nav_adjustment_report"
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.adjustmentReport.view.AdjustmentReportFragment"
         android:label="@string/adjustment_report"
-        tools:layout="@layout/fragment_adjustment_report"/>
+        tools:layout="@layout/fragment_adjustment_report" />
 
 
 </navigation>

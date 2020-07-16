@@ -26,6 +26,7 @@ public class AddWorkExperienceFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             binding.tvExperienceTypeAddWorkExperience.setText(bundle.getString("expert_type"));

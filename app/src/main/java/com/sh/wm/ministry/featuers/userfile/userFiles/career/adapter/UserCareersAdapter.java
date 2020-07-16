@@ -9,25 +9,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.featuers.userfile.userFiles.career.model.UserCareer;
 
 import java.util.List;
 
 public class UserCareersAdapter extends RecyclerView.Adapter<UserCareersAdapter.MyViewHolder> {
-
+    Context context;
     List<UserCareer> mData;
 
-    public UserCareersAdapter( List<UserCareer> mData) {
-
+    public UserCareersAdapter(Context context, List<UserCareer> mData) {
+        this.context = context;
         this.mData = mData;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.career_cardview_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.career_cardview_item, parent, false);
         return new MyViewHolder(view);
     }
 
