@@ -1,6 +1,7 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.adjustmentReport.view;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -61,12 +63,14 @@ public class AdjustmentReportFragment extends Fragment {
                                 binding.tvNuFacilityAdjustmentReport.setVisibility(View.GONE);
                                 binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
                                 binding.progress.setVisibility(View.GONE);
+                                setmargein(165);
                                 enapel(true);
 
                             } else {
                                 Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
                                 binding.progress.setVisibility(View.GONE);
                                 enapel(true);
+                                setmargein(0);
                                 binding.edNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
                                 binding.tvNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
                                 binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
@@ -86,6 +90,7 @@ public class AdjustmentReportFragment extends Fragment {
             binding.tvNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
             binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enapel(true);
+            setmargein(0);
             bottomSheetSearsh.openDialog();
         });
     }
@@ -94,13 +99,26 @@ public class AdjustmentReportFragment extends Fragment {
 
         binding.edNuFacilityAdjustmentReport.setEnabled(states);
         binding.edArticleNumberAdjustmentReport.setEnabled(states);
-        binding.edDateAlarm.setEnabled(states);
-        binding.edDateVisit.setEnabled(states);
+        binding.edStartTime.setEnabled(states);
+        binding.tvEndTime.setEnabled(states);
         binding.edMember1.setEnabled(states);
         binding.edMember2.setEnabled(states);
         binding.edMember3.setEnabled(states);
         binding.btnAddAdjustmentReport.setEnabled(states);
         binding.btnSaveAlarmFormFragment.setEnabled(states);
+
+    }
+
+
+    public void setmargein(int margine) {
+        int dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margine, getResources().getDisplayMetrics());
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) binding.tvEndTime.getLayoutParams();
+        layoutParams.setMargins(0, dp, 0, 0);
+        binding.tvEndTime.setLayoutParams(layoutParams);
+        int dp2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margine, getResources().getDisplayMetrics());
+        ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) binding.tvTimeSatrt.getLayoutParams();
+        layoutParams2.setMargins(0, dp2, 0, 0);
+        binding.tvTimeSatrt.setLayoutParams(layoutParams2);
 
     }
 }

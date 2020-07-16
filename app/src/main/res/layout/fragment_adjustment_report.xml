@@ -38,7 +38,7 @@
 
 
     <TextView
-        android:id="@+id/tv_date_visit"
+        android:id="@+id/tv_time_satrt"
         style="@style/txtStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,17 +50,17 @@
 
 
     <TextView
-        android:id="@+id/ed_date_visit"
+        android:id="@+id/ed_start_time"
         style="@style/datePickerStyle"
         android:layout_width="0dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintStart_toStartOf="@id/tv_date_visit"
-        app:layout_constraintTop_toBottomOf="@id/tv_date_visit" />
+        app:layout_constraintStart_toStartOf="@id/tv_time_satrt"
+        app:layout_constraintTop_toBottomOf="@id/tv_time_satrt" />
 
 
     <TextView
-        android:id="@+id/tv_date_alarm"
+        android:id="@+id/tv_end_time"
         style="@style/txtStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,13 +72,13 @@
         app:layout_constraintTop_toBottomOf="@id/ed_nu_facility_adjustment_report" />
 
     <TextView
-        android:id="@+id/ed_date_alarm"
+        android:id="@+id/ed_end_time"
         style="@style/datePickerStyle"
         android:layout_width="0dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_date_alarm"
-        app:layout_constraintTop_toBottomOf="@id/tv_date_alarm" />
+        app:layout_constraintStart_toStartOf="@id/tv_end_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_end_time" />
 
 
     <TextView
@@ -92,7 +92,7 @@
         android:text="@string/text1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ed_date_visit" />
+        app:layout_constraintTop_toBottomOf="@id/ed_start_time" />
 
 
     <TextView

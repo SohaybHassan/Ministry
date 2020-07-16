@@ -163,20 +163,8 @@
     <string name="owner_name">اسم المالك</string>
     <string name="owner_id">رقم الهوية</string>
     <string name="The_business_name">"الاسم التاجاري "</string>
-    <string name="language">اللغة</string>
-    <string name="speaking_skill">مهارات الحديث</string>
-    <string name="writing_skill">مهارت الكتابة</string>
-    <string name="reading_skill">مهارات القرأه</string>
-    <string name="job_rights">ss</string>
-    <string name="indemnity">ss</string>
-    <string name="annual_vacation_days_allowance">ss</string>
-    <string name="compensation_for_legal_time_limit">ss</string>
-    <string name="compensation_for_unfair_dismissal">ss</string>
-    <string name="religious_holidays">ss</string>
-    <string name="late_wages">ss</string>
-    <string name="total">ss</string>
-    <string name="amounts_due">ss</string>
-    <string name="zero">0</string>
+
+    <!--    -->
     <string name="searsh_for_nu_facilty">البحث عن رقم المنشأة</string>
     <string name="no_langu_ages_added">لايوجد اي لغات مضافة</string>
     <string name="save_enterprise_place">هل تريد حفظ نقل مكان منشأة</string>
@@ -202,6 +190,45 @@
     <string name="date_visit">تاريخ الزيارة</string>
     <string name="date_alarm">تاريخ الانذار</string>
     <string name="registration_certificate">هل تريد طلب شهادة قيد؟</string>
+
+
+    <!-- languages strings -->
+    <string name="no_languages_added">"! لم يتم إضافة لغات من قبل "</string>
+    <string name="language">اللغة</string>
+    <string name="level">اللغة</string>
+    <string name="speaking_skill">مهارة المحادثة</string>
+    <string name="writing_skill">مهارة الكتابة</string>
+    <string name="reading_skill">مهارة القراءة</string>
+    <string name="save_language">هل تريد حفظ  لغة جديدة؟</string>
+
+
+    <!-- practical status -->
+    <string name="add_practical_status">إضافة حالة عملية</string>
+    <string name="no_practical_status">"لم يتم إضافة حالة عملية من قبل !"</string>
+    <string name="practical_status">الحالة العملية</string>
+    <string name="describe_practical_status">تفصيل الحالة العملية</string>
+    <string name="describe_describe_practical_status">تفصيل تفصيل الحالة العملية</string>
+    <string name="enterprise">المنشأة</string>
+    <string name="monthly_wage">قيمة الأجر الشهري</string>
+    <string name="work_hours">ساعات العمل</string>
+    <string name="job">المهنة</string>
+    <string name="currency_type">نوع العملة</string>
+    <string name="work_nature">طبيعة العمل</string>
+    <string name="works">يعمل</string>
+
+
+    <!-- custom dialog strings -->
+    <string name="job_rights">حقوق العمل</string>
+    <string name="amounts_due">المبالغ المستحقة</string>
+    <string name="indemnity">مكافأة نهاية الخدمة</string>
+    <string name="annual_vacation_days_allowance">بدل أيام الاجازة السنوية</string>
+    <string name="compensation_for_legal_time_limit">تعويض عن المهلة القانونية</string>
+    <string name="compensation_for_unfair_dismissal">تعويض عن الفصل التعسفي</string>
+    <string name="religious_holidays">الاجازات الدينية</string>
+    <string name="late_wages">أجور متأخرة</string>
+    <string name="total">المجموع</string>
+    <string name="zero">0</string>
+
 
 
 </resources>
