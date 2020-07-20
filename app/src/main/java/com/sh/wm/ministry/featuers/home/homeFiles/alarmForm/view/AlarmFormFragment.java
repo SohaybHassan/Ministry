@@ -15,15 +15,20 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.custem.datepicker.DateAdder;
 import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentAlarmFormBinding;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter.AlarmAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.ItemAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.viewmodel.AlarmFormViewModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -38,6 +43,10 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
     private TimeZone timeZone;
     private long chosenTime;
     private int mYear, mMonth, mDay;
+
+    private AlarmAdapter alarmAdapter;
+
+    private ArrayList<ItemAdapter> lawList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -150,16 +159,37 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
 
         });
 
-
-        binding.edArticleNumberAlarmFormFragment.setOnClickListener(view1 -> {
-
-
-
+        lawList = new ArrayList<>();
+        lawList.add(new ItemAdapter(null));
+        alarmAdapter = new AlarmAdapter(lawList, new AlarmAdapter.OnItemClicked() {
+            @Override
+            public void itemClicked(int position) {
+                bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, num_facility -> {
+                    alarmFormViewModel.getPalLaw(num_facility).observe(getViewLifecycleOwner(), new Observer<PalLaw>() {
+                        @Override
+                        public void onChanged(PalLaw palLaw) {
+                            if (palLaw != null) {
+                                lawList.remove(position);
+                                lawList.add(new ItemAdapter(palLaw.getPalLawDesc()));
+                                alarmAdapter.notifyDataSetChanged();
+                            }
+                        }
+                    });
+                });
+                sheetDialog.dismiss();
+                bottomSheetSearsh.openDialog();
+            }
         });
+        binding.edArticleNumberAlarmFormFragment.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.edArticleNumberAlarmFormFragment.setAdapter(alarmAdapter);
 
 
-
+        binding.btnAdd.setOnClickListener(view1 -> {
+            lawList.add(new ItemAdapter(null));
+            alarmAdapter.notifyDataSetChanged();
+        });
     }
+
 
     @Override
     public void onDateTimeChosen(long timeChosen) {
