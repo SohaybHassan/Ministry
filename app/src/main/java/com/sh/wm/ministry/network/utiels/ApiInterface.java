@@ -1,6 +1,7 @@
 package com.sh.wm.ministry.network.utiels;
 
 
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MoveFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
@@ -125,5 +126,8 @@ public interface ApiInterface {
 
     @GET("get_construct_by_num?construct_num=")
     Call<ConstructionGroup> getDataConstruction(@Query("construct_num") String nu_construction);
+
+    @GET("get_paletinian_law_desc?PAL_LAW_ARTICAL_NUM=")
+    Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM" )String palLaw);
 
 }

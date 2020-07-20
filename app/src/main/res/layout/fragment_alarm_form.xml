@@ -110,11 +110,12 @@
             app:layout_constraintStart_toStartOf="@id/tv_text"
             app:layout_constraintTop_toBottomOf="@id/tv_text" />
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ed_article_number_alarm_form_fragment"
-            style="@style/editTxtStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_supject_number_alarm_fragment"
             android:drawableEnd="@drawable/ic_searsh_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_article_number_alarm_form_fragment"
