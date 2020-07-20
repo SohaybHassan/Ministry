@@ -36,6 +36,13 @@ public class PracticalStatusFragment extends Fragment implements PracticalStatus
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentPracticalStatusBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         binding.LLLayoutPracticalStatus.setVisibility(View.INVISIBLE);
         binding.fabAddPracticalStatus.setVisibility(View.INVISIBLE);
         binding.fabAddPracticalStatus.setOnClickListener(view -> {
@@ -44,12 +51,7 @@ public class PracticalStatusFragment extends Fragment implements PracticalStatus
         binding.btnAddPracticalStatus.setOnClickListener(view -> {
             mListener.onFragmentInteraction(10);
         });
-        return binding.getRoot();
-    }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(PracticalStatusViewModel.class);
         mViewModel.getUserPracticalStatus().observe(getViewLifecycleOwner(), practicalStatusModel -> {
             if (practicalStatusModel != null) {
@@ -74,11 +76,6 @@ public class PracticalStatusFragment extends Fragment implements PracticalStatus
         bundle.putString("work_status",workStatus.getWORKSTATUS());
         bundle.putString("work_status_desc",workStatus.getWORKSTATUSDESC());
         bundle.putString("work_status_desc_desc",workStatus.getWORKSTATUSDESCDESC());
-//        bundle.putString("work_place",workExperience.getEXPTYPE());
-//        bundle.putString("job_title",workExperience.getJOBTITL());
-//        bundle.putString("enterprise_name",workExperience.getEXPINSTIT());
-//        bundle.putString("start_work",workExperience.getUSERWORKEXPSTARTWORK());
-//        bundle.putString("end_work",workExperience.getUSERWORKEXPENDWORK());
         mListener.onFragmentInteraction(10,bundle);
     }
 

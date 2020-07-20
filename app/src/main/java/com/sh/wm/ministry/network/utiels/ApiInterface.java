@@ -19,6 +19,7 @@ import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.AllLanguag
 import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.UserLanguagesModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.PracticalStatusModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.WorkStatusModel;
+import com.sh.wm.ministry.featuers.userfile.userFiles.trainingskills.model.TrainingSkillsModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperienceModel;
 
 import okhttp3.RequestBody;
@@ -107,6 +108,11 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("user_work_status_get_by_user_id")
     Call<PracticalStatusModel> getUserPracticalStatus(@Field("USER_WORK_USER_ID") String userId);
+
+    //training skills
+    @FormUrlEncoded
+    @POST("get_user_skills_need")
+    Call<TrainingSkillsModel> getTrainingSkills(@Field("user_id") String userId);
 
     //end of user files calls ////////////////////////////////////////////////////////
 

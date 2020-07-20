@@ -230,5 +230,11 @@
     <string name="zero">0</string>
 
 
+    <!-- training skills -->
+    <string name="course_type">نوع الدورة التدريبية</string>
+    <string name="course">الدورة التدريبية</string>
+    <string name="no_training_skills">"لم يتم إضافة مهارة تدريبية من قبل !"</string>
+    <string name="add_training_skills">إضافة مهارة تدريبية</string>
+
 
 </resources>

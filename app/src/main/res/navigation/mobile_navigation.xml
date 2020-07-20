@@ -163,5 +163,17 @@
         android:label="@string/adjustment_report"
         tools:layout="@layout/fragment_adjustment_report" />
 
+    <fragment
+        android:id="@+id/trainingSkillsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.trainingskills.view.TrainingSkillsFragment"
+        android:label="fragment_training_skills"
+        tools:layout="@layout/fragment_training_skills" />
+
+    <fragment
+        android:id="@+id/addTrainingSkillsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.trainingskills.view.AddTrainingSkillsFragment"
+        android:label="fragment_add_training_skills"
+        tools:layout="@layout/fragment_add_training_skills" />
+
 
 </navigation>

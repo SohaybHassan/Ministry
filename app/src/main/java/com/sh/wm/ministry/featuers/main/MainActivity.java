@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                     navController.navigate(R.id.nav_practical_status);
                     break;
                 case 10:
+                    navController.navigate(R.id.trainingSkillsFragment);
                     break;
 
             }
@@ -233,6 +234,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case 10:
                 navController.navigate(R.id.nav_add_practical_status);
                 break;
+            case 12:
+                navController.navigate(R.id.trainingSkillsFragment);
+                break;
+
         }
 
     }
