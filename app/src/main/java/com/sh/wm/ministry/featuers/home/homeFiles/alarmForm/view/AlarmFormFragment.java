@@ -119,18 +119,11 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
             dateAdder.show();
         });
 
-
-//        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) binding.edDateVisit.getLayoutParams();
-//       layoutParams.setMargins(0,150,0,0);
-//        binding.edDateVisit.setLayoutParams(layoutParams);
-
-
         binding.edDateAlarm.setOnClickListener(view16 -> {
             final Calendar c = Calendar.getInstance();
             mYear = c.get(Calendar.YEAR);
             mMonth = c.get(Calendar.MONTH);
             mDay = c.get(Calendar.DAY_OF_MONTH);
-
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                     new DatePickerDialog.OnDateSetListener() {
@@ -156,6 +149,15 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
             bottomSheetSearsh.openDialog();
 
         });
+
+
+        binding.edArticleNumberAlarmFormFragment.setOnClickListener(view1 -> {
+
+
+
+        });
+
+
 
     }
 
