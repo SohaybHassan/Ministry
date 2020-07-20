@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_spinner_title_bottom_sheet"
+        style="@style/txtStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:textColor="@android:color/white" />
+
+    <com.sh.wm.ministry.custem.BottomSheetListView
+        android:id="@+id/listViewBtmSheet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/dove_gray"
+        android:dividerHeight="1dp" />
+</LinearLayout>

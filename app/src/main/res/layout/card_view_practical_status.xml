@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:scaleType="centerCrop"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_practical_state" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_filed_one"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/practical_status"
+            android:textColor="@color/mine_shaft"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_filed_two"
+            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_filed_two"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/describe_practical_status"
+            android:textColor="@color/mine_shaft"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_filed_one"
+            app:layout_constraintTop_toBottomOf="@+id/tv_filed_one" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_practical_status"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_filed_two"
+            app:layout_constraintTop_toTopOf="@+id/tv_filed_one"
+            tools:text="رسام الكتروني" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_describe_practical_status"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_filed_two"
+            app:layout_constraintTop_toTopOf="@+id/tv_filed_two"
+            tools:text="غير مجاز" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ib_edit_practical_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="4dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

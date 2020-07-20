@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contener"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+
+        android:padding="10dp">
+
+        <include
+            android:id="@+id/card_view_searsh_alarm_form"
+            layout="@layout/card_view_searsh_sh"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_nu_facility_alarm_form_fragment"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numberfacility"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ed_nu_facility_alarm_form_fragment"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_nu_facility_alarm_form_fragment"
+            app:layout_constraintTop_toBottomOf="@id/tv_nu_facility_alarm_form_fragment" />
+
+
+        <TextView
+            android:id="@+id/tv_date_visit"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/date_visit"
+            app:layout_constraintStart_toStartOf="@id/ed_nu_facility_alarm_form_fragment"
+            app:layout_constraintTop_toBottomOf="@id/ed_nu_facility_alarm_form_fragment" />
+
+
+        <TextView
+            android:id="@+id/ed_date_visit"
+            style="@style/datePickerStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            android:drawableEnd="@drawable/ic_calendar"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="@id/tv_date_visit"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_visit" />
+
+
+        <TextView
+            android:id="@+id/tv_date_alarm"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/date_alarm"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/ed_nu_facility_alarm_form_fragment" />
+
+        <TextView
+            android:id="@+id/ed_date_alarm"
+            style="@style/datePickerStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="8dp"
+            android:drawableEnd="@drawable/ic_calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_date_alarm"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_alarm" />
+
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+
+            android:gravity="center"
+            android:text="@string/text1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_date_visit" />
+
+
+        <TextView
+            android:id="@+id/tv_article_number_alarm_form_fragment"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+            android:text="@string/article_number"
+            app:layout_constraintStart_toStartOf="@id/tv_text"
+            app:layout_constraintTop_toBottomOf="@id/tv_text" />
+
+        <TextView
+            android:id="@+id/ed_article_number_alarm_form_fragment"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_searsh_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_article_number_alarm_form_fragment"
+            app:layout_constraintTop_toBottomOf="@id/tv_article_number_alarm_form_fragment" />
+
+
+        <ImageView
+            android:id="@+id/btn_add"
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+
+            android:src="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_article_number_alarm_form_fragment" />
+
+
+        <TextView
+            android:id="@+id/tv_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/members_inspection"
+            android:textColor="#000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/btn_add"
+            app:layout_constraintTop_toBottomOf="@id/btn_add" />
+
+
+        <TextView
+            android:id="@+id/tv_member_1"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/_nspector_staff_1"
+            app:layout_constraintStart_toStartOf="@id/tv_view1"
+            app:layout_constraintTop_toBottomOf="@id/tv_view1" />
+
+
+        <EditText
+            android:id="@+id/ed_member_1"
+            style="@style/datePickerStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="@id/tv_member_1"
+            app:layout_constraintTop_toBottomOf="@id/tv_member_1" />
+
+
+        <TextView
+            android:id="@+id/tv_member_2"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/_nspector_staff_2"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/tv_view1" />
+
+
+        <EditText
+            android:id="@+id/ed_member_2"
+            style="@style/datePickerStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_member_2"
+            app:layout_constraintTop_toBottomOf="@id/tv_member_2" />
+
+
+        <TextView
+            android:id="@+id/tv_member_3"
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/_nspector_staff_3"
+            app:layout_constraintStart_toStartOf="@id/tv_view1"
+            app:layout_constraintTop_toBottomOf="@id/ed_member_1" />
+
+
+        <EditText
+            android:id="@+id/ed_member_3"
+            style="@style/datePickerStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="@id/tv_member_3"
+            app:layout_constraintTop_toBottomOf="@id/tv_member_3" />
+
+
+        <Button
+            android:id="@+id/btn_save_alarm_form_fragment"
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/save"
+            android:layout_marginTop="100dp"
+            app:layout_constraintTop_toBottomOf="@id/ed_member_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
