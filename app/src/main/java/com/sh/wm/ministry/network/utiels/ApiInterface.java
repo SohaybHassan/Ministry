@@ -129,5 +129,6 @@ public interface ApiInterface {
 
     @GET("get_paletinian_law_desc?PAL_LAW_ARTICAL_NUM=")
     Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM" )String palLaw);
+    
 
 }

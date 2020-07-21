@@ -39,6 +39,7 @@ public class AddPracticalStatusFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
         binding = FragmentAddPracticalStatusBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }

@@ -1,6 +1,7 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.viewmodel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -12,6 +13,7 @@ import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Constructio
 
 public class AlarmFormViewModel extends AndroidViewModel {
 
+    public static final String TAG = AlarmFormViewModel.class.getSimpleName();
     AlarmFormRepository alarmFormRepository;
 
     public AlarmFormViewModel(@NonNull Application application) {
@@ -23,7 +25,9 @@ public class AlarmFormViewModel extends AndroidViewModel {
         return alarmFormRepository.getConstructiondata(num_construction);
 
     }
+
     public LiveData<PalLaw> getPalLaw(String num_law) {
+
         return alarmFormRepository.getPalLawByNum(num_law);
 
     }

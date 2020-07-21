@@ -50,22 +50,17 @@ public class AlarmFormRepository {
         networkUtils.getApiInterface().getPalLaw(numberLaw).enqueue(new Callback<PalLaw>() {
             @Override
             public void onResponse(Call<PalLaw> call, Response<PalLaw> response) {
-                if (response.body().getStatus() != 1) {
+
+
                     if (response.isSuccessful()) {
-                        Log.d(TAG, "onResponse: data is  " + response.body().getPalLawDesc());
+                        Log.e(TAG, "onResponse: data is  " + response.body().getPalLawDesc());
+
                         palLawMutableLiveData.setValue(response.body());
                     } else {
-                        Log.d(TAG, "onResponse:  null data heir");
+                        Log.e(TAG, "onResponse:  null data heir");
                         palLawMutableLiveData.setValue(null);
                     }
-
-                } else {
-                    Log.d(TAG, "onResponse:  null data heir");
-                    palLawMutableLiveData.setValue(null);
-                }
-
             }
-
             @Override
             public void onFailure(Call<PalLaw> call, Throwable t) {
                 Log.d(TAG, "onResponse:  "+t.getMessage());

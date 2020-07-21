@@ -1,5 +1,6 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,13 +35,17 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        ItemAdapter palLaw = items.get(position);
+        ItemAdapter itemAdapter = items.get(position);
         holder.bind(position, onItemClicked);
-        if (palLaw.getText() == null)
+        if (itemAdapter == null) {
+            holder.tv_law.setText(null);
             return;
+        }
+        if (itemAdapter.getText() != null) {
+            holder.tv_law.setEnabled(false);
 
-        holder.tv_law.setText(palLaw.getText());
-
+        }
+        holder.tv_law.setText(itemAdapter.getText());
     }
 
     @Override
@@ -57,12 +62,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.MyHolder> {
         }
 
         public void bind(int position, OnItemClicked onItemClicked) {
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onItemClicked.itemClicked(position);
-                }
-            });
+            itemView.setOnClickListener(view -> onItemClicked.itemClicked(position));
         }
     }
 

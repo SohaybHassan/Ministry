@@ -25,6 +25,41 @@ public class LegalActionFragment extends Fragment {
     private BottomSheetSearsh bottomSheetSearsh;
     private BottomSheetDialog sheetDialog;
     private LegalActionViewModel legalActionViewModel;
+    private Observer<Construction> constructionObserver;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        constructionObserver=new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+
+                    binding.cardViewSearshShLegalAction.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshShLegalAction.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshShLegalAction.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+                    binding.edNuFacilityLegalAction.setVisibility(View.GONE);
+                    binding.tvNuFacilityLegalAction.setVisibility(View.GONE);
+                    binding.cardViewSearshShLegalAction.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progress.setVisibility(View.GONE);
+                    enabel(true);
+                    setmargein(165);
+                } else {
+                    enabel(true);
+                    binding.edNuFacilityLegalAction.setVisibility(View.VISIBLE);
+                    binding.tvNuFacilityLegalAction.setVisibility(View.VISIBLE);
+                    binding.cardViewSearshShLegalAction.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                    binding.progress.setVisibility(View.GONE);
+                    setmargein(0);
+                }
+            }
+        };
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,36 +83,7 @@ public class LegalActionFragment extends Fragment {
                     public void searshByNumber(String num_facility) {
                         binding.progress.setVisibility(View.VISIBLE);
                         enabel(false);
-                        legalActionViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                            @Override
-                            public void onChanged(Construction construction) {
-                                if (construction != null) {
-
-                                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-
-                                    binding.cardViewSearshShLegalAction.tvOwnerName.setText("اسم المالك : " + name);
-                                    binding.cardViewSearshShLegalAction.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                    binding.cardViewSearshShLegalAction.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
-
-                                    binding.edNuFacilityLegalAction.setVisibility(View.GONE);
-                                    binding.tvNuFacilityLegalAction.setVisibility(View.GONE);
-                                    binding.cardViewSearshShLegalAction.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                    binding.progress.setVisibility(View.GONE);
-                                    enabel(true);
-                                    setmargein(165);
-                                } else {
-                                    enabel(true);
-                                    binding.edNuFacilityLegalAction.setVisibility(View.VISIBLE);
-                                    binding.tvNuFacilityLegalAction.setVisibility(View.VISIBLE);
-                                    binding.cardViewSearshShLegalAction.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                                    binding.progress.setVisibility(View.GONE);
-                                    setmargein(0);
-                                }
-
-                            }
-                        });
+                        legalActionViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(),constructionObserver);
                         sheetDialog.dismiss();
 
                     }

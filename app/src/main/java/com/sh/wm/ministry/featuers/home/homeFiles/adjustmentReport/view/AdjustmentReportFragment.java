@@ -27,6 +27,43 @@ public class AdjustmentReportFragment extends Fragment {
     BottomSheetDialog sheetDialog;
     BottomSheetSearsh bottomSheetSearsh;
     AdjustmentReportViewModel adjustmentReportViewModel;
+    private Observer<Construction> constructionObserver;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        constructionObserver = new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+                    binding.cardViewSearshShAdjustmentReport.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshShAdjustmentReport.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshShAdjustmentReport.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+                    binding.edNuFacilityAdjustmentReport.setVisibility(View.GONE);
+                    binding.tvNuFacilityAdjustmentReport.setVisibility(View.GONE);
+                    binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progress.setVisibility(View.GONE);
+                    setmargein(165);
+                    enapel(true);
+
+                } else {
+                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                    binding.progress.setVisibility(View.GONE);
+                    enapel(true);
+                    setmargein(0);
+                    binding.edNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
+                    binding.tvNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
+                    binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                }
+            }
+        };
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,43 +77,14 @@ public class AdjustmentReportFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         adjustmentReportViewModel = new ViewModelProvider(this).get(AdjustmentReportViewModel.class);
         binding.edNuFacilityAdjustmentReport.setOnClickListener(view1 -> {
             bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                 @Override
                 public void searshByNumber(String num_facility) {
                     binding.progress.setVisibility(View.VISIBLE);
-                    adjustmentReportViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                        @Override
-                        public void onChanged(Construction construction) {
-
-                            if (construction != null) {
-
-                                String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-                                binding.cardViewSearshShAdjustmentReport.tvOwnerName.setText("اسم المالك : " + name);
-                                binding.cardViewSearshShAdjustmentReport.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                binding.cardViewSearshShAdjustmentReport.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
-
-                                binding.edNuFacilityAdjustmentReport.setVisibility(View.GONE);
-                                binding.tvNuFacilityAdjustmentReport.setVisibility(View.GONE);
-                                binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                binding.progress.setVisibility(View.GONE);
-                                setmargein(165);
-                                enapel(true);
-
-                            } else {
-                                Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
-                                binding.progress.setVisibility(View.GONE);
-                                enapel(true);
-                                setmargein(0);
-                                binding.edNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
-                                binding.tvNuFacilityAdjustmentReport.setVisibility(View.VISIBLE);
-                                binding.cardViewSearshShAdjustmentReport.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                            }
-                        }
-                    });
+                    adjustmentReportViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                     sheetDialog.dismiss();
                 }
             });

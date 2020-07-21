@@ -45,6 +45,43 @@ public class MoveTheFacilityFragment extends Fragment {
     private ArrayList<String> AllRegion;
     private ArrayList<String> AllMunicipal;
 
+    private Observer<Construction> constructionObserver;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        constructionObserver=new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+                    binding.cardViewSearshMoveFacility.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshMoveFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshMoveFacility.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+                    binding.edNuFacility.setVisibility(View.GONE);
+                    binding.tvNuFacility.setVisibility(View.GONE);
+                    binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progressbar.setVisibility(View.GONE);
+                    enapel(true);
+
+                } else {
+                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                    binding.progressbar.setVisibility(View.GONE);
+                    enapel(true);
+                    binding.edNuFacility.setVisibility(View.VISIBLE);
+                    binding.tvNuFacility.setVisibility(View.VISIBLE);
+                    binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                }
+            }
+        } ;
+
+    }
+
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -116,44 +153,11 @@ public class MoveTheFacilityFragment extends Fragment {
                 public void searshByNumber(String num_facility) {
                     binding.progressbar.setVisibility(View.VISIBLE);
                     enapel(false);
-                    moveFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                        @Override
-                        public void onChanged(Construction construction) {
-                            if (construction != null) {
-
-                                String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-                                binding.cardViewSearshMoveFacility.tvOwnerName.setText("اسم المالك : " + name);
-                                binding.cardViewSearshMoveFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                binding.cardViewSearshMoveFacility.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
-
-                                binding.edNuFacility.setVisibility(View.GONE);
-                                binding.tvNuFacility.setVisibility(View.GONE);
-                                binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                binding.progressbar.setVisibility(View.GONE);
-                                enapel(true);
-
-                            } else {
-                                Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
-                                binding.progressbar.setVisibility(View.GONE);
-                                enapel(true);
-                                binding.edNuFacility.setVisibility(View.VISIBLE);
-                                binding.tvNuFacility.setVisibility(View.VISIBLE);
-                                binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                            }
-
-                        }
-                    });
+                    moveFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                     dialog.dismiss();
                 }
-
             });
-
-
             bottomSheetSearsh.openDialog();
-
-
         });
 //"المحافظة"
         binding.edGovernorate.setOnClickListener(view15 -> {
@@ -232,48 +236,5 @@ public class MoveTheFacilityFragment extends Fragment {
 
 
     }
-
-/*
-    private void openDialog() {
-
-        View view = getLayoutInflater().inflate(R.layout.my_buttom_sheet, null);
-        dialog.setContentView(view);
-
-        EditText ed_searsh = view.findViewById(R.id.searsh_nu_facelity);
-        ImageView img_searsh_sheet = view.findViewById(R.id.img_searsh_sheet);
-        img_searsh_sheet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                binding.edNuFacility.setVisibility(View.GONE);
-                binding.tvNuFacility.setVisibility(View.GONE);
-                binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                moveFacilityViewModel.getConstructionData(ed_searsh.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                    @Override
-                    public void onChanged(Construction construction) {
-                        if (construction != null) {
-
-                            String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                            String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                            String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-
-                            binding.cardViewSearshMoveFacility.tvOwnerName.setText("اسم المالك : " + name);
-                            binding.cardViewSearshMoveFacility.tvBusinessName.setText("" + nameConstruction);
-                            binding.cardViewSearshMoveFacility.tvOwnerId.setText(user_cn);
-
-                        } else {
-                            Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-
-    }
-*/
 
 }

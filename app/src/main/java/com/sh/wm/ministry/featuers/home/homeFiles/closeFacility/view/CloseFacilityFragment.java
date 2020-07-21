@@ -27,6 +27,42 @@ public class CloseFacilityFragment extends Fragment {
     private BottomSheetDialog sheetDialog;
     private BottomSheetSearsh bottomSheetSearsh;
     FragmentCloseFacilityBinding binding;
+    private Observer<Construction> constructionObserver;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        constructionObserver = new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+                    binding.cardViewSearshShCloseFacility.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshShCloseFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshShCloseFacility.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+                    binding.edNuFacilityCloseFacility.setVisibility(View.GONE);
+                    binding.tvNuFacilityCloseFacility.setVisibility(View.GONE);
+                    binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progress.setVisibility(View.GONE);
+                    setmargein(165);
+                    enapel(true);
+
+                } else {
+                    Toast.makeText(getContext(), "رقم منشأة خطاء", Toast.LENGTH_SHORT).show();
+                    binding.progress.setVisibility(View.GONE);
+                    enapel(true);
+                    binding.edNuFacilityCloseFacility.setVisibility(View.VISIBLE);
+                    binding.tvNuFacilityCloseFacility.setVisibility(View.VISIBLE);
+                    setmargein(8);
+                    binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                }
+            }
+        };
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,37 +85,7 @@ public class CloseFacilityFragment extends Fragment {
                 public void searshByNumber(String num_facility) {
                     binding.progress.setVisibility(View.VISIBLE);
                     enapel(false);
-                    closeFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                        @Override
-                        public void onChanged(Construction construction) {
-                            if (construction != null) {
-
-                                String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-                                binding.cardViewSearshShCloseFacility.tvOwnerName.setText("اسم المالك : " + name);
-                                binding.cardViewSearshShCloseFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                binding.cardViewSearshShCloseFacility.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
-
-                                binding.edNuFacilityCloseFacility.setVisibility(View.GONE);
-                                binding.tvNuFacilityCloseFacility.setVisibility(View.GONE);
-                                binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                binding.progress.setVisibility(View.GONE);
-                                setmargein(165);
-                                enapel(true);
-
-                            } else {
-                                Toast.makeText(getContext(), "رقم منشأة خطاء", Toast.LENGTH_SHORT).show();
-                                binding.progress.setVisibility(View.GONE);
-                                enapel(true);
-                                binding.edNuFacilityCloseFacility.setVisibility(View.VISIBLE);
-                                binding.tvNuFacilityCloseFacility.setVisibility(View.VISIBLE);
-                                setmargein(8);
-                                binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                            }
-
-                        }
-                    });
+                    closeFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                     sheetDialog.dismiss();
                 }
             });
@@ -98,7 +104,7 @@ public class CloseFacilityFragment extends Fragment {
 
     }
 
-    public void enapel(boolean states){
+    public void enapel(boolean states) {
         binding.edNuFacilityCloseFacility.setEnabled(states);
         binding.edArticleNumberCloseFacility.setEnabled(states);
         binding.btnAddCloseFacility.setEnabled(states);
@@ -107,6 +113,7 @@ public class CloseFacilityFragment extends Fragment {
 
 
     }
+
     public void setmargein(int margine) {
         int dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, margine, getResources().getDisplayMetrics());
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) binding.tvText.getLayoutParams();

@@ -35,6 +35,42 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
     private BottomSheetSearsh bottomSheetSearsh;
     private BottomSheetDialog sheetDialog;
     private NewWorkPlaceViewModel newWorkPlaceViewModel;
+    private Observer<Construction>constructionObserver;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        constructionObserver=new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+
+                    binding.cardViewSearshNewWorkPlace.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshNewWorkPlace.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshNewWorkPlace.tvOwnerId.setText("رقم هوية المالك : "+user_cn);
+
+                    binding.edNuFacilityNewWorkPlace.setVisibility(View.GONE);
+                    binding.tvNuFacility.setVisibility(View.GONE);
+                    binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progressbar.setVisibility(View.GONE);
+                    ensbel(true);
+
+
+                } else {
+                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                    binding.tvNuFacility.setVisibility(View.VISIBLE);
+                    binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                    binding.edNuFacilityNewWorkPlace.setVisibility(View.VISIBLE);
+                    binding.progressbar.setVisibility(View.GONE);
+                    ensbel(true);
+                }
+            }
+        };
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,39 +129,9 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                     public void searshByNumber(String num_facility) {
                         binding.progressbar.setVisibility(View.VISIBLE);
                         ensbel(false);
-                        newWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                            @Override
-                            public void onChanged(Construction construction) {
-                                if (construction != null) {
-
-                                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-
-                                    binding.cardViewSearshNewWorkPlace.tvOwnerName.setText("اسم المالك : " + name);
-                                    binding.cardViewSearshNewWorkPlace.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                    binding.cardViewSearshNewWorkPlace.tvOwnerId.setText("رقم هوية المالك : "+user_cn);
-
-                                    binding.edNuFacilityNewWorkPlace.setVisibility(View.GONE);
-                                    binding.tvNuFacility.setVisibility(View.GONE);
-                                    binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                    binding.progressbar.setVisibility(View.GONE);
-                                    ensbel(true);
-
-
-                                } else {
-                                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
-                                    binding.tvNuFacility.setVisibility(View.VISIBLE);
-                                    binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                                    binding.edNuFacilityNewWorkPlace.setVisibility(View.VISIBLE);
-                                    binding.progressbar.setVisibility(View.GONE);
-                                    ensbel(true);
-                                }
-                            }
-                        });
+                        newWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                         sheetDialog.dismiss();
                     }
-
                 });
 
                 bottomSheetSearsh.openDialog();
