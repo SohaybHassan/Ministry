@@ -44,117 +44,110 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_nu_facility" />
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tv_governorate"
-                    style="@style/txtStyle"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:text="@string/governorate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_municipal"
-                    style="@style/txtStyle"
+                    <TextView
+                        android:id="@+id/tv_governorate"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/governorate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+                    <TextView
+                        android:id="@+id/ed_governorate"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_sistrict"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/district"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+                    <EditText
+                        android:id="@+id/ed_sistrict"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:text="@string/municipal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+                    android:orientation="vertical">
 
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_municipal"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/municipal"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-
-
-                <TextView
-                    android:id="@+id/ed_governorate"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-
-                    />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
 
 
-                <TextView
-                    android:id="@+id/ed_municipal"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/ed_municipal"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1" />
 
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_street"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/street"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/tv_sistrict"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/district"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
-
-                <TextView
-                    android:id="@+id/tv_street"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/street"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+                    <EditText
+                        android:id="@+id/ed_street"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-
-
-                <EditText
-                    android:id="@+id/ed_sistrict"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-
-                    />
-
-
-                <EditText
-                    android:id="@+id/ed_street"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1" />
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -242,171 +235,145 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tv_bulding_num"
-                    style="@style/txtStyle"
+                <LinearLayout
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:text="@string/number_bulding"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_fax_num"
-                    style="@style/txtStyle"
+                    <TextView
+                        android:id="@+id/tv_bulding_num"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/number_bulding"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+
+                    <EditText
+                        android:id="@+id/ed_bulding_num"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_lat"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/lat"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+                    <EditText
+                        android:id="@+id/ed_lat"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_phone_number"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/phone_number"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+                    <EditText
+                        android:id="@+id/ed_phone_number"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:text="@string/fax_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_fax_num"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/fax_num"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+                    <EditText
+                        android:id="@+id/ed_fax_num"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tv_long"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/longitude"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+                    <EditText
+                        android:id="@+id/ed_long"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1" />
 
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_telephone"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/Telephone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
+                    <EditText
+                        android:id="@+id/ed_telephone"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
 
-
-                <EditText
-                    android:id="@+id/ed_bulding_num"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-
-                    />
-
-
-                <EditText
-                    android:id="@+id/ed_fax_num"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/tv_lat"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/lat"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
-
-                <TextView
-                    android:id="@+id/tv_long"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/longitude"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-
-
-                <EditText
-                    android:id="@+id/ed_lat"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-
-                    />
-
-
-                <EditText
-                    android:id="@+id/ed_long"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/tv_phone_number"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/phone_number"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
-
-                <TextView
-                    android:id="@+id/tv_telephone"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/Telephone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-
-
-                <EditText
-                    android:id="@+id/ed_phone_number"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-
-                    />
-
-
-                <EditText
-                    android:id="@+id/ed_telephone"
-                    style="@style/editTxtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <Button

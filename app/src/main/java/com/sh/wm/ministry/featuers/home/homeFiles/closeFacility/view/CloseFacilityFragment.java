@@ -1,5 +1,6 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.view;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -13,12 +14,19 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.databinding.FragmentCloseFacilityBinding;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter.SubjectNumberAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.ItemAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.viewmodel.CloseFacilityViewModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
+
+import java.util.ArrayList;
 
 
 public class CloseFacilityFragment extends Fragment {
@@ -26,13 +34,19 @@ public class CloseFacilityFragment extends Fragment {
     private CloseFacilityViewModel closeFacilityViewModel;
     private BottomSheetDialog sheetDialog;
     private BottomSheetSearsh bottomSheetSearsh;
-    FragmentCloseFacilityBinding binding;
+    private FragmentCloseFacilityBinding binding;
     private Observer<Construction> constructionObserver;
 
+    private Observer<PalLaw> palLawObserver;
+    private SubjectNumberAdapter subjectNumberAdapter;
+    private ArrayList<ItemAdapter> itemAdapters;
+    private int thisPosition;
 
     @Override
+
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        itemAdapters = new ArrayList<>();
         constructionObserver = new Observer<Construction>() {
             @Override
             public void onChanged(Construction construction) {
@@ -62,6 +76,20 @@ public class CloseFacilityFragment extends Fragment {
                 }
             }
         };
+        palLawObserver = new Observer<PalLaw>() {
+            @Override
+            public void onChanged(PalLaw palLaw) {
+                if (palLaw != null) {
+                    itemAdapters.remove(thisPosition);
+                    itemAdapters.add(thisPosition, new ItemAdapter(palLaw.getPalLawDesc()));
+                    subjectNumberAdapter.notifyDataSetChanged();
+
+                } else {
+                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        };
     }
 
     @Override
@@ -89,7 +117,7 @@ public class CloseFacilityFragment extends Fragment {
                     sheetDialog.dismiss();
                 }
             });
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 
 
@@ -99,9 +127,35 @@ public class CloseFacilityFragment extends Fragment {
             binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enapel(true);
             setmargein(0);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 
+        itemAdapters.add(null);
+        subjectNumberAdapter = new SubjectNumberAdapter(itemAdapters, position -> {
+            thisPosition = position;
+            bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, num_facility -> closeFacilityViewModel.getPaleLaw(num_facility).observe(getViewLifecycleOwner(), palLawObserver));
+            sheetDialog.dismiss();
+            bottomSheetSearsh.openDialog(getString(R.string.numSubject),getString(R.string.searsh_for_nu_subject));
+        });
+        binding.edArticleNumberCloseFacility.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.edArticleNumberCloseFacility.setAdapter(subjectNumberAdapter);
+
+        binding.btnAddCloseFacility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (itemAdapters.size() - 1 > 3 ) {
+                    Toast.makeText(getContext(), "بيكفي يا وحش لعند 5 وبس وشكرا من وجدان", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (itemAdapters.get(itemAdapters.size()-1)==null){
+                    Toast.makeText(getContext(), "أرجو منك تعبأت الحقل الذي سبق قبل إضافة حقل جديد", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                itemAdapters.add(null);
+                subjectNumberAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     public void enapel(boolean states) {

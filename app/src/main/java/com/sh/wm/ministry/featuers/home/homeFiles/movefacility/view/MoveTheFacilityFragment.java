@@ -140,7 +140,7 @@ public class MoveTheFacilityFragment extends Fragment {
                 public void edite(View view) {
                     shMyDialog.dismiss();
                 }
-            }, getString(R.string.save_enterprise_place));
+            }, getString(R.string.save_enterprise_place),getString(R.string.save),getString(R.string.edit));
             shMyDialog.show(getParentFragmentManager(), "hi thir");
 
 
@@ -157,7 +157,7 @@ public class MoveTheFacilityFragment extends Fragment {
                     dialog.dismiss();
                 }
             });
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 //"المحافظة"
         binding.edGovernorate.setOnClickListener(view15 -> {
@@ -204,7 +204,7 @@ public class MoveTheFacilityFragment extends Fragment {
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enapel(true);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 
     }

@@ -19,11 +19,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.custem.datepicker.DateAdder;
 import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentAlarmFormBinding;
-import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter.AlarmAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter.SubjectNumberAdapter;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.ItemAdapter;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.viewmodel.AlarmFormViewModel;
@@ -47,7 +48,7 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
 
     private int thisPosition;
 
-    private AlarmAdapter alarmAdapter;
+    private SubjectNumberAdapter subjectNumberAdapter;
     private Observer<PalLaw> palLawObserver;
     private Observer<Construction> constructionObserver;
     // new Observer<Construction>()
@@ -62,13 +63,14 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
         palLawObserver = new Observer<PalLaw>() {
             @Override
             public void onChanged(PalLaw palLaw) {
-
                 if (palLaw != null) {
                     lawList.remove(thisPosition);
                     lawList.add(thisPosition,new ItemAdapter(palLaw.getPalLawDesc()));
                     Log.e(TAG, "onCreate: 111");
                     Log.e(TAG, "onCreate: " + palLaw.getPalLawDesc());
-                    alarmAdapter.notifyDataSetChanged();
+                    subjectNumberAdapter.notifyDataSetChanged();
+                }else {
+                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -134,7 +136,7 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
                 alarmFormViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                 sheetDialog.dismiss();
             });
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
         binding.edDateVisit.setOnClickListener(view15 -> {
             dateAdder.show();
@@ -164,21 +166,21 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
             binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             setmargein(0);
             desapel(true);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
 
         });
 
 
         lawList.add(null);
-        alarmAdapter = new AlarmAdapter(lawList, position -> {
+        subjectNumberAdapter = new SubjectNumberAdapter(lawList, position -> {
             thisPosition = position;
             bottomSheetSearsh = new BottomSheetSearsh(getContext(), sheetDialog, num_facility -> alarmFormViewModel.getPalLaw(num_facility).observe(getViewLifecycleOwner(), palLawObserver));
             sheetDialog.dismiss();
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numSubject),getString(R.string.searsh_for_nu_subject));
         });
 
         binding.edArticleNumberAlarmFormFragment.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.edArticleNumberAlarmFormFragment.setAdapter(alarmAdapter);
+        binding.edArticleNumberAlarmFormFragment.setAdapter(subjectNumberAdapter);
 
 
         binding.btnAdd.setOnClickListener(view1 -> {
@@ -191,7 +193,7 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
                 return;
             }
             lawList.add(null);
-            alarmAdapter.notifyDataSetChanged();
+            subjectNumberAdapter.notifyDataSetChanged();
         });
     }
 

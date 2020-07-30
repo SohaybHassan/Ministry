@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
@@ -24,11 +25,13 @@ public class CloseFacilityRepository {
     private static final String TAG = CloseFacilityRepository.class.getSimpleName();
     private NetworkUtils networkUtils;
     MutableLiveData<Construction> constructionMutableLiveData;
+    MutableLiveData<PalLaw> palLawMutableLiveData;
     static CloseFacilityRepository mInstance;
 
     public CloseFacilityRepository(Application application) {
         networkUtils = NetworkUtils.getInstance(true, application);
         constructionMutableLiveData = new MutableLiveData<>();
+        palLawMutableLiveData = new MutableLiveData<>();
     }
 
     public static CloseFacilityRepository getInstance(Application application) {
@@ -44,7 +47,7 @@ public class CloseFacilityRepository {
             @Override
             public void onResponse(@NotNull Call<ConstructionGroup> call, @NotNull Response<ConstructionGroup> response) {
 
-                if (response.body().getStatus()!=1) {
+                if (response.body().getStatus() != 1) {
                     if (response.isSuccessful()) {
                         Gson gson = new Gson();
                         Type type = new TypeToken<Construction>() {
@@ -59,8 +62,7 @@ public class CloseFacilityRepository {
                         Log.d(TAG, "onResponse: no data her");
                         constructionMutableLiveData.setValue(null);
                     }
-                }
-                else {
+                } else {
                     Log.d(TAG, "onResponse: null data her");
                     constructionMutableLiveData.setValue(null);
 
@@ -75,5 +77,28 @@ public class CloseFacilityRepository {
         });
         return constructionMutableLiveData;
 
+    }
+
+    public LiveData<PalLaw> getPalLaw(String number) {
+        networkUtils.getApiInterface().getPalLaw(number).enqueue(new Callback<PalLaw>() {
+            @Override
+            public void onResponse(@NotNull Call<PalLaw> call, @NotNull Response<PalLaw> response) {
+                if (response.isSuccessful()) {
+                    Log.e(TAG, "onResponse: " + response.body().getPalLawDesc());
+                    palLawMutableLiveData.setValue(response.body());
+                } else {
+                    Log.e(TAG, "onResponse:  no data");
+                    palLawMutableLiveData.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<PalLaw> call, @NotNull Throwable t) {
+                Log.e(TAG, "onFailure: " + t.getMessage());
+                palLawMutableLiveData.setValue(null);
+
+            }
+        });
+        return palLawMutableLiveData;
     }
 }

@@ -102,7 +102,7 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
                 public void edite(View view1) {
                     dialog.dismiss();
                 }
-            }, getString(R.string.leaving_work_place));
+            }, getString(R.string.leaving_work_place),getString(R.string.save),getString(R.string.edit));
             dialog.show(getParentFragmentManager(), "");
         });
 
@@ -126,7 +126,7 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
                         sheetDialog.dismiss();
                     }
                 });
-                bottomSheetSearsh.openDialog();
+                bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
             }
         });
         binding.cardViewSearshLeavingWorkPlace.imgEdit.setOnClickListener(view14 -> {
@@ -134,7 +134,7 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshLeavingWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enabel(true);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 
     }

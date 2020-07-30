@@ -107,7 +107,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                     public void edite(View view) {
                         dialog.dismiss();
                     }
-                }, getString(R.string.new_work_place));
+                }, getString(R.string.new_work_place),getString(R.string.save),getString(R.string.edit));
                 dialog.show(getParentFragmentManager(), "");
             }
         });
@@ -134,7 +134,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                     }
                 });
 
-                bottomSheetSearsh.openDialog();
+                bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
             }
         });
         binding.cardViewSearshNewWorkPlace.imgEdit.setOnClickListener(view14 -> {
@@ -142,7 +142,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             ensbel(true);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 
 

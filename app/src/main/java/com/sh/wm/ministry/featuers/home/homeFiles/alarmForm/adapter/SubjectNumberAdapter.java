@@ -1,6 +1,5 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +8,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.internal.$Gson$Preconditions;
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.ItemAdapter;
-import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 
 import java.util.ArrayList;
 
-public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.MyHolder> {
+public class SubjectNumberAdapter extends RecyclerView.Adapter<SubjectNumberAdapter.MyHolder> {
 
     private ArrayList<ItemAdapter> items;
     private OnItemClicked onItemClicked;
 
-    public AlarmAdapter(ArrayList<ItemAdapter> items, OnItemClicked onItemClicked) {
+    public SubjectNumberAdapter(ArrayList<ItemAdapter> items, OnItemClicked onItemClicked) {
         this.items = items;
         this.onItemClicked = onItemClicked;
     }

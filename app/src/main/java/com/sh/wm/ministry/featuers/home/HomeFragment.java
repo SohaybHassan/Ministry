@@ -125,7 +125,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
-        }, getString(R.string.registration_certificate));
+        }, getString(R.string.registration_certificate),getString(R.string.emphasis),getString(R.string.Cancel));
         dialog.show(getParentFragmentManager(), "home Fragment");
     }
 }
