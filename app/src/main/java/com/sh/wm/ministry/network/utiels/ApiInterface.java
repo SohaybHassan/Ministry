@@ -3,8 +3,8 @@ package com.sh.wm.ministry.network.utiels;
 
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MoveFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
+import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
@@ -111,8 +111,12 @@ public interface ApiInterface {
 
     //end of user files calls ////////////////////////////////////////////////////////
 
+    @FormUrlEncoded
     @POST("construction_change_place")
-    Call<MoveFacilityModel> CheangePlace(@Body RequestBody requestBody);
+    Call<PoastDataMoveFacility> CheangePlace(@Field("cnstruction_id") String cnstruction_id,@Field("address_id") String address_id,@Field("municipapiity_id") String municipapiity_id,@Field("region_id") String region_id,
+                                             @Field("street_id") String street_id,@Field("bulding_no") String bulding_no,@Field("address_desc") String address_desc,@Field("x_direction") String x_direction,@Field("y_direction") String y_direction,
+                                             @Field("construction_tele") String construction_tele,@Field("construction_mobile") String construction_mobile,@Field("construction_fax") String construction_fax,@Field("construction_box") String construction_box,
+                                             @Field("construction_url") String construction_url);
 
     @GET("get_all_municipality")
     Call<MunicipalityGroup> getAllMunicipality();
@@ -129,6 +133,6 @@ public interface ApiInterface {
 
     @GET("get_paletinian_law_desc?PAL_LAW_ARTICAL_NUM=")
     Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM" )String palLaw);
-    
+
 
 }

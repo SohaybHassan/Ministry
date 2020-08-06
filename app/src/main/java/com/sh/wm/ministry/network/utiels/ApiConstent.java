@@ -2,7 +2,7 @@ package com.sh.wm.ministry.network.utiels;
 
 public interface ApiConstent {
 
-    public static final String BASEURL = "http://185.132.250.218/LMIS_Ap3/restful_api/";
+    public static final String BASEURL = " https://lmistest.mol.ps/index.php/restful_api/";
     public static final String ssoBASE_URL = "https://ssoidp.gov.ps/";
 
     public static final  String ACCEPT = "Accept";

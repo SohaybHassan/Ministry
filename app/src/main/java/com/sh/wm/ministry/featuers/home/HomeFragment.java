@@ -116,6 +116,7 @@ public class HomeFragment extends Fragment {
         dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
             @Override
             public void sase(View view) {
+
                 Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }

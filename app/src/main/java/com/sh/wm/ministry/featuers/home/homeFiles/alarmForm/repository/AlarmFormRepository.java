@@ -75,7 +75,7 @@ public class AlarmFormRepository {
         call.enqueue(new Callback<ConstructionGroup>() {
             @Override
             public void onResponse(@NotNull Call<ConstructionGroup> call, @NotNull Response<ConstructionGroup> response) {
-                if (response.body().getStatus() != 1) {
+             //   if (response.body().getStatus() == 0) {
                     if (response.isSuccessful()) {
                         Gson gson = new Gson();
                         Type type = new TypeToken<Construction>() {
@@ -90,10 +90,10 @@ public class AlarmFormRepository {
                         Log.d(TAG, "onResponse: no data her");
                         constructionMutableLiveData.setValue(null);
                     }
-                } else {
-                    Log.d(TAG, "onResponse: null data her");
-                    constructionMutableLiveData.setValue(null);
-                }
+//                } else {
+//                    Log.d(TAG, "onResponse: null data her");
+//                    constructionMutableLiveData.setValue(null);
+//                }
             }
 
             @Override
