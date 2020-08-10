@@ -2,6 +2,7 @@ package com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.view;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,15 +16,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.custem.datepicker.DateAdder;
 import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentAlarmFormBinding;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter.SubjectNumberAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.ItemAdapter;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.viewmodel.AlarmFormViewModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -39,98 +46,106 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
     private long chosenTime;
     private int mYear, mMonth, mDay;
 
+    private int thisPosition;
+
+    private SubjectNumberAdapter subjectNumberAdapter;
+    private Observer<PalLaw> palLawObserver;
+    private Observer<Construction> constructionObserver;
+    // new Observer<Construction>()
+    private ArrayList<ItemAdapter> lawList;
+
+    public static final String TAG = AlarmFormFragment.class.getSimpleName();
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        lawList = new ArrayList<>();
+        palLawObserver = new Observer<PalLaw>() {
+            @Override
+            public void onChanged(PalLaw palLaw) {
+                if (palLaw != null) {
+                    lawList.remove(thisPosition);
+                    lawList.add(thisPosition,new ItemAdapter(palLaw.getPalLawDesc()));
+                    Log.e(TAG, "onCreate: 111");
+                    Log.e(TAG, "onCreate: " + palLaw.getPalLawDesc());
+                    subjectNumberAdapter.notifyDataSetChanged();
+                }else {
+                    Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        constructionObserver=new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+
+                    binding.cardViewSearshAlarmForm.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshAlarmForm.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshAlarmForm.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+
+                    binding.edNuFacilityAlarmFormFragment.setVisibility(View.GONE);
+                    binding.tvNuFacilityAlarmFormFragment.setVisibility(View.GONE);
+                    binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    setmargein(165);
+                    desapel(true);
+                    binding.progressbar.setVisibility(View.GONE);
+
+                } else {
+
+                    binding.edNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
+                    binding.tvNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
+                    binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                    binding.progressbar.setVisibility(View.GONE);
+                    setmargein(0);
+                    desapel(true);
+                    Toast.makeText(getContext(), "رقم منشأة خاطاْ", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        };
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAlarmFormBinding.inflate(inflater, container, false);
         sheetDialog = new BottomSheetDialog(getContext());
-
         //getDate from ed_visite
         dateAdder = new DateAdder(getActivity().getSupportFragmentManager(), this);
-
-
         //get time zone
         timeZone = TimeZone.getDefault();
-
         chosenTime = System.currentTimeMillis();
-
-
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         alarmFormViewModel = new ViewModelProvider(this).get(AlarmFormViewModel.class);
-
-
-        binding.edNuFacilityAlarmFormFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
-                    @Override
-                    public void searshByNumber(String num_facility) {
-                        binding.progressbar.setVisibility(View.VISIBLE);
-                        desapel(false);
-
-                        alarmFormViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                            @Override
-                            public void onChanged(Construction construction) {
-                                if (construction != null) {
-
-                                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-
-                                    binding.cardViewSearshAlarmForm.tvOwnerName.setText("اسم المالك : " + name);
-                                    binding.cardViewSearshAlarmForm.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                    binding.cardViewSearshAlarmForm.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
-
-                                    binding.edNuFacilityAlarmFormFragment.setVisibility(View.GONE);
-                                    binding.tvNuFacilityAlarmFormFragment.setVisibility(View.GONE);
-                                    binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                    setmargein(165);
-                                    desapel(true);
-                                    binding.progressbar.setVisibility(View.GONE);
-
-                                } else {
-
-                                    binding.edNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
-                                    binding.tvNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
-                                    binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                                    binding.progressbar.setVisibility(View.GONE);
-                                    setmargein(0);
-                                    desapel(true);
-                                    Toast.makeText(getContext(), "رقم منشأة خاطاْ", Toast.LENGTH_SHORT).show();
-
-                                }
-                            }
-                        });
-                        sheetDialog.dismiss();
-                    }
-                });
-                bottomSheetSearsh.openDialog();
-            }
+        binding.edNuFacilityAlarmFormFragment.setOnClickListener(view12 -> {
+            bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, num_facility -> {
+                binding.progressbar.setVisibility(View.VISIBLE);
+                desapel(false);
+                alarmFormViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
+                sheetDialog.dismiss();
+            });
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
-
         binding.edDateVisit.setOnClickListener(view15 -> {
             dateAdder.show();
         });
-
-
-//        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) binding.edDateVisit.getLayoutParams();
-//       layoutParams.setMargins(0,150,0,0);
-//        binding.edDateVisit.setLayoutParams(layoutParams);
-
-
         binding.edDateAlarm.setOnClickListener(view16 -> {
             final Calendar c = Calendar.getInstance();
             mYear = c.get(Calendar.YEAR);
             mMonth = c.get(Calendar.MONTH);
             mDay = c.get(Calendar.DAY_OF_MONTH);
-
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                     new DatePickerDialog.OnDateSetListener() {
@@ -145,25 +160,48 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         });
-
-
         binding.cardViewSearshAlarmForm.imgEdit.setOnClickListener(view14 -> {
             binding.edNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
             binding.tvNuFacilityAlarmFormFragment.setVisibility(View.VISIBLE);
             binding.cardViewSearshAlarmForm.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             setmargein(0);
             desapel(true);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
 
         });
 
+
+        lawList.add(null);
+        subjectNumberAdapter = new SubjectNumberAdapter(lawList, position -> {
+            thisPosition = position;
+            bottomSheetSearsh = new BottomSheetSearsh(getContext(), sheetDialog, num_facility -> alarmFormViewModel.getPalLaw(num_facility).observe(getViewLifecycleOwner(), palLawObserver));
+            sheetDialog.dismiss();
+            bottomSheetSearsh.openDialog(getString(R.string.numSubject),getString(R.string.searsh_for_nu_subject));
+        });
+
+        binding.edArticleNumberAlarmFormFragment.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.edArticleNumberAlarmFormFragment.setAdapter(subjectNumberAdapter);
+
+
+        binding.btnAdd.setOnClickListener(view1 -> {
+            if (lawList.size() - 1 > 3 ) {
+                Toast.makeText(getContext(), "بيكفي يا وحش لعند 5 وبس وشكرا من وجدان", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (lawList.get(lawList.size()-1)==null){
+                Toast.makeText(getContext(), "أرجو منك تعبأت الحقل الذي سبق قبل إضافة حقل جديد", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            lawList.add(null);
+            subjectNumberAdapter.notifyDataSetChanged();
+        });
     }
+
 
     @Override
     public void onDateTimeChosen(long timeChosen) {
         chosenTime = timeChosen;
         binding.edDateVisit.setText(TimeUtil.getDefaultDateText(timeChosen, timeZone));
-
     }
 
 
@@ -192,4 +230,7 @@ public class AlarmFormFragment extends Fragment implements DateAdder.Listener {
 
 
     }
+
+
+
 }

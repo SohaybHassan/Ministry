@@ -167,7 +167,7 @@ public class AddLanguageFragment extends Fragment {
                         Toast.makeText(getContext(), "you may edit the language", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
-                }, getString(R.string.save_language));
+                }, getString(R.string.save_language),getString(R.string.save),getString(R.string.edit));
                 dialog.show(getParentFragmentManager(), "dialog tag");
             }
         });

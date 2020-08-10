@@ -116,6 +116,7 @@ public class HomeFragment extends Fragment {
         dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
             @Override
             public void sase(View view) {
+
                 Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
@@ -125,7 +126,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
-        }, getString(R.string.registration_certificate));
+        }, getString(R.string.registration_certificate),getString(R.string.emphasis),getString(R.string.Cancel));
         dialog.show(getParentFragmentManager(), "home Fragment");
     }
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
@@ -25,11 +26,13 @@ public class AdjustmentReportRepository {
     public static final String TAG = AdjustmentReportRepository.class.getSimpleName();
     private NetworkUtils networkUtils;
     private MutableLiveData<Construction> constructionMutableLiveData;
+    private MutableLiveData<PalLaw> palLawMutableLiveData;
     static AdjustmentReportRepository mInstance;
 
     public AdjustmentReportRepository(Application application) {
         networkUtils = NetworkUtils.getInstance(true, application);
         constructionMutableLiveData = new MutableLiveData<>();
+        palLawMutableLiveData = new MutableLiveData<>();
     }
 
     public static AdjustmentReportRepository getInstance(Application application) {
@@ -77,4 +80,29 @@ public class AdjustmentReportRepository {
         return constructionMutableLiveData;
 
     }
+
+    public LiveData<PalLaw> getPalLaw(String num_palLaw) {
+
+        networkUtils.getApiInterface().getPalLaw(num_palLaw).enqueue(new Callback<PalLaw>() {
+            @Override
+            public void onResponse(@NotNull Call<PalLaw> call, @NotNull Response<PalLaw> response) {
+                if (response.isSuccessful()) {
+                    Log.e(TAG, "onResponse: " + response.body().getPalLawDesc());
+                    palLawMutableLiveData.setValue(response.body());
+                } else {
+                    Log.e(TAG, "onResponse:  no data");
+                    palLawMutableLiveData.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<PalLaw> call, @NotNull Throwable t) {
+
+                Log.e(TAG, "onFailure: " + t.getMessage());
+                palLawMutableLiveData.setValue(null);
+            }
+        });
+        return palLawMutableLiveData;
+    }
+
 }

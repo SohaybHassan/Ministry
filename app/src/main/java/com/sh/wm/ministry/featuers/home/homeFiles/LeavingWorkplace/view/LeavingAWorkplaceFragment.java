@@ -36,7 +36,40 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
     private BottomSheetSearsh bottomSheetSearsh;
     private BottomSheetDialog sheetDialog;
     private LeavingWorkPlaceViewModel leavingWorkPlaceViewModel;
+    private Observer<Construction> constructionObserver;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        constructionObserver = new Observer<Construction>() {
+            @Override
+            public void onChanged(Construction construction) {
+                if (construction != null) {
+
+                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
+                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
+                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+
+                    binding.cardViewSearshLeavingWorkPlace.tvOwnerName.setText("اسم المالك : " + name);
+                    binding.cardViewSearshLeavingWorkPlace.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
+                    binding.cardViewSearshLeavingWorkPlace.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
+
+                    binding.edNuFacilityLeavingWorkPlace.setVisibility(View.GONE);
+                    binding.tvNuFacility.setVisibility(View.GONE);
+                    binding.cardViewSearshLeavingWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    binding.progressbar.setVisibility(View.GONE);
+                    enabel(true);
+
+                } else {
+                    enabel(true);
+                    binding.edNuFacilityLeavingWorkPlace.setVisibility(View.VISIBLE);
+                    binding.tvNuFacility.setVisibility(View.VISIBLE);
+                    binding.cardViewSearshLeavingWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
+                    binding.progressbar.setVisibility(View.GONE);
+                }
+            }
+        };
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +102,7 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
                 public void edite(View view1) {
                     dialog.dismiss();
                 }
-            }, getString(R.string.leaving_work_place));
+            }, getString(R.string.leaving_work_place),getString(R.string.save),getString(R.string.edit));
             dialog.show(getParentFragmentManager(), "");
         });
 
@@ -87,42 +120,13 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
                 bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                     @Override
                     public void searshByNumber(String num_facility) {
-                       binding.progressbar.setVisibility(View.VISIBLE);
+                        binding.progressbar.setVisibility(View.VISIBLE);
                         enabel(false);
-                        leavingWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-                            @Override
-                            public void onChanged(Construction construction) {
-                                if (construction != null) {
-
-                                    String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-                                    String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-                                    String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-
-                                    binding.cardViewSearshLeavingWorkPlace.tvOwnerName.setText("اسم المالك : " + name);
-                                    binding.cardViewSearshLeavingWorkPlace.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                                    binding.cardViewSearshLeavingWorkPlace.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
-
-                                    binding.edNuFacilityLeavingWorkPlace.setVisibility(View.GONE);
-                                    binding.tvNuFacility.setVisibility(View.GONE);
-                                    binding.cardViewSearshLeavingWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-                                    binding.progressbar.setVisibility(View.GONE);
-                                    enabel(true);
-
-                                } else {
-                                    enabel(true);
-                                    binding.edNuFacilityLeavingWorkPlace.setVisibility(View.VISIBLE);
-                                    binding.tvNuFacility.setVisibility(View.VISIBLE);
-                                    binding.cardViewSearshLeavingWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
-                                    binding.progressbar.setVisibility(View.GONE);
-                                }
-
-                            }
-                        });
+                        leavingWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                         sheetDialog.dismiss();
                     }
                 });
-
-                bottomSheetSearsh.openDialog();
+                bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
             }
         });
         binding.cardViewSearshLeavingWorkPlace.imgEdit.setOnClickListener(view14 -> {
@@ -130,7 +134,7 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshLeavingWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enabel(true);
-            bottomSheetSearsh.openDialog();
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
         });
 
     }
@@ -138,10 +142,10 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
     @Override
     public void onDateTimeChosen(long timeChosen) {
         chosenTime = timeChosen;
-        binding.edDateEndWork.setText(TimeUtil.getDefaultDateText(chosenTime,timeZone));
+        binding.edDateEndWork.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
     }
 
-    public void enabel(boolean states){
+    public void enabel(boolean states) {
 
         binding.edNuFacilityLeavingWorkPlace.setEnabled(states);
         binding.edDateEndWork.setEnabled(states);

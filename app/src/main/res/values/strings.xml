@@ -228,7 +228,10 @@
     <string name="late_wages">أجور متأخرة</string>
     <string name="total">المجموع</string>
     <string name="zero">0</string>
-
+    <string name="numSubject">رقم المادة</string>
+    <string name="searsh_for_nu_subject">البحث عن رقم المادة</string>
+    <string name="emphasis">تأكيد</string>
+    <string name="Cancel">إلغاء</string>
 
     <!-- training skills -->
     <string name="course_type">نوع الدورة التدريبية</string>

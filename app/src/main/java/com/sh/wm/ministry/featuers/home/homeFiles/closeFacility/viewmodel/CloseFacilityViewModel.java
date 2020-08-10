@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.repository.CloseFacilityRepository;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 
@@ -19,5 +20,9 @@ public class CloseFacilityViewModel extends AndroidViewModel {
 
     public LiveData<Construction> getConstructionData(String num_construction) {
         return closeFacilityRepository.getConstructiondata(num_construction);
+    }
+
+    public LiveData<PalLaw> getPaleLaw(String numberLaw) {
+        return closeFacilityRepository.getPalLaw(numberLaw);
     }
 }

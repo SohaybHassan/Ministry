@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.view.AlarmFormFragment;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
@@ -26,11 +27,13 @@ public class AlarmFormRepository {
     private NetworkUtils networkUtils;
     private static AlarmFormRepository mInstance;
     private MutableLiveData<Construction> constructionMutableLiveData;
+    private MutableLiveData<PalLaw> palLawMutableLiveData;
     private static final String TAG = AlarmFormRepository.class.getSimpleName();
 
     public AlarmFormRepository(Application application) {
         networkUtils = NetworkUtils.getInstance(true, application);
         constructionMutableLiveData = new MutableLiveData<>();
+        palLawMutableLiveData = new MutableLiveData<>();
 
     }
 
@@ -43,12 +46,36 @@ public class AlarmFormRepository {
     }
 
 
+    public LiveData<PalLaw> getPalLawByNum(String numberLaw) {
+        networkUtils.getApiInterface().getPalLaw(numberLaw).enqueue(new Callback<PalLaw>() {
+            @Override
+            public void onResponse(Call<PalLaw> call, Response<PalLaw> response) {
+
+
+                    if (response.isSuccessful()) {
+                        Log.e(TAG, "onResponse: data is  " + response.body().getPalLawDesc());
+
+                        palLawMutableLiveData.setValue(response.body());
+                    } else {
+                        Log.e(TAG, "onResponse:  null data heir");
+                        palLawMutableLiveData.setValue(null);
+                    }
+            }
+            @Override
+            public void onFailure(Call<PalLaw> call, Throwable t) {
+                Log.d(TAG, "onResponse:  "+t.getMessage());
+                palLawMutableLiveData.setValue(null);
+            }
+        });
+        return palLawMutableLiveData;
+    }
+
     public LiveData<Construction> getConstructiondata(String num_construction) {
         Call<ConstructionGroup> call = networkUtils.getApiInterface().getDataConstruction(num_construction);
         call.enqueue(new Callback<ConstructionGroup>() {
             @Override
             public void onResponse(@NotNull Call<ConstructionGroup> call, @NotNull Response<ConstructionGroup> response) {
-                if (response.body().getStatus() != 1) {
+             //   if (response.body().getStatus() == 0) {
                     if (response.isSuccessful()) {
                         Gson gson = new Gson();
                         Type type = new TypeToken<Construction>() {
@@ -63,11 +90,10 @@ public class AlarmFormRepository {
                         Log.d(TAG, "onResponse: no data her");
                         constructionMutableLiveData.setValue(null);
                     }
-                }else
-                {
-                    Log.d(TAG, "onResponse: null data her");
-                    constructionMutableLiveData.setValue(null);
-                }
+//                } else {
+//                    Log.d(TAG, "onResponse: null data her");
+//                    constructionMutableLiveData.setValue(null);
+//                }
             }
 
             @Override

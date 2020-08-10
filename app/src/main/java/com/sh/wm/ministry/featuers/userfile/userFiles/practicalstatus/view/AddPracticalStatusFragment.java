@@ -39,6 +39,7 @@ public class AddPracticalStatusFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
         binding = FragmentAddPracticalStatusBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -78,7 +79,7 @@ public class AddPracticalStatusFragment extends Fragment {
                         Toast.makeText(getContext(), "you may edit the work status", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
-                }, getString(R.string.save_language));
+                }, getString(R.string.save_language),getString(R.string.save),getString(R.string.edit));
                 dialog.show(getParentFragmentManager(), "dialog tag");
             }
         });
