@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".featuers.inspection.view.InspectionPlaneManagementFragment"
+    tools:context=".featuers.home.homeFiles.inspection.view.InspectionPlaneManagementFragment"
     android:layoutDirection="rtl"
     android:layout_margin="10dp">
 <LinearLayout

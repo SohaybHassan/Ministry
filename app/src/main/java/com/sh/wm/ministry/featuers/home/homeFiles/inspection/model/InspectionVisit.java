@@ -1,5 +1,5 @@
 
-package com.sh.wm.ministry.featuers.inspection.model;
+package com.sh.wm.ministry.featuers.home.homeFiles.inspection.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.sh.wm.ministry.featuers.inspection.view;
+package com.sh.wm.ministry.featuers.home.homeFiles.inspection.view;
 
 import android.content.Intent;
 import android.os.Bundle;

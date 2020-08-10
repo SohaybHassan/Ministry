@@ -1,4 +1,4 @@
-package com.sh.wm.ministry.featuers.inspection.view;
+package com.sh.wm.ministry.featuers.home.homeFiles.inspection.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.databinding.FragmentInspectionMngBinding;
 
