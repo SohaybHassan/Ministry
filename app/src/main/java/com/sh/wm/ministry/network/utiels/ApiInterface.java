@@ -7,6 +7,7 @@ import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Municipalit
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
+import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
 import com.sh.wm.ministry.featuers.sso.model.UserInfoSsoModel;
 import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
@@ -134,5 +135,8 @@ public interface ApiInterface {
     @GET("get_paletinian_law_desc?PAL_LAW_ARTICAL_NUM=")
     Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM" )String palLaw);
 
+    @FormUrlEncoded
+    @POST("qyed_request_for_user")
+    Call<CertificateRequest> requestCertificate(@Field("QAYED_USER_ID") String userId);
 
 }

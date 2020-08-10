@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
+import com.sh.wm.ministry.featuers.home.repository.HomeRepository;
 
+public class HomeViewModel extends ViewModel {
+    private HomeRepository repository;
     private MutableLiveData<String> userRole;
 
     public HomeViewModel() {
@@ -14,5 +17,10 @@ public class HomeViewModel extends ViewModel {
 
     public LiveData<String> getText() {
         return userRole;
+    }
+
+
+    public LiveData<CertificateRequest> requestCertificate(String user_id){
+        return repository.requestCertificate(user_id);
     }
 }

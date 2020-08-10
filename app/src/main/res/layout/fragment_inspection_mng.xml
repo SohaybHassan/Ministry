@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".featuers.inspection.view.InspectionMngFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layoutDirection="rtl">
+
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/company_name" />
+
+        <TextView
+            android:id="@+id/ins_company_name"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:drawableEnd="@drawable/ic_search_dark"
+            />
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/inspector_name" />
+
+        <TextView
+            android:id="@+id/ins_inspector_name"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:drawableEnd="@drawable/ic_search_dark"
+            />
+
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_add_inspection"
+        style="@style/btnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:text="@string/Save" />
+</FrameLayout>
