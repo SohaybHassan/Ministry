@@ -128,7 +128,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/btn_save_legal_action"
+            android:id="@+id/btn_save_close_facility"
             style="@style/btnStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

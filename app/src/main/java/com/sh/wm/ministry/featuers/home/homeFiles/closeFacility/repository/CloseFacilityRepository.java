@@ -9,8 +9,10 @@ import androidx.lifecycle.MutableLiveData;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
+import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
+import com.sh.wm.ministry.network.model.SharedPreferneceHelper;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -26,12 +28,16 @@ public class CloseFacilityRepository {
     private NetworkUtils networkUtils;
     MutableLiveData<Construction> constructionMutableLiveData;
     MutableLiveData<PalLaw> palLawMutableLiveData;
+    MutableLiveData<CloseFacilityModel> closeFacilityModelMutableLiveData;
     static CloseFacilityRepository mInstance;
+    private Application application;
 
     public CloseFacilityRepository(Application application) {
+        this.application = application;
         networkUtils = NetworkUtils.getInstance(true, application);
         constructionMutableLiveData = new MutableLiveData<>();
         palLawMutableLiveData = new MutableLiveData<>();
+        closeFacilityModelMutableLiveData = new MutableLiveData<>();
     }
 
     public static CloseFacilityRepository getInstance(Application application) {
@@ -100,5 +106,28 @@ public class CloseFacilityRepository {
             }
         });
         return palLawMutableLiveData;
+    }
+
+    public LiveData<CloseFacilityModel> postAllData(String Constraction_ID, String CloseDate, String close_reason, String insert_userid) {
+        networkUtils.getApiInterface().postCloseFacility(Constraction_ID, CloseDate, close_reason, insert_userid).enqueue(new Callback<CloseFacilityModel>() {
+            @Override
+            public void onResponse(Call<CloseFacilityModel> call, Response<CloseFacilityModel> response) {
+                Log.d(TAG, "onResponse token: " + SharedPreferneceHelper.getToken(application));
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "onResponse: " + response.body().getMessageText());
+                    closeFacilityModelMutableLiveData.setValue(response.body());
+                } else {
+                    closeFacilityModelMutableLiveData.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CloseFacilityModel> call, Throwable t) {
+
+                Log.d(TAG, "onFailure: " + t.getMessage());
+                closeFacilityModelMutableLiveData.setValue(null);
+            }
+        });
+        return closeFacilityModelMutableLiveData;
     }
 }

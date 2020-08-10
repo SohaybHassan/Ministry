@@ -100,8 +100,11 @@ public class MoveTheFacilityFragment extends Fragment {
                 if (poastDataMoveFacility != null) {
                     Toast.makeText(getContext(), poastDataMoveFacility.getMessageText(), Toast.LENGTH_SHORT).show();
                     binding.progressbar.setVisibility(View.GONE);
+                    enapel(true);
                 } else {
                     Toast.makeText(getContext(), "no data send", Toast.LENGTH_SHORT).show();
+                    binding.progressbar.setVisibility(View.GONE);
+                    enapel(true);
                 }
 
             }
@@ -163,6 +166,8 @@ public class MoveTheFacilityFragment extends Fragment {
         binding.btnSaveMoveFacility.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 if (binding.edNuFacility.getText().toString().isEmpty()) {
                     Toast.makeText(getContext(), "ارجو منك إدخال رقم منشأة", Toast.LENGTH_SHORT).show();
                 } else if (binding.edGovernorate.getText().toString().isEmpty()) {
@@ -198,6 +203,8 @@ public class MoveTheFacilityFragment extends Fragment {
                         @Override
                         public void sase(View view) {
                             binding.progressbar.setVisibility(View.VISIBLE);
+                            enapel(false);
+                            binding.progressbar.setVisibility(View.VISIBLE);
                             String desc = binding.edTitleDescription.getText().toString();
                             String box = binding.edMailboxNumber.getText().toString();
                             String url = binding.edElectronicPage.getText().toString();
@@ -207,10 +214,7 @@ public class MoveTheFacilityFragment extends Fragment {
                             String log = binding.edLong.getText().toString();
                             String telephone = binding.edTelephone.getText().toString();
 
-                            //     if (desc!=null & box!=null & url!=null &nu_buldeing!=null &fax!=null &lat!=null &)
                             moveFacilityViewModel.poastData(Constraction_id, addressId, municipapiity_id, region_id, "5", nu_buldeing, desc, lat, log, telephone, mobile, fax, box, url).observe(getViewLifecycleOwner(), poastDataMoveFacilityObserver);
-
-                            Toast.makeText(getContext(), "save true", Toast.LENGTH_SHORT).show();
 
                             shMyDialog.dismiss();
                         }
@@ -287,10 +291,10 @@ public class MoveTheFacilityFragment extends Fragment {
 
         binding.cardViewSearshMoveFacility.imgEdit.setOnClickListener(view14 -> {
             binding.edNuFacility.setVisibility(View.VISIBLE);
-            binding.edNuFacility.setText("");
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enapel(true);
+            binding.edNuFacility.setText("");
             bottomSheetSearsh.openDialog(getString(R.string.numberfacility), getString(R.string.searsh_for_nu_facilty));
         });
 
