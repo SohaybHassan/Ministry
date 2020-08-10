@@ -232,6 +232,7 @@
     <string name="searsh_for_nu_subject">البحث عن رقم المادة</string>
     <string name="emphasis">تأكيد</string>
     <string name="Cancel">إلغاء</string>
+    <string name="cloase_facility_Dialog_save">هل انتا متأكد انك تريد إغلاق هذه المنشأة</string>
 
     <!-- training skills -->
     <string name="course_type">نوع الدورة التدريبية</string>

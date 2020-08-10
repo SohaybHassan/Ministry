@@ -19,10 +19,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
+import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentCloseFacilityBinding;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.adapter.SubjectNumberAdapter;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.ItemAdapter;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
+import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.viewmodel.CloseFacilityViewModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 
@@ -36,11 +38,14 @@ public class CloseFacilityFragment extends Fragment {
     private BottomSheetSearsh bottomSheetSearsh;
     private FragmentCloseFacilityBinding binding;
     private Observer<Construction> constructionObserver;
-
+    private Observer<CloseFacilityModel> closeFacilityModelObserver;
+    private ShMyDialog sh;
     private Observer<PalLaw> palLawObserver;
     private SubjectNumberAdapter subjectNumberAdapter;
     private ArrayList<ItemAdapter> itemAdapters;
     private int thisPosition;
+    private String construction_id;
+    private String insert_id;
 
     @Override
 
@@ -54,12 +59,16 @@ public class CloseFacilityFragment extends Fragment {
                     String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
                     String nameConstruction = construction.getCONSTRUCTNAMEUSING();
                     String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
+                    construction_id = construction.getCONSTRUCTID();
+                    insert_id = construction.getINSERTUSERID();
                     binding.cardViewSearshShCloseFacility.tvOwnerName.setText("اسم المالك : " + name);
                     binding.cardViewSearshShCloseFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
                     binding.cardViewSearshShCloseFacility.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
 
+
                     binding.edNuFacilityCloseFacility.setVisibility(View.GONE);
                     binding.tvNuFacilityCloseFacility.setVisibility(View.GONE);
+                    binding.edNuFacilityCloseFacility.setText("ok");
                     binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
                     binding.progress.setVisibility(View.GONE);
                     setmargein(165);
@@ -83,11 +92,30 @@ public class CloseFacilityFragment extends Fragment {
                     itemAdapters.remove(thisPosition);
                     itemAdapters.add(thisPosition, new ItemAdapter(palLaw.getPalLawDesc()));
                     subjectNumberAdapter.notifyDataSetChanged();
+                    binding.progress.setVisibility(View.GONE);
+                    enapel(true);
 
                 } else {
                     Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
+                    binding.progress.setVisibility(View.GONE);
+                    enapel(true);
                 }
 
+            }
+        };
+        closeFacilityModelObserver = new Observer<CloseFacilityModel>() {
+            @Override
+            public void onChanged(CloseFacilityModel closeFacilityModel) {
+                if (closeFacilityModel != null) {
+
+                    Toast.makeText(getActivity(), closeFacilityModel.getMessageText(), Toast.LENGTH_SHORT).show();
+                    binding.progress.setVisibility(View.GONE);
+                    enapel(true);
+                } else {
+                    Toast.makeText(getActivity(), "no data", Toast.LENGTH_SHORT).show();
+                    binding.progress.setVisibility(View.GONE);
+                    enapel(true);
+                }
             }
         };
     }
@@ -117,7 +145,7 @@ public class CloseFacilityFragment extends Fragment {
                     sheetDialog.dismiss();
                 }
             });
-            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility), getString(R.string.searsh_for_nu_facilty));
         });
 
 
@@ -126,16 +154,22 @@ public class CloseFacilityFragment extends Fragment {
             binding.tvNuFacilityCloseFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshShCloseFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enapel(true);
+            binding.edNuFacilityCloseFacility.setText("");
             setmargein(0);
-            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility), getString(R.string.searsh_for_nu_facilty));
         });
 
         itemAdapters.add(null);
         subjectNumberAdapter = new SubjectNumberAdapter(itemAdapters, position -> {
+
             thisPosition = position;
-            bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, num_facility -> closeFacilityViewModel.getPaleLaw(num_facility).observe(getViewLifecycleOwner(), palLawObserver));
+            bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, num_facility -> {
+                binding.progress.setVisibility(View.VISIBLE);
+                enapel(false);
+                closeFacilityViewModel.getPaleLaw(num_facility).observe(getViewLifecycleOwner(), palLawObserver);
+            });
             sheetDialog.dismiss();
-            bottomSheetSearsh.openDialog(getString(R.string.numSubject),getString(R.string.searsh_for_nu_subject));
+            bottomSheetSearsh.openDialog(getString(R.string.numSubject), getString(R.string.searsh_for_nu_subject));
         });
         binding.edArticleNumberCloseFacility.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.edArticleNumberCloseFacility.setAdapter(subjectNumberAdapter);
@@ -143,11 +177,11 @@ public class CloseFacilityFragment extends Fragment {
         binding.btnAddCloseFacility.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemAdapters.size() - 1 > 3 ) {
+                if (itemAdapters.size() - 1 > 3) {
                     Toast.makeText(getContext(), "بيكفي يا وحش لعند 5 وبس وشكرا من وجدان", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (itemAdapters.get(itemAdapters.size()-1)==null){
+                if (itemAdapters.get(itemAdapters.size() - 1) == null) {
                     Toast.makeText(getContext(), "أرجو منك تعبأت الحقل الذي سبق قبل إضافة حقل جديد", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -156,13 +190,43 @@ public class CloseFacilityFragment extends Fragment {
                 subjectNumberAdapter.notifyDataSetChanged();
             }
         });
+
+
+        binding.btnSaveCloseFacility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (binding.edNuFacilityCloseFacility.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "ارجو منك أدخال رقم المنشأة", Toast.LENGTH_SHORT).show();
+                } else if (true) {
+                    sh = new ShMyDialog(new ShMyDialog.Dilogclicked() {
+                        @Override
+                        public void sase(View view) {
+                            binding.progress.setVisibility(View.VISIBLE);
+                            enapel(false);
+                            closeFacilityViewModel.postDataClose(construction_id, "2019-05-30", "انا حر اسكرها وقت ما بدي شو دخلك انتا", insert_id).observe(getViewLifecycleOwner(), closeFacilityModelObserver);
+                            sh.dismiss();
+
+                        }
+
+                        @Override
+                        public void edite(View view) {
+                            sh.dismiss();
+                        }
+                    }, getString(R.string.cloase_facility_Dialog_save), getString(R.string.save), getString(R.string.edit));
+                    sh.show(getParentFragmentManager(), "hi thir");
+
+                }
+            }
+        });
     }
 
     public void enapel(boolean states) {
         binding.edNuFacilityCloseFacility.setEnabled(states);
         binding.edArticleNumberCloseFacility.setEnabled(states);
         binding.btnAddCloseFacility.setEnabled(states);
-        binding.btnSaveLegalAction.setEnabled(states);
+        binding.btnSaveCloseFacility.setEnabled(states);
+
         binding.radioGroup.setEnabled(states);
 
 

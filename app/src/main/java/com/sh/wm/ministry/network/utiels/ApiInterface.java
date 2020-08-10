@@ -2,6 +2,7 @@ package com.sh.wm.ministry.network.utiels;
 
 
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
+import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
@@ -140,5 +141,8 @@ public interface ApiInterface {
     @GET("get_paletinian_law_desc?PAL_LAW_ARTICAL_NUM=")
     Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM" )String palLaw);
 
+    @FormUrlEncoded
+    @POST("construction_close")
+    Call<CloseFacilityModel> postCloseFacility(@Field("CONSTRUCT_ID")String CONSTRUCT_ID,@Field("CLOSE_DATE") String CLOSE_DATE,@Field("CLOSE_REASON")String  CLOSE_REASON, @Field("INSERT_USERID")String INSERT_USERID);
 
 }
