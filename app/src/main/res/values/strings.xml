@@ -242,6 +242,9 @@
     <string name="inspection_visit_btn">زيارة تفتيشية خارج الخطة</string>
 
     <!-- inspection results strings -->
+    <string name="inspection_results">نتائج التفتيش</string>
+    <string name="visit_out_of_plane">زيارة خارج الخطة</string>
+
     <string name="take_procedures">اتخاذ الإجراءات التالية</string>
     <string name="one_op_one">تنبيه شفوي</string>
     <string name="one_op_two">تحرير نموذج استيفاء</string>

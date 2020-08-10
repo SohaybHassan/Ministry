@@ -163,5 +163,32 @@
         android:label="@string/adjustment_report"
         tools:layout="@layout/fragment_adjustment_report" />
 
+    <!-- inspection -->
+    <fragment
+        android:id="@+id/nav_visit_sevices"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspectionVisitingMenuFragment"
+        android:label="@string/visits_services"
+        tools:layout="@layout/fragment_inspection_visiting_menu"/>
+    <fragment
+        android:id="@+id/nav_inspection_results"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspectionResultsFragment"
+        android:label="@string/inspection_results"
+        tools:layout="@layout/fragment_inspection_results" />
+    <fragment
+        android:id="@+id/nav_visit_out_of_plane"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspVisitOutOfPlaneFragment"
+        android:label="@string/visit_out_of_plane"
+        tools:layout="@layout/fragment_insp_visit_out_of_plane" />
+    <fragment
+        android:id="@+id/nav_inspection_mng"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspectionMngFragment"
+        android:label="@string/inspection_mng_btn"
+        tools:layout="@layout/fragment_inspection_mng" />
+    <fragment
+        android:id="@+id/nav_inspection_plane_management"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspectionPlaneManagementFragment"
+        android:label="@string/visit_out_of_plane"
+        tools:layout="@layout/fragment_inspection_plane_managment" />
+
 
 </navigation>

@@ -99,6 +99,7 @@ public class HomeFragment extends Fragment {
         binding.btnMoveFacility.moveFacilityHomeFragmrnt.setOnClickListener(view12 -> mlistener.onHomeSlideNav(1));
         binding.cvReportNewWorkPlace.moveFacilityHomeFragmrnt.setOnClickListener(view13 -> mlistener.onHomeSlideNav(2));
         binding.cvReportLeftWorkInPlace.moveFacilityHomeFragmrnt.setOnClickListener(view14 -> mlistener.onHomeSlideNav(3));
+
         //
         binding.cvAlertTemplate.moveFacilityHomeFragmrnt.setOnClickListener(view15 -> mlistener.onHomeSlideNav(4));
         binding.cvLegalAction.moveFacilityHomeFragmrnt.setOnClickListener(view16 -> mlistener.onHomeSlideNav(5));

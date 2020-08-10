@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     android:layout_margin="10dp"
-    tools:context=".featuers.home.homeFiles.inspection.view.InspVisitOutOfPlaneFragment">
+    tools:context=".featuers.home.homeFiles.visitServices.view.InspVisitOutOfPlaneFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

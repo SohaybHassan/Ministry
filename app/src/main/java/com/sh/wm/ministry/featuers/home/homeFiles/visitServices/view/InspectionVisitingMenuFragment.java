@@ -1,4 +1,4 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.inspection.view;
+package com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sh.wm.ministry.R;
+import com.sh.wm.ministry.databinding.FragmentInspectionVisitingMenuBinding;
 
 
 public class InspectionVisitingMenuFragment extends Fragment implements View.OnClickListener {
-
+   private FragmentInspectionVisitingMenuBinding binding ;
     CardView[] cards = new CardView[5];
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,20 +26,12 @@ public class InspectionVisitingMenuFragment extends Fragment implements View.OnC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_inspection_visiting_menu, container, false);
-        cards[0]= view.findViewById(R.id.inspection_mng_btn);
-        cards[1]= view.findViewById(R.id.inspection_dec_btn);
-        cards[2]= view.findViewById(R.id.inspection_plane_mng_btn);
-        cards[3]= view.findViewById(R.id.inspection_plane_prp_btn);
-        cards[4]= view.findViewById(R.id.inspection_visit_btn);
-
-        for(CardView cr : cards){
-            cr.setOnClickListener(this);
-        }//end for
+        binding =  new FragmentInspectionVisitingMenuBinding();
 
 
-        return view ;
+
+
+        return binding.getRoot() ;
     }//end onCreateView(..)
 
     @Override
