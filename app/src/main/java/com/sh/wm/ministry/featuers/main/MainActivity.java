@@ -205,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case 3:
                 break;
             case 4:
+                navController.navigate(R.id.nav_visit_sevices);
                 break;
         }
     }

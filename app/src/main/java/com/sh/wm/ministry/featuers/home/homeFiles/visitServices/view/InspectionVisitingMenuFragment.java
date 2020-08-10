@@ -11,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sh.wm.ministry.R;
+import com.sh.wm.ministry.databinding.FragmentHomeBinding;
 import com.sh.wm.ministry.databinding.FragmentInspectionVisitingMenuBinding;
 
 
 public class InspectionVisitingMenuFragment extends Fragment implements View.OnClickListener {
    private FragmentInspectionVisitingMenuBinding binding ;
-    CardView[] cards = new CardView[5];
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +27,8 @@ public class InspectionVisitingMenuFragment extends Fragment implements View.OnC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding =  new FragmentInspectionVisitingMenuBinding();
-
+        binding =  FragmentInspectionVisitingMenuBinding.inflate(inflater, container, false);
+        binding.inspectionMngBtn.setOnClickListener(this);
 
 
 
@@ -39,6 +40,7 @@ public class InspectionVisitingMenuFragment extends Fragment implements View.OnC
         Intent intent ;
         switch(v.getId()){
             case R.id.inspection_mng_btn :
+
                  intent = new Intent(this.getContext(),InspectionMngFragment.class);
                 startActivity(intent);
                 break;

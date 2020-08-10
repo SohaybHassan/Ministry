@@ -8,4 +8,6 @@
     <dimen name="spacing_middle">10dp</dimen>
     <dimen name="spacing_smlarge">18dp</dimen>
     <dimen name="spacing_mlarge">14dp</dimen>
+    <dimen name="card_height">120dp</dimen>
+
 </resources>

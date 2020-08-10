@@ -94,6 +94,9 @@ public class HomeFragment extends Fragment {
             mListener.onHomeFragmentInteraction(1);
         });
         binding.cvRequsetRegisterCertification.cvWorkerComplaint.setOnClickListener(view19 -> registrationcertificatDialog());
+        binding.cvVisitsServices.cvWorkerComplaint.setOnClickListener(view20 -> {
+            mListener.onHomeFragmentInteraction(4);
+        } );
 
         //
         binding.btnMoveFacility.moveFacilityHomeFragmrnt.setOnClickListener(view12 -> mlistener.onHomeSlideNav(1));
