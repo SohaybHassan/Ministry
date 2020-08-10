@@ -141,13 +141,14 @@ public class NetworkUtils {
         //Access to server useing Header
         Interceptor interceptor;
         if (isLogin) {
+            String token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjQwNDc2NzA2MyIsInVzZXJfaWQiOiIxODE5MyIsInJvbGVzIjpbIiJdfQ.r9VdXYW8qbdhBa7Wq_CooHs8zWi8PPfBJqA-aBj3RgA";
             interceptor = chain -> {
                 Request.Builder builder = chain.request().newBuilder()
                         .addHeader(HEADER_CONTENT_TYPE, CONTENT_TYPE)
                         .addHeader(HEADER_ACCEPT_LANGUAGE, ACCEPT_LANGUAGE)
                         .addHeader(ACCEPT, CONTENT_TYPE)
-                        .addHeader(TOKEN, SharedPreferneceHelper.getToken(context));
-
+                        .addHeader(TOKEN, token);
+//SharedPreferneceHelper.getToken(context)
                 return chain.proceed(builder.build());
             };
         } else {
