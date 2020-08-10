@@ -18,6 +18,7 @@ import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentHomeBinding;
 import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.home.viewModel.HomeViewModel;
+import com.sh.wm.ministry.network.model.SharedPreferneceHelper;
 
 
 public class HomeFragment extends Fragment {
@@ -137,7 +138,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void sase(View view) {
 
-                homeViewModel.requestCertificate("12584").observe(getViewLifecycleOwner(),certificateRequestObserver);
+                homeViewModel.requestCertificate("18193").observe(getViewLifecycleOwner(),certificateRequestObserver);
                 dialog.dismiss();
             }
 
