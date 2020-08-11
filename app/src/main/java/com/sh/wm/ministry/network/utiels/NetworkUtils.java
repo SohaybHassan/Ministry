@@ -147,8 +147,8 @@ public class NetworkUtils {
                         .addHeader(HEADER_CONTENT_TYPE, CONTENT_TYPE)
                         .addHeader(HEADER_ACCEPT_LANGUAGE, ACCEPT_LANGUAGE)
                         .addHeader(ACCEPT, CONTENT_TYPE)
-                        .addHeader(TOKEN, token);
-//SharedPreferneceHelper.getToken(context)
+                        .addHeader(TOKEN,token);
+////SharedPreferneceHelper.getToken(context)
                 return chain.proceed(builder.build());
             };
         } else {

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sh.wm.ministry.R;
+import com.sh.wm.ministry.databinding.FragmentInspectionResultsBinding;
+import com.sh.wm.ministry.databinding.FragmentInspectionVisitingMenuBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +18,7 @@ import com.sh.wm.ministry.R;
  * create an instance of this fragment.
  */
 public class InspectionResultsFragment extends Fragment {
-
+private FragmentInspectionResultsBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";

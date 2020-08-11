@@ -166,7 +166,7 @@
     <!-- inspection -->
     <fragment
         android:id="@+id/nav_visit_sevices"
-        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspectionVisitingMenuFragment"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.VisitingMenuFragment"
         android:label="@string/visits_services"
         tools:layout="@layout/fragment_inspection_visiting_menu"/>
     <fragment

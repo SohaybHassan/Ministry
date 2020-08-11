@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".featuers.home.homeFiles.visitServices.view.InspectionPlaneManagementFragment"
     android:layoutDirection="rtl"
-    android:layout_margin="10dp">
+    android:layout_margin="5dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +18,6 @@
         style="@style/txtStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/inspector_name" />
 
     <TextView
@@ -106,6 +108,7 @@
             />
     </RadioGroup>
 </LinearLayout>
+    </ScrollView>
 <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

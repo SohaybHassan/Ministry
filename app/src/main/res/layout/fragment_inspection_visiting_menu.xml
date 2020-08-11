@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="400dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/visit_menu"
-    tools:context=".featuers.home.homeFiles.visitServices.view.InspectionVisitingMenuFragment"
+    tools:context=".featuers.home.homeFiles.visitServices.view.VisitingMenuFragment"
     android:layout_margin="5dp"
     android:layoutDirection="rtl"
     android:orientation="vertical"
@@ -14,11 +14,11 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="@dimen/card_height"
+    android:layout_height="0dp"
+    android:layout_weight="1"
     android:orientation="horizontal"
   >
     <androidx.cardview.widget.CardView
-        android:id="@+id/inspection_mng_btn"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="fill_parent"
@@ -27,11 +27,13 @@
         >
 
         <LinearLayout
+            android:id="@+id/inspection_mng_card"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:theme="@style/insBtn">
 
             <TextView
+                android:id="@+id/inspection_mng_no"
                 style="@style/insResult"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -41,6 +43,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/inspection_mng_txt"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="5dp"
@@ -50,7 +53,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/inspection_plane_mng_btn"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
        android:layout_weight="1"
@@ -58,12 +60,14 @@
         app:cardCornerRadius="5dp"
         >
         <LinearLayout
+            android:id="@+id/inspection_plane_mng_card"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:theme="@style/insBtn"
             >
 
             <TextView
+                android:id="@+id/inspection_plane_mng_no"
                 style="@style/insResult"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -73,6 +77,7 @@
                 android:textSize="15sp"
                 />
             <TextView
+                android:id="@+id/inspection_plane_mng_txt"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="3"
@@ -85,11 +90,11 @@
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/card_height"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_marginTop="5dp">
         <androidx.cardview.widget.CardView
-            android:id="@+id/inspection_plane_prp_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -98,11 +103,13 @@
             >
 
             <LinearLayout
+                android:id="@+id/inspection_plane_prp_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:theme="@style/insBtn">
 
                 <TextView
+                    android:id="@+id/inspection_plane_prp_no"
                     style="@style/insResult"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
@@ -112,6 +119,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/inspection_plane_prp_txt"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_marginLeft="5dp"
@@ -121,7 +129,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/inspection_dec_btn"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -129,12 +136,14 @@
             app:cardCornerRadius="5dp"
             >
             <LinearLayout
+                android:id="@+id/inspection_dec_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:theme="@style/insBtn"
                 >
 
                 <TextView
+                    android:id="@+id/inspection_dec_no"
                     style="@style/insResult"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
@@ -144,6 +153,7 @@
                     android:textSize="15sp"
                     />
                 <TextView
+                    android:id="@+id/inspection_dec_txt"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="3"
@@ -156,11 +166,11 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/card_height"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_marginTop="5dp">
         <androidx.cardview.widget.CardView
-            android:id="@+id/inspection_visit_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -169,11 +179,13 @@
             >
 
             <LinearLayout
+                android:id="@+id/inspection_visit_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:theme="@style/insBtn">
 
                 <TextView
+                    android:id="@+id/inspection_visit_no"
                     style="@style/insResult"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
@@ -183,6 +195,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/inspection_visit_txt"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_marginLeft="5dp"

@@ -13,11 +13,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.databinding.FragmentInspectionMngBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link InspectionMngFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class InspectionMngFragment extends Fragment {
 
    private FragmentInspectionMngBinding binding ;
@@ -26,15 +22,6 @@ public class InspectionMngFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment InspectionMngFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static InspectionMngFragment newInstance(String param1, String param2) {
         InspectionMngFragment fragment = new InspectionMngFragment();
 

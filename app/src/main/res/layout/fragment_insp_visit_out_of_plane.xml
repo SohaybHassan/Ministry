@@ -1,131 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     tools:context=".featuers.home.homeFiles.visitServices.view.InspVisitOutOfPlaneFragment">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <TextView
-        style="@style/txtStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/company_name" />
 
-    <TextView
-        android:id="@+id/ins_cmp_name"
-        style="@style/editTxtStyle"
-        android:layout_width="match_parent"
-        android:drawableEnd="@drawable/ic_search_dark"
-        />
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     style="@style/insResult"
-     android:text="@string/inspector_members"
-     android:layout_marginTop="20dp"/>
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2">
+
+
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/ll_visit"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:orientation="vertical">
 
-            >
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company_name" />
+
+            <TextView
+                android:id="@+id/ins_cmp_name"
+                style="@style/editTxtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_search_dark" />
+
+            <TextView
+                style="@style/insResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/inspector_members" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+
+                    >
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/choose_inspector" />
+
+                    <TextView
+                        android:id="@+id/inspector_one"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/choose_inspector" />
+
+                    <TextView
+                        android:id="@+id/inspector_two"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/choose_inspector" />
+
+                    <TextView
+                        android:id="@+id/inspector_three"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down" />
+                </LinearLayout>
+            </GridLayout>
+
+            <TextView
+                style="@style/insResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/inspect_visit_resoan" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/visit_reason"
+                style="@style/editTxtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:inputType="text"
+                android:minHeight="100dp" />
+
             <TextView
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/choose_inspector" />
+                android:text="@string/date_visit" />
+
             <TextView
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_marginRight="10dp"
-            >
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
+                android:id="@+id/visit_date"
+                style="@style/datePickerStyle"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/choose_inspector" />
-            <TextView
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
+                android:drawableEnd="@drawable/ic_calendar" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            >
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/choose_inspector" />
-            <TextView
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
-        </LinearLayout>
-    </GridLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/insResult"
-        android:text="@string/inspect_visit_resoan"
-        android:layout_marginTop="20dp"/>
 
-    <com.google.android.material.textfield.TextInputEditText
-        style="@style/editTxtStyle"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="8dp"
-        android:gravity="start"
-        android:inputType="text"
-        android:minHeight="100dp" />
 
-    <TextView
-        style="@style/txtStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/date_visit" />
-
-    <TextView
-        style="@style/datePickerStyle"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:drawableEnd="@drawable/ic_calendar" />
-    </LinearLayout>
     <Button
+        android:id="@+id/btn_save_visit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save"
