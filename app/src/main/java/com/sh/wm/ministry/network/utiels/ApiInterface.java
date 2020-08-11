@@ -11,22 +11,20 @@ import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
 import com.sh.wm.ministry.featuers.sso.model.UserInfoSsoModel;
 import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.addressAndContact.model.userworkcontact.UserWorkContactModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.career.model.UserCareerModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.dependents.model.UserDependentsModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.dependents.model.UserWorkerInsertModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.educationalstatus.model.EducationalStatusModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.health.model.health.UserHealthStatusModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.AllLanguagesModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.UserLanguagesModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.PracticalStatusModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.WorkStatusModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.trainingskills.model.TrainingSkillsModel;
-import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperienceModel;
+import com.sh.wm.ministry.featuers.userfile.addressAndContact.model.userworkcontact.UserWorkContactModel;
+import com.sh.wm.ministry.featuers.userfile.career.model.UserCareerModel;
+import com.sh.wm.ministry.featuers.userfile.dependents.model.UserDependentsModel;
+import com.sh.wm.ministry.featuers.userfile.dependents.model.UserWorkerInsertModel;
+import com.sh.wm.ministry.featuers.userfile.educationalstatus.model.EducationalStatusModel;
+import com.sh.wm.ministry.featuers.userfile.health.model.health.UserHealthStatusModel;
+import com.sh.wm.ministry.featuers.userfile.languages.model.AllLanguagesModel;
+import com.sh.wm.ministry.featuers.userfile.languages.model.UserLanguagesModel;
+import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.PracticalStatusModel;
+import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.WorkStatusModel;
+import com.sh.wm.ministry.featuers.userfile.trainingskills.model.TrainingSkillsModel;
+import com.sh.wm.ministry.featuers.userfile.workexperience.model.UserWorkExperienceModel;
 
-import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -108,8 +106,8 @@ public interface ApiInterface {
     Call<WorkStatusModel> getWorkStatus();
 
     @FormUrlEncoded
-    @POST("user_work_status_get_by_user_id")
-    Call<PracticalStatusModel> getUserPracticalStatus(@Field("USER_WORK_USER_ID") String userId);
+    @POST("get_user_work_status")
+    Call<PracticalStatusModel> getUserPracticalStatus(@Field("user_id") String userId);
 
     //training skills
     @FormUrlEncoded

@@ -12,54 +12,48 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_user_file"
-        android:name="com.sh.wm.ministry.featuers.userfile.UserFileFragment"
-        android:label="@string/menu_user_file"
-        tools:layout="@layout/fragment_major_services" />
-
-    <fragment
         android:id="@+id/nav_major_services"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.majorservices.view.MajorServicesFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.majorservices.view.MajorServicesFragment"
         android:label="@string/major_services"
         tools:layout="@layout/fragment_major_services" />
 
     <fragment
         android:id="@+id/nav_address_contact"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.addressAndContact.view.AddressAndContactFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.addressAndContact.view.AddressAndContactFragment"
         android:label="@string/address_contact"
         tools:layout="@layout/fragment_address_and_contact" />
 
     <fragment
         android:id="@+id/nav_healh"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.health.view.HealhFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.health.view.HealhFragment"
         android:label="@string/health_status"
         tools:layout="@layout/fragment_health_status" />
 
     <fragment
         android:id="@+id/nav_dependents"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.dependents.view.DependentsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.dependents.view.DependentsFragment"
         android:label="@string/dependents"
         tools:layout="@layout/fragment_dependents" />
     <fragment
         android:id="@+id/nav_add_dependents"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.dependents.view.AddDependentsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.dependents.view.AddDependentsFragment"
         android:label="@string/add_dependents"
         tools:layout="@layout/fragment_add_dependents" />
     <fragment
         android:id="@+id/nav_educational_status"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.educationalstatus.view.EducationalStatusFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.educationalstatus.view.EducationalStatusFragment"
         android:label="@string/educational_status"
         tools:layout="@layout/fragment_educational_status" />
 
     <fragment
         android:id="@+id/nav_add_education"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.educationalstatus.view.AddEducationFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.educationalstatus.view.AddEducationFragment"
         android:label="@string/add_eductionalstatus"
         tools:layout="@layout/fragment_add_education" />
 
     <fragment
         android:id="@+id/nav_training_programs"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.trainingprograms.view.TrainingProgramsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.trainingprograms.view.TrainingProgramsFragment"
         android:label="@string/training_programs"
         tools:layout="@layout/fragment_training_programs" />
 
@@ -78,45 +72,45 @@
     <!-- career -->
     <fragment
         android:id="@+id/nav_career"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.career.view.CareersFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.career.view.CareersFragment"
         android:label="@string/add_career"
         tools:layout="@layout/fragment_careers" />
 
     <!-- work experience -->
     <fragment
         android:id="@+id/nav_work_experience"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.view.UserWorkExperiencesFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.workexperience.view.UserWorkExperiencesFragment"
         android:label="@string/practical_experiences" />
 
     <fragment
         android:id="@+id/nav_add_work_experience"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.view.AddWorkExperienceFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.workexperience.view.AddWorkExperienceFragment"
         android:label="@string/add_experience"
         tools:layout="@layout/fragment_add_work_experience" />
 
     <!-- languages -->
     <fragment
         android:id="@+id/nav_languages"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.languages.view.UserLanguagesFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.languages.view.UserLanguagesFragment"
         android:label="@string/add_experience"
         tools:layout="@layout/fragment_user_languages" />
 
     <fragment
         android:id="@+id/nav_add_language"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.languages.view.AddLanguageFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.languages.view.AddLanguageFragment"
         android:label="@string/add_experience"
         tools:layout="@layout/fragment_add_language" />
 
     <!-- practical status-->
     <fragment
         android:id="@+id/nav_practical_status"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.view.PracticalStatusFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.practicalstatus.view.PracticalStatusFragment"
         android:label="fragment_practical_status"
         tools:layout="@layout/fragment_practical_status"/>
 
     <fragment
         android:id="@+id/nav_add_practical_status"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.view.AddPracticalStatusFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.practicalstatus.view.AddPracticalStatusFragment"
         android:label="fragment_add_practical_status"
         tools:layout="@layout/fragment_add_practical_status" />
 
@@ -165,13 +159,13 @@
 
     <fragment
         android:id="@+id/trainingSkillsFragment"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.trainingskills.view.TrainingSkillsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.trainingskills.view.TrainingSkillsFragment"
         android:label="fragment_training_skills"
         tools:layout="@layout/fragment_training_skills" />
 
     <fragment
         android:id="@+id/addTrainingSkillsFragment"
-        android:name="com.sh.wm.ministry.featuers.userfile.userFiles.trainingskills.view.AddTrainingSkillsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.trainingskills.view.AddTrainingSkillsFragment"
         android:label="fragment_add_training_skills"
         tools:layout="@layout/fragment_add_training_skills" />
 

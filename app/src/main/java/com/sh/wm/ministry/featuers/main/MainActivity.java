@@ -1,10 +1,13 @@
 package com.sh.wm.ministry.featuers.main;
+
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -15,6 +18,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textview.MaterialTextView;
 import com.sh.wm.ministry.R;
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
     private CoordinatorLayout.LayoutParams params;
     public NavController navController;
     private static boolean isDrawerVisiable;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +64,24 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_user_file, R.id.nav_signout, R.id.nav_major_services)
+                R.id.nav_home, R.id.nav_address_contact, R.id.nav_signout, R.id.nav_major_services)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        String[] navItemTitle = getResources().getStringArray(R.array.nav_item_name);
+        String[] navItemImage = getResources().getStringArray(R.array.nav_item_image);
+        ArrayList<NavigationModel> list = new ArrayList<>();
+        for (int i = 0; i < navItemTitle.length; i++) {
+            NavigationModel models = new NavigationModel(navItemImage[i], navItemTitle[i]);
+            list.add(models);
+        }
+        listView = findViewById(R.id.lv_float_menu);
+        FloatingMenuAdapter adapter = new FloatingMenuAdapter(this, list);
+        listView.setAdapter(adapter);
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.nav_home) {
@@ -72,58 +89,66 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                 closeDrawer();
                 sideButton.setVisibility(View.GONE);
                 sideDrawer.setVisibility(View.GONE);
-
-
             } else {
                 toolbarTitle.setText(R.string.menu_user_file);
                 sideButton.setVisibility(View.VISIBLE);
             }
         });
 
-        String[] navItemTitle = getResources().getStringArray(R.array.nav_item_name);
-        String[] navItemImage = getResources().getStringArray(R.array.nav_item_image);
-        ArrayList<NavigationModel> list = new ArrayList<>();
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            toolbarTitle.setText(destination.getLabel());
+            switch (destination.getId()){
+                case R.id.nav_major_services:
+                    listView.setItemChecked(0, true);
+                    break;
+            }
+        });
 
-        for (int i = 0; i < navItemTitle.length; i++) {
-            NavigationModel models = new NavigationModel(navItemImage[i], navItemTitle[i]);
-            list.add(models);
-        }
-        ListView listView = findViewById(R.id.lv_float_menu);
-        FloatingMenuAdapter adapter = new FloatingMenuAdapter(this, list);
-        listView.setAdapter(adapter);
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
+            listView.setItemChecked(i, true);
             switch (i) {
                 case 0:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_major_services);
                     break;
                 case 1:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_address_contact);
                     break;
                 case 2:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_healh);
                     break;
                 case 3:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_dependents);
                     break;
                 case 4:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_educational_status);
                     break;
                 case 5:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_training_programs);
                     break;
                 case 6:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_work_experience);
                     break;
                 case 7:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_career);
                     break;
                 case 8:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_languages);
                     break;
                 case 9:
+                    navController.popBackStack();
                     navController.navigate(R.id.nav_practical_status);
                     break;
                 case 10:
+                    navController.popBackStack();
                     navController.navigate(R.id.trainingSkillsFragment);
                     break;
 
@@ -244,15 +269,15 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
 
     @Override
     public void onFragmentInteraction(int id, Bundle bundle) {
-        switch (id){
+        switch (id) {
             case 72:
-                navController.navigate(R.id.nav_add_work_experience,bundle);
+                navController.navigate(R.id.nav_add_work_experience, bundle);
                 break;
             case 92:
-                navController.navigate(R.id.nav_add_language,bundle);
+                navController.navigate(R.id.nav_add_language, bundle);
                 break;
             case 10:
-                navController.navigate(R.id.nav_add_practical_status,bundle);
+                navController.navigate(R.id.nav_add_practical_status, bundle);
                 break;
         }
     }
@@ -291,4 +316,5 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
     private boolean getSideDrawerVisibility() {
         return isDrawerVisiable;
     }
+
 }
