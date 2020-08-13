@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                 navController.navigate(R.id.nav_inspection_mng);
                 break;
             case  R.id.inspection_dec_btn :
-                //   navController.navigate(R.id.nav_inspection_mng);
+                navController.navigate(R.id.nav_action_taking);
                 break;
             case R.id.inspection_plane_mng_card:
                 navController.navigate(R.id.nav_inspection_plane_management);

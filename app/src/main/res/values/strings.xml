@@ -235,6 +235,8 @@
     <!-- inspection visiting strings -->
     <string name="company_name">اسم الشركة</string>
     <string name="inspector_name">اسم المفتش</string>
+    <string name="inspector_identity">رقم هوية المفتش</string>
+    <string name="owner_identity">رقم هوية المالك</string>
     <string name="inspection_plane_mng_btn">إدارة خطة الزيارات التفتيشية</string>
     <string name="inspection_plane_prp_btn">إعداد خطة الزيارات التفتيشية</string>
     <string name="inspection_dec_btn">إدارة اتخاذ الاجراءات القانونية</string>
@@ -244,6 +246,7 @@
     <!-- inspection results strings -->
     <string name="inspection_results">نتائج التفتيش</string>
     <string name="visit_out_of_plane">زيارة خارج الخطة</string>
+    <string name="take_action">اتخاذ اجراء قانوني</string>
 
     <string name="take_procedures">اتخاذ الإجراءات التالية</string>
     <string name="one_op_one">تنبيه شفوي</string>
@@ -268,7 +271,6 @@
     <string name="choose_inspector">اختر المفتش</string>
     <string name="inspector_members">أعضاء هيئة التفتيش</string>
     <string name="inspect_visit_resoan">سبب الزيارة التفتيشية</string>
-
 
 
     <!--numbers-->

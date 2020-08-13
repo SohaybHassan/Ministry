@@ -189,6 +189,11 @@
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.InspectionPlaneManagementFragment"
         android:label="@string/visit_out_of_plane"
         tools:layout="@layout/fragment_inspection_plane_managment" />
+    <fragment
+        android:id="@+id/nav_action_taking"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.ActionTakingFragment"
+        android:label="@string/take_action"
+        tools:layout="@layout/fragment_action_taking" />
 
 
 </navigation>
