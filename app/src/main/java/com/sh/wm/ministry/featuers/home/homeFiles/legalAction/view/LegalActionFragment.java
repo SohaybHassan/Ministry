@@ -107,7 +107,7 @@ public class LegalActionFragment extends Fragment {
             public void onClick(View view) {
                 bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                     @Override
-                    public void searshByNumber(String num_facility) {
+                    public void searchByNumber(String num_facility) {
                         binding.progress.setVisibility(View.VISIBLE);
                         enabel(false);
                         legalActionViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);

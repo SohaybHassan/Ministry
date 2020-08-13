@@ -115,7 +115,7 @@ public class AdjustmentReportFragment extends Fragment {
         binding.edNuFacilityAdjustmentReport.setOnClickListener(view1 -> {
             bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                 @Override
-                public void searshByNumber(String num_facility) {
+                public void searchByNumber(String num_facility) {
                     binding.progress.setVisibility(View.VISIBLE);
                     adjustmentReportViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
                     sheetDialog.dismiss();

@@ -119,7 +119,7 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
 
                 bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                     @Override
-                    public void searshByNumber(String num_facility) {
+                    public void searchByNumber(String num_facility) {
                         binding.progressbar.setVisibility(View.VISIBLE);
                         enabel(false);
                         leavingWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);

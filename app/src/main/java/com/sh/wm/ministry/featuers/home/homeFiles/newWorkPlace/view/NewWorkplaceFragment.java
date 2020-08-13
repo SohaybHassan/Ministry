@@ -126,7 +126,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
             public void onClick(View view) {
                 bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
                     @Override
-                    public void searshByNumber(String num_facility) {
+                    public void searchByNumber(String num_facility) {
                         binding.progressbar.setVisibility(View.VISIBLE);
                         ensbel(false);
                         newWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);

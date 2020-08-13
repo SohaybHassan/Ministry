@@ -46,7 +46,7 @@ public class BottomSheetSearsh {
             if (ed_searsh.getText().toString().isEmpty()) {
                 Toast.makeText(application, "الرجاء إدخال رقم منشاة صحيح ", Toast.LENGTH_SHORT).show();
             } else {
-                mListener.searshByNumber(ed_searsh.getText().toString());
+                mListener.searchByNumber(ed_searsh.getText().toString());
             }
 
 
@@ -61,7 +61,7 @@ public class BottomSheetSearsh {
 
     public interface bottomSheetSearsh {
 
-        void searshByNumber(String num_facility);
+        void searchByNumber(String num_facility);
 
     }
 

@@ -46,7 +46,7 @@ public class InspectionPlaneManagementFragment extends Fragment {
                 BottomSheetDialog dialog = new BottomSheetDialog(context);
                  new BottomSheetSearsh(context, dialog, new BottomSheetSearsh.bottomSheetSearsh() {
                      @Override
-                     public void searshByNumber(String num_facility) {
+                     public void searchByNumber(String num_facility) {
 
                      }
                  }) ;

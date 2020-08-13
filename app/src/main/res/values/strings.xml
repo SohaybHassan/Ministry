@@ -234,6 +234,7 @@
     <string name="Cancel">إلغاء</string>
     <!-- inspection visiting strings -->
     <string name="company_name">اسم الشركة</string>
+    <string name="company">الشركة</string>
     <string name="inspector_name">اسم المفتش</string>
     <string name="inspector_identity">رقم هوية المفتش</string>
     <string name="owner_identity">رقم هوية المالك</string>
@@ -273,7 +274,7 @@
     <string name="inspect_visit_resoan">سبب الزيارة التفتيشية</string>
     <string name="action_taking_confirmation">هل تريد حفظ إجراء قانوني ؟</string>
     <string name="add_visit_confirmation">هل تريد حفظ زيارة خارج الخطة ؟</string>
-
+    <string name="insert_three_letters">ادخل ثلاثة حروف</string>
 
     <!--numbers-->
     <string name="one">1</string>

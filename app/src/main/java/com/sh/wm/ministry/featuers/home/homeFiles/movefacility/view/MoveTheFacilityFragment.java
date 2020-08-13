@@ -233,7 +233,7 @@ public class MoveTheFacilityFragment extends Fragment {
 
             bottomSheetSearsh = new BottomSheetSearsh(getActivity(), dialog, new BottomSheetSearsh.bottomSheetSearsh() {
                 @Override
-                public void searshByNumber(String num_facility) {
+                public void searchByNumber(String num_facility) {
                     binding.progressbar.setVisibility(View.VISIBLE);
                     enapel(false);
                     moveFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
