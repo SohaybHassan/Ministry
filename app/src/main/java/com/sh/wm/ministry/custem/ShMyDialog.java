@@ -59,7 +59,7 @@ public class ShMyDialog extends DialogFragment {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dilogclicked.sase(view);
+                dilogclicked.save(view);
 
 
             }
@@ -67,7 +67,7 @@ public class ShMyDialog extends DialogFragment {
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dilogclicked.edite(view);
+                dilogclicked.edit(view);
 
             }
         });
@@ -75,8 +75,8 @@ public class ShMyDialog extends DialogFragment {
 
     public interface Dilogclicked {
 
-        void sase(View view);
+        void save(View view);
 
-        void edite(View view);
+        void edit(View view);
     }
 }

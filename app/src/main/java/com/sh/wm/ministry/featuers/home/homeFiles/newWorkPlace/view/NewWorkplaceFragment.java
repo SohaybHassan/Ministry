@@ -98,13 +98,13 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
             public void onClick(View view) {
                 dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
                     @Override
-                    public void sase(View view) {
+                    public void save(View view) {
                         Toast.makeText(getContext(), "تم الحفظ بنجاح", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
 
                     @Override
-                    public void edite(View view) {
+                    public void edit(View view) {
                         dialog.dismiss();
                     }
                 }, getString(R.string.new_work_place),getString(R.string.save),getString(R.string.edit));

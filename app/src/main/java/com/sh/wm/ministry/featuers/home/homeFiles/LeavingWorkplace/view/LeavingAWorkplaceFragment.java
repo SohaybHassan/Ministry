@@ -93,13 +93,13 @@ public class LeavingAWorkplaceFragment extends Fragment implements DateAdder.Lis
         binding.btnSaveLeavingWorkPlace.setOnClickListener(view1 -> {
             dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
                 @Override
-                public void sase(View view1) {
+                public void save(View view1) {
                     Toast.makeText(getContext(), "تم الحفظ بنجاح", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
 
                 @Override
-                public void edite(View view1) {
+                public void edit(View view1) {
                     dialog.dismiss();
                 }
             }, getString(R.string.leaving_work_place),getString(R.string.save),getString(R.string.edit));

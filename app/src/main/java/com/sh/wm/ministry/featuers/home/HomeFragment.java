@@ -140,15 +140,15 @@ public class HomeFragment extends Fragment {
 
         dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
             @Override
-            public void sase(View view) {
+            public void save(View view) {
 
                 homeViewModel.requestCertificate("18193").observe(getViewLifecycleOwner(),certificateRequestObserver);
                 dialog.dismiss();
             }
 
             @Override
-            public void edite(View view) {
-                Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
+            public void edit(View view) {
+//                Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         }, getString(R.string.registration_certificate),getString(R.string.emphasis),getString(R.string.Cancel));

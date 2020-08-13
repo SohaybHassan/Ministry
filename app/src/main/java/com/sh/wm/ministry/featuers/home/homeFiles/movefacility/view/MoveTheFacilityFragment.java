@@ -196,7 +196,7 @@ public class MoveTheFacilityFragment extends Fragment {
                 } else if (true) {
                     shMyDialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
                         @Override
-                        public void sase(View view) {
+                        public void save(View view) {
                             binding.progressbar.setVisibility(View.VISIBLE);
                             String desc = binding.edTitleDescription.getText().toString();
                             String box = binding.edMailboxNumber.getText().toString();
@@ -216,7 +216,7 @@ public class MoveTheFacilityFragment extends Fragment {
                         }
 
                         @Override
-                        public void edite(View view) {
+                        public void edit(View view) {
                             shMyDialog.dismiss();
                         }
                     }, getString(R.string.save_enterprise_place), getString(R.string.save), getString(R.string.edit));

@@ -152,7 +152,7 @@ public class AddLanguageFragment extends Fragment {
             public void onClick(View view) {
                 dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
                     @Override
-                    public void sase(View view) {
+                    public void save(View view) {
                         if (binding.tvLanguage.getText().toString().isEmpty() || binding.tvReadingSkill.getText().toString().isEmpty()|| binding.tvSpeakingSkill.getText().toString().isEmpty() ||  binding.tvWritingSkill.getText().toString().isEmpty()) {
                             Toast.makeText(getContext(), "empty fields", Toast.LENGTH_SHORT).show();
                         } else {
@@ -163,7 +163,7 @@ public class AddLanguageFragment extends Fragment {
                     }
 
                     @Override
-                    public void edite(View view) {
+                    public void edit(View view) {
                         Toast.makeText(getContext(), "you may edit the language", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
