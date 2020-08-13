@@ -11,11 +11,15 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
+    <!-- ***************** USER FILES ***************** -->
+
+    <!--major services-->
     <fragment
         android:id="@+id/nav_major_services"
         android:name="com.sh.wm.ministry.featuers.userfile.majorservices.view.MajorServicesFragment"
         android:label="@string/major_services"
         tools:layout="@layout/fragment_major_services" />
+    <!-- ************ -->
 
     <fragment
         android:id="@+id/nav_address_contact"
@@ -75,6 +79,7 @@
         android:name="com.sh.wm.ministry.featuers.userfile.career.view.CareersFragment"
         android:label="@string/add_career"
         tools:layout="@layout/fragment_careers" />
+    <!-- ************ -->
 
     <!-- work experience -->
     <fragment
@@ -87,6 +92,7 @@
         android:name="com.sh.wm.ministry.featuers.userfile.workexperience.view.AddWorkExperienceFragment"
         android:label="@string/add_experience"
         tools:layout="@layout/fragment_add_work_experience" />
+    <!-- ************ -->
 
     <!-- languages -->
     <fragment
@@ -100,19 +106,37 @@
         android:name="com.sh.wm.ministry.featuers.userfile.languages.view.AddLanguageFragment"
         android:label="@string/add_experience"
         tools:layout="@layout/fragment_add_language" />
+    <!-- ************ -->
 
     <!-- practical status-->
     <fragment
         android:id="@+id/nav_practical_status"
         android:name="com.sh.wm.ministry.featuers.userfile.practicalstatus.view.PracticalStatusFragment"
-        android:label="fragment_practical_status"
+        android:label="@string/practical_status"
         tools:layout="@layout/fragment_practical_status"/>
 
     <fragment
         android:id="@+id/nav_add_practical_status"
         android:name="com.sh.wm.ministry.featuers.userfile.practicalstatus.view.AddPracticalStatusFragment"
-        android:label="fragment_add_practical_status"
+        android:label="@string/add_practical_status"
         tools:layout="@layout/fragment_add_practical_status" />
+    <!-- ************ -->
+
+    <!-- training skills-->
+    <fragment
+        android:id="@+id/trainingSkillsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.trainingskills.view.TrainingSkillsFragment"
+        android:label="@string/training_skills"
+        tools:layout="@layout/fragment_training_skills" />
+
+    <fragment
+        android:id="@+id/addTrainingSkillsFragment"
+        android:name="com.sh.wm.ministry.featuers.userfile.trainingskills.view.AddTrainingSkillsFragment"
+        android:label="@string/add_training_skills"
+        tools:layout="@layout/fragment_add_training_skills" />
+    <!-- ************ -->
+
+    <!-- ***************** END OF USER FILES ***************** -->
 
     <fragment
         android:id="@+id/nav_move_facility"
@@ -157,17 +181,6 @@
         android:label="@string/adjustment_report"
         tools:layout="@layout/fragment_adjustment_report" />
 
-    <fragment
-        android:id="@+id/trainingSkillsFragment"
-        android:name="com.sh.wm.ministry.featuers.userfile.trainingskills.view.TrainingSkillsFragment"
-        android:label="fragment_training_skills"
-        tools:layout="@layout/fragment_training_skills" />
-
-    <fragment
-        android:id="@+id/addTrainingSkillsFragment"
-        android:name="com.sh.wm.ministry.featuers.userfile.trainingskills.view.AddTrainingSkillsFragment"
-        android:label="fragment_add_training_skills"
-        tools:layout="@layout/fragment_add_training_skills" />
 
 
 </navigation>

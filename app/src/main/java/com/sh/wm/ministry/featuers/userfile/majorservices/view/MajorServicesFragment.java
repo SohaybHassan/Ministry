@@ -23,13 +23,10 @@ import java.util.TimeZone;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class MajorServicesFragment extends Fragment implements DateAdder.Listener {
+public class MajorServicesFragment extends Fragment {
 
     private final String TAG = MajorServicesFragment.class.getName();
     private FragmentMajorServicesBinding binding;
-    private DateAdder dateAdder;
-    private TimeZone timeZone;
-    private long chosenTime;
 
     public static MajorServicesFragment newInstance() {
         return new MajorServicesFragment();
@@ -39,21 +36,16 @@ public class MajorServicesFragment extends Fragment implements DateAdder.Listene
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentMajorServicesBinding.inflate(inflater, container, false);
-        timeZone = TimeZone.getDefault();
-        chosenTime = System.currentTimeMillis();
-        dateAdder = new DateAdder(getActivity().getSupportFragmentManager(), this);
-        binding.tvBirthDateMajorServices.setOnClickListener(view -> dateAdder.show());
-        binding.tvDeathDateMajorServices.setOnClickListener(view -> {
-            dateAdder.show();
-        });
         return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        MajorServicesViewModel mViewModel = new ViewModelProvider(this).get(MajorServicesViewModel.class);
 
+        binding.progress.setVisibility(View.VISIBLE);
+
+        MajorServicesViewModel mViewModel = new ViewModelProvider(this).get(MajorServicesViewModel.class);
         mViewModel.getUserWorkInfoLiveData().observe(getViewLifecycleOwner(), userWorkInfo -> {
 
             if (userWorkInfo != null) {
@@ -64,47 +56,33 @@ public class MajorServicesFragment extends Fragment implements DateAdder.Listene
                 tokenEditor.apply();
                 tokenEditor.commit();
 
+                binding.progress.setVisibility(View.INVISIBLE);
+
                 UserWorkInfo info = userWorkInfo.getUserWorkInfo();
-                String userId = info.getUSERSN();
-                String firstName = info.getUSERFNAMEAR();
-                String fatherName = info.getUSERSNAMEAR();
-                String grandName = info.getUSERTNAMEAR();
-                String familyName = info.getUSERLNAMEAR();
-                String gender = info.getUSERSEX();
-                String birthPlace = info.getBIRTHPLACE();
-                String birthDate = info.getBRITHDATE();
-                String motherName = info.getUSERMOTHERNAME();
-                String childNumber = info.getUSERCHIDEDNUM();
-                String socialStatus = info.getSOCIALSTATUS();
-                String nationalId = info.getUSERNATIONALITYID();
-                String otherNationalId = info.getUSERNATIONALITYOTHERID();
 
-
-                binding.etUserIdMajorServices.setText(userId);
-                binding.etFirstNameMajorServices.setText(firstName);
-                binding.etFatherName.setText(fatherName);
-                binding.etGrandNameMajorServices.setText(grandName);
-                binding.etFamilyName.setText(familyName);
-                binding.etGenderMajorServices.setText(gender);
-                binding.etBirthPlaceMajorServices.setText(birthPlace);
-                binding.tvBirthDateMajorServices.setText(birthDate);
-                binding.etMotherNameMajorServices.setText(motherName);
-                binding.etChildNumberMajorServices.setText(childNumber);
-
-                if (birthPlace == null) {
+                binding.etUserIdMajorServices.setText(info.getUSERSN());
+                binding.etFirstNameMajorServices.setText(info.getUSERFNAMEAR());
+                binding.etFatherName.setText(info.getUSERSNAMEAR());
+                binding.etGrandNameMajorServices.setText(info.getUSERTNAMEAR());
+                binding.etFamilyName.setText(info.getUSERLNAMEAR());
+//                binding.etDocumentType.setText(info.get);
+                binding.etGenderMajorServices.setText(info.getUSERSEX());
+                if (info.getBIRTHPLACE() == null)
                     binding.etBirthPlaceMajorServices.setText("-");
-                }
-
-                if (info.getUSERDEATHDATE() == null) {
+                else
+                    binding.etBirthPlaceMajorServices.setText(info.getBIRTHPLACE());
+                binding.tvBirthDateMajorServices.setText(info.getBRITHDATE());
+                binding.etMotherNameMajorServices.setText(info.getUSERMOTHERNAME());
+                binding.etChildNumberMajorServices.setText(info.getUSERCHIDEDNUM());
+                if (info.getUSERDEATHDATE() == null)
                     binding.tvDeathDateMajorServices.setText("-");
-                } else {
-                    String deathDate = String.valueOf(info.getUSERDEATHDATE());
-                    binding.tvDeathDateMajorServices.setText(deathDate);
-                }
+                else
+                    binding.tvDeathDateMajorServices.setText(String.valueOf(info.getUSERDEATHDATE()));
+                binding.etSocialStatusMajorServices.setText(info.getSOCIALSTATUS());
+                binding.etNationalityMajorServices.setText(info.getUSERNATIONALITYID());
+                binding.etOtherNationalityIdMajorServices.setText(info.getUSERNATIONALITYOTHERID());
+                binding.etDirectorateBelongs.setText(info.getUSERDIRECTORATE());
 
-                binding.etSocialStatusMajorServices.setText(socialStatus);
-                binding.etNationalityMajorServices.setText(nationalId);
-                binding.etOtherNationalityIdMajorServices.setText(otherNationalId);
             } else {
                 new ToastMsg(getContext()).toastIconError(getString(R.string.proccess_failed));
             }
@@ -119,15 +97,4 @@ public class MajorServicesFragment extends Fragment implements DateAdder.Listene
         super.onDestroyView();
         binding = null;
     }
-
-    @Override
-    public void onDateTimeChosen(long timeChosen) {
-        chosenTime = timeChosen;
-        binding.tvBirthDateMajorServices.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
-        binding.tvDeathDateMajorServices.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
-    }
-
-
-
-
 }

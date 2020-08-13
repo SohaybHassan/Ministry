@@ -10,7 +10,7 @@
     <string name="menu_home">الرئيسية</string>
     <string name="menu_user_file">ملف المستخدم</string>
     <string name="menu_signout">تسجيل الخروج</string>
-    <string name="major_services">الخدمات الرئيسية</string>
+    <string name="major_services">البيانات الأساسية</string>
     <string name="worker_complaint">تقديم شكوى\n عمالية</string>
     <string name="request_calculate_labor_rights">طلب احتساب\n حقوق عمالية</string>
     <string name="visits_services">خدمات الزيارات</string>
@@ -239,6 +239,11 @@
     <string name="course">الدورة التدريبية</string>
     <string name="no_training_skills">"لم يتم إضافة مهارة تدريبية من قبل !"</string>
     <string name="add_training_skills">إضافة مهارة تدريبية</string>
+    <string name="training_skills">المهارات التدريبية</string>
+    <string name="document_type">نوع الوثيقة</string>
+    <string name="document_no">رقم الوثيقة</string>
+    <string name="directorate">المديرية التي تتبع لها</string>
+    <string name="age">العمر</string>
 
 
 </resources>
