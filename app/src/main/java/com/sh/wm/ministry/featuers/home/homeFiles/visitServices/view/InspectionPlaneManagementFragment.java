@@ -8,14 +8,23 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
+import com.sh.wm.ministry.custem.datepicker.DateAdder;
+import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentInspectionPlaneManagmentBinding;
 
-public class InspectionPlaneManagementFragment extends Fragment {
-    private FragmentInspectionPlaneManagmentBinding binding;
+import java.util.TimeZone;
 
+public class InspectionPlaneManagementFragment extends Fragment implements View.OnClickListener, DateAdder.Listener{
+    private FragmentInspectionPlaneManagmentBinding binding;
+    private DateAdder dateAdder;
+    private TimeZone timeZone;
+    private long selectedTime;
+    private boolean dateFlag = true ;
 
     public InspectionPlaneManagementFragment() {
         // Required empty public constructor
@@ -39,20 +48,49 @@ public class InspectionPlaneManagementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentInspectionPlaneManagmentBinding.inflate(inflater, container, false);
-        binding.insInspectorName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context =InspectionPlaneManagementFragment.this.getContext();
-                BottomSheetDialog dialog = new BottomSheetDialog(context);
-                 new BottomSheetSearsh(context, dialog, new BottomSheetSearsh.bottomSheetSearsh() {
-                     @Override
-                     public void searchByNumber(String num_facility) {
+        dateAdder = new DateAdder(getActivity().getSupportFragmentManager(), this);
+        timeZone = TimeZone.getDefault();
+        selectedTime = System.currentTimeMillis();
+        binding.insInspectorName.setOnClickListener(this) ;
+        binding.visitFrom.setOnClickListener(this) ;
+        binding.visitTo.setOnClickListener(this) ;
+        binding.visitSearchBtn.setOnClickListener(this) ;
 
-                     }
-                 }) ;
-            }
-        });
         return binding.getRoot();
         // Inflate the layout for this fragment
     }//end onCREATEView(..)
+
+    @Override
+    public void onDateTimeChosen(long timeChosen) {
+        selectedTime = timeChosen;
+       if(dateFlag){
+           binding.visitFrom.setText(TimeUtil.getDefaultDateText(selectedTime, timeZone));
+          return;
+       }//end if
+        binding.visitTo.setText(TimeUtil.getDefaultDateText(selectedTime, timeZone));
+
+    }//end onDateTime Chosen
+
+    @Override
+    public void onClick(View view) {
+      switch (view.getId()){
+          case R.id.ins_inspector_name :
+              break;
+          case R.id.visit_from:
+              dateFlag=true;
+              dateAdder.show();
+              break;
+          case R.id.visit_to:
+              dateFlag=false;
+              dateAdder.show();
+              break;
+          case R.id.visit_search_btn:
+              search();
+              break;
+      }//end switch
+    }//end onClick(..)
+
+    private void search(){
+        Toast.makeText(getActivity(),"SEARCH",Toast.LENGTH_SHORT).show();
+    }//end search
 }//end Class

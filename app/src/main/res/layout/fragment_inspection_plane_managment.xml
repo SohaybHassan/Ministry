@@ -51,6 +51,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/from" />
             <TextView
+                android:id="@+id/visit_from"
                 style="@style/datePickerStyle"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
@@ -71,6 +72,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/to" />
             <TextView
+                android:id="@+id/visit_to"
                 style="@style/datePickerStyle"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
@@ -84,6 +86,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/plane_status" />
     <RadioGroup
+        android:id="@+id/plan_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -110,6 +113,7 @@
 </LinearLayout>
     </ScrollView>
 <Button
+    android:id="@+id/visit_search_btn"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/search"

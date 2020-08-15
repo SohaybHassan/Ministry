@@ -1,6 +1,5 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,14 +11,18 @@ import android.view.ViewGroup;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
+import com.sh.wm.ministry.custem.datepicker.DateAdder;
+import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentInspectionMngBinding;
 
 
 public class InspectionMngFragment extends Fragment implements View.OnClickListener {
 
    private FragmentInspectionMngBinding binding ;
-    private BottomSheetSearsh bottomSheetSearsh;
-    private BottomSheetDialog dialog;
+    private BottomSheetSearsh bottomSheetSearch;
+    private BottomSheetDialog bottomSheetDialog;
+
+
 
     public InspectionMngFragment() {
         // Required empty public constructor
@@ -43,7 +46,7 @@ public class InspectionMngFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentInspectionMngBinding.inflate(inflater, container, false);
-        dialog = new BottomSheetDialog(getContext());
+        bottomSheetDialog = new BottomSheetDialog(getContext());
        //add onClickListener
         binding.insCompanyName.setOnClickListener(this);
 
@@ -66,14 +69,16 @@ public class InspectionMngFragment extends Fragment implements View.OnClickListe
                 break;
         }//end switch
     }//end onClick()
-    public void searchCompany(){
-        bottomSheetSearsh = new BottomSheetSearsh(getActivity(), dialog, new BottomSheetSearsh.bottomSheetSearsh() {
+    private void searchCompany(){
+        bottomSheetSearch = new BottomSheetSearsh(getActivity(), bottomSheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
             @Override
             public void searchByNumber(String num_facility) {
 
-                dialog.dismiss();
+                bottomSheetDialog.dismiss();
             }//searchByNumber()
         });
-        bottomSheetSearsh.openDialog(getString(R.string.company), getString(R.string.insert_three_letters));
+        bottomSheetSearch.openDialog(getString(R.string.company), getString(R.string.insert_three_letters));
     }//end search
+
+
 }//end class

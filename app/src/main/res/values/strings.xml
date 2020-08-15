@@ -274,7 +274,7 @@
     <string name="inspect_visit_resoan">سبب الزيارة التفتيشية</string>
     <string name="action_taking_confirmation">هل تريد حفظ إجراء قانوني ؟</string>
     <string name="add_visit_confirmation">هل تريد حفظ زيارة خارج الخطة ؟</string>
-    <string name="insert_three_letters">ادخل ثلاثة حروف</string>
+    <string name="insert_three_letters">ادخل ثلاثة حروف أو أكثر</string>
 
     <!--numbers-->
     <string name="one">1</string>

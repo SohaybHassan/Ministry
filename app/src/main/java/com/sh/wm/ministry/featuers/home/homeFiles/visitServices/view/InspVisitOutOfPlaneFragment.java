@@ -9,12 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.R;
+import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.custem.datepicker.DateAdder;
 import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentInspVisitOutOfPlaneBinding;
-import com.sh.wm.ministry.databinding.FragmentInspectionPlaneManagmentBinding;
 
 import java.util.TimeZone;
 
@@ -24,7 +25,9 @@ private FragmentInspVisitOutOfPlaneBinding binding ;
 private ShMyDialog dialog;
 private DateAdder dateAdder;
 private TimeZone timeZone;
-private long chosenTime;
+private long selectedTime;
+    private BottomSheetSearsh bottomSheetSearch;
+    private BottomSheetDialog bottomSheetDialog;
     public InspVisitOutOfPlaneFragment() {
         // Required empty public constructor
     }//end Constructor
@@ -48,6 +51,7 @@ private long chosenTime;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentInspVisitOutOfPlaneBinding.inflate(inflater, container, false);
+        bottomSheetDialog = new BottomSheetDialog(getContext());
         //add scroller
         binding.llVisit.setScrollContainer(true);
        //add clickListener
@@ -60,7 +64,7 @@ private long chosenTime;
         // add date picker
         dateAdder = new DateAdder(getActivity().getSupportFragmentManager(), this);
         timeZone = TimeZone.getDefault();
-        chosenTime = System.currentTimeMillis();
+        selectedTime = System.currentTimeMillis();
         return binding.getRoot();
     }//end onCreateView
 
@@ -70,6 +74,7 @@ private long chosenTime;
             case R.id.btn_save_visit : generateDialog();
                 break;
             case R.id.ins_cmp_name:
+                searchCompany();
                 break;
             case R.id.inspector_one:
                 break;
@@ -103,7 +108,23 @@ private long chosenTime;
 
     @Override
     public void onDateTimeChosen(long timeChosen) {
-        chosenTime = timeChosen;
-        binding.visitDate.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
+        selectedTime = timeChosen;
+        binding.visitDate.setText(TimeUtil.getDefaultDateText(selectedTime, timeZone));
     }//end onDateTime Chosen
+    private void searchCompany(){
+        if(binding.insCmpName.getText().toString().isEmpty()){
+            bottomSheetSearch = new BottomSheetSearsh(getActivity(), bottomSheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
+                @Override
+                public void searchByNumber(String num_facility) {
+
+                    bottomSheetDialog.dismiss();
+                }//searchByNumber()
+            });
+            bottomSheetSearch.openDialog(getString(R.string.company), getString(R.string.insert_three_letters));
+        }else{
+
+        }//end else
+
+    }//end search
+
 }//end class
