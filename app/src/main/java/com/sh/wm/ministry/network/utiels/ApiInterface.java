@@ -8,6 +8,8 @@ import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Municipalit
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.ConstructByName;
+import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
 import com.sh.wm.ministry.featuers.sso.model.UserInfoSsoModel;
 import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
@@ -114,9 +116,9 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("construction_change_place")
-    Call<PoastDataMoveFacility> CheangePlace(@Field("cnstruction_id") String cnstruction_id,@Field("address_id") String address_id,@Field("municipapiity_id") String municipapiity_id,@Field("region_id") String region_id,
-                                             @Field("street_id") String street_id,@Field("bulding_no") String bulding_no,@Field("address_desc") String address_desc,@Field("x_direction") String x_direction,@Field("y_direction") String y_direction,
-                                             @Field("construction_tele") String construction_tele,@Field("construction_mobile") String construction_mobile,@Field("construction_fax") String construction_fax,@Field("construction_box") String construction_box,
+    Call<PoastDataMoveFacility> CheangePlace(@Field("cnstruction_id") String cnstruction_id, @Field("address_id") String address_id, @Field("municipapiity_id") String municipapiity_id, @Field("region_id") String region_id,
+                                             @Field("street_id") String street_id, @Field("bulding_no") String bulding_no, @Field("address_desc") String address_desc, @Field("x_direction") String x_direction, @Field("y_direction") String y_direction,
+                                             @Field("construction_tele") String construction_tele, @Field("construction_mobile") String construction_mobile, @Field("construction_fax") String construction_fax, @Field("construction_box") String construction_box,
                                              @Field("construction_url") String construction_url);
 
     @GET("get_all_municipality")
@@ -133,10 +135,20 @@ public interface ApiInterface {
     Call<ConstructionGroup> getDataConstruction(@Query("construct_num") String nu_construction);
 
     @GET("get_paletinian_law_desc?PAL_LAW_ARTICAL_NUM=")
-    Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM" )String palLaw);
+    Call<PalLaw> getPalLaw(@Query("PAL_LAW_ARTICAL_NUM") String palLaw);
 
     @FormUrlEncoded
     @POST("construction_close")
-    Call<CloseFacilityModel> postCloseFacility(@Field("CONSTRUCT_ID")String CONSTRUCT_ID,@Field("CLOSE_DATE") String CLOSE_DATE,@Field("CLOSE_REASON")String  CLOSE_REASON, @Field("INSERT_USERID")String INSERT_USERID);
+    Call<CloseFacilityModel> postCloseFacility(@Field("CONSTRUCT_ID") String CONSTRUCT_ID, @Field("CLOSE_DATE") String CLOSE_DATE, @Field("CLOSE_REASON") String CLOSE_REASON, @Field("INSERT_USERID") String INSERT_USERID);
 
+
+    //
+
+   @GET("search_construct_by_using_name?construct_name=")
+    Call<ConstructByName> getConstructByName(@Query("construct_name") String ConstructNumber);
+
+
+    @FormUrlEncoded
+    @POST("qyed_request_for_user")
+    Call<CertificateRequest> requestCertificate(@Field("QAYED_USER_ID") String userId);
 }

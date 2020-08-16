@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentHomeBinding;
+import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.home.viewModel.HomeViewModel;
 
 
@@ -24,6 +27,7 @@ public class HomeFragment extends Fragment {
     private OnHomeFragmentInteractionListener mListener;
     private OnFragmentInteractionListener mlistener;
     private ShMyDialog dialog;
+    Observer<CertificateRequest> certificateRequestObserver;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,9 +40,9 @@ public class HomeFragment extends Fragment {
 //        if (role.equals("1") || role == null) {
 //            binding.cvVisitsServices.setVisibility(View.INVISIBLE);
 //        }
-        homeViewModel.getText().observe(getViewLifecycleOwner(), s -> {
-
-        });
+//        homeViewModel.getText().observe(getViewLifecycleOwner(), s -> {
+//
+//        });
 
         //bind main card title
         binding.cvWorkerComplaint.tvTitleHomeCard.setText(getString(R.string.worker_complaint));
@@ -102,6 +106,26 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        certificateRequestObserver = new Observer<CertificateRequest>() {
+            @Override
+            public void onChanged(CertificateRequest certificateRequest) {
+                if (certificateRequest != null) {
+                    binding.progress.setVisibility(View.GONE);
+                    enabel(true);
+                    Toast.makeText(getActivity(), certificateRequest.getMessageText(), Toast.LENGTH_SHORT).show();
+                } else {
+                    binding.progress.setVisibility(View.GONE);
+                    enabel(true);
+                    Toast.makeText(getActivity(), "no data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+    }
+
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
@@ -116,8 +140,9 @@ public class HomeFragment extends Fragment {
         dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
             @Override
             public void sase(View view) {
-
-                Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
+                binding.progress.setVisibility(View.VISIBLE);
+                enabel(false);
+                homeViewModel.requestCertificate("12584").observe(getViewLifecycleOwner(), certificateRequestObserver);
                 dialog.dismiss();
             }
 
@@ -126,7 +151,23 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), "true", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
-        }, getString(R.string.registration_certificate),getString(R.string.emphasis),getString(R.string.Cancel));
+        }, getString(R.string.registration_certificate), getString(R.string.emphasis), getString(R.string.Cancel));
         dialog.show(getParentFragmentManager(), "home Fragment");
+    }
+
+    public void enabel(boolean stautes){
+        binding.btnMoveFacility.moveFacilityHomeFragmrnt.setEnabled(stautes);
+        binding.cvReportNewWorkPlace.moveFacilityHomeFragmrnt.setEnabled(stautes);
+        binding.cvReportLeftWorkInPlace.moveFacilityHomeFragmrnt.setEnabled(stautes);
+        binding.cvAlertTemplate.moveFacilityHomeFragmrnt.setEnabled(stautes);
+        binding.cvLegalAction.moveFacilityHomeFragmrnt.setEnabled(stautes);
+        binding.cvCloseFacility.moveFacilityHomeFragmrnt.setEnabled(stautes);
+        binding.cvCreateSeizureReport.moveFacilityHomeFragmrnt.setEnabled(stautes);
+
+        binding.cvWorkerComplaint.tvTitleHomeCard.setEnabled(stautes);
+        binding.cvRequestCalculateLaborRights.tvTitleHomeCard.setEnabled(stautes);
+        binding.cvRequsetRegisterCertification.tvTitleHomeCard.setEnabled(stautes);
+        binding.cvVisitsServices.tvTitleHomeCard.setEnabled(stautes);
+
     }
 }

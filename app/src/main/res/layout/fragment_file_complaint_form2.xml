@@ -29,13 +29,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatSpinner
+            <TextView
                 android:id="@+id/spinner_relativeLayout1_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/spinner_bg"
                 app:layout_constraintEnd_toStartOf="@+id/spinner_relativeLayout2_secondPage"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,11 +51,9 @@
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_relativeLayout2_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/spinner_bg"
                 app:layout_constraintBottom_toBottomOf="@+id/spinner_relativeLayout1_secondPage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -76,10 +73,9 @@
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_relativeLayout3_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:background="@drawable/spinner_bg"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_work_type" />
@@ -114,13 +110,13 @@
                 app:layout_constraintStart_toStartOf="@+id/spinner_relativeLayout4_secondPage"
                 app:layout_constraintTop_toTopOf="@+id/tv_last_pay" />
 
-            <androidx.appcompat.widget.AppCompatSpinner
+            <TextView
                 android:id="@+id/spinner_relativeLayout4_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+
                 android:layout_marginStart="8dp"
-                android:background="@drawable/spinner_bg"
+
                 app:layout_constraintBottom_toBottomOf="@+id/et_last_pay"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -139,11 +135,10 @@
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_relativeLayout5_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/spinner_bg"
                 app:layout_constraintEnd_toStartOf="@+id/et_duration_pay"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_pay_type" />
@@ -179,11 +174,11 @@
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_relativeLayout6_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/spinner_bg"
+
                 app:layout_constraintEnd_toStartOf="@+id/spinner_relativeLayout7_secondPage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_date_beginning_work" />
@@ -199,11 +194,11 @@
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_relativeLayout7_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
-                android:layout_height="38dp"
+
                 android:layout_marginStart="8dp"
-                android:background="@drawable/spinner_bg"
+
                 app:layout_constraintBottom_toBottomOf="@+id/spinner_relativeLayout6_secondPage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -302,10 +297,10 @@
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_relativeLayout8_secondPage"
-                style="@style/spinnerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:background="@drawable/spinner_bg"
+
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_legal_period_ending_work" />
@@ -321,7 +316,7 @@
                 app:layout_constraintTop_toBottomOf="@id/spinner_relativeLayout8_secondPage" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
                 android:id="@+id/et_period_not_observed"
                 style="@style/editTxtStyle"
                 android:layout_width="0dp"
