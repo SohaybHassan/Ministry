@@ -283,5 +283,15 @@
     <string name="four">4</string>
     <string name="five">5</string>
 
+    <!-- QayedArchive -->
+    <string name="request_date">تاريخ الطلب</string>
+    <string name="educational_status_desc">تفصيل الحالة العملية</string>
+    <string name="educational_status_desc_desc">تفصيل تفصيل الحالة العملية</string>
+    <string name="request_status">الحالة</string>
+    <string name="no_cards">لا يوجد طلب </string>
+    <string name="archive_title">سجل طلبات شهادات القيد </string>
+
+
+
 
 </resources>

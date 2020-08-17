@@ -194,6 +194,11 @@
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.ActionTakingFragment"
         android:label="@string/take_action"
         tools:layout="@layout/fragment_action_taking" />
+    <fragment
+        android:id="@+id/nav_qayed_archive"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.QayedArchive.view.ArchiveFragment"
+        android:label="@string/archive_title"
+        tools:layout="@layout/fragment_archive" />
 
 
 </navigation>

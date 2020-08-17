@@ -1,6 +1,7 @@
 package com.sh.wm.ministry.network.utiels;
 
 
+import com.sh.wm.ministry.featuers.home.homeFiles.QayedArchive.model.ArchiveModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
@@ -22,6 +23,8 @@ import com.sh.wm.ministry.featuers.userfile.userFiles.languages.model.UserLangua
 import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.PracticalStatusModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.WorkStatusModel;
 import com.sh.wm.ministry.featuers.userfile.userFiles.workexperience.model.UserWorkExperienceModel;
+
+import java.util.List;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -138,5 +141,9 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("qyed_request_for_user")
     Call<CertificateRequest> requestCertificate(@Field("QAYED_USER_ID") String userId);
+
+    @FormUrlEncoded
+    @POST("get_user_qayed_archive")
+    Call<ArchiveModel> requestArchive(@Field("user_id") String userId);
 
 }

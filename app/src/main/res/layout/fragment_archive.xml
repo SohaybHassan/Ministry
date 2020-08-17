@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".featuers.home.homeFiles.QayedArchive.view.ArchiveFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/qayed_archive"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/card_view_archive_item" />
+    <TextView
+        android:id="@+id/arc_no_cards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_cards"
+        style="@style/txtStyle"
+        />
+</FrameLayout>

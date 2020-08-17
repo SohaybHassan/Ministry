@@ -21,8 +21,8 @@ public class HomeRepository {
     private MutableLiveData<CertificateRequest> certificateRequestMutableLiveData;
     private static HomeRepository homeRepository;
 
-    private HomeRepository(Application applicatio) {
-        networkUtils = NetworkUtils.getInstance(true, applicatio);
+    private HomeRepository(Application application) {
+        networkUtils = NetworkUtils.getInstance(true, application);
         certificateRequestMutableLiveData = new MutableLiveData<>();
     }
 
