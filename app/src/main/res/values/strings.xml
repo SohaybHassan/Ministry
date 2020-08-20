@@ -275,7 +275,15 @@
     <string name="action_taking_confirmation">هل تريد حفظ إجراء قانوني ؟</string>
     <string name="add_visit_confirmation">هل تريد حفظ زيارة خارج الخطة ؟</string>
     <string name="insert_three_letters">ادخل ثلاثة حروف أو أكثر</string>
-
+    <string name="area">المديرية </string>
+    <string name="date_visit_start">تاريخ بداية الزيارة</string>
+    <string name="procedures">الاجراءات</string>
+    <string name="visit_start">بدء الزيارة</string>
+    <string name="revisit">إعادة الزيارة</string>
+    <string name="extra_services">خدمات اضافية</string>
+    <string name="no_visits">لا توجد أي زيارات</string>
+    <string name="show_results">عرض النتائج</string>
+    <string name="recommendations">التوصيات</string>
     <!--numbers-->
     <string name="one">1</string>
     <string name="two">2</string>
@@ -290,8 +298,6 @@
     <string name="request_status">الحالة</string>
     <string name="no_cards">لا يوجد طلب </string>
     <string name="archive_title">سجل طلبات شهادات القيد </string>
-
-
 
 
 </resources>

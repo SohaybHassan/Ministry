@@ -16,4 +16,14 @@
 
     <color name="dorado">#615E5E</color>
     <color name="dove_gray">#707070</color>
+
+
+    <!-- visit card button colors -->
+    <color name="visit_start">#FCB900</color>
+    <color name="extra_services">#1976D2</color>
+    <color name="inspection_results">#3E6D9E</color>
+    <color name="show_results">#9F6AC7</color>
+    <color name="recommendations">#30C4AF</color>
+    <color name="revisit">#009705</color>
+
 </resources>

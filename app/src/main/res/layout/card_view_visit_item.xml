@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnSpan="1"
+    android:background="@android:color/transparent"
+    android:foregroundTint="@color/white"
+    android:layoutDirection="rtl"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/gallery"
+        >
+        <TextView
+            android:id="@+id/visit_cmp_name"
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/company_name" />
+        <Button
+            android:id="@+id/revisit_btn"
+            style="@style/visitBtnStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/revisit"
+            android:paddingStart="10dp"
+            android:textAlignment="textStart"
+            android:backgroundTint="@color/revisit"
+            android:drawableRight="@drawable/ic_redo"
+            />
+    </LinearLayout>
+        <TableLayout
+            android:foregroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="5dp"
+            android:stretchColumns="1"
+            android:divider="@color/cardview_dark_background"
+            android:showDividers="middle"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/cardview_dark_background"
+                android:showDividers="middle"
+
+                >
+
+                <TextView
+                    style="@style/insResult"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/area" />
+
+                <TextView
+                    android:id="@+id/visit_area"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:text="@string/company_name"
+                    android:layout_marginRight="10dp"
+                  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutMode="opticalBounds"
+                android:divider="@color/cardview_dark_background"
+                android:showDividers="middle">
+
+                <TextView
+                    style="@style/insResult"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date_visit" />
+
+                <TextView
+                      android:id="@+id/visit_start_date"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="2"
+                    android:text="@string/company_name"
+                    android:layout_marginRight="10dp"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"
+            android:background="@color/gallery"
+            android:text="@string/procedures"
+            android:textColor="@color/cinnabar"
+            android:paddingRight="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gallery"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/visit_start_btn"
+                style="@style/visitBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/visit_start"
+                android:backgroundTint="@color/visit_start"/>
+
+            <Button
+                android:id="@+id/extra_services_btn"
+                style="@style/visitBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/extra_services"
+                android:backgroundTint="@color/extra_services"/>
+            />
+
+
+            <Button
+                android:id="@+id/visit_result_btn"
+                style="@style/visitBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/inspection_results"
+                android:backgroundTint="@color/inspection_results"/>
+            />
+
+            <Button
+                android:id="@+id/show_results_btn"
+                style="@style/visitBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/show_results"
+                android:backgroundTint="@color/show_results"/>
+            <Button
+                android:id="@+id/recommendations_btn"
+                style="@style/visitBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/recommendations"
+                android:backgroundTint="@color/recommendations"/>
+            />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

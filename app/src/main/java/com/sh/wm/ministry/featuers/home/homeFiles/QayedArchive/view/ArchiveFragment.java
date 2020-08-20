@@ -2,6 +2,8 @@ package com.sh.wm.ministry.featuers.home.homeFiles.QayedArchive.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -50,18 +52,19 @@ public class ArchiveFragment extends Fragment {
         observer = new Observer<ArchiveModel>() {
                @Override
                public void onChanged(ArchiveModel archiveModel) {
-
-                   List<UserQayedArchive> archive= archiveModel.getUserQayedArchive();
-                   for(UserQayedArchive request : archive){
-                       ArchiveCard card = new ArchiveCard();
-                       card.setQayedDate(request.getQAYEDDATE());
-                       card.setWorkStatusDesc(request.getWORKSTATUSDESC());
-                       card.setWorkStatusDescDesc(request.getWORKSTATUSDESCDESC());
-                       card.setStatus(request.getSTATUS());
-                       cards.add(card);
-                   }//end for each
-                   adapter.setCards(cards);
-                   adapter.notifyDataSetChanged();
+                 if(archiveModel!=null){
+                     List<UserQayedArchive> archive= archiveModel.getUserQayedArchive();
+                     for(UserQayedArchive request : archive){
+                         ArchiveCard card = new ArchiveCard();
+                         card.setQayedDate(request.getQAYEDDATE());
+                         card.setWorkStatusDesc(request.getWORKSTATUSDESC());
+                         card.setWorkStatusDescDesc(request.getWORKSTATUSDESCDESC());
+                         card.setStatus(request.getSTATUS());
+                         cards.add(card);
+                     }//end for each
+                     adapter.setCards(cards);
+                     adapter.notifyDataSetChanged();
+                 }//end if
                    toggleEmptyCards();
                }//end onChanged
            };
@@ -72,12 +75,18 @@ public class ArchiveFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentArchiveBinding.inflate(inflater, container, false);
-        binding.qayedArchive.setAdapter(adapter);
         viewModel = new ViewModelProvider(this).get(ArchiveViewModel.class);
                 viewModel.archiveRequest("831504").observe(getViewLifecycleOwner(),observer);
 
         return binding.getRoot();
     }//end onCreateView
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.qayedArchive.setAdapter(adapter);
+
+    }//END onViewCreated
 
     private void toggleEmptyCards(){
         if(cards.isEmpty()){

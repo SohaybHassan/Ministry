@@ -199,6 +199,11 @@
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.QayedArchive.view.ArchiveFragment"
         android:label="@string/archive_title"
         tools:layout="@layout/fragment_archive" />
+    <fragment
+        android:id="@+id/nav_all_visits"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.AllVisitsFragment"
+        android:label="@string/inspection_mng_btn"
+        tools:layout="@layout/fragment_all_visits" />
 
 
 </navigation>

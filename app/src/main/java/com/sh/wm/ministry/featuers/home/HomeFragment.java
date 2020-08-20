@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.ShMyDialog;
+import com.sh.wm.ministry.custem.ToastMsg;
 import com.sh.wm.ministry.databinding.FragmentHomeBinding;
 import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.home.viewModel.HomeViewModel;
@@ -29,7 +30,7 @@ public class HomeFragment extends Fragment {
     private OnFragmentInteractionListener mlistener;
     private ShMyDialog dialog;
     Observer<CertificateRequest> certificateRequestObserver;
-
+    private ToastMsg toastMsg;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,9 +39,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(CertificateRequest certificateRequest) {
                 if (certificateRequest!=null){
-                    Toast.makeText(getActivity(), certificateRequest.getMessageText(), Toast.LENGTH_SHORT).show();
+                    toastMsg.toastIconErrorBlue(certificateRequest.getMessageText());
+                  //  Toast.makeText(getActivity(), certificateRequest.getMessageText(), Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getActivity(), "no data", Toast.LENGTH_SHORT).show();
+                    toastMsg.toastIconError("خطأ");
+                //    Toast.makeText(getActivity(), "no data", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -50,6 +53,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        toastMsg = new ToastMsg(getActivity());
         View view = binding.getRoot();
 
         //display views depend on user role

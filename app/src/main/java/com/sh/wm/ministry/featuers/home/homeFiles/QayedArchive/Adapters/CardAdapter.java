@@ -3,6 +3,7 @@ package com.sh.wm.ministry.featuers.home.homeFiles.QayedArchive.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,11 +26,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        String status="مكتملة";
        ArchiveCard card = cards.get(position);
        holder.requestDate.setText(card.getQayedDate());
         holder.workStatusDesc.setText(card.getWorkStatusDesc());
         holder.workStatusDescDesc.setText(card.getWorkStatusDescDesc());
-        holder.status.setText(card.getStatus());
+        if (card.getStatus().equals(status)) {
+            holder.status.setImageResource(R.mipmap.completed_foreground);
+        }else{
+            holder.status.setImageResource(R.mipmap.in_progress_foreground);
+        }
+
     }
 
     @Override
@@ -46,7 +53,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder  extends RecyclerView.ViewHolder {
-        TextView requestDate, workStatusDesc, workStatusDescDesc, status ;
+        TextView requestDate, workStatusDesc, workStatusDescDesc ;
+        ImageView status;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             requestDate = itemView.findViewById(R.id.request_date);
