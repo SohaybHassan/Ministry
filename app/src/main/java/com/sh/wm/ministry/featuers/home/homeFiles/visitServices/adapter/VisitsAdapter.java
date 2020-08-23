@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.databinding.CardViewVisitItemBinding;
-import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.VisitCard;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Visit;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.MyViewHolder>  {
-    List<VisitCard> cards = new ArrayList<VisitCard>();
+    List<Visit> cards = new ArrayList<Visit>();
     @NonNull
     @Override
     public VisitsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,7 +26,7 @@ public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull VisitsAdapter.MyViewHolder holder, int position) {
-             VisitCard card = cards.get(position);
+             Visit card = cards.get(position);
              holder.binding.visitCmpName.setText(card.getCompanyName());
              holder.binding.visitArea.setText(card.getArea());
              holder.binding.visitStartDate.setText(card.getStartDate());
@@ -40,7 +40,7 @@ public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.MyViewHold
         return cards.size();
     }//end getItemCount
 
-    public void setCards(List<VisitCard> cards) {
+    public void setCards(List<Visit> cards) {
         this.cards = cards;
     }//end setCards
 

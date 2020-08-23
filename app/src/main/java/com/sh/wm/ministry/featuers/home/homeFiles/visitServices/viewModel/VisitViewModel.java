@@ -4,11 +4,13 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
 
 
-import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.VisitPlanData;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Visit;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.repository.VisitRepository;
+
+import java.util.List;
 
 public class VisitViewModel extends AndroidViewModel {
       private VisitRepository repository;
@@ -19,7 +21,7 @@ public class VisitViewModel extends AndroidViewModel {
       }//end constructor
 
 
-    public MutableLiveData<VisitPlanData> getVisitPlanData( String constructId){
-          return  repository.getVisitPlanData(constructId);
+    public LiveData<List<Visit>> getAllVisits(String constructId){
+          return  repository.getAllVisits(constructId);
     }
 }//end class

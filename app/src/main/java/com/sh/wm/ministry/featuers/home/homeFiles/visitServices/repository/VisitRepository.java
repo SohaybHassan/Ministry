@@ -4,10 +4,17 @@ import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.VisitDao;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.InspectionVisit;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Visit;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.VisitPlanData;
+import com.sh.wm.ministry.network.database.DataBase;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,9 +25,11 @@ public class VisitRepository {
     private static   VisitRepository repository ;
     private NetworkUtils networkUtils ;
     MutableLiveData<VisitPlanData> data;
+    private VisitDao visitDao;
     private VisitRepository(@NonNull Application application){
         networkUtils= NetworkUtils.getInstance(true,application);
         data= new MutableLiveData<>();
+        visitDao= DataBase.getInstance(application).visitDao();
     }//end Constructor
 
     public static VisitRepository getInstance(@NonNull Application application){
@@ -28,7 +37,13 @@ public class VisitRepository {
        return repository;
     }//end getInstance;
 
-    public MutableLiveData<VisitPlanData> getVisitPlanData(String constructId) {
+
+    public LiveData<List<Visit>> getAllVisits(String constructId) {
+       updateVisitPlanData(constructId);
+        return visitDao.getAllVisits();
+    }
+
+    public MutableLiveData<VisitPlanData> updateVisitPlanData(String constructId) {
         Call<VisitPlanData> call= networkUtils.getApiInterface().getVisitPlanData(constructId);
 
         call.enqueue(new Callback<VisitPlanData>() {
@@ -37,6 +52,17 @@ public class VisitRepository {
                 if(response.isSuccessful()){
                     Log.d(TAG, "onResponse: Success");
                     data.setValue(response.body());
+                    int status ;
+                    for(InspectionVisit visit: response.body().getInspectionVisit()){
+                        Visit visitCard = new Visit();
+                        visitCard.setVisitId(visit.getINSPECTVID());
+                        visitCard.setArea(visit.getDIRECTORATENAME());
+                        visitCard.setCompanyName(visit.getCONSTRUCTNAMEUSING());
+                        visitCard.setStartDate(visit.getVISITDATE());
+                        status= Integer.parseInt(visit.getINSPETVISITSTATUS());
+                        visitCard.setStatus(status);
+                        visitDao.insertVisit(visitCard);
+                    }//end foreach
                 }else{
                     Log.d(TAG, "onResponse: Failed");
                     data.setValue(null);
