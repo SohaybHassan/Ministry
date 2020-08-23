@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -29,7 +30,7 @@ public class AllVisitsFragment extends Fragment {
  private VisitsAdapter adapter ;
  private VisitViewModel viewModel ;
  private List<Visit> cards ;
- private Observer<LiveData<List<Visit>>> observer ;
+ private Observer<List<Visit>> observer ;
 
      //TODO: add onClickListener for visit buttons
     //TODO: enabling buttons based on Status
@@ -51,17 +52,19 @@ public class AllVisitsFragment extends Fragment {
          adapter= new VisitsAdapter();
          cards= new ArrayList<>();
 
-         observer= new Observer<LiveData<List<Visit>>>() {
+         observer=new Observer<List<Visit>>() {
              @Override
-             public void onChanged(LiveData<List<Visit>>  visits) {
-                 if(visits!=null){
-                    for(Visit card: visits.getValue()){
+             public void onChanged(List<Visit> visits) {
+                                  if(visits!=null){
+                    for(Visit card: visits){
                         cards.add(card);
                     }//end for
+                     adapter.setCards(cards);
+                     adapter.notifyDataSetChanged();
                  }//end if
-                  adapter.setCards(cards);
                  toggleEmptyCards();
-             }//end onChanged
+
+             }
          };
 
     }//end onCreate
@@ -73,7 +76,7 @@ public class AllVisitsFragment extends Fragment {
         binding = FragmentAllVisitsBinding.inflate(inflater,container ,false);
         viewModel= new ViewModelProvider(this).get(VisitViewModel.class);
         viewModel.getAllVisits(//"831504");
-                null);
+                null).observe(getViewLifecycleOwner(),observer);
         return binding.getRoot();
     }//end onCreateView
 
@@ -85,7 +88,7 @@ public class AllVisitsFragment extends Fragment {
     }//end onViewCreated
 
     private void toggleEmptyCards(){
-        if(cards.isEmpty()){
+        if(cards.size()==0){
             binding.noVisits.setVisibility(View.VISIBLE);
             binding.visitRecyclerView.setVisibility(View.GONE);
 

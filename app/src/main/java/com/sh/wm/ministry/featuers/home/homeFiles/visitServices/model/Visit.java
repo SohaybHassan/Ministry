@@ -3,6 +3,8 @@ package com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
@@ -39,8 +41,9 @@ public class Visit {
         this.status = status;
     }
 
-
-    public Visit() {
+     @Ignore
+    public Visit(String visitId) {
+        this.visitId=visitId;
     }
 
     public String getVisitId() {

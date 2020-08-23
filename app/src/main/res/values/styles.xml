@@ -133,7 +133,7 @@
     </style>
     <style name="visitBtnStyle" parent="Widget.MaterialComponents.Button">
         <item name="android:fontFamily">@font/cairobold</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">9sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/gallery</item>
         <item name="android:padding">0dp</item>

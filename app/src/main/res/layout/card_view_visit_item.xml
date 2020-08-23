@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:text="@string/revisit"
-            android:paddingStart="10dp"
-            android:textAlignment="textStart"
+            android:textAlignment="viewStart"
+            android:layout_marginLeft="5dp"
             android:backgroundTint="@color/revisit"
             android:drawableRight="@drawable/ic_redo"
             />
@@ -51,14 +51,14 @@
             android:orientation="vertical"
             android:paddingRight="5dp"
             android:stretchColumns="1"
-            android:divider="@color/cardview_dark_background"
+            android:divider="@color/dove_gray"
             android:showDividers="middle"
             >
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:divider="@color/cardview_dark_background"
+                android:divider="@color/dove_gray"
                 android:showDividers="middle"
 
                 >
@@ -85,8 +85,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layoutMode="opticalBounds"
-                android:divider="@color/cardview_dark_background"
+                android:divider="@color/dove_gray"
                 android:showDividers="middle">
 
                 <TextView
@@ -125,7 +124,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/gallery"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <Button
                 android:id="@+id/visit_start_btn"
@@ -174,7 +174,6 @@
                 style="@style/visitBtnStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:text="@string/recommendations"
                 android:backgroundTint="@color/recommendations"/>

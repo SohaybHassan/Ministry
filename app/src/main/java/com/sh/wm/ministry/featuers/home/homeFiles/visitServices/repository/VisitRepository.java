@@ -39,7 +39,16 @@ public class VisitRepository {
 
 
     public LiveData<List<Visit>> getAllVisits(String constructId) {
-       updateVisitPlanData(constructId);
+        //adding dummy card
+        for (int i =0 ; i<=5 ; i++){
+            Visit visitCard = new Visit("117"+i);
+            visitCard.setArea("غزة");
+            visitCard.setCompanyName("ماف");
+            visitCard.setStartDate("22/8/2020");
+            visitDao.insertVisit(visitCard);
+        }
+
+      //  updateVisitPlanData(constructId);
         return visitDao.getAllVisits();
     }
 
@@ -54,8 +63,7 @@ public class VisitRepository {
                     data.setValue(response.body());
                     int status ;
                     for(InspectionVisit visit: response.body().getInspectionVisit()){
-                        Visit visitCard = new Visit();
-                        visitCard.setVisitId(visit.getINSPECTVID());
+                        Visit visitCard = new Visit(visit.getINSPECTVID());
                         visitCard.setArea(visit.getDIRECTORATENAME());
                         visitCard.setCompanyName(visit.getCONSTRUCTNAMEUSING());
                         visitCard.setStartDate(visit.getVISITDATE());
