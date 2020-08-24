@@ -8,4 +8,5 @@
     <dimen name="spacing_middle">10dp</dimen>
     <dimen name="spacing_smlarge">18dp</dimen>
     <dimen name="spacing_mlarge">14dp</dimen>
+    <dimen name="custom_peek_height">500</dimen>
 </resources>
