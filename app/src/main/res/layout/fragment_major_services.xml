@@ -93,7 +93,8 @@
                     <TextView
                         android:id="@+id/et_document_type"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                     <TextView
                         android:id="@+id/gender"
@@ -106,7 +107,8 @@
                     <TextView
                         android:id="@+id/et_gender_major_services"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -132,7 +134,8 @@
                     <TextView
                         android:id="@+id/et_social_status_major_services"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -158,7 +161,8 @@
                     <TextView
                         android:id="@+id/et_other_nationality_id_major_services"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -228,7 +232,8 @@
                     <TextView
                         android:id="@+id/et_birth_place_major_services"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -264,7 +269,8 @@
                     <TextView
                         android:id="@+id/et_nationality_major_services"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -276,7 +282,8 @@
                     <TextView
                         android:id="@+id/et_directorate_belongs"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent" />
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down"/>
 
                 </LinearLayout>
 

@@ -19,7 +19,7 @@ import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetListView;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentAddPracticalStatusBinding;
-import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.WorkStatus;
+import com.sh.wm.ministry.network.database.dbModels.workstatus.WorkStatus;
 import com.sh.wm.ministry.featuers.userfile.practicalstatus.viewmodel.AddPracticalStatusViewModel;
 
 import java.util.ArrayList;

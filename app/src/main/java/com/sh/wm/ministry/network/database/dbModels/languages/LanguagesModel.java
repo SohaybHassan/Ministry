@@ -1,19 +1,19 @@
 
-package com.sh.wm.ministry.featuers.userfile.practicalstatus.model;
+package com.sh.wm.ministry.network.database.dbModels.languages;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class WorkStatusModel {
+public class LanguagesModel {
 
     @SerializedName("status")
     @Expose
     private Integer status;
-    @SerializedName("work_status")
+    @SerializedName("languages")
     @Expose
-    private List<WorkStatus> workStatus = null;
+    private List<Language> languages = null;
 
     public Integer getStatus() {
         return status;
@@ -23,12 +23,12 @@ public class WorkStatusModel {
         this.status = status;
     }
 
-    public List<WorkStatus> getWorkStatus() {
-        return workStatus;
+    public List<Language> getLanguages() {
+        return languages;
     }
 
-    public void setWorkStatus(List<WorkStatus> workStatus) {
-        this.workStatus = workStatus;
+    public void setLanguages(List<Language> languages) {
+        this.languages = languages;
     }
 
 }

@@ -2,12 +2,10 @@ package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.view;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,10 +23,10 @@ import com.sh.wm.ministry.custem.BottomSheetSearsh;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentMoveTheFacilityBinding;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Municipality;
+import com.sh.wm.ministry.network.database.dbModels.muniplicities.Municipality;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Region;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.viewmodel.MoveFacilityViewModel;
+import com.sh.wm.ministry.network.database.dbModels.regions.Region;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -132,31 +130,25 @@ public class MoveTheFacilityFragment extends Fragment {
         AllMunicipal = new ArrayList<>();
         AllMunicipalID = new ArrayList<>();
 
-        moveFacilityViewModel.getmunicipality().observe(getViewLifecycleOwner(), municipality -> {
-            if (municipality != null) {
-                if (municipality.getMunicipalities() != null) {
-                    List<Municipality> municipalities = municipality.getMunicipalities();
-                    for (Municipality municipality1 : municipalities) {
-                        AllMunicipal.add(municipality1.getMUNICIPALITYNAMEAR());
-                        AllMunicipalID.add(municipality1.getMUNICIPALITYID());
-
-                    }
-
+        //hi sohayb, now you can get the municipalities from database not api request directly.
+        // so I edited the code as it suits data types
+        moveFacilityViewModel.getAllMunicipalities().observe(getViewLifecycleOwner(), municipalities -> {
+            if (municipalities != null) {
+                for (Municipality municipality : municipalities) {
+                    AllMunicipal.add(municipality.getMUNICIPALITYNAMEAR());
+                    AllMunicipalID.add(municipality.getMUNICIPALITYID());
                 }
 
             }
         });
-        moveFacilityViewModel.getregion().observe(getViewLifecycleOwner(), region -> {
-            if (region != null) {
-                if (region.getRegions() != null) {
-                    List<Region> regions = region.getRegions();
-                    for (Region region1 : regions) {
-                        AllRegion.add(region1.getREGIONNAMEAR());
-                        AllRegionID.add(region1.getREGIONID());
-                    }
 
+        // I did the same thing here :)
+        moveFacilityViewModel.getAllRegions().observe(getViewLifecycleOwner(), regions -> {
+            if (regions != null) {
+                for (Region region : regions) {
+                    AllRegion.add(region.getREGIONNAMEAR());
+                    AllRegionID.add(region.getREGIONID());
                 }
-
             }
 
         });

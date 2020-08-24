@@ -1,4 +1,4 @@
-package com.sh.wm.ministry.featuers.userfile.practicalstatus.database;
+package com.sh.wm.ministry.network.database.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.WorkStatus;
+import com.sh.wm.ministry.network.database.dbModels.workstatus.WorkStatus;
 
 import java.util.List;
 

@@ -2,38 +2,28 @@ package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.repository;
 
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
-import com.sh.wm.ministry.network.model.SharedPreferneceHelper;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MoveFacilityRepository {
 
-    private MutableLiveData<MunicipalityGroup> municipalityMutableLiveData;
-    private MutableLiveData<RegionGroup> regionMutableLiveData;
     private MutableLiveData<StreetGroup> streetMutableLiveData;
     private MutableLiveData<Construction> constructionMutableLiveData;
     private MutableLiveData<PoastDataMoveFacility> poastDataMoveFacilityMutableLiveData;
@@ -46,8 +36,6 @@ public class MoveFacilityRepository {
 
         this.application = application;
         networkUtils = NetworkUtils.getInstance(true, application);
-        municipalityMutableLiveData = new MutableLiveData<>();
-        regionMutableLiveData = new MutableLiveData<>();
         streetMutableLiveData = new MutableLiveData<>();
         constructionMutableLiveData = new MutableLiveData<>();
         poastDataMoveFacilityMutableLiveData = new MutableLiveData<>();
@@ -60,64 +48,6 @@ public class MoveFacilityRepository {
         }
         return mInstance;
     }
-
-    public LiveData<MunicipalityGroup> getAllMunicipality() {
-        Log.d(TAG, "getAllMunicipality: " + "sohaib hassan");
-        Call<MunicipalityGroup> call = networkUtils.getApiInterface().getAllMunicipality();
-        call.enqueue(new Callback<MunicipalityGroup>() {
-            @Override
-            public void onResponse(@NotNull Call<MunicipalityGroup> call, @NotNull Response<MunicipalityGroup> response) {
-
-                Log.d(TAG, "onResponse token: " + SharedPreferneceHelper.getToken(application));
-                if (response.body() != null) {
-                    if (response.isSuccessful()) {
-                        Log.d(TAG, "onResponse: " + response.body().toString());
-                        municipalityMutableLiveData.postValue(response.body());
-
-                    } else {
-                        municipalityMutableLiveData.postValue(null);
-
-                    }
-                } else {
-                    Log.d(TAG, "onResponse:  no data receved");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<MunicipalityGroup> call, Throwable t) {
-                Log.d(TAG, "onFailure: " + t.getMessage());
-
-                municipalityMutableLiveData.postValue(null);
-            }
-        });
-
-        return municipalityMutableLiveData;
-    }
-
-
-    public LiveData<RegionGroup> getAllRegion() {
-        Call<RegionGroup> call = networkUtils.getApiInterface().getAllregions();
-        call.enqueue(new Callback<RegionGroup>() {
-            @Override
-            public void onResponse(Call<RegionGroup> call, Response<RegionGroup> response) {
-                if (response.isSuccessful()) {
-                    Log.d(TAG, "onResponse:  getAll data" + response.body().toString());
-                    regionMutableLiveData.postValue(response.body());
-                } else {
-                    regionMutableLiveData.setValue(null);
-                    Log.d(TAG, "onResponse:  I cant see any data" + response.message());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RegionGroup> call, Throwable t) {
-                Log.d(TAG, "onFailure: " + t.getMessage());
-                regionMutableLiveData.setValue(null);
-            }
-        });
-        return regionMutableLiveData;
-    }
-
 
     public LiveData<StreetGroup> getAllStreet() {
         Call<StreetGroup> call = networkUtils.getApiInterface().getAllStreets();

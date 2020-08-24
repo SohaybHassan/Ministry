@@ -1,9 +1,13 @@
 package com.sh.wm.ministry.featuers.main;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,13 +64,22 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
         View headerLayout = navigationView.getHeaderView(0);
         TextView usernametV = headerLayout.findViewById(R.id.tv_username_header);
         usernametV.setText(SharedPreferneceHelper.getUserName(this));
+        ImageView userImage = headerLayout.findViewById(R.id.img_userImg_header);
+        if (!SharedPreferneceHelper.getUserImg(this).equals("Empty")) {
+            System.out.println(SharedPreferneceHelper.getUserImg(this));
+            String img=SharedPreferneceHelper.getUserImg(this);
+            byte[] decodedString = Base64.decode(img, Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            userImage.setImageBitmap(decodedByte);
+        }
+
 //
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_address_contact, R.id.nav_signout, R.id.nav_major_services)
-                .setDrawerLayout(drawer)
-                .build();
+            // Passing each menu ID as a set of Ids because each
+            // menu should be considered as top level destinations.
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_home, R.id.nav_address_contact, R.id.nav_signout, R.id.nav_major_services)
+                    .setDrawerLayout(drawer)
+                    .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -97,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             toolbarTitle.setText(destination.getLabel());
-            switch (destination.getId()){
+            switch (destination.getId()) {
                 case R.id.nav_major_services:
                     listView.setItemChecked(0, true);
                     break;

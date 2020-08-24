@@ -1,10 +1,17 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model;
+package com.sh.wm.ministry.network.database.dbModels.muniplicities;
+
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "municipalities_table")
 public class Municipality {
 
+    @PrimaryKey
+    @NonNull
     @SerializedName("MUNICIPALITY_ID")
     @Expose
     private String mUNICIPALITYID;

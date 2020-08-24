@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.sh.wm.ministry.custem.datepicker.TimeUtil;
 import com.sh.wm.ministry.databinding.FragmentMajorServicesBinding;
 import com.sh.wm.ministry.featuers.sso.model.userrole.UserWorkInfo;
 import com.sh.wm.ministry.featuers.userfile.majorservices.viewmodel.MajorServicesViewModel;
+import com.sh.wm.ministry.network.utiels.ApiConstent;
 
 import java.util.TimeZone;
 
@@ -44,6 +46,7 @@ public class MajorServicesFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         binding.progress.setVisibility(View.VISIBLE);
+        binding.btSaveMajorServices.setEnabled(false);
 
         MajorServicesViewModel mViewModel = new ViewModelProvider(this).get(MajorServicesViewModel.class);
         mViewModel.getUserWorkInfoLiveData().observe(getViewLifecycleOwner(), userWorkInfo -> {
@@ -57,6 +60,7 @@ public class MajorServicesFragment extends Fragment {
                 tokenEditor.commit();
 
                 binding.progress.setVisibility(View.INVISIBLE);
+                binding.btSaveMajorServices.setEnabled(true);
 
                 UserWorkInfo info = userWorkInfo.getUserWorkInfo();
 
@@ -83,8 +87,16 @@ public class MajorServicesFragment extends Fragment {
                 binding.etOtherNationalityIdMajorServices.setText(info.getUSERNATIONALITYOTHERID());
                 binding.etDirectorateBelongs.setText(info.getUSERDIRECTORATE());
 
+                // Save img in SharedPreference
+                SharedPreferences.Editor userEditor = getActivity().getSharedPreferences(ApiConstent.USER_IMG, MODE_PRIVATE).edit();
+                userEditor.putString(ApiConstent.USER_IMG, info.getUSERIMG());
+                userEditor.apply();
+                userEditor.commit();
+
             } else {
                 new ToastMsg(getContext()).toastIconError(getString(R.string.proccess_failed));
+                binding.progress.setVisibility(View.INVISIBLE);
+                binding.btSaveMajorServices.setEnabled(true);
             }
 
         });

@@ -7,29 +7,34 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.MunicipalityGroup;
+import com.sh.wm.ministry.network.database.dbModels.muniplicities.Municipality;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
-import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.repository.MoveFacilityRepository;
+import com.sh.wm.ministry.network.database.dbModels.regions.Region;
+import com.sh.wm.ministry.network.database.dbRepository.DBRepository;
+
+import java.util.List;
 
 
 public class MoveFacilityViewModel extends AndroidViewModel {
 
 
     private MoveFacilityRepository moveFacilityRepository;
+    private DBRepository repository;
 
     public MoveFacilityViewModel(@NonNull Application application) {
         super(application);
         moveFacilityRepository = MoveFacilityRepository.getInstance(application);
+        repository = DBRepository.getInstance(application);
     }
 
-    public LiveData<MunicipalityGroup> getmunicipality() {
-        return moveFacilityRepository.getAllMunicipality();
+    public LiveData<List<Municipality>> getAllMunicipalities() {
+        return repository.getAllMunicipalities();
     }
 
-    public LiveData<RegionGroup> getregion() {
-        return moveFacilityRepository.getAllRegion();
+    public LiveData<List<Region>> getAllRegions() {
+        return repository.getAllRegions();
     }
 
     public LiveData<StreetGroup> getStreet() {

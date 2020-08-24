@@ -1,24 +1,24 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model;
 
+package com.sh.wm.ministry.network.database.dbModels.regions;
+
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class RegionGroup {
+public class RegionsModel {
 
     @SerializedName("status")
     @Expose
-    private int status;
+    private Integer status;
     @SerializedName("regions")
     @Expose
     private List<Region> regions = null;
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

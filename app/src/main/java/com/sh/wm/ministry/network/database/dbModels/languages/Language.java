@@ -1,5 +1,5 @@
 
-package com.sh.wm.ministry.featuers.userfile.languages.model;
+package com.sh.wm.ministry.network.database.dbModels.languages;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

@@ -1,11 +1,11 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model;
+package com.sh.wm.ministry.network.database.dbModels.muniplicities;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class MunicipalityGroup {
+public class MunicipalityModel {
 
     @SerializedName("status")
     @Expose

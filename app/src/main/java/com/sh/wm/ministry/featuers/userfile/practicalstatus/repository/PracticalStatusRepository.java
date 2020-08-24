@@ -6,14 +6,8 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.sh.wm.ministry.featuers.userfile.practicalstatus.database.WorkStatusDao;
 import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.PracticalStatusModel;
-import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.WorkStatus;
-import com.sh.wm.ministry.featuers.userfile.practicalstatus.model.WorkStatusModel;
-import com.sh.wm.ministry.network.database.DataBase;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,12 +18,10 @@ public class PracticalStatusRepository {
     private final String TAG = PracticalStatusRepository.class.getName();
     private NetworkUtils networkUtils;
     private MutableLiveData<PracticalStatusModel> practicalStatusModellMutableLiveData;
-    private WorkStatusDao workStatusDao;
 
     public PracticalStatusRepository(Application application) {
         networkUtils = NetworkUtils.getInstance(true, application);
         practicalStatusModellMutableLiveData = new MutableLiveData<>();
-        workStatusDao = DataBase.getInstance(application).workStatusDao();
     }
 
     public static PracticalStatusRepository getInstance(Application application) {
@@ -39,42 +31,6 @@ public class PracticalStatusRepository {
         return mInstance;
     }
 
-    public LiveData<List<WorkStatus>> getAllWorkStatuses() {
-        updateWorkStatus();
-        return workStatusDao.getAllWorkStatuses();
-    }
-
-    //get all languages available for user
-    public void updateWorkStatus() {
-        networkUtils.getApiInterface().getWorkStatus().enqueue(new Callback<WorkStatusModel>() {
-            @Override
-            public void onResponse(Call<WorkStatusModel> call, Response<WorkStatusModel> response) {
-                if (response.body() != null) {
-                    if (response.isSuccessful()) {
-                        Log.d(TAG, "All Work Statuses Response Received!");
-                        Log.d(TAG, "response size" + response.body().getWorkStatus().size() + " db size " + workStatusDao.getDataCount());
-                        if (response.body().getWorkStatus().size() != workStatusDao.getDataCount()) {
-
-                            List<WorkStatus> workStatuses = response.body().getWorkStatus();
-                            for (WorkStatus workStatus : workStatuses) {
-                                workStatusDao.addWorkStatus(workStatus);
-                                Log.d(TAG, workStatus.getWORKSTATUSNAME() + "");
-                                Log.d(TAG, workStatusDao.getDataCount() + "");
-
-                            }
-                        }
-                    }
-                } else {
-                    Log.d(TAG, "All Work Statuses Empty Response!");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<WorkStatusModel> call, Throwable t) {
-                Log.e(TAG, "All Work Statuses request has failed!");
-            }
-        });
-    }
 
     public LiveData<PracticalStatusModel> getUserPracticalStatus() {//SharedPreferneceHelper.getUserId(application)
         networkUtils.getApiInterface().getUserPracticalStatus("831504").enqueue(new Callback<PracticalStatusModel>() {

@@ -32,4 +32,9 @@ public class SharedPreferneceHelper {
         SharedPreferences preferences = context.getSharedPreferences(ApiConstent.USER_SN, Context.MODE_PRIVATE);
         return preferences.getString(ApiConstent.USER_SN, "Empty");
     }
+
+    public static String getUserImg(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(ApiConstent.USER_IMG, Context.MODE_PRIVATE);
+        return preferences.getString(ApiConstent.USER_IMG, "Empty");
+    }
 }

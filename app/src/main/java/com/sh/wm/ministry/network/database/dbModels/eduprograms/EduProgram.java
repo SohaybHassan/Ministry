@@ -1,0 +1,43 @@
+
+package com.sh.wm.ministry.network.database.dbModels.eduprograms;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class EduProgram {
+
+    @SerializedName("PROG_CD")
+    @Expose
+    private String pROGCD;
+    @SerializedName("PROG_DESC")
+    @Expose
+    private String pROGDESC;
+    @SerializedName("ISDELETE")
+    @Expose
+    private String iSDELETE;
+
+    public String getPROGCD() {
+        return pROGCD;
+    }
+
+    public void setPROGCD(String pROGCD) {
+        this.pROGCD = pROGCD;
+    }
+
+    public String getPROGDESC() {
+        return pROGDESC;
+    }
+
+    public void setPROGDESC(String pROGDESC) {
+        this.pROGDESC = pROGDESC;
+    }
+
+    public String getISDELETE() {
+        return iSDELETE;
+    }
+
+    public void setISDELETE(String iSDELETE) {
+        this.iSDELETE = iSDELETE;
+    }
+
+}

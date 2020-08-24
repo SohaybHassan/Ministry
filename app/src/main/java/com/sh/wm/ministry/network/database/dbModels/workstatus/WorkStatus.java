@@ -1,5 +1,5 @@
 
-package com.sh.wm.ministry.featuers.userfile.practicalstatus.model;
+package com.sh.wm.ministry.network.database.dbModels.workstatus;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

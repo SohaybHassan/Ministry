@@ -1,9 +1,10 @@
-package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model;
+
+package com.sh.wm.ministry.network.database.dbModels.cities;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Region {
+public class City {
 
     @SerializedName("REGION_ID")
     @Expose

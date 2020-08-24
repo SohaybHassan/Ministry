@@ -21,7 +21,9 @@ import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetListView;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentAddLanguageBinding;
-import com.sh.wm.ministry.featuers.userfile.languages.model.Language;
+import com.sh.wm.ministry.network.database.dbModels.constants.Constants;
+import com.sh.wm.ministry.network.database.dbModels.jobtitles.JobTitle;
+import com.sh.wm.ministry.network.database.dbModels.languages.Language;
 import com.sh.wm.ministry.featuers.userfile.languages.viewmodel.LanguagesViewModel;
 
 import java.util.ArrayList;
@@ -55,6 +57,7 @@ public class AddLanguageFragment extends Fragment {
 
         getBundleData();
         getLanguages();
+//        getCons();   this method is only for testing
         editLanguage();
         editSkills();
         btnListener();
@@ -70,6 +73,7 @@ public class AddLanguageFragment extends Fragment {
             binding.tvReadingSkill.setText(bundle.getString("reading_skill"));
         }
     }
+////////////////////////////////////////////////////////////////////////////////
 
     public void getLanguages() {
         mViewModel = new ViewModelProvider(this).get(LanguagesViewModel.class);
@@ -88,6 +92,37 @@ public class AddLanguageFragment extends Fragment {
         });
     }
 
+    // testing only
+
+//    public void getCons() {
+//
+////        mViewModel = new ViewModelProvider(this).get(LanguagesViewModel.class);
+////        mViewModel.getAllConstants("26").observe(getViewLifecycleOwner(), new Observer<List<Constants>>() {
+////            @Override
+////            public void onChanged(List<Constants> constants) {
+////                if (constants != null) {
+////                    for (Constants constant : constants) {
+////                        lang.add(constant.getCONSTANTARANAME());
+////                    }
+////                } else {
+////                    Toast.makeText(getContext(), "no response", Toast.LENGTH_SHORT).show();
+////
+////                }
+////            }
+////        });
+//
+//        mViewModel = new ViewModelProvider(this).get(LanguagesViewModel.class);
+//        mViewModel.getMyConstants().observe(getViewLifecycleOwner(), jobTitles -> {
+//            if (jobTitles != null)
+//                for (JobTitle jobTitle : jobTitles)
+//                    lang.add(jobTitle.getJOBTITLEDESC());
+//            else
+//                Toast.makeText(getContext(), "no response", Toast.LENGTH_SHORT).show();
+//        });
+//    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
     public void editLanguage() {
         binding.tvLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +146,7 @@ public class AddLanguageFragment extends Fragment {
         binding.tvWritingSkill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showBtmSheet(R.string.level, level,  binding.tvWritingSkill);
+                showBtmSheet(R.string.level, level, binding.tvWritingSkill);
             }
         });
 
@@ -144,7 +179,6 @@ public class AddLanguageFragment extends Fragment {
         });
     }
 
-
     public void btnListener() {
 
         binding.btnSaveAddLanguage.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +187,7 @@ public class AddLanguageFragment extends Fragment {
                 dialog = new ShMyDialog(new ShMyDialog.Dilogclicked() {
                     @Override
                     public void sase(View view) {
-                        if (binding.tvLanguage.getText().toString().isEmpty() || binding.tvReadingSkill.getText().toString().isEmpty()|| binding.tvSpeakingSkill.getText().toString().isEmpty() ||  binding.tvWritingSkill.getText().toString().isEmpty()) {
+                        if (binding.tvLanguage.getText().toString().isEmpty() || binding.tvReadingSkill.getText().toString().isEmpty() || binding.tvSpeakingSkill.getText().toString().isEmpty() || binding.tvWritingSkill.getText().toString().isEmpty()) {
                             Toast.makeText(getContext(), "empty fields", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getContext(), "you saved the language", Toast.LENGTH_SHORT).show();
@@ -167,7 +201,7 @@ public class AddLanguageFragment extends Fragment {
                         Toast.makeText(getContext(), "you may edit the language", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
-                }, getString(R.string.save_language),getString(R.string.save),getString(R.string.edit));
+                }, getString(R.string.save_language), getString(R.string.save), getString(R.string.edit));
                 dialog.show(getParentFragmentManager(), "dialog tag");
             }
         });

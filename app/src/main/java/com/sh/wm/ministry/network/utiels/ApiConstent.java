@@ -14,5 +14,6 @@ public interface ApiConstent {
     public static final String ACCEPT_LANGUAGE = "ar";
     public static final String USER_LOGIN_STATUS = "login_status";
     public static final  String USER_SN = "user_sn";
+    public static final  String USER_IMG = "user_img";
     public static final String USER_NAME = "user_name";
 }

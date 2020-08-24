@@ -1,4 +1,4 @@
-package com.sh.wm.ministry.featuers.userfile.languages.database;
+package com.sh.wm.ministry.network.database.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -9,7 +9,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
-import com.sh.wm.ministry.featuers.userfile.languages.model.Language;
+import com.sh.wm.ministry.network.database.dbModels.languages.Language;
 
 import java.util.List;
 
