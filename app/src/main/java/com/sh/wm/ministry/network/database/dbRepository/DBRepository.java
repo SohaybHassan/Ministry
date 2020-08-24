@@ -6,20 +6,33 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 
 import com.sh.wm.ministry.network.database.DataBase;
+import com.sh.wm.ministry.network.database.dao.CitiesDao;
 import com.sh.wm.ministry.network.database.dao.ConstantsDao;
 import com.sh.wm.ministry.network.database.dao.CountriesDao;
+import com.sh.wm.ministry.network.database.dao.DirectorsDao;
+import com.sh.wm.ministry.network.database.dao.EduProgramDao;
+import com.sh.wm.ministry.network.database.dao.EducationalInstituteDao;
 import com.sh.wm.ministry.network.database.dao.JobTitlesDao;
 import com.sh.wm.ministry.network.database.dao.JobsDao;
 import com.sh.wm.ministry.network.database.dao.LanguagesDao;
 
 import com.sh.wm.ministry.network.database.dao.MunicipalitiesDao;
 import com.sh.wm.ministry.network.database.dao.RegionsDao;
+import com.sh.wm.ministry.network.database.dao.TrainingInstituteDao;
+import com.sh.wm.ministry.network.database.dao.TrainingProgramDao;
 import com.sh.wm.ministry.network.database.dao.WorkStatusDao;
+import com.sh.wm.ministry.network.database.dbModels.cities.CitiesModel;
 import com.sh.wm.ministry.network.database.dbModels.cities.City;
 import com.sh.wm.ministry.network.database.dbModels.constants.Constants;
 import com.sh.wm.ministry.network.database.dbModels.constants.ConstantsModel;
 import com.sh.wm.ministry.network.database.dbModels.countries.CountriesModel;
 import com.sh.wm.ministry.network.database.dbModels.countries.Country;
+import com.sh.wm.ministry.network.database.dbModels.directors.Director;
+import com.sh.wm.ministry.network.database.dbModels.directors.DirectorsModel;
+import com.sh.wm.ministry.network.database.dbModels.educationalinstitutes.EducationalInstitute;
+import com.sh.wm.ministry.network.database.dbModels.educationalinstitutes.EducationalInstitutesModel;
+import com.sh.wm.ministry.network.database.dbModels.eduprograms.EduProgram;
+import com.sh.wm.ministry.network.database.dbModels.eduprograms.EduProgramsModel;
 import com.sh.wm.ministry.network.database.dbModels.jobs.Job;
 import com.sh.wm.ministry.network.database.dbModels.jobs.JobsModel;
 import com.sh.wm.ministry.network.database.dbModels.jobtitles.JobTitle;
@@ -30,6 +43,10 @@ import com.sh.wm.ministry.network.database.dbModels.muniplicities.Municipality;
 import com.sh.wm.ministry.network.database.dbModels.muniplicities.MunicipalityModel;
 import com.sh.wm.ministry.network.database.dbModels.regions.Region;
 import com.sh.wm.ministry.network.database.dbModels.regions.RegionsModel;
+import com.sh.wm.ministry.network.database.dbModels.traininginstitutes.TrainingInstitute;
+import com.sh.wm.ministry.network.database.dbModels.traininginstitutes.TrainingInstitutesModel;
+import com.sh.wm.ministry.network.database.dbModels.trainingprograms.TrainingProgram;
+import com.sh.wm.ministry.network.database.dbModels.trainingprograms.TrainingProgramsModel;
 import com.sh.wm.ministry.network.database.dbModels.workstatus.WorkStatus;
 import com.sh.wm.ministry.network.database.dbModels.workstatus.WorkStatusModel;
 import com.sh.wm.ministry.network.model.SharedPreferneceHelper;
@@ -55,6 +72,12 @@ public class DBRepository {
     private MunicipalitiesDao municipalitiesDao;
     private RegionsDao regionsDao;
     private JobTitlesDao jobTitlesDao;
+    private CitiesDao citiesDao;
+    private DirectorsDao directorsDao;
+    private EduProgramDao eduProgramDao;
+    private EducationalInstituteDao educationalInstituteDao;
+    private TrainingInstituteDao trainingInstituteDao;
+    private TrainingProgramDao trainingProgramDao;
 
 
     private DBRepository(Application application) {
@@ -67,6 +90,12 @@ public class DBRepository {
         municipalitiesDao = DataBase.getInstance(application).municipalitiesDao();
         regionsDao = DataBase.getInstance(application).regionsDao();
         jobTitlesDao = DataBase.getInstance(application).jobTitlesDao();
+        citiesDao = DataBase.getInstance(application).citiesDao();
+        directorsDao = DataBase.getInstance(application).directorsDao();
+        eduProgramDao = DataBase.getInstance(application).eduProgramDao();
+        educationalInstituteDao = DataBase.getInstance(application).educationalInstituteDao();
+        trainingInstituteDao = DataBase.getInstance(application).trainingInstituteDao();
+        trainingProgramDao = DataBase.getInstance(application).trainingProgramDao();
     }
 
     public static DBRepository getInstance(Application application) {
@@ -308,6 +337,138 @@ public class DBRepository {
 
             @Override
             public void onFailure(Call<JobTitlesModel> call, Throwable t) {
+            }
+        });
+    }
+
+    //cities
+    public LiveData<List<City>> getAllCities() {
+        updateCities();
+        return citiesDao.getAllCities();
+    }
+
+    public void updateCities() {
+        networkUtils.getApiInterface().getCities().enqueue(new Callback<CitiesModel>() {
+            @Override
+            public void onResponse(Call<CitiesModel> call, Response<CitiesModel> response) {
+                if (response.isSuccessful())
+                    if (response.body().getCities().size() != citiesDao.getDataCount())
+                        for (City city : response.body().getCities())
+                            citiesDao.addCity(city);
+            }
+
+            @Override
+            public void onFailure(Call<CitiesModel> call, Throwable t) {
+            }
+        });
+    }
+
+    //directors
+    public LiveData<List<Director>> getAllDirectors() {
+        updateDirectors();
+        return directorsDao.getAllDirectors();
+    }
+
+    public void updateDirectors() {
+        networkUtils.getApiInterface().getDirectors().enqueue(new Callback<DirectorsModel>() {
+            @Override
+            public void onResponse(Call<DirectorsModel> call, Response<DirectorsModel> response) {
+                if (response.isSuccessful())
+                    if (response.body().getDirectors().size() != directorsDao.getDataCount())
+                        for (Director director : response.body().getDirectors())
+                            directorsDao.addDirector(director);
+            }
+
+            @Override
+            public void onFailure(Call<DirectorsModel> call, Throwable t) {
+            }
+        });
+    }
+
+    //edu programs
+    public LiveData<List<EduProgram>> getAllEduPrograms() {
+        updateEduPrograms();
+        return eduProgramDao.getAllEduPrograms();
+    }
+
+    public void updateEduPrograms() {
+        networkUtils.getApiInterface().getEduPrograms().enqueue(new Callback<EduProgramsModel>() {
+            @Override
+            public void onResponse(Call<EduProgramsModel> call, Response<EduProgramsModel> response) {
+                if (response.isSuccessful())
+                    if (response.body().getEduPrograms().size() != eduProgramDao.getDataCount())
+                        for (EduProgram eduProgram : response.body().getEduPrograms())
+                            eduProgramDao.addEduProgram(eduProgram);
+            }
+
+            @Override
+            public void onFailure(Call<EduProgramsModel> call, Throwable t) {
+            }
+        });
+    }
+
+    //educational institutes
+    public LiveData<List<EducationalInstitute>> getAllEducationalInstitutes() {
+        updateEducationalInstitutes();
+        return educationalInstituteDao.getAllEducationalInstitutes();
+    }
+
+    public void updateEducationalInstitutes() {
+        networkUtils.getApiInterface().getEducationalInstitutes().enqueue(new Callback<EducationalInstitutesModel>() {
+            @Override
+            public void onResponse(Call<EducationalInstitutesModel> call, Response<EducationalInstitutesModel> response) {
+                if (response.isSuccessful())
+                    if (response.body().getEducationalInstitutes().size() != educationalInstituteDao.getDataCount())
+                        for (EducationalInstitute educationalInstitute : response.body().getEducationalInstitutes())
+                            educationalInstituteDao.addEducationalInstitute(educationalInstitute);
+            }
+
+            @Override
+            public void onFailure(Call<EducationalInstitutesModel> call, Throwable t) {
+            }
+        });
+    }
+
+    //training institutes
+    public LiveData<List<TrainingInstitute>> getAllTrainingInstitutes() {
+        updateTrainingInstitutes();
+        return trainingInstituteDao.getAllTrainingInstitutes();
+    }
+
+    public void updateTrainingInstitutes() {
+        networkUtils.getApiInterface().getTrainingInstitutes().enqueue(new Callback<TrainingInstitutesModel>() {
+            @Override
+            public void onResponse(Call<TrainingInstitutesModel> call, Response<TrainingInstitutesModel> response) {
+                if (response.isSuccessful())
+                    if (response.body().getTrainingInstitutes().size() != trainingInstituteDao.getDataCount())
+                        for (TrainingInstitute trainingInstitute : response.body().getTrainingInstitutes())
+                            trainingInstituteDao.addTrainingInstitute(trainingInstitute);
+            }
+
+            @Override
+            public void onFailure(Call<TrainingInstitutesModel> call, Throwable t) {
+            }
+        });
+    }
+
+    //training programs
+    public LiveData<List<TrainingProgram>> getAllTrainingPrograms() {
+        updateTrainingPrograms();
+        return trainingProgramDao.getAllTrainingPrograms();
+    }
+
+    public void updateTrainingPrograms() {
+        networkUtils.getApiInterface().getTrainingPrograms().enqueue(new Callback<TrainingProgramsModel>() {
+            @Override
+            public void onResponse(Call<TrainingProgramsModel> call, Response<TrainingProgramsModel> response) {
+                if (response.isSuccessful())
+                    if (response.body().getTrainingPrograms().size() != trainingProgramDao.getDataCount())
+                        for (TrainingProgram trainingProgram : response.body().getTrainingPrograms())
+                            trainingProgramDao.addTrainingProgram(trainingProgram);
+            }
+
+            @Override
+            public void onFailure(Call<TrainingProgramsModel> call, Throwable t) {
             }
         });
     }

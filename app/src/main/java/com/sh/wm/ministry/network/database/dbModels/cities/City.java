@@ -1,11 +1,18 @@
 
 package com.sh.wm.ministry.network.database.dbModels.cities;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "cities_table")
 public class City {
 
+    @PrimaryKey
+    @NonNull
     @SerializedName("REGION_ID")
     @Expose
     private String rEGIONID;

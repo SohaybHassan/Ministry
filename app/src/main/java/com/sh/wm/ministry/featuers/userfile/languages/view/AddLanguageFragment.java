@@ -52,7 +52,6 @@ public class AddLanguageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        lang = new ArrayList<>();
         level = new ArrayList<>();
 
         getBundleData();
@@ -80,13 +79,13 @@ public class AddLanguageFragment extends Fragment {
         mViewModel.getAllLanguages().observe(getViewLifecycleOwner(), new Observer<List<Language>>() {
             @Override
             public void onChanged(List<Language> languages) {
+                lang = new ArrayList<>();
                 if (languages != null) {
                     for (Language language : languages) {
                         lang.add(language.getLANGUAGEARNAME());
                     }
                 } else {
                     Toast.makeText(getContext(), "no response", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

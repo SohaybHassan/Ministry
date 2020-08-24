@@ -1,11 +1,18 @@
 
 package com.sh.wm.ministry.network.database.dbModels.educationalinstitutes;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "educational_institutes_table")
 public class EducationalInstitute {
 
+    @PrimaryKey
+    @NonNull
     @SerializedName("EDU_INSTITUTES_ID")
     @Expose
     private String eDUINSTITUTESID;

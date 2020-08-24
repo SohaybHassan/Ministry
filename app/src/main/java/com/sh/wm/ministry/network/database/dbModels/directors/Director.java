@@ -1,11 +1,18 @@
 
 package com.sh.wm.ministry.network.database.dbModels.directors;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "directors_table")
 public class Director {
 
+    @PrimaryKey
+    @NonNull
     @SerializedName("ID")
     @Expose
     private String iD;

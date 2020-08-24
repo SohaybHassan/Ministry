@@ -4,6 +4,7 @@ package com.sh.wm.ministry.network.utiels;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
+import com.sh.wm.ministry.network.database.dbModels.directors.DirectorsModel;
 import com.sh.wm.ministry.network.database.dbModels.muniplicities.MunicipalityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
@@ -148,6 +149,10 @@ public interface ApiInterface {
     //cities
     @GET("get_all_cities")
     Call<CitiesModel> getCities();
+
+    //directors
+    @GET("get_all_director")
+    Call<DirectorsModel> getDirectors();
 
     //edu programs
     @GET("get_edu_program")

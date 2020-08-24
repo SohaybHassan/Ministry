@@ -1,11 +1,18 @@
 
 package com.sh.wm.ministry.network.database.dbModels.trainingprograms;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "training_programs_table")
 public class TrainingProgram {
 
+    @PrimaryKey
+    @NonNull
     @SerializedName("TRAINING_PROGRAM_ID")
     @Expose
     private String tRAININGPROGRAMID;

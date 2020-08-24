@@ -1,11 +1,18 @@
 
 package com.sh.wm.ministry.network.database.dbModels.eduprograms;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "edu_programs_table")
 public class EduProgram {
 
+    @PrimaryKey
+    @NonNull
     @SerializedName("PROG_CD")
     @Expose
     private String pROGCD;
