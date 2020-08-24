@@ -4,6 +4,8 @@ package com.sh.wm.ministry.network.utiels;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.ConstructByName;
+import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.network.database.dbModels.directors.DirectorsModel;
 import com.sh.wm.ministry.network.database.dbModels.muniplicities.MunicipalityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
@@ -192,4 +194,10 @@ public interface ApiInterface {
     @POST("construction_close")
     Call<CloseFacilityModel> postCloseFacility(@Field("CONSTRUCT_ID") String CONSTRUCT_ID, @Field("CLOSE_DATE") String CLOSE_DATE, @Field("CLOSE_REASON") String CLOSE_REASON, @Field("INSERT_USERID") String INSERT_USERID);
 
+    @GET("search_construct_by_using_name?construct_name=")
+    Call<ConstructByName> getConstructByName(@Query("construct_name") String ConstructNumber);
+
+    @FormUrlEncoded
+    @POST("qyed_request_for_user")
+    Call<CertificateRequest> requestCertificate(@Field("QAYED_USER_ID") String userId);
 }

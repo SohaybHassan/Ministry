@@ -246,4 +246,50 @@
     <string name="age">العمر</string>
 
 
+    <!--haya-->
+    <string name="company_name">اسم الشركة</string>
+    <string name="inspector_name">اسم المفتش</string>
+    <string name="inspection_plane_mng_btn">إدارة خطة الزيارات التفتيشية</string>
+    <string name="inspection_plane_prp_btn">إعداد خطة الزيارات التفتيشية</string>
+    <string name="inspection_dec_btn">إدارة اتخاذ الاجراءات القانونية</string>
+    <string name="inspection_mng_btn">إدارة الزيارات التفتيشية للمفتش</string>
+    <string name="inspection_visit_btn">زيارة تفتيشية خارج الخطة</string>
+
+
+    <!-- inspection results strings -->
+    <string name="take_procedures">اتخاذ الإجراءات التالية</string>
+    <string name="one_op_one">تنبيه شفوي</string>
+    <string name="one_op_two">تحرير نموذج استيفاء</string>
+    <string name="one_op_three">حفظ الزيارة وعدم اتخاذ أي اجراء بحق المنشأة</string>
+    <string name="recommended_procedures">أوصي باتخاذ الاجراءات التالية</string>
+    <string name="two_op_one">تحرير انذار خطي</string>
+    <string name="two_op_two">تحرير محضر ضبط</string>
+    <string name="fitting_procedures">أنسب الاجراءات التالية</string>
+    <string name="resoans">و ذلك للأسباب التالية</string>
+    <string name="date_of_process">تاريخ الاجراء</string>
+    <string name="stop_res">سبب وقف الالة</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
+    <string name="plane_date">تاريخ الخطة</string>
+    <string name="plane_status">حالة الخطة</string>
+    <string name="certified">معتمدة</string>
+    <string name="not_certified">غير معتمدة</string>
+    <string name="rejected">مرفوضة</string>
+    <string name="search">بحث</string>
+    <string name="choose_inspector">اختر المفتش</string>
+    <string name="inspector_members">أعضاء هيئة التفتيش</string>
+    <string name="inspect_visit_resoan">سبب الزيارة التفتيشية</string>
+
+
+    <!--numbers-->
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="phone_or_telefon">الجوال او التلفوت</string>
+    <string name="season">فصل</string>
+    <string name="leving">ترك</string>
+    <string name="facility_name">حدد اسم المنشأة</string>
+    <string name="number_caracter">"ادخل على الاقل 3 احرف "</string>
 </resources>
