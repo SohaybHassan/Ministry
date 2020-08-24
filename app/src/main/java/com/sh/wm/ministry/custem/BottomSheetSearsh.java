@@ -66,28 +66,5 @@ public class BottomSheetSearsh {
     }
 
 
-    //                binding.edNuFacility.setVisibility(View.GONE);
-//                binding.tvNuFacility.setVisibility(View.GONE);
-//                binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
-//                moveFacilityViewModel.getConstructionData(ed_searsh.getText().toString()).observe(getViewLifecycleOwner(), new Observer<Construction>() {
-//                    @Override
-//                    public void onChanged(Construction construction) {
-//                        if (construction != null) {
-//
-//                            String name = construction.getCONSTRUCTIONOWNER().getOWNERNAME();
-//                            String nameConstruction = construction.getCONSTRUCTNAMEUSING();
-//                            String user_cn = construction.getCONSTRUCTIONOWNER().getCONSTRUCTID();
-//
-//                            binding.cardViewSearshMoveFacility.tvOwnerName.setText("اسم المالك : " + name);
-//                            binding.cardViewSearshMoveFacility.tvBusinessName.setText("" + nameConstruction);
-//                            binding.cardViewSearshMoveFacility.tvOwnerId.setText(user_cn);
-//
-//                        } else {
-//                            Toast.makeText(getContext(), "no data", Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                    }
-//                });
-//                dialog.dismiss();
 
 }

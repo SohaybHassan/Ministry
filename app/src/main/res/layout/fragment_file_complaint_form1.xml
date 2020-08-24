@@ -3,269 +3,218 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl">
+    android:layoutDirection="rtl"
+    android:padding="10dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_start"
+
+    <TextView
+        android:id="@+id/tv_facility"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/facility_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ed_nu_facility"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        android:hint="@string/number_caracter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_facility" />
+
+
+    <TextView
+        android:id="@+id/tv_owner_work_name"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/owner_name"
+        app:layout_constraintStart_toStartOf="@id/ed_nu_facility"
+        app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
+
+    <TextView
+        android:id="@+id/ed_owner_work_name"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_owner_work_name" />
+
+
+    <LinearLayout
+        android:id="@+id/my_contener"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="10dp" />
+        app:layout_constraintEnd_toEndOf="@id/ed_owner_work_name"
+        app:layout_constraintStart_toStartOf="@id/ed_owner_work_name"
+        app:layout_constraintTop_toBottomOf="@id/ed_owner_work_name">
 
-    <ScrollView
-        android:id="@+id/scroll_file_complaint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:paddingBottom="80dp"
-        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
-        app:layout_constraintStart_toEndOf="@+id/guideline_start"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_enterprise_name"
+                android:id="@+id/tv_governorate"
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/name_of_enterprise"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:text="@string/phone_or_telefon"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/spinner_relativeLayout3_secondPage"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:soundEffectsEnabled="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_enterprise_name">
-
-                <AutoCompleteTextView
-                    android:id="@+id/spinner_enterprise_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_txt_bg"
-                    android:fontFamily="@font/cairobold"
-                    android:soundEffectsEnabled="false"
-                    android:textSize="14sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
+                app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
 
             <TextView
-                android:id="@+id/tv_employer_name"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/employer_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_relativeLayout3_secondPage" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_employer_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_txt_bg"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_employer_name">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editTxtStyle"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_phone"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/phone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_employer_name" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_phone"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/ed_governorate"
+                style="@style/editTxtStyle"
+                android:layout_width="match_parent"
                 android:layout_marginEnd="8dp"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toStartOf="@+id/et_activity_sector"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_phone">
+                android:layout_weight="1"
 
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editTxtStyle"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
 
             <TextView
-                android:id="@+id/tv_activity_sector"
+                android:id="@+id/tv_municipal"
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
                 android:text="@string/activity_sector"
-                app:layout_constraintStart_toStartOf="@+id/et_activity_sector"
-                app:layout_constraintTop_toTopOf="@+id/tv_phone" />
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_activity_sector"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/ed_municipal"
+                style="@style/editTxtStyle"
+                android:layout_width="match_parent"
                 android:layout_marginStart="8dp"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/et_phone"
-                app:layout_constraintTop_toTopOf="@+id/et_phone">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editTxtStyle"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_work_field"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/work_field"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+                android:layout_weight="1" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_work_field"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_work_field">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editTxtStyle"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_enterprise_address"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/enterprise_address"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_work_field" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_enterprise_address"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_enterprise_address">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editTxtStyle"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_ending_work_way"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/ending_work_way"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_enterprise_address" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup_ending_work_way"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ending_work_way">
-
-                <RadioButton
-                    android:id="@+id/radioButton1_ending_work_way"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/radioButton1_fired" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2_ending_work_way"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="50dp"
-                    android:text="@string/radioButton2_resignation" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3_ending_work_way"
-                    style="@style/txtStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/radioButton3_leaving" />
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/tv_ending_work_reasons"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/ending_work_reasons"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup_ending_work_way" />
+        </LinearLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_ending_work_reasons"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:minLines="4"
-                app:boxStrokeWidth="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ending_work_reasons">
+    </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editTxtStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:minLines="2" />
-            </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/tv_type_work"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/work_type"
+        app:layout_constraintStart_toStartOf="@id/ed_nu_facility"
+        app:layout_constraintTop_toBottomOf="@id/my_contener" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/ed_type_work"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_type_work" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_end"
+    <TextView
+        android:id="@+id/tv_facility_address"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/enterprise_address"
+        app:layout_constraintStart_toStartOf="@id/ed_nu_facility"
+        app:layout_constraintTop_toBottomOf="@id/ed_type_work" />
+
+    <TextView
+        android:id="@+id/ed_facility_address"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_facility_address" />
+
+
+    <TextView
+        android:id="@+id/tv_tyep_end_worke"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ending_work_way"
+        app:layout_constraintStart_toStartOf="@id/ed_nu_facility"
+        app:layout_constraintTop_toBottomOf="@id/ed_facility_address" />
+
+
+    <RadioGroup
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="10dp" />
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tyep_end_worke">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/season" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioButton2_resignation" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/leving" />
+
+
+    </RadioGroup>
+
+
+
+    <TextView
+        android:id="@+id/tv_reason_end_orke"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/enterprise_address"
+        app:layout_constraintStart_toStartOf="@id/ed_nu_facility"
+        app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+    <TextView
+        android:id="@+id/ed_reason_end_orke"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reason_end_orke" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_complaint_next"
@@ -279,9 +228,8 @@
         app:icon="@drawable/ic_baseline_arrow_back"
         app:iconGravity="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
-        app:layout_constraintStart_toEndOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/scroll_file_complaint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

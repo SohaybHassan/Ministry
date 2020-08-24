@@ -1,18 +1,31 @@
 package com.sh.wm.ministry.featuers.home.viewModel;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
+import com.sh.wm.ministry.featuers.home.repositiory.HomeRepository;
 
+public class HomeViewModel extends AndroidViewModel {
+    private HomeRepository repository;
     private MutableLiveData<String> userRole;
 
-    public HomeViewModel() {
-        userRole = new MutableLiveData<>();
+    public HomeViewModel(@NonNull Application application) {
+        super(application);
+        repository = HomeRepository.getInstance(application);
     }
+
 
     public LiveData<String> getText() {
         return userRole;
+    }
+
+    public LiveData<CertificateRequest> requestCertificate(String user_id){
+        return repository.requestCertificate(user_id);
     }
 }
