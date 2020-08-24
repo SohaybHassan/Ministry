@@ -3,6 +3,7 @@ package com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConstructByName {
@@ -12,7 +13,7 @@ public class ConstructByName {
 private int status;
 @SerializedName("constructs")
 @Expose
-private List<Construct> constructs = null;
+private ArrayList<Construct> constructs = null;
 
 public int getStatus() {
 return status;
@@ -22,11 +23,11 @@ public void setStatus(int status) {
 this.status = status;
 }
 
-public List<Construct> getConstructs() {
+public ArrayList<Construct> getConstructs() {
 return constructs;
 }
 
-public void setConstructs(List<Construct> constructs) {
+public void setConstructs(ArrayList<Construct> constructs) {
 this.constructs = constructs;
 }
 

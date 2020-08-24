@@ -38,7 +38,7 @@ private Object cONSTRUCTMAINECONDESC;
 private String cONSTRUCTNUM;
 @SerializedName("CONSTRUCT_MAIN_ECON")
 @Expose
-private Object cONSTRUCTMAINECON;
+private String cONSTRUCTMAINECON;
 @SerializedName("BOSS_NAME")
 @Expose
 private Object bOSSNAME;
@@ -129,11 +129,11 @@ public void setCONSTRUCTNUM(String cONSTRUCTNUM) {
 this.cONSTRUCTNUM = cONSTRUCTNUM;
 }
 
-public Object getCONSTRUCTMAINECON() {
+public String getCONSTRUCTMAINECON() {
 return cONSTRUCTMAINECON;
 }
 
-public void setCONSTRUCTMAINECON(Object cONSTRUCTMAINECON) {
+public void setCONSTRUCTMAINECON(String cONSTRUCTMAINECON) {
 this.cONSTRUCTMAINECON = cONSTRUCTMAINECON;
 }
 

@@ -2,84 +2,127 @@ package com.sh.wm.ministry.custem;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.R;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.Construct;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.ConstructByName;
 
-public class BottomSheetSearshList implements SearchView.OnQueryTextListener {
+import java.util.ArrayList;
 
-    private ConstraintLayout constraintLayout;
-    private Context application;
-    private BottomSheetDialog mDialog;
-    private BottomSheetSearsh.bottomSheetSearsh mListener;
+public class BottomSheetSearshList extends RecyclerView {
 
-    public BottomSheetSearshList(android.content.Context application, BottomSheetDialog dialog, BottomSheetSearsh.bottomSheetSearsh listener) {
-        this.application = application;
-        this.mListener = listener;
-        this.mDialog = dialog;
+    private static ArrayList<Construct> mList;
+    private static BottomSheetDialog bottomSheetDialog;
+    private static ConstructByName constructByName;
 
-
-    }
-
-
-    public void openDialog(String hint) {
-
-        View view = LayoutInflater.from(application).inflate(R.layout.bottom_sheet_eaarch, null);
-        mDialog = new BottomSheetDialog(application);
-
-        constraintLayout=view.findViewById(R.id.my_root);
-        SearchView searchView = view.findViewById(R.id.search_view);
-        searchView.setQueryHint(hint);
-        searchView.setOnQueryTextListener(this);
-        mDialog.setContentView(view);
-
-
-
-        DisplayMetrics displayMetrics = application.getResources().getDisplayMetrics();
-
-        int height = displayMetrics.heightPixels;
-
-
-        int maxHeight =  (height*2);
-
-
-        BottomSheetBehavior mBehavior = BottomSheetBehavior.from((View) view.getParent());
-        mBehavior.setPeekHeight(maxHeight);
-        Toast.makeText(application, "height : "+ mBehavior.getPeekHeight() ,Toast.LENGTH_SHORT).show();
-        mDialog.show();
-
+    public BottomSheetSearshList(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        mList = new ArrayList<>();
+        constructByName = new ConstructByName();
+        bottomSheetDialog = new BottomSheetDialog(context);
     }
 
     @Override
-    public boolean onQueryTextSubmit(String s) {
-        return false;
+    public void setLayoutManager(@Nullable RecyclerView.LayoutManager layout) {
+        super.setLayoutManager(layout);
     }
 
-    @Override
-    public boolean onQueryTextChange(String s) {
-        mListener.searshByNumber(s);
+    public static BottomSheetDialog getBottomSheetDialog() {
+        return bottomSheetDialog;
+    }
 
-        return false;
+    public void setBottomSheetDialog(BottomSheetDialog bottomSheetDialog) {
+        BottomSheetSearshList.bottomSheetDialog = bottomSheetDialog;
+    }
+
+    public void setMyList(ArrayList<Construct> myList) {
+        mList.addAll(myList);
+    }
+
+    public static ArrayList<Construct> getMyList() {
+        return mList;
     }
 
 
-    public interface bottomSheetSearsh {
+    public static class MyTestAdapter extends RecyclerView.Adapter<MyTestAdapter.MyHolder> {
 
-        void searshByNumber(String name_facility);
+        private MyClass myclass;
+
+        public MyTestAdapter(MyClass myclass) {
+            this.myclass = myclass;
+        }
+
+        @NonNull
+        @Override
+        public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+            View root = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bottomsheet_search, parent, false);
+            return new MyHolder(root);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyHolder holder, int position) {
+            Construct constructByName = getMyList().get(position);
+
+            holder.name.setText(constructByName.getCONSTRUCTNAMEUSING());
+            holder.number.setText(constructByName.getCONSTRUCTNUM());
+            holder.bind(constructByName, myclass);
+        }
+
+        @Override
+        public int getItemCount() {
+            return getMyList().size();
+        }
+
+
+        public class MyHolder extends RecyclerView.ViewHolder {
+
+            TextView name, number;
+
+            public MyHolder(@NonNull View itemView) {
+                super(itemView);
+                name = itemView.findViewById(R.id.construction_name);
+                number = itemView.findViewById(R.id.construction_number);
+
+            }
+
+            public void bind(final Construct constructByName, final MyClass myClass) {
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        myclass.MyMethod(constructByName);
+                        BottomSheetSearshList.getBottomSheetDialog().dismiss();
+
+                    }
+                });
+            }
+
+
+        }
+
+        public interface MyClass {
+            void MyMethod(Construct constructByName);
+        }
+
 
     }
-
-
 }
