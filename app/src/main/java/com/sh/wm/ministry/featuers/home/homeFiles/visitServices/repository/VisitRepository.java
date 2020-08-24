@@ -37,7 +37,7 @@ public class VisitRepository {
 
 
     public LiveData<List<Visit>> getAllVisits(String constructId) {
-//        //adding dummy card
+        //adding dummy card
 //        for (int i =0 ; i<=5 ; i++){
 //            Visit visitCard = new Visit("117"+i);
 //            visitCard.setArea("غزة");
@@ -45,19 +45,20 @@ public class VisitRepository {
 //            visitCard.setStartDate("22/8/2020");
 //            visitDao.insertVisit(visitCard);
 //        }
-//        visitDao.deleteAllVisits();
-        updateVisitPlanData(constructId);
+
+       // visitDao.deleteAllVisits();
+      updateVisitPlanData(constructId);
         return visitDao.getAllVisits();
     }
 
     public void updateVisitPlanData(String constructId) {
-        Call<VisitPlanData> call= networkUtils.getApiInterface().getVisitPlanData(constructId);
+        Call<VisitPlanData> call= networkUtils.getApiInterface().getVisitPlanData(constructId,0,10);
 
         call.enqueue(new Callback<VisitPlanData>() {
             @Override
             public void onResponse(Call<VisitPlanData> call, Response<VisitPlanData> response) {
                 if(response.isSuccessful()){
-                    Log.d(TAG, "onResponse: Success");
+                    Log.d(TAG, "onResponse: Success" +response.body().getInspectionVisit().size());
                       if( response.body().getInspectionVisit()!=null){
                           int status ;
                           for(InspectionVisit visit: response.body().getInspectionVisit()){
@@ -69,6 +70,7 @@ public class VisitRepository {
                             visitCard.setStatus(status);
                             visitDao.insertVisit(visitCard);
                         }//end foreach
+                          System.out.println(visitDao.count());
                     }//end if
 
                 }else{

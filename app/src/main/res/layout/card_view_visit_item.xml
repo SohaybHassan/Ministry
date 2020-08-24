@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:paddingRight="5dp"
-            android:text="@string/company_name" />
+            android:text="@string/company_name"
+            android:textAlignment="viewStart"/>
         <Button
             android:id="@+id/revisit_btn"
             style="@style/visitBtnStyle"
@@ -42,6 +43,7 @@
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/revisit"
             android:drawableRight="@drawable/ic_redo"
+            android:padding="5dp"
             />
     </LinearLayout>
         <TableLayout
@@ -113,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="5dp"
+            android:paddingTop="10dp"
             android:background="@color/gallery"
             android:text="@string/procedures"
             android:textColor="@color/cinnabar"

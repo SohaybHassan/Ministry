@@ -33,4 +33,7 @@ public interface VisitDao {
     void deleteAllVisits();
 
 
+    @Query("SELECT COUNT(*) FROM visits_table")
+    int count();
+
 }// end dao

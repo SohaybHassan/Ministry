@@ -50,13 +50,13 @@ public class AllVisitsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          adapter= new VisitsAdapter();
-         cards= new ArrayList<>();
 
          observer=new Observer<List<Visit>>() {
              @Override
              public void onChanged(List<Visit> visits) {
-                                  if(visits!=null){
-                    for(Visit card: visits){
+                 if(visits!=null){
+                 cards= new ArrayList<>();
+                 for(Visit card: visits){
                         cards.add(card);
                     }//end for
                      adapter.setCards(cards);
@@ -75,7 +75,7 @@ public class AllVisitsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAllVisitsBinding.inflate(inflater,container ,false);
         viewModel= new ViewModelProvider(this).get(VisitViewModel.class);
-        viewModel.getAllVisits("763").observe(getViewLifecycleOwner(),observer);
+        viewModel.getAllVisits("799").observe(getViewLifecycleOwner(),observer);
         return binding.getRoot();
     }//end onCreateView
 

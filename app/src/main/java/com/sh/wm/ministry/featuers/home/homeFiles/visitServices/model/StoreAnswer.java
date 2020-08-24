@@ -2,6 +2,8 @@ package com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model;
 
 //{{url}}/store_questions_answer
 //{{url}}/store_inspection_revisit_results
+//store_inspection_visit_results
+//store_committe_inspection_recommendations
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

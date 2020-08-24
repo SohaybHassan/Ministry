@@ -147,11 +147,11 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("get_inspection_visit_plan_data")
-    Call<VisitPlanData> getVisitPlanData(@Field("CONSTRUCTION_ID_IN") String constructId);
+    Call<VisitPlanData> getVisitPlanData(@Field("CONSTRUCTION_ID_IN") String constructId,@Field("P_START") int pageStart,@Field("P_LENGTH") int pageLength);
 
-    @FormUrlEncoded
-    @POST("get_safty_questions_by_subjectid")
-    Call<VisitPlanData> getSaftyQuestionsBySubjectId(@Field("SUBJECT_LAW_ID") String subjectId);
+//    @FormUrlEncoded
+//    @POST("get_safty_questions_by_subjectid")
+//    Call<SafetyQuestions> getSaftyQuestionsBySubjectId(@Field("SUBJECT_LAW_ID") String subjectId);
 
     @FormUrlEncoded
     @POST("store_questions_answer ")
@@ -190,21 +190,21 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("store_committe_inspection_recommendations")
     Call<StoreAnswer> storeInspectionRecommendations(@Field("CONSTRUCT_ID") String constructId,
-                                                 @Field("COM_INSPECT_RECOMM_ID") String recommId,
-                                                 @Field("COM_INSPECT_RECOMM_ADOPTED_ID") String adoptedRecomId,
-                                                 @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultRecommId,
-                                                 @Field("COM_INSPECT_RECOMM_ACTIONS_ID") String recommActionId,
-                                                 @Field("COM_INSPECTN_MACHINE_NAME") String machineName,
-                                                 @Field("COM_INSPECTN_ACTION_DATE") String actionDate ,
-                                                 @Field("VISIT_ID") String  visitId,
-                                                 @Field("INSERTUSERID") String insertUserId
+                                                     @Field("COM_INSPECT_RECOMM_ID") String recommId,
+                                                     @Field("COM_INSPECT_RECOMM_ADOPTED_ID") String adoptedRecomId,
+                                                     @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultRecommId,
+                                                     @Field("COM_INSPECT_RECOMM_ACTIONS_ID") String recommActionId,
+                                                     @Field("COM_INSPECTN_MACHINE_NAME") String machineName,
+                                                     @Field("COM_INSPECTN_ACTION_DATE") String actionDate ,
+                                                     @Field("VISIT_ID") String  visitId,
+                                                     @Field("INSERTUSERID") String insertUserId
     );
-
-
-    @FormUrlEncoded
-    @POST("get_safty_result")
-    Call<StoreAnswer> getSafetyResult(@Field("CONSTRUCT_ID") String constructId,
-                                      @Field("VISIT_ID") String  visitId
-    );
+//
+//
+//    @FormUrlEncoded
+//    @POST("get_safty_result")
+//    Call<StoreAnswer> getSafetyResult(@Field("CONSTRUCT_ID") String constructId,
+//                                      @Field("VISIT_ID") String  visitId
+//    );
 
 }
