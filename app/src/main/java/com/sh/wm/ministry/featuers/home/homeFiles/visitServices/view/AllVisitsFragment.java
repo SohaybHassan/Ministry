@@ -75,8 +75,7 @@ public class AllVisitsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentAllVisitsBinding.inflate(inflater,container ,false);
         viewModel= new ViewModelProvider(this).get(VisitViewModel.class);
-        viewModel.getAllVisits(//"831504");
-                null).observe(getViewLifecycleOwner(),observer);
+        viewModel.getAllVisits("763").observe(getViewLifecycleOwner(),observer);
         return binding.getRoot();
     }//end onCreateView
 

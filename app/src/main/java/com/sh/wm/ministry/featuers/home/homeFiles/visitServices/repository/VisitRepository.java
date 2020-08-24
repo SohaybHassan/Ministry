@@ -24,11 +24,9 @@ public class VisitRepository {
     private static String TAG= VisitRepository.class.toString();
     private static   VisitRepository repository ;
     private NetworkUtils networkUtils ;
-    MutableLiveData<VisitPlanData> data;
     private VisitDao visitDao;
     private VisitRepository(@NonNull Application application){
         networkUtils= NetworkUtils.getInstance(true,application);
-        data= new MutableLiveData<>();
         visitDao= DataBase.getInstance(application).visitDao();
     }//end Constructor
 
@@ -39,20 +37,20 @@ public class VisitRepository {
 
 
     public LiveData<List<Visit>> getAllVisits(String constructId) {
-        //adding dummy card
-        for (int i =0 ; i<=5 ; i++){
-            Visit visitCard = new Visit("117"+i);
-            visitCard.setArea("غزة");
-            visitCard.setCompanyName("ماف");
-            visitCard.setStartDate("22/8/2020");
-            visitDao.insertVisit(visitCard);
-        }
-
-      //  updateVisitPlanData(constructId);
+//        //adding dummy card
+//        for (int i =0 ; i<=5 ; i++){
+//            Visit visitCard = new Visit("117"+i);
+//            visitCard.setArea("غزة");
+//            visitCard.setCompanyName("ماف");
+//            visitCard.setStartDate("22/8/2020");
+//            visitDao.insertVisit(visitCard);
+//        }
+//        visitDao.deleteAllVisits();
+        updateVisitPlanData(constructId);
         return visitDao.getAllVisits();
     }
 
-    public MutableLiveData<VisitPlanData> updateVisitPlanData(String constructId) {
+    public void updateVisitPlanData(String constructId) {
         Call<VisitPlanData> call= networkUtils.getApiInterface().getVisitPlanData(constructId);
 
         call.enqueue(new Callback<VisitPlanData>() {
@@ -60,29 +58,28 @@ public class VisitRepository {
             public void onResponse(Call<VisitPlanData> call, Response<VisitPlanData> response) {
                 if(response.isSuccessful()){
                     Log.d(TAG, "onResponse: Success");
-                    data.setValue(response.body());
-                    int status ;
-                    for(InspectionVisit visit: response.body().getInspectionVisit()){
-                        Visit visitCard = new Visit(visit.getINSPECTVID());
-                        visitCard.setArea(visit.getDIRECTORATENAME());
-                        visitCard.setCompanyName(visit.getCONSTRUCTNAMEUSING());
-                        visitCard.setStartDate(visit.getVISITDATE());
-                        status= Integer.parseInt(visit.getINSPETVISITSTATUS());
-                        visitCard.setStatus(status);
-                        visitDao.insertVisit(visitCard);
-                    }//end foreach
+                      if( response.body().getInspectionVisit()!=null){
+                          int status ;
+                          for(InspectionVisit visit: response.body().getInspectionVisit()){
+                            Visit visitCard = new Visit(visit.getINSPECTVID());
+                            visitCard.setArea(visit.getDIRECTORATENAME());
+                            visitCard.setCompanyName(visit.getCONSTRUCTNAMEUSING());
+                            visitCard.setStartDate(visit.getVISITDATE());
+                            status= Integer.parseInt(visit.getINSPETVISITSTATUS());
+                            visitCard.setStatus(status);
+                            visitDao.insertVisit(visitCard);
+                        }//end foreach
+                    }//end if
+
                 }else{
                     Log.d(TAG, "onResponse: Failed");
-                    data.setValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<VisitPlanData> call, Throwable t) {
                 Log.d(TAG, "onFailure: "+t.getMessage());
-                data.setValue(null);
             }
         });
-        return data ;
     }
 }//end class
