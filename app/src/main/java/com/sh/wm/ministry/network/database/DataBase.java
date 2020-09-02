@@ -8,12 +8,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.QuestionAnswerDao;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.AnswersDao;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.ReVisitResultDao;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.RecommendationsDao;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.VisitDao;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.VisitResultDao;
-import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.QuestionAnswer;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Answers;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.ReVisitResult;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Recommendations;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Visit;
@@ -25,7 +25,7 @@ import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.database.W
 import com.sh.wm.ministry.featuers.userfile.userFiles.practicalstatus.model.WorkStatus;
 
 
-@Database(entities = {Language.class, WorkStatus.class, Visit.class, ReVisitResult.class, VisitResult.class, Recommendations.class, QuestionAnswer.class}, version = 1, exportSchema = false)
+@Database(entities = {Language.class, WorkStatus.class, Visit.class, ReVisitResult.class, VisitResult.class, Recommendations.class, Answers.class}, version = 1, exportSchema = false)
 @TypeConverters({LanguagesTypeConverter.class})
 
 public abstract class DataBase extends RoomDatabase {
@@ -50,7 +50,7 @@ public abstract class DataBase extends RoomDatabase {
     public abstract ReVisitResultDao reVisitResultDao();
     public abstract VisitResultDao visitResultDao();
     public abstract RecommendationsDao recommendationsDao();
-    public abstract QuestionAnswerDao questionAnswersDao();
+    public abstract AnswersDao answersDao();
 
 
 

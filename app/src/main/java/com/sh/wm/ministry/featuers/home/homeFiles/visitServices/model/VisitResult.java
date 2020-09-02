@@ -11,11 +11,6 @@ import com.google.gson.annotations.SerializedName;
 
 @Entity(tableName = "visit_result_table")
 public class VisitResult {
-    @PrimaryKey
-    @NonNull
-    @SerializedName("VISIT_ID")
-    @Expose
-    private String  visitId;
 
     @SerializedName("INSPECT_CONSTRUCT_ID")
     @Expose
@@ -45,13 +40,22 @@ public class VisitResult {
     @Expose
     private String  inspectMachineName;
 
+    @PrimaryKey
+    @NonNull
+    @SerializedName("VISIT_ID")
+    @Expose
+    private String  visitId;
 
     @SerializedName("INSERTUSERID")
     @Expose
     private String  insertUserId;
 
-    public VisitResult(@NonNull String visitId, String constructId, String inspectResultsActionId, String inspectResultsRecomId, String inspectResultsPlacementId, String comActionDate, String resultsActionReon, String inspectMachineName, String insertUserId) {
-        this.visitId = visitId;
+    public  VisitResult(){
+
+    }
+
+    @Ignore
+    public VisitResult(String constructId, String inspectResultsActionId, String inspectResultsRecomId, String inspectResultsPlacementId, String comActionDate, String resultsActionReon, String inspectMachineName, @NonNull String visitId, String insertUserId) {
         this.constructId = constructId;
         this.inspectResultsActionId = inspectResultsActionId;
         this.inspectResultsRecomId = inspectResultsRecomId;
@@ -59,10 +63,12 @@ public class VisitResult {
         this.comActionDate = comActionDate;
         ResultsActionReon = resultsActionReon;
         this.inspectMachineName = inspectMachineName;
+        this.visitId = visitId;
         this.insertUserId = insertUserId;
-    }//con
-@Ignore
-    public VisitResult(@NonNull String visitId) {
+    }
+
+    @Ignore
+    public VisitResult( String visitId) {
         this.visitId = visitId;
     }
 
@@ -129,4 +135,13 @@ public class VisitResult {
     public void setInsertUserId(String insertUserId) {
         this.insertUserId = insertUserId;
     }
+    @NonNull
+    public String getVisitId() {
+        return visitId;
+    }
+
+    public void setVisitId(@NonNull String visitId) {
+        this.visitId = visitId;
+    }
+
 }

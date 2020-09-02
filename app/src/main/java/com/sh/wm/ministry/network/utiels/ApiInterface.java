@@ -8,7 +8,7 @@ import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Municipalit
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
-import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.StoreAnswer;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.ResponseOfStore;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.VisitPlanData;
 import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
@@ -155,49 +155,49 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("store_questions_answer ")
-    Call<StoreAnswer> storeQuestionAnswer(@Field("CONSTRUCT_ID") String constructId,
-                                          @Field("INSPECTION_VISIT_ID") String inspectionVisitId,
-                                          @Field("ANSWERS") String answers,
-                                          @Field("INSERT_USERID") String insertUserId);
+    Call<ResponseOfStore> storeQuestionAnswer(@Field("CONSTRUCT_ID") String constructId,
+                                              @Field("INSPECTION_VISIT_ID") String inspectionVisitId,
+                                              @Field("ANSWERS") String answers,
+                                              @Field("INSERT_USERID") String insertUserId);
 
     @FormUrlEncoded
     @POST("store_inspection_revisit_results ")
-    Call<StoreAnswer> storeInspectionRevisitResult(@Field("CONSTRUCT_ID") String constructId,
-                                          @Field("VIOLATIONS_REMOVAL") String violationRemoval,
-                                          @Field("INSPECT_RESULTS_ACTION_ID") String inspectResultsActionId,
-                                          @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultsRecomId,
-                                          @Field("INSPECT_RESULTS_PLACEMENT_ID") String inspectResultsPlacementId,
-                                          @Field("COM_INSPECTN_MACHINE_NAME") String inspectMachineName,
-                                          @Field("INSPECT_RESULTS_ACTION_REON") String ResultsActionReon,
-                                          @Field("COM_INSPECTN_ACTION_DATE") String comActionDate,
-                                          @Field("VISIT_ID") String visitId
+    Call<ResponseOfStore> storeInspectionRevisitResult(@Field("CONSTRUCT_ID") String constructId,
+                                                       @Field("VIOLATIONS_REMOVAL") String violationRemoval,
+                                                       @Field("INSPECT_RESULTS_ACTION_ID") String inspectResultsActionId,
+                                                       @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultsRecomId,
+                                                       @Field("INSPECT_RESULTS_PLACEMENT_ID") String inspectResultsPlacementId,
+                                                       @Field("COM_INSPECTN_MACHINE_NAME") String inspectMachineName,
+                                                       @Field("INSPECT_RESULTS_ACTION_REON") String ResultsActionReon,
+                                                       @Field("COM_INSPECTN_ACTION_DATE") String comActionDate,
+                                                       @Field("VISIT_ID") String visitId
                                                    );
 
     @FormUrlEncoded
     @POST("store_inspection_visit_results ")
-    Call<StoreAnswer> storeInspectionVisitResult(@Field("INSPECT_CONSTRUCT_ID") String constructId,
-                                                   @Field("INSPECT_RESULTS_ACTION_ID") String inspectResultsActionId,
-                                                   @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultsRecomId,
-                                                   @Field("INSPECT_RESULTS_PLACEMENT_ID") String inspectResultsPlacementId,
-                                                   @Field("INSPECT_RESULTS_ACTIN_DATE") String comActionDate,
-                                                   @Field("INSPECT_RESULTS_ACTION_REON") String ResultsActionReon ,
-                                                   @Field("INSPECT_RESULTS_MACHINE_NAME") String inspectMachineName ,
-                                                   @Field("VISIT_ID") String  visitId,
-                                                   @Field("INSERTUSERID") String insertUserId
+    Call<ResponseOfStore> storeInspectionVisitResult(@Field("INSPECT_CONSTRUCT_ID") String constructId,
+                                                     @Field("INSPECT_RESULTS_ACTION_ID") String inspectResultsActionId,
+                                                     @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultsRecomId,
+                                                     @Field("INSPECT_RESULTS_PLACEMENT_ID") String inspectResultsPlacementId,
+                                                     @Field("INSPECT_RESULTS_ACTIN_DATE") String comActionDate,
+                                                     @Field("INSPECT_RESULTS_ACTION_REON") String ResultsActionReon ,
+                                                     @Field("INSPECT_RESULTS_MACHINE_NAME") String inspectMachineName ,
+                                                     @Field("VISIT_ID") String  visitId,
+                                                     @Field("INSERTUSERID") String insertUserId
     );
 
 
     @FormUrlEncoded
     @POST("store_committe_inspection_recommendations")
-    Call<StoreAnswer> storeInspectionRecommendations(@Field("CONSTRUCT_ID") String constructId,
-                                                     @Field("COM_INSPECT_RECOMM_ID") String recommId,
-                                                     @Field("COM_INSPECT_RECOMM_ADOPTED_ID") String adoptedRecomId,
-                                                     @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultRecommId,
-                                                     @Field("COM_INSPECT_RECOMM_ACTIONS_ID") String recommActionId,
-                                                     @Field("COM_INSPECTN_MACHINE_NAME") String machineName,
-                                                     @Field("COM_INSPECTN_ACTION_DATE") String actionDate ,
-                                                     @Field("VISIT_ID") String  visitId,
-                                                     @Field("INSERTUSERID") String insertUserId
+    Call<ResponseOfStore> storeInspectionRecommendations(@Field("CONSTRUCT_ID") String constructId,
+                                                         @Field("COM_INSPECT_RECOMM_ID") String recommId,
+                                                         @Field("COM_INSPECT_RECOMM_ADOPTED_ID") String adoptedRecomId,
+                                                         @Field("INSPECT_RESULTS_RECOM_ID") String inspectResultRecommId,
+                                                         @Field("COM_INSPECT_RECOMM_ACTIONS_ID") String recommActionId,
+                                                         @Field("COM_INSPECTN_MACHINE_NAME") String machineName,
+                                                         @Field("COM_INSPECTN_ACTION_DATE") String actionDate ,
+                                                         @Field("VISIT_ID") String  visitId,
+                                                         @Field("INSERTUSERID") String insertUserId
     );
 //
 //

@@ -2,8 +2,8 @@ package com.sh.wm.ministry.network.utiels;
 
 public interface ApiConstent {
 
-    //public static final String BASEURL = " https://lmistest.mol.ps/index.php/restful_api/";
-   public static final String BASEURL = "http://192.168.1.76/live/index.php/restful_api/";
+    public static final String BASEURL = "http://185.132.250.218:22275/LMIS_Ap3/index.php/Restful_api/";
+   //public static final String BASEURL = "http://192.168.1.76/live/index.php/restful_api/";
     //public static final String BASEURL = "http://192.168.1.75/LMIS_Ap3/index.php/restful_api/";
 
 

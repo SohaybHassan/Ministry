@@ -122,4 +122,13 @@ public class Recommendations {
     public void setInsertUserId(String insertUserId) {
         this.insertUserId = insertUserId;
     }
+    @NonNull
+    public String getVisitId() {
+        return visitId;
+    }
+
+    public void setVisitId(@NonNull String visitId) {
+        this.visitId = visitId;
+    }
+
 }

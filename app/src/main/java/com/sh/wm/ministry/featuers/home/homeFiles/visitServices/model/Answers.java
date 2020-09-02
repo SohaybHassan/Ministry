@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 @Entity(tableName = "answers_table")
-public class QuestionAnswer {
+public class Answers {
 
     @PrimaryKey
     @NonNull
@@ -24,20 +24,20 @@ public class QuestionAnswer {
     private String constructId;
     @SerializedName("ANSWERS")
     @Expose
-    private ArrayList<Answer> answers;
+    private ArrayList<Question_Answer> questionAnswers;
     @SerializedName("INSERT_USERID")
     @Expose
     private String insertUserId;
 
-    public QuestionAnswer(@NonNull String inspectionVisitId, String constructId, ArrayList<Answer> answers, String insertUserId) {
+    public Answers(@NonNull String inspectionVisitId, String constructId, ArrayList<Question_Answer> questionAnswers, String insertUserId) {
         this.inspectionVisitId = inspectionVisitId;
         this.constructId = constructId;
-        this.answers = answers;
+        this.questionAnswers = questionAnswers;
         this.insertUserId = insertUserId;
     }
 
     @Ignore
-    public QuestionAnswer(@NonNull String inspectionVisitId) {
+    public Answers(@NonNull String inspectionVisitId) {
         this.inspectionVisitId = inspectionVisitId;
     }
 
@@ -49,12 +49,12 @@ public class QuestionAnswer {
         this.constructId = constructId;
     }
 
-    public ArrayList<Answer> getAnswers() {
-        return answers;
+    public ArrayList<Question_Answer> getQuestionAnswers() {
+        return questionAnswers;
     }
 
-    public void setAnswers(ArrayList<Answer> answers) {
-        this.answers = answers;
+    public void setQuestionAnswers(ArrayList<Question_Answer> questionAnswers) {
+        this.questionAnswers = questionAnswers;
     }
 
     public String getInsertUserId() {
@@ -63,5 +63,14 @@ public class QuestionAnswer {
 
     public void setInsertUserId(String insertUserId) {
         this.insertUserId = insertUserId;
+    }
+
+    @NonNull
+    public String getInspectionVisitId() {
+        return inspectionVisitId;
+    }
+
+    public void setInspectionVisitId(@NonNull String inspectionVisitId) {
+        this.inspectionVisitId = inspectionVisitId;
     }
 }

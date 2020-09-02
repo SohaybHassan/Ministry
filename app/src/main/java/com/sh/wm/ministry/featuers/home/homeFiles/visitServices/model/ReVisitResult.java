@@ -9,15 +9,9 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import retrofit2.http.Field;
 
 @Entity(tableName = "re_visit_table")
 public class ReVisitResult {
-    @PrimaryKey
-    @NonNull
-    @SerializedName("VISIT_ID")
-    @Expose
-    private String  visitId;
 
     @SerializedName("CONSTRUCT_ID")
     @Expose
@@ -47,8 +41,17 @@ public class ReVisitResult {
     @Expose
     private String  inspectMachineName;
 
-    public ReVisitResult(@NonNull String visitId, String constructId, String violationRemoval, String inspectResultsRecomId, String inspectResultsPlacementId, String comActionDate, String resultsActionReon, String inspectMachineName) {
-        this.visitId = visitId;
+    @PrimaryKey
+    @NonNull
+    @SerializedName("VISIT_ID")
+    @Expose
+    private String  visitId;
+
+   public  ReVisitResult(){
+
+     }
+    @Ignore
+    public ReVisitResult(String constructId, String violationRemoval, String inspectResultsRecomId, String inspectResultsPlacementId, String comActionDate, String resultsActionReon, String inspectMachineName, @NonNull String visitId) {
         this.constructId = constructId;
         this.violationRemoval = violationRemoval;
         this.inspectResultsRecomId = inspectResultsRecomId;
@@ -56,10 +59,20 @@ public class ReVisitResult {
         this.comActionDate = comActionDate;
         ResultsActionReon = resultsActionReon;
         this.inspectMachineName = inspectMachineName;
+        this.visitId = visitId;
     }
 
-@Ignore
+    @Ignore
     public ReVisitResult(@NonNull String visitId) {
+        this.visitId = visitId;
+    }
+
+    @NonNull
+    public String getVisitId() {
+        return visitId;
+    }
+
+    public void setVisitId(@NonNull String visitId) {
         this.visitId = visitId;
     }
 

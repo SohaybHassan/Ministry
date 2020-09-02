@@ -9,23 +9,23 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
-import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.QuestionAnswer;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Answers;
 
 import java.util.List;
 
 @Dao
-public interface QuestionAnswerDao {
+public interface AnswersDao {
     @Query("SELECT * FROM answers_table")
-    LiveData<List<QuestionAnswer>> getAllAnswers();
+    LiveData<List<Answers>> getAllAnswers();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAnswers (QuestionAnswer answer);
+    void insertAnswers (Answers answer);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    int updateAnswers(QuestionAnswer answer);
+    int updateAnswers(Answers answer);
 
     @Delete
-    int deleteAnswers(QuestionAnswer answer);
+    int deleteAnswers(Answers answer);
 
 
     @Query("DELETE  FROM answers_table")

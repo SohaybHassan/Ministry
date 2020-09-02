@@ -19,9 +19,11 @@ public class VisitViewModel extends AndroidViewModel {
           super(application);
           repository= VisitRepository.getInstance(application);
       }//end constructor
+    public LiveData<List<Visit>> getPage(String constructId , int first , int last){
+          return  repository.getPage(constructId , first , last);
+    }
 
-
-    public LiveData<List<Visit>> getAllVisits(String constructId){
-          return  repository.getAllVisits(constructId);
+    public LiveData<List<Visit>> getAllVisits(String s) {
+          return repository.getAllVisits(s);
     }
 }//end class

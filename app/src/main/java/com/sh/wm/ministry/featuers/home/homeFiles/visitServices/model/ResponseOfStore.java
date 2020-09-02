@@ -7,7 +7,7 @@ package com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class StoreAnswer {
+public class ResponseOfStore {
 
     @SerializedName("message_text")
     @Expose

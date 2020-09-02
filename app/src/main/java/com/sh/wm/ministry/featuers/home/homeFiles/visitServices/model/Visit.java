@@ -33,6 +33,8 @@ public class Visit {
     @Expose
     private boolean inserted=false;
 
+
+
     public Visit(String visitId, String companyName, String area, String startDate, int status) {
         this.visitId = visitId;
         this.companyName = companyName;

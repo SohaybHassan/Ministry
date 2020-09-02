@@ -1,5 +1,6 @@
 package com.sh.wm.ministry.featuers.home.homeFiles.visitServices.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.MyViewHolder>  {
     List<Visit> cards = new ArrayList<Visit>();
+    public static final String TAG = VisitsAdapter.class.getCanonicalName();
     @NonNull
     @Override
     public VisitsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,9 +42,15 @@ public class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.MyViewHold
         return cards.size();
     }//end getItemCount
 
-    public void setCards(List<Visit> cards) {
-        this.cards = cards;
-    }//end setCards
+
+
+    public void addCard(Visit card) {
+        if(cards.contains(card)) return;
+            cards.add(card);
+
+    }//end addCard
+
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardViewVisitItemBinding binding ;
