@@ -12,7 +12,7 @@ public  abstract class PaginationScrollListener extends RecyclerView.OnScrollLis
     private LinearLayoutManager layoutManager;
     private  static int ROW_COUNT =18;
     private  static int P_START =0;
-    private  static int P_LENGTH =3;
+    private  static int P_LENGTH =10;
     private int currentPage=0;
     private boolean isLoading=false;
 

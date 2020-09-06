@@ -1,128 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".featuers.home.homeFiles.visitServices.view.InspectionResultsFragment"
-    android:layoutDirection="rtl"
-    android:layout_margin="10dp">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-   >
+        android:layout_margin="10dp"
+        android:layoutDirection="rtl">
 
         <TextView
-            style="@style/insResult"
+            style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/take_procedures"
-            android:layout_marginLeft="10dp"
             />
 
         <RadioGroup
+            android:id="@+id/action_taking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
             >
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-
-                android:layout_weight="1">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one_op_one"
-                style="@style/txtStyle"
-                android:layout_marginLeft="60dp"/>
+                style="@style/insResult"
+               />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one_op_two"
-                style="@style/txtStyle"
+                style="@style/insResult"
                />
-            </LinearLayout>
             <RadioButton
-
-                style="@style/txtStyle"
+                style="@style/insResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one_op_three" />
         </RadioGroup>
         <TextView
-            style="@style/insResult"
+            style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/recommended_procedures"
             android:layout_marginTop="5dp"/>
 
         <RadioGroup
+            android:id="@+id/recommendations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
 
             >
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/two_op_one"
-                style="@style/txtStyle"
+                style="@style/insResult"
                 android:layout_marginLeft="45dp"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/two_op_two"
-                style="@style/txtStyle"
-                android:gravity="end"
+                style="@style/insResult"
                 />
 
         </RadioGroup>
         <TextView
-            style="@style/insResult"
+            style="@style/txtStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fitting_procedures"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_margin="5dp"
+          />
 
         <RadioGroup
+            android:id="@+id/best_actions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
             >
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1">
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cloase_facility"
-                    style="@style/txtStyle"
+                    style="@style/insResult"
                     android:layout_marginLeft="15dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/stop_machine"
-                    style="@style/txtStyle"
-                    />
-            </LinearLayout>
+
             <RadioButton
-                style="@style/txtStyle"
+                style="@style/insResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/partial_closure" />
+            <RadioButton
+                android:id="@+id/machine_stop_act"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_machine"
+                style="@style/insResult"
+                />
         </RadioGroup>
-        <LinearLayout
+    <TextView
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resoans" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_health_status_details"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:minLines="4"
+       />
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -140,6 +143,7 @@
             android:layout_height="wrap_content"
             android:text="@string/date_of_process" />
         <TextView
+            android:id="@+id/action_date"
             style="@style/datePickerStyle"
             android:layout_width="match_parent"
             android:layout_weight="1"
@@ -165,23 +169,7 @@
                     />
             </LinearLayout>
         </LinearLayout>
-        <TextView
-            style="@style/insResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/resoans" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_healh_status_details"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="8dp"
-            android:gravity="start"
-            android:inputType="text"
-            android:minHeight="100dp" />
-    </LinearLayout>
-</ScrollView>
 
     <com.google.android.material.button.MaterialButton
         style="@style/btnStyle"
@@ -190,5 +178,5 @@
         android:layout_gravity="bottom"
         android:text="@string/Save" />
 
-
-</FrameLayout>
+    </LinearLayout>
+</ScrollView>

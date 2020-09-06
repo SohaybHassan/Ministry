@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case 3:
                 break;
             case 4:
-                navController.navigate(R.id.nav_visit_sevices);
+                navController.navigate(R.id.nav_all_visits);
                 break;
         }
     }
@@ -234,22 +234,25 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case 10:
                 navController.navigate(R.id.nav_add_practical_status);
                 break;
-            case R.id.inspection_mng_card:
-                navController.navigate(R.id.nav_inspection_mng);
+            case R.id.visit_start_btn:
+                navController.navigate(R.id.nav_visit_start);
                 break;
-            case  R.id.inspection_dec_btn :
-                navController.navigate(R.id.nav_action_taking);
+            case R.id.show_results_btn:
+
+            case R.id.extra_services_btn:
+            case R.id.revisit_btn:
+            case R.id.visit_result_btn:
+                navController.navigate(R.id.nav_inspection_results);
                 break;
-            case R.id.inspection_plane_mng_card:
-                navController.navigate(R.id.nav_all_visits);
-                break;
-            case R.id.inspection_plane_prp_btn :
-                //        navController.navigate(R.id.nav_inspection_mng);
+            case R.id.recommendations_btn:
+            case R.id.update:
+                navController.navigate(R.id.nav_facility_update);
 
                 break;
-            case R.id.inspection_visit_btn :
-                navController.navigate(R.id.nav_visit_out_of_plane);
-                break;
+            case R.id.safe :
+                break ;
+            case R.id.workers:
+                break ;
         }
 
     }

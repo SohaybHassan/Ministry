@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context=".featuers.home.homeFiles.visitServices.view.VisitStartFragment">
+    <!--<include-->
+    <!--    android:id="@+id/owner_info"-->
+    <!--    layout="@layout/"-->
+    <!--    />-->
+    <Button
+        android:id="@+id/update"
+        style="@style/insBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_suitcase"
+        android:drawablePadding="5dp"
+        android:text="@string/facility_update_info" />
+
+    <Button
+        android:id="@+id/workers"
+        style="@style/insBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_person"
+        android:drawablePadding="5dp"
+        android:drawableTint="@android:color/white"
+        android:text="@string/workers_info" />
+
+    <Button
+        android:id="@+id/safe"
+        style="@style/insBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_pharmacy"
+        android:drawablePadding="5dp"
+        android:text="@string/safe" />
+</LinearLayout>

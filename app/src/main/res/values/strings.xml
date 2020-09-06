@@ -284,12 +284,53 @@
     <string name="no_visits">لا توجد أي زيارات</string>
     <string name="show_results">عرض النتائج</string>
     <string name="recommendations">التوصيات</string>
-    <!--numbers-->
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
+    <string name="start_visit_confirm">هل تريد بدء زيارة تفتيشية بالفعل؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="workers_info">بيانات العمال</string>
+    <string name="safe">السلامة و الصحة المهنية</string>
+
+    <!-- facility_update_info -->
+    <string name="facility_update_info">تعديل بيانات المنشأة</string>
+    <string name="basic_info">البيانات الأساسية</string>
+    <string name="facility_official_name">الاسم التجاري الرسمي للمنشأة</string>
+    <string name="facility_commercial_name">الاسم التجاري المستخدم للمنشأة</string>
+    <string name="street_details">تفصيل الشارع</string>
+    <string name="address_desc">وصف العنوان</string>
+    <string name="spatial_dimension_lat">البعد المكاني Lat</string>
+    <string name="spatial_dimension_long">البعد المكاني Long</string>
+    <string name="enterprise_phone">رقم الهاتف المنشأة</string>
+    <string name="enterprise_mobile_phone">رقم المحمول المنشأة</string>
+    <string name="danger_level">درجة الخطورة</string>
+    <string name="enterprise_fax">رقم الفاكس المنشأة</string>
+    <string name="postal_no">رقم الصندوق البريدي</string>
+    <string name="legal">الكيان القانوني</string>
+    <string name="enterprise_type">نوع المنشأة</string>
+    <string name="legal_files">اختيار الملفات الخاصة بالكيان القانوني</string>
+    <string name="owner_start">تاريخ بدء عمل المالك</string>
+    <string name="add_owner">إضافة مالك</string>
+    <string name="manager_id">رقم هوية المدير المسؤول</string>
+    <string name="manager_name">اسم المدير المسؤول</string>
+    <string name="enterprise_ownership">ملكية المنشأة</string>
+    <string name="enterprise_ownership_files">اختر الملفات الخاصة بملكية المنشأة</string>
+    <string name="choose_file">اختيار ملف</string>
+    <string name="no_chosen_file">لم يتم اختيار اي ملف</string>
+    <string name="activity_desc">وصف النشاط</string>
+    <string name="main_activity">النشاط الرئيسي</string>
+    <string name="is_enterprise">هل تمارس المنشأة أنشطة اقتصادية ثانوية؟</string>
+    <string name="secondary_activity">النشاط الثانوي</string>
+    <string name="activity_type">نوع النشاط</string>
+    <string name="enterprise_lasting">ديمومة المؤسسة</string>
+    <string name="year">سنة المزاولة</string>
+    <string name="workers_number">عدد العاملين حاليا</string>
+    <string name="construction_workers_number">عدد العاملين عند التأسيس</string>
+    <string name="start_date">تاريخ البداية</string>
+    <string name="end_date">تاريخ النهاية</string>
+    <string name="owners">المالكون</string>
+
+    <string name="blank_info">بيانات المدلى</string>
+    <string name="license_info">بيانات التراخيص</string>
+
 
     <!-- QayedArchive -->
     <string name="request_date">تاريخ الطلب</string>
