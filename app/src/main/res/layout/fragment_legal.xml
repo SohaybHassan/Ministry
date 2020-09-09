@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".featuers.home.homeFiles.visitServices.view.BasicInfoFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.FaciltyUpdate.LegalFragment">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -96,13 +97,13 @@
 
             <EditText
                 android:id="@+id/lg_own_id"
-                style="@style/datePickerStyle"
+                style="@style/editTxtStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_search_dark"
-                android:enabled="false" />
+             />
 
             <EditText
                 android:id="@+id/lg_own_name"
@@ -144,7 +145,7 @@
                 android:id="@+id/lg_own_start_date"
                 style="@style/datePickerStyle"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_calendar" />
@@ -157,7 +158,6 @@
                  style="@style/insBtn"
                 android:drawableRight="@drawable/ic_add"
                 android:text="@string/add_owner"
-                android:layout_marginVertical="5dp"
                 android:layout_marginHorizontal="10dp"
                 android:foregroundTint="@color/jordy_blue"/>
 
@@ -550,8 +550,15 @@
             android:text="@string/owners"
             android:textSize="14sp"/>
 
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/lg_owners_list"
+         android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+          tools:listitem="@layout/card_owner"
+       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
         <Button
-            android:id="@+id/vs_save"
+            android:id="@+id/lg_save"
             style="@style/btnStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

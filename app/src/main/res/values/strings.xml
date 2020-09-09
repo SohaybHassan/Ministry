@@ -327,10 +327,58 @@
     <string name="start_date">تاريخ البداية</string>
     <string name="end_date">تاريخ النهاية</string>
     <string name="owners">المالكون</string>
-
-    <string name="blank_info">بيانات المدلى</string>
     <string name="license_info">بيانات التراخيص</string>
-
+    <string name="license_authority">الجهة المرخصة</string>
+    <string name="license_no">رقم الترخيص</string>
+    <string name="save_authority">حفظ جهة الترخيص</string>
+    <string name="have_insurance">هل يوجد تأمين في المنشأة؟ (اصابات العمل)</string>
+    <string name="insurance_company">شركة التأمين</string>
+    <string name="insurance_no">رقم بوليصة التأمين</string>
+    <string name="insurance_end">تاريخ انتهاء بوليصة التأمين</string>
+    <string name="have_system">هل يوجد نظام داخلي ولائحات احراءات للمنشأة</string>
+    <string name="is_certified">هل النظام الداخلي مصدق من وزارة العمل؟</string>
+    <string name="enterprise_work_hours">مجموع عمل الساعات اليومية للمنشأة</string>
+    <string name="work_time">وقت العمل للمنشأة</string>
+    <string name="morning">صباحي</string>
+    <string name="shifts">دوريات</string>
+    <string name="evening">مسائي</string>
+    <string name="enterprise_money">رأس المال للمنشأة</string>
+    <string name="enterprise_money_wage">مستوى دخل المنشأة</string>
+    <string name="blank_info">بيانات المدلي</string>
+    <string name="informer_adj">صفة المدلي بالبيانات</string>
+    <string name="owner">المالك</string>
+    <string name="manager">المدير</string>
+    <string name="employee">أحد الموظفين</string>
+    <string name="commissioner">المفوض</string>
+    <string name="informer_id">رقم هوية المدلي</string>
+    <string name="informer_name">اسم المدلي</string>
+    <string name="interview_result">نتائج المقابلة</string>
+    <string name="completed">مكتملة</string>
+    <string name="partial_completed">اكتمال جزئي</string>
+    <string name="not_completed">غير مكتملة</string>
+    <string name="not_completing_resoan">سبب عدم الاكتمال</string>
+    <string name="age">العمر</string>
+    <string name="mobile_phone">رقم الموبايل</string>
+    <string name="certif_id">رقم الوثيقة</string>
+    <string name="is_enterprise_licensed">هل المنشأة مرخصة؟</string>
+    <string name="is_enterprise_registered">هل المنشأة مسجلة؟</string>
+    <string name="register_authority">الجهة المسجلة</string>
+    <string name="register_no">رقم التسجيل</string>
+    <!-- WORKERS DATA -->
+    <string name="disability_type">نوع الاعاقة</string>
+    <string name="its_place">مكانها</string>
+    <string name="its_size">حجمها</string>
+    <string name="disability_resoan">سبب الاعاقة</string>
+    <string name="suggested_work_place">مكان العمل المقترح</string>
+    <string name="edu_qualification">المؤهل العلمي</string>
+    <string name="skill_level">مستوى المهارة</string>
+    <string name="periodic_medical_examination">الفحص الطبي الدوري</string>
+    <string name="primary_medical_examination">الفحص الطبي الابتدائي</string>
+    <string name="has_registration_certificate">حاصل على شهادة القيد</string>
+    <string name="work_leaving_date">تاريخ ترك العمل</string>
+    <string name="leaving_work_reasons">سبب ترك العمل</string>
+    <string name="wage">قيمة الأجر</string>
+    <string name="paid_way">طريقة الدفع</string>
 
     <!-- QayedArchive -->
     <string name="request_date">تاريخ الطلب</string>
@@ -339,6 +387,6 @@
     <string name="request_status">الحالة</string>
     <string name="no_cards">لا يوجد طلب </string>
     <string name="archive_title">سجل طلبات شهادات القيد </string>
-
+<string name="in_progress">قيد التنفيذ</string>
 
 </resources>

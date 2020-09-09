@@ -6,7 +6,7 @@
     android:layout_margin="10dp"
     android:layoutDirection="rtl"
     android:orientation="vertical"
-    tools:context=".featuers.home.homeFiles.visitServices.view.VisitStartFragment">
+    tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.VisitStartFragment">
     <!--<include-->
     <!--    android:id="@+id/owner_info"-->
     <!--    layout="@layout/"-->

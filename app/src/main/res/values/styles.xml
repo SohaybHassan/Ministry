@@ -124,6 +124,13 @@
         <item name="android:background">@color/jordy_blue</item>
 
     </style>
+    <style name="floatBtn"  parent="Widget.Design.FloatingActionButton">
+        <item name="android:layout_margin">24dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:foregroundTint">@color/white</item>
+        <item name="android:background">@color/jordy_blue</item>
+
+    </style>
 
     <style name="insResult"  parent="Widget.MaterialComponents.TextView">
         <item name="android:fontFamily">@font/cairosemibold</item>
@@ -132,7 +139,7 @@
     </style>
     <style name="visitBtnStyle" parent="Widget.MaterialComponents.Button">
         <item name="android:fontFamily">@font/cairobold</item>
-        <item name="android:textSize">9sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/gallery</item>
         <item name="android:padding">1dp</item>

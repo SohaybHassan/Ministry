@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.FaciltyUpdate.Informer_Fragment">
+<TextView
+android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/insResult"
+    android:text="@string/informer_adj"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="10dp"
+    />
+ <RadioGroup
+     android:id="@+id/informer_adj_group"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:layout_marginHorizontal="10dp">
+     <RadioButton
+         android:id="@+id/info_owner"
+         android:layout_width="0dp"
+         android:layout_height="match_parent"
+         android:layout_weight="1"
+         style="@style/txtStyle"
+         android:text="@string/owner"
+         />
+     <RadioButton
+         android:id="@+id/info_manager"
+         android:layout_width="0dp"
+         android:layout_height="match_parent"
+         android:layout_weight="1"
+         style="@style/txtStyle"
+         android:text="@string/manager"
+
+         />
+     <RadioButton
+         android:id="@+id/info_employee"
+         android:layout_width="0dp"
+         android:layout_height="match_parent"
+         android:layout_weight="1.5"
+         style="@style/txtStyle"
+         android:text="@string/employee"
+         />
+     <RadioButton
+         android:id="@+id/info_commissioner"
+         android:layout_width="0dp"
+         android:layout_height="match_parent"
+         android:layout_weight="1"
+         style="@style/txtStyle"
+         android:text="@string/commissioner"
+
+         />
+ </RadioGroup>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_weight="1"
+            android:text="@string/informer_id"
+
+
+            />
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_weight="1"
+            android:text="@string/informer_name"
+
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/informer_id"
+            style="@style/editTxtStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            />
+
+        <EditText
+            android:id="@+id/informer_name"
+            style="@style/editTxtStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:editable="false"
+         />
+
+    </TableRow>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/insResult"
+        android:text="@string/interview_result"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        />
+    <RadioGroup
+        android:id="@+id/info_result_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp">
+        <RadioButton
+            android:id="@+id/info_completed"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/txtStyle"
+            android:text="@string/completed"
+            />
+        <RadioButton
+            android:id="@+id/info_partial_completed"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/txtStyle"
+            android:text="@string/partial_completed"
+
+            />
+        <RadioButton
+            android:id="@+id/info_not_completed"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/txtStyle"
+            android:text="@string/not_completed"
+
+            />
+
+    </RadioGroup>
+    <TextView
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:text="@string/not_completing_resoan" />
+
+    <EditText
+        android:id="@+id/not_completing_resoan"
+        style="@style/editTxtStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+
+        />
+    <Button
+        android:id="@+id/info_save"
+        style="@style/btnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/save" />
+</TableLayout>

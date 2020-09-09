@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".featuers.home.homeFiles.visitServices.view.BasicInfoFragment">
+    tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.FaciltyUpdate.BasicInfoFragment">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -492,7 +492,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
-                android:enabled="false" />
+                />
 
             <EditText
                 android:id="@+id/vs_enterprise_no"
@@ -501,7 +501,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:enabled="false" />
+                />
         </TableRow>
 
         <Button

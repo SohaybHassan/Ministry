@@ -104,18 +104,34 @@
                 style="@style/insResult"
                 android:text="@string/request_status"
                 android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"/>
-            <ImageView
-                android:id="@+id/arc_status"
+            <Button
+                android:id="@+id/arc_status_completed"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:layout_height="match_parent"
-                android:src="@mipmap/completed_foreground"
-                android:scaleType="centerCrop"
-                android:padding="30dp"/>
+                android:layout_height="wrap_content"
+                style="@style/visitBtnStyle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="@color/revisit"
+                android:text="@string/completed"
+                android:visibility="gone"
+          />
+            <Button
+                android:id="@+id/arc_status_in_progress"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                style="@style/visitBtnStyle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="@color/visit_start"
+                android:text="@string/in_progress"
+                android:visibility="gone"
 
+                />
 
         </LinearLayout>
 

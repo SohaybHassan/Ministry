@@ -47,12 +47,13 @@ public class ArchiveFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cards=new ArrayList<>();
+
         adapter= new CardAdapter();
         observer = new Observer<ArchiveModel>() {
                @Override
                public void onChanged(ArchiveModel archiveModel) {
                  if(archiveModel!=null){
+                     cards=new ArrayList<>();
                      List<UserQayedArchive> archive= archiveModel.getUserQayedArchive();
                      for(UserQayedArchive request : archive){
                          ArchiveCard card = new ArchiveCard();

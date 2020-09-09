@@ -3,20 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/card_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_columnSpan="1"
     android:background="@android:color/transparent"
     android:foregroundTint="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layoutDirection="rtl"
 >
-
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
         >
-    <LinearLayout
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -39,30 +38,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:text="@string/revisit"
-            android:textAlignment="viewStart"
+            android:textAlignment="center"
             android:layout_marginLeft="5dp"
             android:backgroundTint="@color/revisit"
             android:drawableRight="@drawable/ic_redo"
             android:padding="5dp"
             />
-    </LinearLayout>
-        <TableLayout
-            android:foregroundTint="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingRight="5dp"
-            android:stretchColumns="1"
-            android:divider="@color/dove_gray"
-            android:showDividers="middle"
-            >
+    </TableRow>
+
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:divider="@color/dove_gray"
-                android:showDividers="middle"
-
                 >
 
                 <TextView
@@ -70,7 +57,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/area" />
+                    android:paddingRight="10dp"
+                    android:text="@string/area"
+                    android:background="@drawable/table_cell_bg_white"
+                 />
 
                 <TextView
                     android:id="@+id/visit_area"
@@ -80,22 +70,25 @@
                     android:layout_gravity="right"
                     android:layout_weight="2"
                     android:text="@string/company_name"
-                    android:layout_marginRight="10dp"
-                  />
+                    android:paddingRight="10dp"
+                    android:background="@drawable/table_cell_bg_white"
+                    />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:divider="@color/dove_gray"
-                android:showDividers="middle">
+             >
 
                 <TextView
                     style="@style/insResult"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/date_visit" />
+                    android:paddingRight="10dp"
+                    android:text="@string/date_visit"
+                    android:background="@drawable/table_cell_bg_white"
+                    />
 
                 <TextView
                       android:id="@+id/visit_start_date"
@@ -105,10 +98,11 @@
                     android:layout_gravity="right"
                     android:layout_weight="2"
                     android:text="@string/company_name"
-                    android:layout_marginRight="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/table_cell_bg_white"
+
                     />
             </TableRow>
-        </TableLayout>
 
         <TextView
             style="@style/txtStyle"
@@ -122,11 +116,10 @@
             android:paddingRight="5dp"
             />
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/gallery"
-            android:orientation="horizontal"
             android:padding="5dp">
 
             <Button
@@ -180,8 +173,8 @@
                 android:text="@string/recommendations"
                 android:backgroundTint="@color/recommendations"/>
             />
-        </LinearLayout>
-    </LinearLayout>
+        </TableRow>
+    </TableLayout>
 
 
 </com.google.android.material.card.MaterialCardView>

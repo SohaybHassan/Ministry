@@ -252,6 +252,13 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case R.id.safe :
                 break ;
             case R.id.workers:
+                navController.navigate(R.id.nav_worker_basic_data);
+                break ;
+            case R.id.wr_next:
+                navController.navigate(R.id.nav_worker_work_status);
+                break ;
+            case R.id.wr_work_next:
+                navController.navigate(R.id.nav_worker_health_status);
                 break ;
         }
 

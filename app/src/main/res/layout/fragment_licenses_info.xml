@@ -1,14 +1,592 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".featuers.home.homeFiles.visitServices.view.LicensesInfoFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.FaciltyUpdate.LicensesInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="liscense_fragment" />
+        android:layoutDirection="rtl">
 
-</FrameLayout>
+        <TextView
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/is_enterprise_licensed"
+            android:textSize="14sp"/>
+
+        <RadioGroup
+            android:id="@+id/lc_secondary_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/lc_secondary_yes"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/lc_secondary_no"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/license_authority"
+
+
+                />
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/license_no"
+
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lc_lic_authority"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
+                />
+
+            <EditText
+                android:id="@+id/lc_lic_num"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+               />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
+            <Button
+                android:id="@+id/lc_lic_file_choose"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/btnStyle"
+                android:drawableRight="@drawable/ic_baseline_attach_file"
+                android:text="@string/choose_file"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:foregroundTint="@color/jordy_blue"/>
+
+            <Button
+                android:id="@+id/lc_save_lic_authority"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/btnStyle"
+                android:text="@string/save_authority"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="@color/revisit"
+                />
+        </TableRow>
+
+        <TextView
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/is_enterprise_registered"
+            android:textSize="14sp"/>
+
+        <RadioGroup
+            android:id="@+id/lc_register_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/lc_register_yes"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/lc_register_no"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/register_authority"
+
+
+                />
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/register_no"
+
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lc_register_authority"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
+                />
+
+            <EditText
+                android:id="@+id/lc_register_num"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
+            <Button
+                android:id="@+id/lc_reg_file_choose"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/btnStyle"
+                android:drawableRight="@drawable/ic_baseline_attach_file"
+                android:text="@string/choose_file"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:foregroundTint="@color/jordy_blue"/>
+
+            <Button
+                android:id="@+id/lc_save_reg_authority"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/btnStyle"
+                android:text="@string/save_authority"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="@color/revisit"
+                />
+        </TableRow>
+
+        <TextView
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="@string/have_insurance"
+            android:textSize="14sp"/>
+
+        <RadioGroup
+            android:id="@+id/lc_insurance_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/lc_insurance_yes"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/lc_insurance_no"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/insurance_company"
+
+
+                />
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/insurance_no"
+
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lc_insurance_company"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
+                />
+
+            <EditText
+                android:id="@+id/lc_insurance_num"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:enabled="false" />
+
+        </TableRow>
+
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_weight="1"
+            android:text="@string/insurance_end"
+            />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lc_insurance_end"
+                style="@style/datePickerStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_calendar" />
+
+            <Button
+                android:id="@+id/lc_insr_file_choose"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                style="@style/btnStyle"
+                android:drawableRight="@drawable/ic_baseline_attach_file"
+                android:text="@string/choose_file"
+                android:layout_marginHorizontal="10dp"
+                android:foregroundTint="@color/jordy_blue"/>
+
+        </TableRow>
+        <TextView
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="@string/have_system"
+            android:textSize="14sp"/>
+<TableRow
+android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+ <RadioGroup
+            android:id="@+id/lc_sys_group"
+            android:layout_width="0dp"
+           android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/lc_sys_yes"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:id="@+id/lc_sys_no"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/no" />
+        </RadioGroup>
+    <Button
+        android:id="@+id/lc_sys_file_choose"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent"
+        style="@style/btnStyle"
+        android:drawableRight="@drawable/ic_baseline_attach_file"
+        android:text="@string/choose_file"
+        android:layout_marginHorizontal="10dp"
+        android:foregroundTint="@color/jordy_blue"/>
+
+</TableRow>
+
+        <TextView
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="@string/is_certified"
+            android:textSize="14sp"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:id="@+id/lc_cer_group"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/lc_cer_yes"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/lc_cer_no"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no" />
+            </RadioGroup>
+            <Button
+                android:id="@+id/lc_cer_file_choose"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                style="@style/btnStyle"
+                android:drawableRight="@drawable/ic_baseline_attach_file"
+                android:text="@string/choose_file"
+                android:layout_marginHorizontal="10dp"
+                android:foregroundTint="@color/jordy_blue"/>
+
+        </TableRow>
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_weight="1"
+            android:text="@string/enterprise_work_hours"
+            />
+
+        <EditText
+            android:id="@+id/lc_work_hours"
+            style="@style/editTxtStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5dp"
+            android:layout_weight="1"
+             />
+
+        <TextView
+            style="@style/insResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="@string/work_time"
+            android:textSize="14sp"/>
+
+        <RadioGroup
+            android:id="@+id/lc_work_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/lc_morning"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/morning" />
+
+            <RadioButton
+                android:id="@+id/lc_shifts"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/shifts" />
+            <RadioButton
+                android:id="@+id/lc_evening"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/evening" />
+        </RadioGroup>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/enterprise_money"
+
+
+                />
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:text="@string/enterprise_money_wage"
+
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/lc_enterprise_money"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:id="@+id/lc_enterprise_money_wage"
+                style="@style/editTxtStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                 />
+
+        </TableRow>
+        <Button
+            android:id="@+id/lc_save"
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/save" />
+    </TableLayout>
+</ScrollView>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/worker_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+
+    >
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="7dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="6dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/edit_txt_bg"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/health_img"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/jordy_blue"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/prac_img"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/prac_img" />
+
+    <View
+        android:id="@+id/basic_prac"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:background="?android:attr/listDivider"
+        android:foreground="@color/jordy_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/basic_img"
+        app:layout_constraintEnd_toStartOf="@+id/basic_img"
+        app:layout_constraintStart_toEndOf="@+id/prac_img"
+        app:layout_constraintTop_toTopOf="@+id/basic_img" />
+
+    <ImageView
+        android:id="@+id/prac_img"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/jordy_blue"
+        android:padding="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/basic_img"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/health_img"
+        app:layout_constraintTop_toTopOf="@+id/basic_img" />
+
+    <View
+        android:id="@+id/prac_health"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:background="?android:attr/listDivider"
+        android:foreground="@color/jordy_blue"
+
+        app:layout_constraintBottom_toBottomOf="@+id/prac_img"
+        app:layout_constraintEnd_toStartOf="@+id/prac_img"
+        app:layout_constraintStart_toEndOf="@+id/health_img"
+        app:layout_constraintTop_toTopOf="@+id/prac_img" />
+
+    <ImageView
+        android:id="@+id/basic_img"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:src="@drawable/circle"
+        android:padding="5dp"
+        android:contentDescription="TODO"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/prac_img"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/basic_txt"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/basic_info"
+        app:layout_constraintEnd_toEndOf="@+id/basic_img"
+        app:layout_constraintStart_toEndOf="@+id/basic_prac"
+        app:layout_constraintTop_toBottomOf="@+id/basic_img" />
+
+    <TextView
+        android:id="@+id/practical_txt"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/practical_status"
+        app:layout_constraintEnd_toStartOf="@+id/basic_prac"
+        app:layout_constraintStart_toStartOf="@+id/prac_img"
+        app:layout_constraintTop_toBottomOf="@+id/prac_img" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/txtStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/health_status"
+        app:layout_constraintEnd_toEndOf="@+id/health_img"
+        app:layout_constraintStart_toStartOf="@+id/health_img"
+        app:layout_constraintTop_toBottomOf="@+id/health_img" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

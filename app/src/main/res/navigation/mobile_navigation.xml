@@ -183,14 +183,29 @@
         tools:layout="@layout/fragment_all_visits" />
     <fragment
         android:id="@+id/nav_visit_start"
-        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.VisitStartFragment"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.VisitStartFragment"
         android:label="@string/visit_start"
         tools:layout="@layout/fragment_visit_start" />
     <fragment
         android:id="@+id/nav_facility_update"
-        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.FacilityUpdateFragment"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.FaciltyUpdate.FacilityUpdateFragment"
         android:label="@string/facility_update_info"
         tools:layout="@layout/fragment_facility_update" />
+    <fragment
+        android:id="@+id/nav_worker_basic_data"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerBasicDataFragment"
+        android:label="fragment_worker_basic_data"
+        tools:layout="@layout/fragment_worker_basic_data" />
+    <fragment
+        android:id="@+id/nav_worker_health_status"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerHealthStatusFragment"
+        android:label="fragment_worker_health_status"
+        tools:layout="@layout/fragment_worker_health_status" />
+    <fragment
+        android:id="@+id/nav_worker_work_status"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerWorkStatusFragment"
+        android:label="fragment_worker_work_status"
+        tools:layout="@layout/fragment_worker_work_status" />
 
 
 </navigation>
