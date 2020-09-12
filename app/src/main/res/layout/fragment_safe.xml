@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.SafeFragment">
+
+<!--<include-->
+<!--    layout=""-->
+<!--    android:id=""/>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/safe_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/card_safe"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="@string/save"
+        android:id="@+id/sf_save"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="15dp"
+        style="@style/btnStyle"/>
+
+    <ImageView
+        android:id="@+id/sf_next"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+android:layout_marginBottom="15dp"
+        android:layout_marginLeft="60dp"
+        android:layout_toStartOf="@+id/sf_save"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/visit_start"
+        android:paddingLeft="15dp"
+        android:src="@drawable/ic_baseline_arrow_back" />
+
+</RelativeLayout>

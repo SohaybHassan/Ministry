@@ -379,6 +379,23 @@
     <string name="leaving_work_reasons">سبب ترك العمل</string>
     <string name="wage">قيمة الأجر</string>
     <string name="paid_way">طريقة الدفع</string>
+    <string name="committed">ملتزم</string>
+    <string name="not_committed">غير ملتزم</string>
+    <string name="visit_start_title">اتخاذ إجراءات/ خدمات الزيارات التفتيشية</string>
+
+    <!-- Recommendations -->
+    <string name="date">التاريخ</string>
+    <string name="machine_name">اسم الآلة</string>
+    <string name="recommendations_of_inspectors">توصيات أعضاء هيئة التفتيش</string>
+    <string name="procedures_placement">تنسيب الاجراءات</string>
+    <string name="approve_recommendations">اعتماد التوصيات التالية </string>
+    <string name="un_approve_visit_result">عدم اعتماد نتائج الزيارة</string>
+    <string name="approve_visit_result">اعتماد نتائج الزيارة</string>
+    <!-- Revisit -->
+    <string name="removal">هل تم ازالة المخالفات المضبوطة</string>
+    <string name="not_removed">عدم ازالتها</string>
+    <string name="partially_removed">ازالتها جزئيا</string>
+    <string name="removed">ازالتها</string>
 
     <!-- QayedArchive -->
     <string name="request_date">تاريخ الطلب</string>
@@ -386,7 +403,7 @@
     <string name="educational_status_desc_desc">تفصيل تفصيل الحالة العملية</string>
     <string name="request_status">الحالة</string>
     <string name="no_cards">لا يوجد طلب </string>
-    <string name="archive_title">سجل طلبات شهادات القيد </string>
-<string name="in_progress">قيد التنفيذ</string>
-
+    <string name="archive_title">أرشيف طلبات شهادات القيد </string>
+    <string name="in_progress">قيد التنفيذ</string>
+    <string name="certificate">شهادات القيد</string>
 </resources>

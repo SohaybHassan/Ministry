@@ -234,6 +234,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
             case 10:
                 navController.navigate(R.id.nav_add_practical_status);
                 break;
+            case R.id.btn_archive:
+                navController.navigate(R.id.nav_qayed_archive);
+                break;
             case R.id.visit_start_btn:
                 navController.navigate(R.id.nav_visit_start);
                 break;
@@ -241,15 +244,21 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
 
             case R.id.extra_services_btn:
             case R.id.revisit_btn:
+                navController.navigate(R.id.nav_revisit);
+                break;
             case R.id.visit_result_btn:
                 navController.navigate(R.id.nav_inspection_results);
                 break;
             case R.id.recommendations_btn:
+                navController.navigate(R.id.nav_recommendations);
+
+                break;
             case R.id.update:
                 navController.navigate(R.id.nav_facility_update);
 
                 break;
             case R.id.safe :
+                navController.navigate(R.id.nav_safe);
                 break ;
             case R.id.workers:
                 navController.navigate(R.id.nav_worker_basic_data);

@@ -11,31 +11,83 @@
     <!--    android:id="@+id/owner_info"-->
     <!--    layout="@layout/"-->
     <!--    />-->
-    <Button
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/visit_start_title"
+        style="@style/insResult"/>
+    <LinearLayout
         android:id="@+id/update"
-        style="@style/insBtn"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_suitcase"
-        android:drawablePadding="5dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        style="@style/card_view"
+
+        android:background="@color/colorPrimaryDark"
+        >
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/briefcase"
+        android:background="@drawable/circle"
+        android:scaleType="centerInside"
+        android:foregroundTint="@color/colorPrimaryDark"/>
+    <TextView
+        style="@style/txtStyle"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="@string/facility_update_info" />
-
-    <Button
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
         android:id="@+id/workers"
-        style="@style/insBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_person"
-        android:drawablePadding="5dp"
-        android:drawableTint="@android:color/white"
-        android:text="@string/workers_info" />
-
-    <Button
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        style="@style/card_view"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/laborers"
+            android:background="@drawable/circle"
+            android:scaleType="centerInside"
+            android:foregroundTint="@color/colorPrimaryDark"/>
+        <TextView
+            style="@style/txtStyle"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/workers_info" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
         android:id="@+id/safe"
-        style="@style/insBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_pharmacy"
-        android:drawablePadding="5dp"
-        android:text="@string/safe" />
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        style="@style/card_view"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/doctor"
+            android:background="@drawable/circle"
+            android:scaleType="centerInside"
+           />
+        <TextView
+            style="@style/txtStyle"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/safe" />
+    </LinearLayout>
+
+
+
 </LinearLayout>

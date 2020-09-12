@@ -75,6 +75,11 @@ public abstract class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.M
             binding = CardViewVisitItemBinding.bind(itemView);
             binding.visitResultBtn.setOnClickListener(this);
             binding.visitStartBtn.setOnClickListener(this);
+            binding.recommendationsBtn.setOnClickListener(this);
+            binding.showResultsBtn.setOnClickListener(this);
+            binding.revisitBtn.setOnClickListener(this);
+            binding.extraServicesBtn.setOnClickListener(this);
+
         }//end holder constructor
 
         @Override
@@ -84,12 +89,20 @@ public abstract class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.M
                     showDialog();
                     break;
                 case R.id.show_results_btn:
+                    listener.onFragmentInteraction(R.id.show_results_btn);
+                    break;
                 case R.id.extra_services_btn:
+                    listener.onFragmentInteraction(R.id.extra_services_btn);
+                    break;
                 case R.id.revisit_btn:
+                    listener.onFragmentInteraction(R.id.revisit_btn);
+                    break;
                 case R.id.visit_result_btn:
                     listener.onFragmentInteraction(R.id.visit_result_btn);
                     break;
                 case R.id.recommendations_btn:
+                    listener.onFragmentInteraction(R.id.recommendations_btn);
+                    break;
             }//end switch
         }//end onClick
 

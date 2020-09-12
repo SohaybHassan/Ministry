@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".featuers.home.homeFiles.visitServices.view.RevisitFragment"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layoutDirection="rtl">
+        <!--<include-->
+        <!--    android:id=""-->
+        <!--    layout=""/>-->
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/removal"
+            />
+
+        <RadioGroup
+            android:id="@+id/removal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/not_removed"
+                style="@style/insResult"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/partially_removed"
+                style="@style/insResult"
+                />
+            <RadioButton
+                style="@style/insResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/removed" />
+        </RadioGroup>
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/take_procedures"
+            />
+
+        <RadioGroup
+            android:id="@+id/action_taking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one_op_one"
+                style="@style/insResult"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one_op_two"
+                style="@style/insResult"
+                />
+            <RadioButton
+                style="@style/insResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one_op_three" />
+        </RadioGroup>
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recommended_procedures"
+            android:layout_marginTop="5dp"/>
+
+        <RadioGroup
+            android:id="@+id/recommendations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two_op_one"
+                style="@style/insResult"
+                android:layout_marginLeft="45dp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two_op_two"
+                style="@style/insResult"
+                />
+
+        </RadioGroup>
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fitting_procedures"
+            android:layout_margin="5dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/best_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cloase_facility"
+                style="@style/insResult"
+                android:layout_marginLeft="15dp"/>
+
+            <RadioButton
+                style="@style/insResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/partial_closure" />
+            <RadioButton
+                android:id="@+id/machine_stop_act"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_machine"
+                style="@style/insResult"
+                />
+        </RadioGroup>
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resoans" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_health_status_details"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date_of_process" />
+                <TextView
+                    android:id="@+id/action_date"
+                    style="@style/datePickerStyle"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_calendar"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/stop_res_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                >
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stop_res" />
+                <EditText
+                    style="@style/editTxtStyle"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:text="@string/Save" />
+
+    </LinearLayout>
+</ScrollView>

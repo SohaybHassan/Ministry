@@ -81,7 +81,8 @@ public class HomeFragment extends Fragment {
         binding.cvReportNewWorkPlace.viewAccent.setBackgroundColor(getResources().getColor(R.color.mercury));
         binding.cvLegalAction.viewAccent.setBackgroundColor(getResources().getColor(R.color.mercury));
         binding.cvCreateSeizureReport.viewAccent.setBackgroundColor(getResources().getColor(R.color.mercury));
-
+         //bind qayed certificate
+        binding.btnArchive.tvTitleSlideCardHome.setText(getString(R.string.archive_title));
         //bind facility services card
         binding.btnMoveFacility.tvTitleSlideCardHome.setText(getString(R.string.move_facility));
         binding.cvReportNewWorkPlace.tvTitleSlideCardHome.setText(getString(R.string.report_at_new_work_place));
@@ -112,8 +113,7 @@ public class HomeFragment extends Fragment {
         binding.cvLegalAction.moveFacilityHomeFragmrnt.setOnClickListener(view16 -> mlistener.onHomeSlideNav(5));
         binding.cvCloseFacility.moveFacilityHomeFragmrnt.setOnClickListener(view17 -> mlistener.onHomeSlideNav(6));
         binding.cvCreateSeizureReport.moveFacilityHomeFragmrnt.setOnClickListener(view18 -> mlistener.onHomeSlideNav(7));
-
-
+        binding.btnArchive.moveFacilityHomeFragmrnt.setOnClickListener(view1 -> mlistener.onFragmentInteraction(R.id.btn_archive));
         return view;
     }
 

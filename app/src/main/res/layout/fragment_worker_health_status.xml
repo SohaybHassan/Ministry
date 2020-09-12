@@ -1,157 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
 
     tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerHealthStatusFragment">
+
     <include
-        layout="@layout/worker_progress_header_third"
-        android:id="@+id/header_third"/>
+        android:id="@+id/header_third"
+        layout="@layout/worker_progress_header" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_finish"
-        android:visibility="gone">
-    <include
-        layout="@layout/worker_progress_header_finish"
-    />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_below="@id/header_third"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_below="@id/header_third"
         android:layoutDirection="rtl"
-        android:layout_margin="10dp">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/txtStyle"
-    android:text="@string/health_status"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/editTxtStyle"
-        android:inputType="none"
-        android:id="@+id/wr_health_status"
-        android:layout_marginVertical="5dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/txtStyle"
-        android:text="@string/health_status_detail"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/editTxtStyle"
-        android:inputType="textMultiLine"
-        android:id="@+id/wr_health_status_details"
-        android:minLines="5"
-        android:layout_marginVertical="5dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/disabled_layout"
         android:orientation="vertical"
-        android:visibility="gone">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/txtStyle"
-                    android:text="@string/disability_type"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/editTxtStyle"
-                    android:inputType="none"
-                    android:id="@+id/wr_disability_type"
-                    android:layout_marginVertical="5dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/txtStyle"
-                    android:text="@string/its_size"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/editTxtStyle"
-                    android:inputType="none"
-                    android:id="@+id/wr_its_size"
-                    android:layout_marginVertical="5dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_margin="5dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/txtStyle"
-                    android:text="@string/its_place"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/editTxtStyle"
-                    android:inputType="none"
-                    android:id="@+id/wr_its_place"
-                    android:layout_marginVertical="5dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/txtStyle"
-                    android:text="@string/disability_resoan"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/editTxtStyle"
-                    android:inputType="none"
-                    android:id="@+id/wr_disability_resoan"
-                    android:layout_marginVertical="5dp"/>
-            </LinearLayout>
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/txtStyle"
-            android:text="@string/suggested_work_place"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/editTxtStyle"
-            android:inputType="none"
-            android:id="@+id/wr_suggested_work_place"
-            android:layout_marginVertical="5dp"/>
+        android:paddingTop="10dp">
 
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/health_status" />
+
+        <EditText
+            android:id="@+id/wr_health_status"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:inputType="none" />
+
+        <TextView
+            style="@style/txtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/health_status_detail" />
+
+        <EditText
+            android:id="@+id/wr_health_status_details"
+            style="@style/editTxtStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:inputType="textMultiLine"
+            android:minLines="5" />
+
+        <LinearLayout
+            android:id="@+id/disabled_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/disability_type" />
+
+                    <EditText
+                        android:id="@+id/wr_disability_type"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:inputType="none" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/its_size" />
+
+                    <EditText
+                        android:id="@+id/wr_its_size"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:inputType="none" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/its_place" />
+
+                    <EditText
+                        android:id="@+id/wr_its_place"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:inputType="none" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/disability_resoan" />
+
+                    <EditText
+                        android:id="@+id/wr_disability_resoan"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:inputType="none" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/suggested_work_place" />
+
+            <EditText
+                android:id="@+id/wr_suggested_work_place"
+                style="@style/editTxtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:inputType="none" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/gravity_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/save_health"
+            style="@style/btnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/save" />
     </LinearLayout>
-    <View
-        android:id="@+id/gravity_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:visibility="gone"
-        />
-    <Button
-        android:id="@+id/save_health"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/btnStyle"
-        android:text="@string/save"
-        android:layout_gravity="bottom"
-        />
-    </LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>

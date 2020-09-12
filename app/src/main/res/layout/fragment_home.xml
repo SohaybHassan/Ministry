@@ -58,11 +58,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@string/certificate"
+                    android:textColor="@color/jordy_blue"
+                    android:textSize="14sp" />
+
+                <include
+                    android:id="@+id/btn_archive"
+                    layout="@layout/card_view_button" />
+
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cairobold"
+                    android:layout_marginTop="15dp"
+
                     android:text="@string/facility_services"
                     android:textColor="@color/jordy_blue"
                     android:textSize="14sp" />

@@ -3,520 +3,523 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="5dp"
+    android:padding="10dp"
     tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerWorkStatusFragment">
+
     <include
-layout="@layout/worker_progress_header_second"
-    android:id="@+id/header"/>
+        android:id="@+id/header"
+        layout="@layout/worker_progress_header" />
+
     <ScrollView
-        android:layout_below="@id/header"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:layoutDirection="rtl">
+        android:layout_below="@id/header">
 
-        <TextView
-            style="@style/txtStyle"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/numberfacility" />
-
-        <EditText
-            android:id="@+id/wr_facility_num"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:enabled="false" />
-
-        <TextView
-            style="@style/txtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/facility_commercial_name" />
-
-        <EditText
-            android:id="@+id/wr_facility_commercial_name"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:enabled="false" />
-
-        <TextView
-            style="@style/txtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/facility_official_name" />
-
-        <EditText
-            android:id="@+id/wr_facility_official_name"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:enabled="false" />
-
-        <TextView
-            style="@style/txtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/owner_identity" />
-
-        <EditText
-            android:id="@+id/wr_owner_id"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:enabled="false" />
-
-        <TextView
-            style="@style/txtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/owner_name" />
-
-        <EditText
-            android:id="@+id/wr_owner_name"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:enabled="false" />
-
-        <TextView
-            style="@style/txtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/edu_qualification" />
-
-        <EditText
-            android:id="@+id/wr_edu_qualification"
-            style="@style/editTxtStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:enabled="false" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layoutDirection="rtl"
+            android:paddingTop="10dp">
 
             <TextView
                 style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/job" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/skill_level" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numberfacility" />
 
             <EditText
-                android:id="@+id/wr_job"
+                android:id="@+id/wr_facility_num"
                 style="@style/editTxtStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:inputType="none" />
+                android:enabled="false" />
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/facility_commercial_name" />
 
             <EditText
-                android:id="@+id/wr_skill_level"
+                android:id="@+id/wr_facility_commercial_name"
                 style="@style/editTxtStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1" />
-        </TableRow>
-
-        <TextView
-            style="@style/insResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/periodic_medical_examination" />
-
-        <RadioGroup
-            android:id="@+id/wr_pd_med_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/wr_pd_med_yes"
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/yes" />
-
-            <RadioButton
-                android:id="@+id/wr_pd_med_no"
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no" />
-        </RadioGroup>
-
-        <TextView
-            style="@style/insResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/primary_medical_examination" />
-
-        <RadioGroup
-            android:id="@+id/wr_pm_med_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/wr_pm_med_yes"
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/yes" />
-
-            <RadioButton
-                android:id="@+id/wr_pm_med_no"
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no" />
-        </RadioGroup>
-
-        <TextView
-            style="@style/insResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/has_registration_certificate" />
-
-        <RadioGroup
-            android:id="@+id/wr_cr_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/wr_cr_yes"
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/yes" />
-
-            <RadioButton
-                android:id="@+id/wr_cr_no"
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no" />
-        </RadioGroup>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:enabled="false" />
 
             <TextView
                 style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/date_visit" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/practical_status" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/wr_visit_date"
-                style="@style/datePickerStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_calendar"
-                android:inputType="none" />
+                android:text="@string/facility_official_name" />
 
             <EditText
-                android:id="@+id/wr_practical_status"
+                android:id="@+id/wr_facility_official_name"
                 style="@style/editTxtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:enabled="false" />
 
             <TextView
                 style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/educational_status_desc" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/educational_status_desc_desc" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/owner_identity" />
 
             <EditText
-                android:id="@+id/wr_educational_status_desc"
+                android:id="@+id/wr_owner_id"
                 style="@style/editTxtStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
-                android:inputType="none" />
+                android:enabled="false" />
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/owner_name" />
 
             <EditText
-                android:id="@+id/wr_educational_status_desc_desc"
+                android:id="@+id/wr_owner_name"
                 style="@style/editTxtStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:enabled="false" />
 
             <TextView
                 style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/work_beginning_date" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/work_ending_date" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/wr_work_start_date"
-                style="@style/datePickerStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_calendar"
-                android:inputType="none" />
+                android:text="@string/edu_qualification" />
 
             <EditText
-                android:id="@+id/wr_work_end_date"
-                style="@style/datePickerStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_calendar"
-                android:inputType="none" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/work_leaving_date" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/leaving_work_reasons" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/wr_work_leave_date"
-                style="@style/datePickerStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_calendar"
-                android:inputType="none" />
-
-            <EditText
-                android:id="@+id/wr_work_leave_resoan"
+                android:id="@+id/wr_edu_qualification"
                 style="@style/editTxtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:inputType="none" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/wage" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/currency_type" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/wr_wage"
-                style="@style/editTxtStyle"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:inputType="none" />
+                android:enabled="false" />
 
-            <EditText
-                android:id="@+id/wr_cur_type"
-                style="@style/editTxtStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/job" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/skill_level" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_job"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_skill_level"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1" />
+            </TableRow>
 
             <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/paid_way" />
+                style="@style/insResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/periodic_medical_examination" />
+
+            <RadioGroup
+                android:id="@+id/wr_pd_med_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/wr_pd_med_yes"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/wr_pd_med_no"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no" />
+            </RadioGroup>
 
             <TextView
-                style="@style/txtStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="@string/type_of_contract" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/wr_pay"
-                style="@style/editTxtStyle"
-                android:layout_width="0dp"
+                style="@style/insResult"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
-                android:inputType="none" />
+                android:text="@string/primary_medical_examination" />
 
-            <EditText
-                android:id="@+id/wr_contract_type"
-                style="@style/editTxtStyle"
-                android:layout_width="0dp"
+            <RadioGroup
+                android:id="@+id/wr_pm_med_group"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
-        </TableRow>
+                android:orientation="horizontal">
 
-        <Button
-            android:enabled="true"
-            android:id="@+id/wr_work_next"
-            style="@style/btnStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:text="@string/Next" />
-    </TableLayout>
-</ScrollView>
+                <RadioButton
+                    android:id="@+id/wr_pm_med_yes"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/wr_pm_med_no"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/insResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/has_registration_certificate" />
+
+            <RadioGroup
+                android:id="@+id/wr_cr_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/wr_cr_yes"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/wr_cr_no"
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no" />
+            </RadioGroup>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/date_visit" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/practical_status" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_visit_date"
+                    style="@style/datePickerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_practical_status"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/educational_status_desc" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/educational_status_desc_desc" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_educational_status_desc"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_educational_status_desc_desc"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/work_beginning_date" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/work_ending_date" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_work_start_date"
+                    style="@style/datePickerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_work_end_date"
+                    style="@style/datePickerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:inputType="none" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/work_leaving_date" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/leaving_work_reasons" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_work_leave_date"
+                    style="@style/datePickerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_work_leave_resoan"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:inputType="none" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/wage" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/currency_type" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_wage"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_cur_type"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/paid_way" />
+
+                <TextView
+                    style="@style/txtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/type_of_contract" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/wr_pay"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_drop_down"
+                    android:inputType="none" />
+
+                <EditText
+                    android:id="@+id/wr_contract_type"
+                    style="@style/editTxtStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_drop_down" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/wr_work_next"
+                style="@style/btnStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:enabled="true"
+                android:text="@string/Next" />
+        </TableLayout>
+    </ScrollView>
 </RelativeLayout>

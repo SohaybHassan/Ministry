@@ -206,6 +206,21 @@
         android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerWorkStatusFragment"
         android:label="fragment_worker_work_status"
         tools:layout="@layout/fragment_worker_work_status" />
+    <fragment
+        android:id="@+id/nav_safe"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.SafeFragment"
+        android:label="fragment_safe"
+        tools:layout="@layout/fragment_safe" />
+    <fragment
+        android:id="@+id/nav_recommendations"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.RecommendationsFragment"
+        android:label="fragment_recommendations"
+        tools:layout="@layout/fragment_recommendations" />
+    <fragment
+        android:id="@+id/nav_revisit"
+        android:name="com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.RevisitFragment"
+        android:label="fragment_revisit"
+        tools:layout="@layout/fragment_revisit" />
 
 
 </navigation>

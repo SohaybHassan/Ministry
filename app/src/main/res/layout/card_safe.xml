@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layoutDirection="rtl">
+    <TextView
+        android:id="@+id/sf_title"
+        android:text="@string/work_ending_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/txtStyle"/>
+    <TextView
+        android:id="@+id/sf_desc"
+        android:text="@string/is_enterprise_registered"
+        android:paddingRight="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/insResult"/>
+    <RadioGroup
+        android:id="@+id/sf_options"
+        android:paddingRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/sf_yes"
+            android:text="@string/committed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/insResult"/>
+        <RadioButton
+            android:id="@+id/sf_no"
+            android:text="@string/not_committed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/insResult"/>
+    </RadioGroup>
+
+</LinearLayout>

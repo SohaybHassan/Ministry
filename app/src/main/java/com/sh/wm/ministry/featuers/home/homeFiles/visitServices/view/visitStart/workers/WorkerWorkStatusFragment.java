@@ -44,6 +44,10 @@ private OnFragmentInteractionListener listener ;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding= FragmentWorkerWorkStatusBinding.inflate(inflater,container,false);
+        binding.header.basicImgDone.setVisibility(View.VISIBLE);
+        binding.header.basicPrac.setBackgroundColor(getResources().getColor(R.color.revisit));
+        binding.header.basicTxt.setTextColor(getResources().getColor(R.color.revisit));
+        binding.header.pracImgInProgress.setVisibility(View.VISIBLE);
 
         binding.wrWorkNext.setOnClickListener(new View.OnClickListener() {
             @Override

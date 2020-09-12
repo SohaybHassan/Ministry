@@ -1,289 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
 
     tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.workers.WorkerBasicDataFragment">
+
     <include
-        layout="@layout/worker_progress_header_first"
-        android:id="@+id/first_header"/>
+        android:id="@+id/first_header"
+        layout="@layout/worker_progress_header" />
+
     <ScrollView
-        android:layout_below="@id/first_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-<LinearLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layoutDirection="rtl"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:textDirection="rtl">
-
-    <TextView
-        style="@style/txtStyle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/certif_id" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/wr_id"
-        style="@style/editTxtStyle"
-        android:layout_width="match_parent"
-        android:layout_marginTop="8dp"
-        android:inputType="numberDecimal" />
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="6dp"
-        android:layout_weight="1"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:layout_below="@id/first_header">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layoutDirection="rtl"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:textDirection="rtl">
 
             <TextView
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/FirstName" />
+                android:text="@string/certif_id" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/wr_first_name"
+                android:id="@+id/wr_id"
                 style="@style/editTxtStyle"
                 android:layout_width="match_parent"
-                android:inputType="textPersonName" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/GrandfatherName" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/wr_grandfather_name"
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/gender"
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/Gender" />
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/wr_gender"
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:inputType="textPersonName" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/DateOfBirth" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/wr_birth_date"
-                style="@style/datePickerStyle"
-                android:drawableEnd="@drawable/ic_calendar"
-                android:textDirection="rtl"
-                android:layout_width="match_parent"
-                android:inputType="date" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/NumberOfChildren" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:id="@+id/wr_child_num"
+                android:layout_marginTop="8dp"
                 android:inputType="numberDecimal" />
 
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/SocialStatus" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:id="@+id/wr_social_status"
-                android:inputType="text" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="6dp"
-                android:text="@string/OtherNationality" />
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:id="@+id/wr_other_nationality"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/FirstName" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_first_name"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/GrandfatherName" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_grandfather_name"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/Gender" />
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_gender"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/DateOfBirth" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/wr_birth_date"
+                        style="@style/datePickerStyle"
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:inputType="date"
+                        android:textDirection="rtl" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/NumberOfChildren" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_child_num"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/SocialStatus" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_social_status"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="text" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/OtherNationality" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_other_nationality"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="text" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/city" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_city"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/FatherName" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_father_name"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/Family" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_family_name"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/PlaceOfBirth" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_birth_place"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/MotherName" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_mother_name"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/DateOfDeath" />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/wr_death_date"
+                        style="@style/datePickerStyle"
+                        android:layout_width="match_parent"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:inputType="date"
+                        android:textDirection="rtl" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/Nationality" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_nationality"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="text" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/age" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_age"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/mobile_phone" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/wr_mobile"
+                        style="@style/editTxtStyle"
+                        android:layout_width="match_parent"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/wr_next"
+                style="@style/btnStyle"
                 android:layout_width="match_parent"
-                android:inputType="text" />
+                android:layout_height="50dp"
+                android:layout_marginVertical="10dp"
+                android:enabled="true"
+                android:text="@string/Next" />
 
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/city" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:id="@+id/wr_city"
-                android:inputType="text" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/FatherName" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/wr_father_name"
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:inputType="textPersonName" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/Family" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:id="@+id/wr_family_name"
-                android:layout_width="match_parent"
-                android:inputType="textPersonName" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/PlaceOfBirth" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:id="@+id/wr_birth_place"
-                android:layout_width="match_parent" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/MotherName" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:id="@+id/wr_mother_name"
-                android:inputType="textPersonName" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/DateOfDeath" />
-
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/wr_death_date"
-                style="@style/datePickerStyle"
-                android:drawableEnd="@drawable/ic_calendar"
-                android:textDirection="rtl"
-                android:layout_width="match_parent"
-                android:inputType="date" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/Nationality" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:id="@+id/wr_nationality"
-                android:inputType="text" />
-
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/age" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:id="@+id/wr_age"
-                android:inputType="numberDecimal" />
-            <TextView
-                style="@style/txtStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/mobile_phone" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/editTxtStyle"
-                android:layout_width="match_parent"
-                android:id="@+id/wr_mobile"
-                android:inputType="numberDecimal" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/btnStyle"
-        android:id="@+id/wr_next"
-        android:enabled="true"
-        android:layout_marginVertical="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/Next" />
-
-</LinearLayout>
     </ScrollView>
 </RelativeLayout>

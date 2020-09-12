@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+
+    tools:context=".featuers.home.homeFiles.visitServices.view.RecommendationsFragment">
+
+    <!--<include-->
+    <!--    android:id=""-->
+    <!--    layout=""/>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recommendations_of_inspectors" />
+
+            <RadioGroup
+                android:id="@+id/ins_recommendations_group"
+                style="@style/insResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <RadioButton
+                    android:id="@+id/ins_rec_op1"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/approve_recommendations" />
+
+                <RadioButton
+                    android:id="@+id/ins_rec_op2"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/un_approve_visit_result" />
+
+                <RadioButton
+                    android:id="@+id/ins_rec_op3"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/approve_visit_result" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recommendations" />
+
+            <RadioGroup
+                android:id="@+id/recommendations_group"
+                style="@style/insResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <RadioButton
+                    android:id="@+id/rec_op1"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_op_two" />
+
+                <RadioButton
+                    android:id="@+id/rec_op2"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_op_one" />
+
+                <RadioButton
+                    android:id="@+id/rec_op3"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_op_three" />
+
+                <RadioButton
+                    android:id="@+id/rec_op4"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/two_op_two" />
+
+                <RadioButton
+                    android:id="@+id/rec_op5"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/two_op_one" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/procedures_placement" />
+
+            <RadioGroup
+                android:id="@+id/ins_procedure_group"
+                style="@style/insResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <RadioButton
+                    android:id="@+id/ins_proc_op1"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cloase_facility" />
+
+                <RadioButton
+                    android:id="@+id/ins_proc_op2"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/partial_closure" />
+
+                <RadioButton
+                    android:id="@+id/ins_proc_op3"
+                    style="@style/insResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stop_machine" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/date"
+                        android:drawableLeft="@drawable/ic_calendar"
+                        style="@style/datePickerStyle"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rec_stop_machine_layout"
+                    android:visibility="invisible"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        style="@style/txtStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/machine_name" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/reson"
+                      android:layout_gravity="fill"
+                        style="@style/editTxtStyle"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            style="@style/btnStyle"
+            android:id="@+id/recomm_save"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
