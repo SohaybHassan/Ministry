@@ -43,8 +43,30 @@ public abstract class VisitsAdapter extends RecyclerView.Adapter<VisitsAdapter.M
         holder.binding.visitCmpName.setText(card.getCompanyName());
         holder.binding.visitArea.setText(card.getArea());
         holder.binding.visitStartDate.setText(card.getStartDate());
+        //+++++++++++++++++ set enabled according to status +++++++++++++
+        holder.binding.visitStatus.setText(card.getStatus()+"..");
+        holder.binding.revisitBtn.setEnabled(false);
+        holder.binding.showResultsBtn.setEnabled(false);
+        holder.binding.recommendationsBtn.setEnabled(false);
+        holder.binding.visitResultBtn.setEnabled(false);
         switch (card.getStatus()) {
             //enable the needed buttons depend on Status
+            case 0:
+                holder.binding.visitStartBtn.setEnabled(true);
+                holder.binding.extraServicesBtn.setEnabled(false);
+                break;
+            case 1:
+                holder.binding.visitStartBtn.setEnabled(false);
+                holder.binding.extraServicesBtn.setEnabled(true);
+                break;
+            case 2:
+                holder.binding.visitStartBtn.setEnabled(false);
+                holder.binding.extraServicesBtn.setEnabled(false);
+                holder.binding.revisitBtn.setEnabled(true);
+                holder.binding.showResultsBtn.setEnabled(true);
+                holder.binding.recommendationsBtn.setEnabled(true);
+                holder.binding.visitResultBtn.setEnabled(true);
+                break;
         }//end switch
     }//end onBindViewHolder
 

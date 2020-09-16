@@ -1,120 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/card_view"
-    android:background="@android:color/transparent"
-    android:foregroundTint="@color/white"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layoutDirection="rtl"
->
+    android:background="@android:color/transparent"
+    android:foregroundTint="@color/white"
+    android:layoutDirection="rtl">
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="5dp"
-        >
+        android:paddingRight="5dp">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@color/gallery"
-        >
-        <TextView
-            android:id="@+id/visit_cmp_name"
-            style="@style/insResult"
-            android:layout_width="0dp"
-            android:layout_weight="7"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:paddingRight="5dp"
-            android:text="@string/company_name"
-            android:textAlignment="viewStart"/>
-        <Button
-            android:id="@+id/revisit_btn"
-            style="@style/visitBtnStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="@string/revisit"
-            android:textAlignment="center"
-            android:layout_marginLeft="5dp"
-            android:backgroundTint="@color/revisit"
-            android:drawableRight="@drawable/ic_redo"
-            android:padding="5dp"
-            />
-    </TableRow>
-
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    style="@style/insResult"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingRight="10dp"
-                    android:text="@string/area"
-                    android:background="@drawable/table_cell_bg_white"
-                 />
-
-                <TextView
-                    android:id="@+id/visit_area"
-                    style="@style/txtStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_weight="2"
-                    android:text="@string/company_name"
-                    android:paddingRight="10dp"
-                    android:background="@drawable/table_cell_bg_white"
-                    />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-             >
-
-                <TextView
-                    style="@style/insResult"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingRight="10dp"
-                    android:text="@string/date_visit"
-                    android:background="@drawable/table_cell_bg_white"
-                    />
-
-                <TextView
-                      android:id="@+id/visit_start_date"
-                    style="@style/txtStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_weight="2"
-                    android:text="@string/company_name"
-                    android:paddingRight="10dp"
-                    android:background="@drawable/table_cell_bg_white"
-
-                    />
-            </TableRow>
-
-        <TextView
-            style="@style/txtStyle"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:paddingTop="10dp"
+            android:layout_height="match_parent"
             android:background="@color/gallery"
-            android:text="@string/procedures"
-            android:textColor="@color/cinnabar"
-            android:paddingRight="5dp"
-            />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/visit_cmp_name"
+                style="@style/insResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="7"
+                android:paddingRight="5dp"
+                android:text="@string/company_name"
+                android:textAlignment="viewStart" />
+
+            <Button
+                android:id="@+id/revisit_btn"
+                style="@style/visitBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="3"
+                android:backgroundTint="@color/revisit"
+                android:drawableRight="@drawable/ic_redo"
+                android:padding="5dp"
+                android:text="@string/revisit"
+                android:textAlignment="center" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/insResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/table_cell_bg_white"
+                android:paddingRight="10dp"
+                android:text="@string/area" />
+
+            <TextView
+                android:id="@+id/visit_area"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="2"
+                android:background="@drawable/table_cell_bg_white"
+                android:paddingRight="10dp"
+                android:text="@string/company_name" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/insResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/table_cell_bg_white"
+                android:paddingRight="10dp"
+                android:text="@string/date_visit" />
+
+            <TextView
+                android:id="@+id/visit_start_date"
+                style="@style/txtStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="2"
+                android:background="@drawable/table_cell_bg_white"
+                android:paddingRight="10dp"
+                android:text="@string/company_name" />
+        </TableRow>
+
+        <TableRow android:background="@color/gallery">
+
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:background="@color/gallery"
+                android:paddingTop="10dp"
+                android:paddingRight="5dp"
+                android:text="@string/procedures"
+                android:textColor="@color/cinnabar" />
+
+            <TextView
+                android:id="@+id/visit_status"
+                style="@style/txtStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/cinnabar" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -129,8 +131,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="@string/visit_start"
-                android:backgroundTint="@color/visit_start"/>
+                android:backgroundTint="@color/visit_start"
+                android:text="@string/visit_start" />
 
             <Button
                 android:id="@+id/extra_services_btn"
@@ -139,10 +141,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="@string/extra_services"
-                android:backgroundTint="@color/extra_services"/>
-            />
-
+                android:backgroundTint="@color/extra_services"
+                android:text="@string/extra_services" />
 
             <Button
                 android:id="@+id/visit_result_btn"
@@ -151,9 +151,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="@string/inspection_results"
-                android:backgroundTint="@color/inspection_results"/>
-            />
+                android:backgroundTint="@color/inspection_results"
+                android:text="@string/inspection_results" />
+
 
             <Button
                 android:id="@+id/show_results_btn"
@@ -162,17 +162,18 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:text="@string/show_results"
-                android:backgroundTint="@color/show_results"/>
+                android:backgroundTint="@color/show_results"
+                android:text="@string/show_results" />
+
             <Button
                 android:id="@+id/recommendations_btn"
                 style="@style/visitBtnStyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/recommendations"
-                android:backgroundTint="@color/recommendations"/>
-            />
+                android:backgroundTint="@color/recommendations"
+                android:text="@string/recommendations" />
+
         </TableRow>
     </TableLayout>
 

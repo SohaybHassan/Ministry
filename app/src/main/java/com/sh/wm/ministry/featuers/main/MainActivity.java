@@ -1,10 +1,12 @@
 package com.sh.wm.ministry.featuers.main;
+
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -15,6 +17,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textview.MaterialTextView;
 import com.sh.wm.ministry.R;
@@ -241,8 +244,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                 navController.navigate(R.id.nav_visit_start);
                 break;
             case R.id.show_results_btn:
-
+                break;
             case R.id.extra_services_btn:
+                break;
             case R.id.revisit_btn:
                 navController.navigate(R.id.nav_revisit);
                 break;
@@ -257,33 +261,33 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                 navController.navigate(R.id.nav_facility_update);
 
                 break;
-            case R.id.safe :
+            case R.id.safe:
                 navController.navigate(R.id.nav_safe);
-                break ;
+                break;
             case R.id.workers:
                 navController.navigate(R.id.nav_worker_basic_data);
-                break ;
+                break;
             case R.id.wr_next:
                 navController.navigate(R.id.nav_worker_work_status);
-                break ;
+                break;
             case R.id.wr_work_next:
                 navController.navigate(R.id.nav_worker_health_status);
-                break ;
+                break;
         }
 
     }
 
     @Override
     public void onFragmentInteraction(int id, Bundle bundle) {
-        switch (id){
+        switch (id) {
             case 72:
-                navController.navigate(R.id.nav_add_work_experience,bundle);
+                navController.navigate(R.id.nav_add_work_experience, bundle);
                 break;
             case 92:
-                navController.navigate(R.id.nav_add_language,bundle);
+                navController.navigate(R.id.nav_add_language, bundle);
                 break;
             case 10:
-                navController.navigate(R.id.nav_add_practical_status,bundle);
+                navController.navigate(R.id.nav_add_practical_status, bundle);
                 break;
         }
     }
