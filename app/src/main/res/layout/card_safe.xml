@@ -2,14 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layoutDirection="rtl">
-    <TextView
-        android:id="@+id/sf_title"
-        android:text="@string/work_ending_date"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+>    <TextView
+        android:id="@+id/sf_num"
+        tools:text="@string/law_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         style="@style/txtStyle"/>
+        <TextView
+            android:text="@string/law_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtStyle"
+            android:layout_marginHorizontal="5dp"/>
+        <TextView
+            android:id="@+id/sf_code"
+           tools:text="@string/law_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtStyle"/>
+    </LinearLayout>
     <TextView
         android:id="@+id/sf_desc"
         android:text="@string/is_enterprise_registered"

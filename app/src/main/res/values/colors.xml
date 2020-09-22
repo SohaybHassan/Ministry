@@ -18,6 +18,12 @@
     <color name="dove_gray">#707070</color>
 
 
-
+    <!-- visit card button colors -->
+    <color name="visit_start_simple">#FCB900</color>
+    <color name="extra_services_simple">#1976D2</color>
+    <color name="inspection_results_simple">#3E6D9E</color>
+    <color name="show_results_simple">#9F6AC7</color>
+    <color name="recommendations_simple">#30C4AF</color>
+    <color name="revisit_simple">#009705</color>
 
 </resources>

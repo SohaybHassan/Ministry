@@ -13,13 +13,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/header">
+        android:layout_below="@id/header"
+        android:layout_marginTop="10dp">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layoutDirection="rtl"
-            android:paddingTop="10dp">
+            >
 
             <TextView
                 style="@style/txtStyle"

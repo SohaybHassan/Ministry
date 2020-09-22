@@ -396,7 +396,7 @@
     <string name="not_removed">عدم ازالتها</string>
     <string name="partially_removed">ازالتها جزئيا</string>
     <string name="removed">ازالتها</string>
-
+    <string name="law_subject">مادة رقم</string>
     <!-- QayedArchive -->
     <string name="request_date">تاريخ الطلب</string>
     <string name="educational_status_desc">تفصيل الحالة العملية</string>

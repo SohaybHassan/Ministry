@@ -9,6 +9,7 @@ import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMo
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.RegionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.ResponseOfStore;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Safety;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.VisitPlanData;
 import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
@@ -149,9 +150,8 @@ public interface ApiInterface {
     @POST("get_inspection_visit_plan_data")
     Call<VisitPlanData> getVisitPlanData(@Field("CONSTRUCTION_ID_IN") String constructId,@Field("P_START") int pageStart,@Field("P_LENGTH") int pageLength);
 
-//    @FormUrlEncoded
-//    @POST("get_safty_questions_by_subjectid")
-//    Call<SafetyQuestions> getSaftyQuestionsBySubjectId(@Field("SUBJECT_LAW_ID") String subjectId);
+    @GET("get_safty_questions_by_subjectid?SUBJECT_LAW_ID=")
+    Call<Safety> getSaftyQuestionsBySubjectId(@Query("SUBJECT_LAW_ID") String subjectId);
 
     @FormUrlEncoded
     @POST("store_questions_answer ")

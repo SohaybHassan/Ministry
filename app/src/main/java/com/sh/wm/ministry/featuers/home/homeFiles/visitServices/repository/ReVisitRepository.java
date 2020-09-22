@@ -8,7 +8,7 @@ import com.sh.wm.ministry.network.database.DataBase;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
 public class ReVisitRepository {
-    public static String TAG= RecommendationsRepository.class.getName();
+    public static String TAG= ReVisitRepository.class.getName();
     private static ReVisitRepository repository;
     private NetworkUtils networkUtils ;
     private ReVisitResultDao dao ;

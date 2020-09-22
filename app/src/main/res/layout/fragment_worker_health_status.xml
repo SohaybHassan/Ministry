@@ -17,7 +17,8 @@
         android:layout_below="@id/header_third"
         android:layoutDirection="rtl"
         android:orientation="vertical"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             style="@style/txtStyle"
