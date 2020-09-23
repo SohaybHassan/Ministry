@@ -16,11 +16,13 @@ import java.util.List;
 
 public class SafeCardAdapter extends RecyclerView.Adapter<SafeCardAdapter.MyViewHolder>  {
 private List<SaftyQuestion> cardList = new ArrayList<SaftyQuestion>();
+
+
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SafeCardAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_safe, parent, false);
-        return new MyViewHolder(itemView);
+        return new SafeCardAdapter.MyViewHolder(itemView);
     }
 
     @Override
@@ -29,6 +31,7 @@ private List<SaftyQuestion> cardList = new ArrayList<SaftyQuestion>();
         holder.binding.sfNum.setText(position+1 +"-");
         holder.binding.sfCode.setText(card.getPalLawArticalCode());
         holder.binding.sfDesc.setText(card.getPalLawArticalDesc());
+
     }
 
     @Override
@@ -37,6 +40,7 @@ private List<SaftyQuestion> cardList = new ArrayList<SaftyQuestion>();
     }
 
     public void setCardList(List<SaftyQuestion> cardList) {
+        this.cardList = new ArrayList<>();
         this.cardList = cardList;
     }
 

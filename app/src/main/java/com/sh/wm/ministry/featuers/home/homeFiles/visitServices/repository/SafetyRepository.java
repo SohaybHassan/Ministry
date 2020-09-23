@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.database.SafetyDao;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.Safety;
 import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.model.SaftyQuestion;
+import com.sh.wm.ministry.featuers.home.homeFiles.visitServices.view.visitStart.SafeFragment;
 import com.sh.wm.ministry.network.database.DataBase;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
@@ -42,15 +43,18 @@ public class SafetyRepository {
         return dao.getQuestionsBySubId(id);
     }//getQuestionsByLawId
 
+
+    public  void delete(){
+        dao.deleteAllSaftyQuestion();
+    }
     private void update(int id) {
-        String idSt = id+"";
-        Call<Safety> call = networkUtils.getApiInterface().getSaftyQuestionsBySubjectId(idSt);
+        Call<Safety> call = networkUtils.getApiInterface().getSaftyQuestionsBySubjectId(id);
         call.enqueue(new Callback<Safety>() {
             @Override
             public void onResponse(Call<Safety> call, Response<Safety> response) {
                 if (response.body() != null) {
                     Log.d(TAG, "onResponse: NOT_NULL");
-                    if(response.body().getSaftyQuestions()!= null)
+                    if (response.body().getSaftyQuestions() != null)
                         for (SaftyQuestion card : response.body().getSaftyQuestions()) {
                         SaftyQuestion add = new SaftyQuestion();
                         add.setPalLawArticalCode(card.getPalLawArticalCode());
@@ -60,7 +64,6 @@ public class SafetyRepository {
                         dao.insertSaftyQuestion(add);
                     }//end for
                 }//end if
-                Log.d(TAG, "onResponse: NULL");
 
             }
 

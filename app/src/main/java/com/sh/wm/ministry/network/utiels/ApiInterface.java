@@ -151,7 +151,7 @@ public interface ApiInterface {
     Call<VisitPlanData> getVisitPlanData(@Field("CONSTRUCTION_ID_IN") String constructId,@Field("P_START") int pageStart,@Field("P_LENGTH") int pageLength);
 
     @GET("get_safty_questions_by_subjectid?SUBJECT_LAW_ID=")
-    Call<Safety> getSaftyQuestionsBySubjectId(@Query("SUBJECT_LAW_ID") String subjectId);
+    Call<Safety> getSaftyQuestionsBySubjectId(@Query("SUBJECT_LAW_ID") int subjectId);
 
     @FormUrlEncoded
     @POST("store_questions_answer ")

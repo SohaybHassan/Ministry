@@ -26,4 +26,8 @@ public class SafetyViewModel extends AndroidViewModel {
     public LiveData<List<SaftyQuestion>> getQuestionsByLawId(int id){
       return repository.getQuestionsByLawId(id);
     }
+
+    public  void delete(){
+        repository.delete();
+    }
 }

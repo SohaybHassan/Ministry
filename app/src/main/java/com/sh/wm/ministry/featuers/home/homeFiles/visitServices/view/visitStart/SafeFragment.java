@@ -27,11 +27,12 @@ import java.util.List;
 public class SafeFragment extends Fragment {
 private static final String TAG = SafeFragment.class.getName();
 private FragmentSafeBinding binding ;
-private  static int LAW_ID = 1;
+public   static int LAW_ID = 1;
 private Observer<List<SaftyQuestion>> observer ;
 private SafetyViewModel viewModel ;
 private List<SaftyQuestion> cards;
 private SafeCardAdapter adapter ;
+private boolean flag=false ;
     public SafeFragment() {
         // Required empty public constructor
     }
@@ -46,23 +47,25 @@ private SafeCardAdapter adapter ;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         adapter = new SafeCardAdapter();
-         viewModel= new ViewModelProvider(this).get(SafetyViewModel.class);
+        adapter = new SafeCardAdapter();
+        viewModel= new ViewModelProvider(this).get(SafetyViewModel.class);
+      //  viewModel.delete();
       observer = new Observer<List<SaftyQuestion>>() {
           @Override
           public void onChanged(List<SaftyQuestion> saftyQuestions) {
+
               if(saftyQuestions!=null){
+                  flag=false ;
                   cards=new ArrayList<>();
                   Log.d(TAG, "onChanged: NOT_NULL");
                   for(SaftyQuestion card : saftyQuestions){
                       cards.add(card);
-                      Log.d(TAG, "onChanged: Card_ADDED");
+                      Log.d(TAG, "onChanged: Card_ADDED" + card.getPalLawSubjectID());
                   }
-
                   adapter.setCardList(cards);
+                  Log.d(TAG, "onChNGED: added " + adapter.getItemCount());
                   adapter.notifyDataSetChanged();
               }
-              Log.d(TAG, "onChanged: NULL");
           }
       };
 
@@ -71,7 +74,12 @@ private SafeCardAdapter adapter ;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getQuestions();
+        binding.safeRecycler.setAdapter(adapter);
+        if(LAW_ID==1){
+            flag=true;
+            getQuestions();
+        }
+
 
     }
 
@@ -79,11 +87,12 @@ private SafeCardAdapter adapter ;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentSafeBinding.inflate(inflater,container,false);
-        binding.safeRecycler.setAdapter(adapter);
         binding.sfNext.setColorFilter(getResources().getColor(R.color.white));
+
         binding.sfNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                flag=true ;
                 getQuestions();
             }
         });
@@ -92,9 +101,11 @@ private SafeCardAdapter adapter ;
 }
 
 private void getQuestions(){
-    if(LAW_ID<15){
+    binding.lawId.setText(LAW_ID+"------------------------");
+    if(LAW_ID<16 && flag){
         viewModel.getQuestionsByLawId(LAW_ID).observe(getViewLifecycleOwner(), observer);
         LAW_ID++ ;
+
     }else if(LAW_ID==15){
         viewModel.getQuestionsByLawId(LAW_ID).observe(getViewLifecycleOwner(), observer);
         binding.sfNext.setEnabled(false);

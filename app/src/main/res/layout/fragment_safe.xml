@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".featuers.home.homeFiles.visitServices.view.visitStart.SafeFragment">
 
@@ -15,6 +16,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layoutDirection="rtl">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        style="@style/txtStyle"
+        android:id="@+id/law_id"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/safe_recycler"
@@ -50,4 +57,4 @@ android:layout_marginRight="50dp"
         />
     </LinearLayout>
 </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
