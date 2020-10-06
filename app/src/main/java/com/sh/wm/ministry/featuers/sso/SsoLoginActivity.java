@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -108,12 +107,7 @@ public class SsoLoginActivity extends AppCompatActivity {
                 userSnEditor.apply();
                 userSnEditor.commit();
 
-                // Save User_Name in SharedPreference
-                SharedPreferences.Editor userNameEditor = getSharedPreferences(ApiConstent.USER_NAME, MODE_PRIVATE).edit();
-                userNameEditor.putString(ApiConstent.USER_NAME, userInfoSsoModel.getName());
-                userNameEditor.apply();
-                userNameEditor.commit();
-                getUserRole(userSn);
+                LogIn(userSn);
 
             } else {
                 Toast.makeText(this, "فشلت العملية", Toast.LENGTH_SHORT).show();
@@ -122,10 +116,10 @@ public class SsoLoginActivity extends AppCompatActivity {
         });
     }
 
-    private void getUserRole(String userSn) {
-        ssoLoginViewModel.getUserModel(userSn).observe(this, userRoleModel -> {
+    private void LogIn(String userSn) {
+        ssoLoginViewModel.LogIn(userSn).observe(this, loginModel -> {
             binding.pbSsoLogin.setVisibility(View.GONE);
-            if (userRoleModel != null) {
+            if (loginModel != null) {
 
                 // Save Login Status
                 SharedPreferences.Editor loginEditor = getSharedPreferences(ApiConstent.USER_LOGIN_STATUS, MODE_PRIVATE).edit();
@@ -133,15 +127,41 @@ public class SsoLoginActivity extends AppCompatActivity {
                 loginEditor.apply();
                 loginEditor.commit();
 
-
-                String token = userRoleModel.getAuthToken();
-                Log.d(TAG, "Token : " + token);
+                //Save Role
+                // 0  قوة عمل
+                // 1  مفتش او موظف وزارة
+                SharedPreferences.Editor roleEditor = getSharedPreferences(ApiConstent.USER_ROLE, MODE_PRIVATE).edit();
+                if (loginModel.getUserRole().getUserRole().equals("1") || loginModel.getUserRole().getUserRole().equals("null"))
+                    roleEditor.putInt(ApiConstent.USER_ROLE, 0);
+                else
+                    roleEditor.putInt(ApiConstent.USER_ROLE, 1);
+                roleEditor.apply();
+                roleEditor.commit();
 
                 //Save Token
-                SharedPreferences.Editor tokenEditor = getSharedPreferences(getString(R.string.key_token), MODE_PRIVATE).edit();
-                tokenEditor.putString(getString(R.string.key_token), token);
-                tokenEditor.apply();
-                tokenEditor.commit();
+                SharedPreferences.Editor userRoleEditor = getSharedPreferences(ApiConstent.AUTH_TOKEN, MODE_PRIVATE).edit();
+                userRoleEditor.putString(ApiConstent.AUTH_TOKEN, loginModel.getAuthToken());
+                userRoleEditor.apply();
+                userRoleEditor.commit();
+
+                // Save UserName
+                SharedPreferences.Editor userNameEditor = getSharedPreferences(ApiConstent.USER_NAME, MODE_PRIVATE).edit();
+                userNameEditor.putString(ApiConstent.USER_NAME, loginModel.getUserName());
+                userNameEditor.apply();
+                userNameEditor.commit();
+
+                //Save UserId
+                SharedPreferences.Editor userIdEditor = getSharedPreferences(ApiConstent.USER_ID, MODE_PRIVATE).edit();
+                userIdEditor.putString(ApiConstent.USER_ID, loginModel.getUserId());
+                userIdEditor.apply();
+                userIdEditor.commit();
+
+                // Save userImg
+                SharedPreferences.Editor userEditor = getSharedPreferences(ApiConstent.USER_IMG, MODE_PRIVATE).edit();
+                userEditor.putString(ApiConstent.USER_IMG, loginModel.getUserImage());
+                userEditor.apply();
+                userEditor.commit();
+
 
                 startActivity(new Intent(SsoLoginActivity.this, MainActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

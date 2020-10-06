@@ -279,7 +279,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/directorate" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/et_directorate_belongs"
                         style="@style/editTxtStyle"
                         android:layout_width="match_parent"

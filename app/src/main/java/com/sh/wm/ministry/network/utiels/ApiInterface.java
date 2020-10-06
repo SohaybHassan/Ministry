@@ -6,13 +6,14 @@ import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacil
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
 import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.ConstructByName;
 import com.sh.wm.ministry.featuers.home.model.CertificateRequest;
+import com.sh.wm.ministry.featuers.sso.model.loginmodel.LoginModel;
+import com.sh.wm.ministry.featuers.userfile.majorservices.model.UserInfoModel;
 import com.sh.wm.ministry.network.database.dbModels.directors.DirectorsModel;
 import com.sh.wm.ministry.network.database.dbModels.muniplicities.MunicipalityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
 import com.sh.wm.ministry.featuers.sso.model.UserInfoSsoModel;
-import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
 import com.sh.wm.ministry.featuers.userfile.addressAndContact.model.userworkcontact.UserWorkContactModel;
 import com.sh.wm.ministry.featuers.userfile.career.model.UserCareerModel;
 import com.sh.wm.ministry.featuers.userfile.dependents.model.UserDependentsModel;
@@ -59,12 +60,14 @@ public interface ApiInterface {
     // lmis login - get user info
     @FormUrlEncoded
     @POST("login")
-    Call<UserRoleModel> getUserRole(@Field("user_sn") String userSn);
+    Call<LoginModel> LogIn(@Field("user_sn") String userSn);
 
     // user files calls ////////////////////////////////////////////////////////////////
     // major services
     @GET("get_my_data")
-    Call<UserRoleModel> getUserWorkInfo();
+    Call<UserInfoModel> getUserInfo();
+
+
 
     //contact and address
     @FormUrlEncoded

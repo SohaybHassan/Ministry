@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
 import com.sh.wm.ministry.featuers.sso.model.UserInfoSsoModel;
-import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
+import com.sh.wm.ministry.featuers.sso.model.loginmodel.LoginModel;
 import com.sh.wm.ministry.featuers.sso.repository.SsoLoginRepository;
 
 import java.util.Map;
@@ -33,8 +33,8 @@ public class SsoLoginViewModel extends AndroidViewModel {
 
     }
 
-    public LiveData<UserRoleModel> getUserModel(String userId) {
-        return ssoLoginRepository.getUserRole(userId);
+    public LiveData<LoginModel> LogIn(String userId) {
+        return ssoLoginRepository.LogIn(userId);
     }
 
 }

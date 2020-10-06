@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:layoutDirection="rtl">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_save_major_services"
+        style="@style/btnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/Save"
+        android:layout_margin="10dp"
+        />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,13 +25,16 @@
             android:layoutDirection="rtl"
             android:orientation="vertical"
             android:textDirection="rtl"
+            android:paddingBottom="70dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
             tools:context=".view.userfile.UserFileFragment">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
@@ -38,11 +51,10 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/state" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/et_state_address_contact"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent"
-                        android:inputType="textPersonName" />
+                        android:layout_width="match_parent"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -51,7 +63,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/district" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/et_district_address_contact"
                         style="@style/editTxtStyle"
                         android:layout_width="match_parent"
@@ -73,7 +85,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/city" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/et_city_address_contact"
                         style="@style/editTxtStyle"
                         android:layout_width="match_parent"
@@ -86,7 +98,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/street" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/et_street_address_contact"
                         style="@style/editTxtStyle"
                         android:layout_width="match_parent"
@@ -99,14 +111,14 @@
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:text="@string/nearset_address" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
                 android:id="@+id/et_nearest_place_address_contact"
                 style="@style/editTxtStyle"
                 android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginTop="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -163,11 +175,10 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/Telephone" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/et_phone_address_contact"
                         style="@style/editTxtStyle"
-                        android:layout_width="match_parent"
-                        android:inputType="textPersonName" />
+                        android:layout_width="match_parent"/>
 
                     <TextView
                         style="@style/txtStyle"
@@ -189,19 +200,20 @@
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:text="@string/email" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
                 android:id="@+id/et_email_address_contact"
                 style="@style/editTxtStyle"
                 android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:inputType="numberDecimal" />
+                android:layout_marginTop="8dp" />
 
             <TextView
                 style="@style/txtStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:text="@string/facebook" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -211,14 +223,21 @@
                 android:layout_marginTop="8dp"
                 android:inputType="numberDecimal" />
 
+            <TextView
+                style="@style/txtStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/address_details" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_address_details_address_contact"
+                style="@style/editTxtStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:inputType="numberDecimal" />
+
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_save_address_contact"
-        style="@style/btnStyle"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom"
-        android:text="@string/Save" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

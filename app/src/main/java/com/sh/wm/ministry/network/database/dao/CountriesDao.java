@@ -21,4 +21,7 @@ public interface CountriesDao {
 
     @Query("SELECT COUNT(*) FROM countries_table")
     int getDataCount();
+
+    @Query("SELECT * FROM countries_table WHERE cDCDNEW = :countryID")
+    Country getUserCountry(String countryID);
 }

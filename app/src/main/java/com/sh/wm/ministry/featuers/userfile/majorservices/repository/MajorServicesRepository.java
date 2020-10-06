@@ -6,7 +6,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
+import com.sh.wm.ministry.featuers.userfile.majorservices.model.UserInfoModel;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
 import retrofit2.Call;
@@ -19,11 +19,11 @@ public class MajorServicesRepository {
     private static final String TAG = MajorServicesRepository.class.getName();
     private static MajorServicesRepository mInstance;
     private NetworkUtils networkUtils;
-    private MutableLiveData<UserRoleModel> userWorkInfoMutableLiveData;
+    private MutableLiveData<UserInfoModel> userInfoMutableLiveData;
 
     private MajorServicesRepository(Application application) {
         networkUtils = NetworkUtils.getInstance(true, application);
-        userWorkInfoMutableLiveData = new MutableLiveData<>();
+        userInfoMutableLiveData = new MutableLiveData<>();
     }
 
     public static MajorServicesRepository getInstance(Application application) {
@@ -33,26 +33,26 @@ public class MajorServicesRepository {
         return mInstance;
     }
 
-    public LiveData<UserRoleModel> getUserWorkInfoLiveData() {
-        networkUtils.getApiInterface().getUserWorkInfo().enqueue(new Callback<UserRoleModel>() {
+    public LiveData<UserInfoModel> getUserInfo() {
+        networkUtils.getApiInterface().getUserInfo().enqueue(new Callback<UserInfoModel>() {
             @Override
-            public void onResponse(Call<UserRoleModel> call, Response<UserRoleModel> response) {
+            public void onResponse(Call<UserInfoModel> call, Response<UserInfoModel> response) {
                 if (response.body() != null) {
                     if (response.isSuccessful()) {
-                        userWorkInfoMutableLiveData.setValue(response.body());
+                        userInfoMutableLiveData.setValue(response.body());
                     }
                 } else {
-                    userWorkInfoMutableLiveData.setValue(null);
+                    userInfoMutableLiveData.setValue(null);
                     Log.d(TAG, "Empty Response!");
                 }
             }
 
             @Override
-            public void onFailure(Call<UserRoleModel> call, Throwable t) {
-                userWorkInfoMutableLiveData.setValue(null);
+            public void onFailure(Call<UserInfoModel> call, Throwable t) {
+                userInfoMutableLiveData.setValue(null);
                 Log.e(TAG, "Response Failed!");
             }
         });
-        return userWorkInfoMutableLiveData;
+        return userInfoMutableLiveData;
     }
 }

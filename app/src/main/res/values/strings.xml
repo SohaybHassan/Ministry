@@ -104,7 +104,6 @@
     <string name="legal_procedures">الإجراءات القانونية</string>
     <string name="no_connection">لا يوجد اتصال بالانترنت</string>
     <string name="check_connection">تحتاج الى الاتصال بالانترنت للوصول الى البيانات قم بالتأكد من اتصالك.</string>
-    <string name="key_token">token</string>
     <string name="default_key_token">null</string>
     <string name="training_institution">جهة التدريب</string>
     <string name="training_course">الدورة التدريبية</string>
@@ -115,7 +114,6 @@
     <string name="hour_number">عدد الساعات</string>
     <string name="training_provider_address">عنوان جهة التدريب</string>
     <string name="proccess_failed">فشلت العملية</string>
-    <string name="key_userId">user_id</string>
     <string name="no_dependnts">لم يتم إضافة معالين من قبل!</string>
     <string name="name">الاسم</string>
     <string name="id">رقم الهوية</string>
@@ -292,4 +290,5 @@
     <string name="leving">ترك</string>
     <string name="facility_name">حدد اسم المنشأة</string>
     <string name="number_caracter">"ادخل على الاقل 3 احرف "</string>
+    <string name="address_details">تفاصيل العنوان</string>
 </resources>

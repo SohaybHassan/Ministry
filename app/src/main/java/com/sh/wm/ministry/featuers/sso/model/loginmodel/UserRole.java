@@ -1,10 +1,9 @@
 
-package com.sh.wm.ministry.featuers.sso.model.userrole;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package com.sh.wm.ministry.featuers.sso.model.loginmodel;
 
 import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class UserRole {
 

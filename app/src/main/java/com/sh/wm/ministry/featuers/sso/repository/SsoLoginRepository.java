@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.sh.wm.ministry.featuers.sso.model.SsoTokenModel;
 import com.sh.wm.ministry.featuers.sso.model.UserInfoSsoModel;
-import com.sh.wm.ministry.featuers.sso.model.userrole.UserRoleModel;
+import com.sh.wm.ministry.featuers.sso.model.loginmodel.LoginModel;
 import com.sh.wm.ministry.network.utiels.NetworkUtils;
 import java.util.Map;
 import retrofit2.Call;
@@ -20,7 +20,7 @@ public class SsoLoginRepository {
     private NetworkUtils networkUtils;
     private MutableLiveData<SsoTokenModel> tokenBodyMutableLiveData;
     private MutableLiveData<UserInfoSsoModel> verifyTokenMutabliveData;
-    private MutableLiveData<UserRoleModel> UserRoleMutabliveData;
+    private MutableLiveData<LoginModel> LogInMutabliveData;
 
     private SsoLoginRepository(Context context) {
         networkUtils = NetworkUtils.getInstance(true, context);
@@ -92,29 +92,29 @@ public class SsoLoginRepository {
         return verifyTokenMutabliveData;
     }
 
-    public LiveData<UserRoleModel> getUserRole(String userId) {
-        UserRoleMutabliveData = new MutableLiveData<>();
-        networkUtils.getApiInterface().getUserRole(userId).enqueue(new Callback<UserRoleModel>() {
+    public LiveData<LoginModel> LogIn(String userId) {
+        LogInMutabliveData = new MutableLiveData<>();
+        networkUtils.getApiInterface().LogIn(userId).enqueue(new Callback<LoginModel>() {
             @Override
-            public void onResponse(Call<UserRoleModel> call, Response<UserRoleModel> response) {
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
                 if (response.body() != null) {
                     if (response.isSuccessful()) {
-                        UserRoleMutabliveData.setValue(response.body());
+                        LogInMutabliveData.setValue(response.body());
                         Log.e(TAG, "onResponse: ok");
                         Log.d(TAG, "onResponse: Token = " + response.body().getAuthToken());
                     }
                 } else {
-                    UserRoleMutabliveData.setValue(null);
+                    LogInMutabliveData.setValue(null);
                     Log.e(TAG, "Empty Response!");
                 }
             }
 
             @Override
-            public void onFailure(Call<UserRoleModel> call, Throwable t) {
-                UserRoleMutabliveData.setValue(null);
+            public void onFailure(Call<LoginModel> call, Throwable t) {
+                LogInMutabliveData.setValue(null);
                 t.printStackTrace();
             }
         });
-        return UserRoleMutabliveData;
+        return LogInMutabliveData;
     }
 }

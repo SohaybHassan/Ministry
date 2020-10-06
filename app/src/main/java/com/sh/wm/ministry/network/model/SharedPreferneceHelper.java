@@ -14,13 +14,13 @@ public class SharedPreferneceHelper {
     }
 
     public static String getToken(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences(context.getString(R.string.key_token), Context.MODE_PRIVATE);
-        return preferences.getString(context.getString(R.string.key_token), "Empty");
+        SharedPreferences preferences = context.getSharedPreferences(ApiConstent.AUTH_TOKEN, Context.MODE_PRIVATE);
+        return preferences.getString(ApiConstent.AUTH_TOKEN, "Empty");
     }
 
     public static String getUserId(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences(context.getString(R.string.key_userId), Context.MODE_PRIVATE);
-        return preferences.getString(context.getString(R.string.key_userId), "Empty");
+        SharedPreferences preferences = context.getSharedPreferences(ApiConstent.USER_ID, Context.MODE_PRIVATE);
+        return preferences.getString(ApiConstent.USER_ID, "Empty");
     }
 
     public static String getUserName(Context context) {
@@ -36,5 +36,10 @@ public class SharedPreferneceHelper {
     public static String getUserImg(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(ApiConstent.USER_IMG, Context.MODE_PRIVATE);
         return preferences.getString(ApiConstent.USER_IMG, "Empty");
+    }
+
+    public static int getUserRole(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(ApiConstent.USER_ROLE, Context.MODE_PRIVATE);
+        return preferences.getInt(ApiConstent.USER_ROLE, 0);
     }
 }

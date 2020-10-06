@@ -1,5 +1,5 @@
 
-package com.sh.wm.ministry.featuers.sso.model.userrole;
+package com.sh.wm.ministry.featuers.userfile.majorservices.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -9,9 +9,18 @@ public class UserWorkInfo {
     @SerializedName("USER_ID")
     @Expose
     private String uSERID;
+    @SerializedName("USER_DOCS_TYPE")
+    @Expose
+    private String uSERDOCSTYPE;
+    @SerializedName("USER_DOCS_TYPE_ID")
+    @Expose
+    private String uSERDOCSTYPEID;
     @SerializedName("USER_SN")
     @Expose
     private String uSERSN;
+    @SerializedName("USER_AGE")
+    @Expose
+    private String uSERAGE;
     @SerializedName("USER_F_NAME_AR")
     @Expose
     private String uSERFNAMEAR;
@@ -57,9 +66,6 @@ public class UserWorkInfo {
     @SerializedName("USER_DIRECTORATE")
     @Expose
     private String uSERDIRECTORATE;
-    @SerializedName("USER_IMG")
-    @Expose
-    private String uSERIMG;
 
     public String getUSERID() {
         return uSERID;
@@ -69,12 +75,36 @@ public class UserWorkInfo {
         this.uSERID = uSERID;
     }
 
+    public String getUSERDOCSTYPE() {
+        return uSERDOCSTYPE;
+    }
+
+    public void setUSERDOCSTYPE(String uSERDOCSTYPE) {
+        this.uSERDOCSTYPE = uSERDOCSTYPE;
+    }
+
+    public String getUSERDOCSTYPEID() {
+        return uSERDOCSTYPEID;
+    }
+
+    public void setUSERDOCSTYPEID(String uSERDOCSTYPEID) {
+        this.uSERDOCSTYPEID = uSERDOCSTYPEID;
+    }
+
     public String getUSERSN() {
         return uSERSN;
     }
 
     public void setUSERSN(String uSERSN) {
         this.uSERSN = uSERSN;
+    }
+
+    public String getUSERAGE() {
+        return uSERAGE;
+    }
+
+    public void setUSERAGE(String uSERAGE) {
+        this.uSERAGE = uSERAGE;
     }
 
     public String getUSERFNAMEAR() {
@@ -195,14 +225,6 @@ public class UserWorkInfo {
 
     public void setUSERDIRECTORATE(String uSERDIRECTORATE) {
         this.uSERDIRECTORATE = uSERDIRECTORATE;
-    }
-
-    public String getUSERIMG() {
-        return uSERIMG;
-    }
-
-    public void setUSERIMG(String uSERIMG) {
-        this.uSERIMG = uSERIMG;
     }
 
 }

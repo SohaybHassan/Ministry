@@ -54,6 +54,10 @@ import com.sh.wm.ministry.network.utiels.NetworkUtils;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -109,6 +113,11 @@ public class DBRepository {
     public LiveData<List<Country>> getAllCountries() {
         updateCountries();
         return countriesDao.getAllCountries();
+    }
+
+    public Country getUserCountry(String countryID){
+        updateCountries();
+        return countriesDao.getUserCountry(countryID);
     }
 
     public void updateCountries() {
@@ -240,18 +249,29 @@ public class DBRepository {
             @Override
             public void onResponse(Call<ConstantsModel> call, Response<ConstantsModel> response) {
                 if (response.body() != null) {
-
+                    List<String> apiDates = new ArrayList<>();
+                    List<String> dbDates = new ArrayList<>();
+                    for (Constants constant : response.body().getConstants()) {
+                        if (!constant.getUPDATEDATE().toString().equals("null"))
+                            System.out.println(" api : " + constant.getUPDATEDATE().toString() + " constant : " + constant.getCONSTANTARANAME());
+//                            apiDates.add(constant.getUPDATEDATE().toString());
+                    }
+//                    long maxApiDate = MaxDate(apiDates);
+                    for (Object object : constantsDao.getMaxDate(constantId)) {
+                        if (!object.toString().equals("null"))
+                            System.out.println(" object : " + object.toString());
+//                            dbDates.add(object.toString());
+                    }
+//                    long maxDbDate = MaxDate(dbDates);
+//                    if (maxApiDate != -1 && maxDbDate != -1)
+//                        if (maxApiDate != maxDbDate)
+//                            System.out.println("the two dates do not match");
                     if (response.body().getConstants().size() != constantsDao.getDataCount(constantId)) {
                         List<Constants> constants = response.body().getConstants();
                         for (Constants constant : constants) {
                             constantsDao.addConstant(constant);
                         }
-//                    System.out.println(constantsDao.getMaxDate(constantId).toString());
                     }
-//                    else if (constantsDao.getMaxDate(constantId) != null) {
-//                    }
-                } else {
-                    Log.d(TAG, "All Work Statuses Empty Response!");
                 }
             }
 
@@ -260,6 +280,35 @@ public class DBRepository {
                 Log.e(TAG, "All Work Statuses request has failed!");
             }
         });
+    }
+
+    public long MaxDate(List<String> dates) {
+        if (dates.isEmpty())
+            return -1;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy");
+        Date maxDate = null;
+        try {
+            maxDate = sdf.parse(dates.get(0));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < dates.size(); i++) {
+            System.out.println(dates.get(i));
+            Date strDate = null;
+            try {
+                strDate = sdf.parse(dates.get(i));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+//            if (strDate.getTime() > maxDate.getTime()) {
+//                System.out.println("wejdan date" + strDate.getTime() + "   " + maxDate.getTime());
+//                maxDate = strDate;
+//            } else {
+//                System.out.println("wejdan date" + strDate.getTime() + "   " + maxDate.getTime());
+//            }
+        }
+//        return maxDate.getTime();
+        return -1;
     }
 
     //municipalities

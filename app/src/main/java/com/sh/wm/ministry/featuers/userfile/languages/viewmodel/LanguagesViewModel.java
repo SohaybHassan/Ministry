@@ -27,9 +27,9 @@ public class LanguagesViewModel extends AndroidViewModel {
 
     // only to test the constants
 
-//    public LiveData<List<Constants>> getAllConstants(String constantId) {
-//        return repository.getAllConstants(constantId);
-//    }
+    public LiveData<List<Constants>> getAllConstants(String constantId) {
+        return repository.getAllConstants(constantId);
+    }
 //
 //    public LiveData<List<JobTitle>> getMyConstants() {
 //        return repository.getAllJobTitles();

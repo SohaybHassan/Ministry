@@ -55,8 +55,8 @@ public class AddLanguageFragment extends Fragment {
         level = new ArrayList<>();
 
         getBundleData();
-        getLanguages();
-//        getCons();   this method is only for testing
+//        getLanguages();
+        getCons();   //this method is only for testing
         editLanguage();
         editSkills();
         btnListener();
@@ -93,23 +93,23 @@ public class AddLanguageFragment extends Fragment {
 
     // testing only
 
-//    public void getCons() {
-//
-////        mViewModel = new ViewModelProvider(this).get(LanguagesViewModel.class);
-////        mViewModel.getAllConstants("26").observe(getViewLifecycleOwner(), new Observer<List<Constants>>() {
-////            @Override
-////            public void onChanged(List<Constants> constants) {
-////                if (constants != null) {
-////                    for (Constants constant : constants) {
-////                        lang.add(constant.getCONSTANTARANAME());
-////                    }
-////                } else {
-////                    Toast.makeText(getContext(), "no response", Toast.LENGTH_SHORT).show();
-////
-////                }
-////            }
-////        });
-//
+    public void getCons() {
+
+        mViewModel = new ViewModelProvider(this).get(LanguagesViewModel.class);
+        mViewModel.getAllConstants("26").observe(getViewLifecycleOwner(), new Observer<List<Constants>>() {
+            @Override
+            public void onChanged(List<Constants> constants) {
+                if (constants != null) {
+                    for (Constants constant : constants) {
+                        System.out.println(constant.getCONSTANTARANAME());
+//                        lang.add(constant.getCONSTANTARANAME());
+                    }
+                } else {
+                    Toast.makeText(getContext(), "no response", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 //        mViewModel = new ViewModelProvider(this).get(LanguagesViewModel.class);
 //        mViewModel.getMyConstants().observe(getViewLifecycleOwner(), jobTitles -> {
 //            if (jobTitles != null)
@@ -118,7 +118,7 @@ public class AddLanguageFragment extends Fragment {
 //            else
 //                Toast.makeText(getContext(), "no response", Toast.LENGTH_SHORT).show();
 //        });
-//    }
+    }
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////
