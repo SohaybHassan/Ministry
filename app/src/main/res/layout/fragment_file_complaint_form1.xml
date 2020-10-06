@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toBottomOf="@id/ed_nu_facility" />
 
             <TextView
-                android:id="@+id/ed_governorate"
+                android:id="@+id/ed_phone"
                 style="@style/editTxtStyle"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="8dp"
@@ -104,7 +104,7 @@
 
 
             <TextView
-                android:id="@+id/ed_municipal"
+                android:id="@+id/ed_active"
                 style="@style/editTxtStyle"
                 android:layout_width="match_parent"
                 android:layout_marginStart="8dp"

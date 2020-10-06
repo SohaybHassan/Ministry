@@ -4,23 +4,28 @@
     android:id="@+id/my_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
     android:padding="8dp">
 
 
-    <SearchView
+    <EditText
         android:id="@+id/search_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/seasrch_view_background"
+        android:drawableStart="@drawable/ic_search_dark"
         android:elevation="5dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+
         app:iconifiedByDefault="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <requestFocus />
-    </SearchView>
 
-    <androidx.recyclerview.widget.RecyclerView
+    </EditText>
+
+    <com.sh.wm.ministry.custem.BottomSheetSearshList
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -40,6 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view" />
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
