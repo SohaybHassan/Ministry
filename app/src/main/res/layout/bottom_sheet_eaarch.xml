@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    android:padding="8dp">
+    >
 
 
     <EditText
@@ -14,11 +14,14 @@
         android:layout_height="40dp"
         android:background="@drawable/seasrch_view_background"
         android:drawableStart="@drawable/ic_search_dark"
+        android:drawablePadding="8dp"
         android:elevation="5dp"
+        android:hint="@string/number_caracter"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-
+        android:layout_margin="8dp"
         app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -28,9 +31,9 @@
     <com.sh.wm.ministry.custem.BottomSheetSearshList
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="500dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view" />
@@ -44,6 +47,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view" />
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_no_data" />
 
     <ProgressBar
         android:id="@+id/progressbar"

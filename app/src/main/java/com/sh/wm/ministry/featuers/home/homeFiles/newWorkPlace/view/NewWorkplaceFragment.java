@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
+import com.sh.wm.ministry.custem.BottomSheetSearshList;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.custem.datepicker.DateAdder;
 import com.sh.wm.ministry.custem.datepicker.TimeUtil;
@@ -29,18 +33,23 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
 
     private FragmentNewWorkplaceBinding binding;
     private ShMyDialog dialog;
+    private BottomSheetDialog dialogList;
+    private ImageView imNoData;
+    private ProgressBar progressBar;
+    private EditText ed_text;
     private DateAdder dateAdder;
     private TimeZone timeZone;
     private long chosenTime;
     private BottomSheetSearsh bottomSheetSearsh;
     private BottomSheetDialog sheetDialog;
     private NewWorkPlaceViewModel newWorkPlaceViewModel;
-    private Observer<Construction>constructionObserver;
+    private Observer<Construction> constructionObserver;
+    private BottomSheetSearshList bottomSheetSearshList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        constructionObserver=new Observer<Construction>() {
+        constructionObserver = new Observer<Construction>() {
             @Override
             public void onChanged(Construction construction) {
                 if (construction != null) {
@@ -51,7 +60,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
 
                     binding.cardViewSearshNewWorkPlace.tvOwnerName.setText("اسم المالك : " + name);
                     binding.cardViewSearshNewWorkPlace.tvBusinessName.setText("الاسم التجاري للمنشأة : " + nameConstruction);
-                    binding.cardViewSearshNewWorkPlace.tvOwnerId.setText("رقم هوية المالك : "+user_cn);
+                    binding.cardViewSearshNewWorkPlace.tvOwnerId.setText("رقم هوية المالك : " + user_cn);
 
                     binding.edNuFacilityNewWorkPlace.setVisibility(View.GONE);
                     binding.tvNuFacility.setVisibility(View.GONE);
@@ -82,7 +91,6 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
         timeZone = TimeZone.getDefault();
         chosenTime = System.currentTimeMillis();
         sheetDialog = new BottomSheetDialog(getActivity());
-
         View view = binding.getRoot();
         return view;
     }
@@ -91,7 +99,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        newWorkPlaceViewModel= new ViewModelProvider(this).get(NewWorkPlaceViewModel.class);
+        newWorkPlaceViewModel = new ViewModelProvider(this).get(NewWorkPlaceViewModel.class);
 
         binding.btnSaveNewWorkPlace.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +115,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
                     public void edite(View view) {
                         dialog.dismiss();
                     }
-                }, getString(R.string.new_work_place),getString(R.string.save),getString(R.string.edit));
+                }, getString(R.string.new_work_place), getString(R.string.save), getString(R.string.edit));
                 dialog.show(getParentFragmentManager(), "");
             }
         });
@@ -124,17 +132,12 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
         binding.edNuFacilityNewWorkPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bottomSheetSearsh = new BottomSheetSearsh(getActivity(), sheetDialog, new BottomSheetSearsh.bottomSheetSearsh() {
-                    @Override
-                    public void searshByNumber(String num_facility) {
-                        binding.progressbar.setVisibility(View.VISIBLE);
-                        ensbel(false);
-                        newWorkPlaceViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
-                        sheetDialog.dismiss();
-                    }
-                });
-
-                bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
+                dialogList.setContentView(R.layout.bottom_sheet_eaarch);
+                ed_text = dialogList.findViewById(R.id.search_view);
+                bottomSheetSearshList = dialogList.findViewById(R.id.recycler_view);
+                bottomSheetSearshList = dialogList.findViewById(R.id.recycler_view);
+                imNoData = dialogList.findViewById(R.id.image_no_data);
+                progressBar = dialogList.findViewById(R.id.progressbar);
             }
         });
         binding.cardViewSearshNewWorkPlace.imgEdit.setOnClickListener(view14 -> {
@@ -142,7 +145,7 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
             binding.tvNuFacility.setVisibility(View.VISIBLE);
             binding.cardViewSearshNewWorkPlace.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             ensbel(true);
-            bottomSheetSearsh.openDialog(getString(R.string.numberfacility),getString(R.string.searsh_for_nu_facilty));
+            bottomSheetSearsh.openDialog(getString(R.string.numberfacility), getString(R.string.searsh_for_nu_facilty));
         });
 
 
@@ -153,7 +156,8 @@ public class NewWorkplaceFragment extends Fragment implements DateAdder.Listener
         chosenTime = timeChosen;
         binding.edDateEndWorkNewWorke.setText(TimeUtil.getDefaultDateText(chosenTime, timeZone));
     }
-    public void ensbel(boolean states){
+
+    public void ensbel(boolean states) {
         binding.edNuFacilityNewWorkPlace.setEnabled(states);
         binding.edDateEndWorkNewWorke.setEnabled(states);
     }

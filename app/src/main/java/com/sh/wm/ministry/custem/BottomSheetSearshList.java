@@ -63,6 +63,10 @@ public class BottomSheetSearshList extends RecyclerView {
     }
 
 
+    public static void clerList(){
+        getMyList().clear();
+
+    }
     public static class MyTestAdapter extends RecyclerView.Adapter<MyTestAdapter.MyHolder> {
 
         private MyClass myclass;
@@ -111,6 +115,7 @@ public class BottomSheetSearshList extends RecyclerView {
                     public void onClick(View view) {
                         myclass.MyMethod(constructByName);
                         BottomSheetSearshList.getBottomSheetDialog().dismiss();
+                        clerList();
 
                     }
                 });

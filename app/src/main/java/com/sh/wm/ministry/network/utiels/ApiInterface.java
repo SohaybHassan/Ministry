@@ -1,6 +1,7 @@
 package com.sh.wm.ministry.network.utiels;
 
 
+import com.sh.wm.ministry.featuers.home.homeFiles.QayedArchive.model.ArchiveModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.alarmForm.model.PalLaw;
 import com.sh.wm.ministry.featuers.home.homeFiles.closeFacility.model.CloseFacilityModel;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.ConstructionGroup;
@@ -203,4 +204,8 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("qyed_request_for_user")
     Call<CertificateRequest> requestCertificate(@Field("QAYED_USER_ID") String userId);
+
+    @FormUrlEncoded
+    @POST("get_user_qayed_archive")
+    Call<ArchiveModel> requestArchive(@Field("user_id") String userId);
 }

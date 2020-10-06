@@ -2,10 +2,16 @@ package com.sh.wm.ministry.featuers.home.homeFiles.movefacility.view;
 
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -20,9 +27,12 @@ import com.google.android.material.textview.MaterialTextView;
 import com.sh.wm.ministry.R;
 import com.sh.wm.ministry.custem.BottomSheetListView;
 import com.sh.wm.ministry.custem.BottomSheetSearsh;
+import com.sh.wm.ministry.custem.BottomSheetSearshList;
 import com.sh.wm.ministry.custem.ShMyDialog;
 import com.sh.wm.ministry.databinding.FragmentMoveTheFacilityBinding;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.Construct;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.ConstructByName;
 import com.sh.wm.ministry.network.database.dbModels.muniplicities.Municipality;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.viewmodel.MoveFacilityViewModel;
@@ -46,10 +56,14 @@ public class MoveTheFacilityFragment extends Fragment {
     private ArrayList<String> AllRegionID;
     private ArrayList<String> AllMunicipal;
     private ArrayList<String> AllMunicipalID;
-
+    private Observer<ConstructByName> constructByNameObserver;
+    private BottomSheetSearshList bottomSheetSearshList;
+    private ImageView imNoData;
+    private ProgressBar progressBar;
     private Observer<Construction> constructionObserver;
-    Observer<PoastDataMoveFacility> poastDataMoveFacilityObserver;
-
+    private EditText ed_text;
+    private Observer<PoastDataMoveFacility> poastDataMoveFacilityObserver;
+    private BottomSheetSearshList.MyTestAdapter myTestAdapter;
     String Constraction_id, addressId, municipapiity_id, region_id, mobile;
 
 
@@ -76,9 +90,7 @@ public class MoveTheFacilityFragment extends Fragment {
                     enapel(true);
 
 
-                    addressId = construction.getCONSTRUCTADDRESSID();
-                    Constraction_id = construction.getCONSTRUCTID();
-                    mobile = construction.getCONSTRUCTMOBILE();
+
 
 
                 } else {
@@ -103,6 +115,45 @@ public class MoveTheFacilityFragment extends Fragment {
                     Toast.makeText(getContext(), "no data send", Toast.LENGTH_SHORT).show();
                     binding.progressbar.setVisibility(View.GONE);
                     enapel(true);
+                }
+
+            }
+        };
+
+        constructByNameObserver = new Observer<ConstructByName>() {
+            @Override
+            public void onChanged(ConstructByName constructByName) {
+
+                if (constructByName != null) {
+                    bottomSheetSearshList.setMyList(constructByName.getConstructs());
+                    bottomSheetSearshList.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    bottomSheetSearshList.setBottomSheetDialog(dialog);
+                    myTestAdapter = new BottomSheetSearshList.MyTestAdapter(new BottomSheetSearshList.MyTestAdapter.MyClass() {
+                        @Override
+                        public void MyMethod(Construct constructByName) {
+                            binding.cardViewSearshMoveFacility.tvOwnerName.setText("اسم المالك : " + constructByName.getCONSTRUCTIONOWNER().getOWNERNAME());
+                            binding.cardViewSearshMoveFacility.tvBusinessName.setText("الاسم التجاري للمنشأة : " + constructByName.getCONSTRUCTNAMEUSING());
+                            binding.cardViewSearshMoveFacility.tvOwnerId.setText("رقم هوية المالك : " + constructByName.getCONSTRUCTIONOWNER().getUSERSN());
+                            addressId = constructByName.getCONSTRUCTADDRESS();
+                            Constraction_id = constructByName.getCONSTRUCTID();
+                            mobile = constructByName.getCONSTRUCTMOBILE();
+
+                            ed_text.setText("");
+                            imNoData.setVisibility(View.VISIBLE);
+                        }
+                    });
+                    binding.edNuFacility.setVisibility(View.GONE);
+                    binding.edNuFacility.setText("ok");
+                    binding.tvNuFacility.setVisibility(View.GONE);
+                    binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+
+                    bottomSheetSearshList.setAdapter(myTestAdapter);
+                } else {
+                    imNoData.setVisibility(View.VISIBLE);
+                    Log.d(TAG, "onChanged: no data");
+                    Toast.makeText(getActivity(), "no data", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                 }
 
             }
@@ -224,20 +275,46 @@ public class MoveTheFacilityFragment extends Fragment {
         });
 
 
-        binding.edNuFacility.setOnClickListener(view16 -> {
-
-
-            bottomSheetSearsh = new BottomSheetSearsh(getActivity(), dialog, new BottomSheetSearsh.bottomSheetSearsh() {
+        binding.edNuFacility.setOnClickListener(view15 -> {
+            dialog.setContentView(R.layout.bottom_sheet_eaarch);
+            ed_text = dialog.findViewById(R.id.search_view);
+            bottomSheetSearshList = dialog.findViewById(R.id.recycler_view);
+            bottomSheetSearshList = dialog.findViewById(R.id.recycler_view);
+            imNoData = dialog.findViewById(R.id.image_no_data);
+            progressBar = dialog.findViewById(R.id.progressbar);
+            ed_text.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void searshByNumber(String num_facility) {
-                    binding.progressbar.setVisibility(View.VISIBLE);
-                    enapel(false);
-                    moveFacilityViewModel.getConstructionData(num_facility).observe(getViewLifecycleOwner(), constructionObserver);
-                    dialog.dismiss();
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    Toast.makeText(getActivity(), "beforeTextChanged", Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    Toast.makeText(getActivity(), "onTextChanged", Toast.LENGTH_SHORT).show();
+                    if (i2 >= 3) {
+                        progressBar.setVisibility(View.VISIBLE);
+                        imNoData.setVisibility(View.GONE);
+                        Toast.makeText(getActivity(), "=> " + i2, Toast.LENGTH_SHORT).show();
+                        moveFacilityViewModel.getConstruct(ed_text.getText().toString()).observe(getViewLifecycleOwner(), constructByNameObserver);
+                    } else{
+                        BottomSheetSearshList.clerList();
+                        progressBar.setVisibility(View.GONE);
+                        imNoData.setVisibility(View.VISIBLE);
+
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    Toast.makeText(getActivity(), "afterTextChanged", Toast.LENGTH_SHORT).show();
+                    BottomSheetSearshList.clerList();
                 }
             });
-            bottomSheetSearsh.openDialog(getString(R.string.numberfacility), getString(R.string.searsh_for_nu_facilty));
+            dialog.show();
+
         });
+
 //"المحافظة"
         binding.edGovernorate.setOnClickListener(view15 -> {
 
@@ -287,7 +364,8 @@ public class MoveTheFacilityFragment extends Fragment {
             binding.cardViewSearshMoveFacility.cardViewSearshMoveFacilitySh.setVisibility(View.GONE);
             enapel(true);
             binding.edNuFacility.setText("");
-            bottomSheetSearsh.openDialog(getString(R.string.numberfacility), getString(R.string.searsh_for_nu_facilty));
+            dialog.show();
+
         });
 
     }
@@ -312,6 +390,5 @@ public class MoveTheFacilityFragment extends Fragment {
 
 
     }
-
 
 }

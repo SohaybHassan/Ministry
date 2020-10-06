@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/card_view"
+    android:foregroundTint="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:background="@color/gallery"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_policy"
+            android:scaleType="centerInside"/>
+        <LinearLayout
+            android:foregroundTint="@color/white"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                >
+                <TextView
+                    style="@style/insResult"
+                    android:text="@string/request_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:id="@+id/request_date"
+                    style="@style/insResult"
+                    android:text="@string/revisit"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                >
+                <TextView
+                    style="@style/insResult"
+                    android:text="@string/educational_status_desc"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:id="@+id/arc_work_desc"
+                    style="@style/insResult"
+                    android:text="@string/revisit"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_gravity="right"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                >
+                <TextView
+                    style="@style/insResult"
+                    android:text="@string/educational_status_desc_desc"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:id="@+id/arc_work_desc_desc"
+                    style="@style/insResult"
+                    android:text="@string/revisit"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_gravity="right"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                >
+                <TextView
+                    style="@style/insResult"
+                    android:text="@string/request_status"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"/>
+
+                <Button
+                    android:id="@+id/arc_status_completed"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    style="@style/visitBtnStyle"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginVertical="5dp"
+                    android:backgroundTint="@color/revisit"
+                    android:text="@string/completed"
+                    android:visibility="gone"
+                    />
+                <Button
+                    android:id="@+id/arc_status_in_progress"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    style="@style/visitBtnStyle"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginVertical="5dp"
+                    android:backgroundTint="@color/visit_start"
+                    android:text="@string/in_progress"
+                    android:visibility="gone"
+
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

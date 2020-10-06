@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.Construction;
+import com.sh.wm.ministry.featuers.home.homeFiles.workercompilation.model.ConstructByName;
 import com.sh.wm.ministry.network.database.dbModels.muniplicities.Municipality;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.PoastDataMoveFacility;
 import com.sh.wm.ministry.featuers.home.homeFiles.movefacility.model.StreetGroup;
@@ -41,8 +42,8 @@ public class MoveFacilityViewModel extends AndroidViewModel {
         return moveFacilityRepository.getAllStreet();
     }
 
-    public LiveData<Construction> getConstructionData(String num_construction) {
-        return moveFacilityRepository.getConstructiondata(num_construction);
+    public LiveData<ConstructByName> getConstruct(String number) {
+        return moveFacilityRepository.getConstruct(number);
     }
 
     public LiveData<PoastDataMoveFacility> poastData(String cnstruction_id, String address_id, String municipapiity_id, String region_id,

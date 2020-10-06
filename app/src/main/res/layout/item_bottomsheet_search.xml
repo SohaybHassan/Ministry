@@ -12,7 +12,7 @@
         style="@style/txtStyleItemList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="end"
+        android:gravity="start"
         android:text="soahiy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/construction_number"

@@ -45,6 +45,7 @@
     <string name="district">الحي</string>
     <string name="city">المدينة</string>
     <string name="street">الشارع</string>
+    <string name="address_details">تفاصيل العنوان</string>
     <string name="nearset_address">أقرب معلم</string>
     <string name="building">البناية</string>
     <string name="phone_number">رقم الموبايل</string>
@@ -104,6 +105,7 @@
     <string name="legal_procedures">الإجراءات القانونية</string>
     <string name="no_connection">لا يوجد اتصال بالانترنت</string>
     <string name="check_connection">تحتاج الى الاتصال بالانترنت للوصول الى البيانات قم بالتأكد من اتصالك.</string>
+    <string name="key_token">token</string>
     <string name="default_key_token">null</string>
     <string name="training_institution">جهة التدريب</string>
     <string name="training_course">الدورة التدريبية</string>
@@ -114,6 +116,7 @@
     <string name="hour_number">عدد الساعات</string>
     <string name="training_provider_address">عنوان جهة التدريب</string>
     <string name="proccess_failed">فشلت العملية</string>
+    <string name="key_userId">user_id</string>
     <string name="no_dependnts">لم يتم إضافة معالين من قبل!</string>
     <string name="name">الاسم</string>
     <string name="id">رقم الهوية</string>
@@ -278,6 +281,15 @@
     <string name="inspector_members">أعضاء هيئة التفتيش</string>
     <string name="inspect_visit_resoan">سبب الزيارة التفتيشية</string>
 
+    <!-- QayedArchive -->
+    <string name="request_date">تاريخ الطلب</string>
+    <string name="educational_status_desc">تفصيل الحالة العملية</string>
+    <string name="educational_status_desc_desc">تفصيل تفصيل الحالة العملية</string>
+    <string name="request_status">الحالة</string>
+    <string name="no_cards">لا يوجد طلب </string>
+    <string name="archive_title">أرشيف طلبات شهادات القيد </string>
+    <string name="in_progress">قيد التنفيذ</string>
+    <string name="certificate">شهادات القيد</string>
 
     <!--numbers-->
     <string name="one">1</string>
@@ -290,5 +302,6 @@
     <string name="leving">ترك</string>
     <string name="facility_name">حدد اسم المنشأة</string>
     <string name="number_caracter">"ادخل على الاقل 3 احرف "</string>
-    <string name="address_details">تفاصيل العنوان</string>
+    <string name="revisit">القيمة</string>
+    <string name="completed">مكتمل</string>
 </resources>

@@ -44,10 +44,8 @@ public class WorkerCompilationFormOneFragment extends Fragment {
     private BottomSheetSearshList bottomSheetSearshList;
     private BottomSheetDialog bottomSheetDialog;
     private BottomSheetSearshList.MyTestAdapter myTestAdapter;
-    private ImageView imNoData,imNoData2;
-   private ProgressBar  progressBar;
-
-
+    private ImageView imNoData;
+    private ProgressBar progressBar;
 
 
     private static final String TAG = WorkerCompilationFormOneFragment.class.getSimpleName();
@@ -57,7 +55,6 @@ public class WorkerCompilationFormOneFragment extends Fragment {
         super.onCreate(savedInstanceState);
         constructByNameObserver = constructByName -> {
             if (constructByName != null) {
-
                 bottomSheetSearshList.setMyList(constructByName.getConstructs());
                 bottomSheetSearshList.setBottomSheetDialog(bottomSheetDialog);
                 bottomSheetSearshList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -75,7 +72,7 @@ public class WorkerCompilationFormOneFragment extends Fragment {
 
                 bottomSheetSearshList.setAdapter(myTestAdapter);
             } else {
-
+                imNoData.setVisibility(View.VISIBLE);
                 Log.d(TAG, "onChanged: no data");
                 Toast.makeText(getActivity(), "no data", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
@@ -113,7 +110,7 @@ public class WorkerCompilationFormOneFragment extends Fragment {
                 EditText textView = bottomSheetDialog.findViewById(R.id.search_view);
                 bottomSheetSearshList = bottomSheetDialog.findViewById(R.id.recycler_view);
                 imNoData = bottomSheetDialog.findViewById(R.id.image_no_data);
-                 progressBar = bottomSheetDialog.findViewById(R.id.progressbar);
+                progressBar = bottomSheetDialog.findViewById(R.id.progressbar);
                 textView.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -122,9 +119,10 @@ public class WorkerCompilationFormOneFragment extends Fragment {
 
                     @Override
                     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        if (i2 == 3) {
+                        if (i2 >= 3) {
                             progressBar.setVisibility(View.VISIBLE);
-                            Toast.makeText(getActivity(), "=> "+ i2, Toast.LENGTH_SHORT).show();
+                            imNoData.setVisibility(View.GONE);
+                            Toast.makeText(getActivity(), "=> " + i2, Toast.LENGTH_SHORT).show();
                             workerCompilationFormTwoViewModel.getConstruct(textView.getText().toString()).observe(getViewLifecycleOwner(), constructByNameObserver);
                         }
                     }
@@ -139,8 +137,6 @@ public class WorkerCompilationFormOneFragment extends Fragment {
             }
 
         });
-
-
 
 
     }
